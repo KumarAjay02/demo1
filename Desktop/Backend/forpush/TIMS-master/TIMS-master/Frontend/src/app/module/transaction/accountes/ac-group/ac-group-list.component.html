@@ -1,0 +1,136 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-title-box d-flex align-items-center justify-content-between">
+        <div class="page-title-right">
+          <ol class="breadcrumb m-0">
+            <ng-container>
+              <li class="breadcrumb-item"><a href="javascript: void(0);">Master Apps</a></li>
+              <li class="breadcrumb-item">Master</li>
+              <li class="breadcrumb-item active">Account Group Master</li>
+            </ng-container>
+          </ol>
+        </div>
+      </div>
+      <div class="card-title text-center">
+        Account Group
+      </div>
+    </div>
+  </div>
+  <div class="card card-box mb-2">
+    <div class="card-header bg-transparent border-bottom">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="search-wrapper-mini">
+            <div class="icon-wrapper">
+              <i class="bx bx-search"></i>
+            </div>
+            <input class="form-control form-control-sm form-select-sm rounded-pill text-uppercase"
+                   name="GroupCode"
+                   id="field_Code"
+                   placeholder="Account Group Code"
+                   type="text" />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="search-wrapper-mini">
+            <div class="icon-wrapper">
+              <i class="bx bx-search"></i>
+            </div>
+            <input class="form-control form-control-sm form-select-sm rounded-pill text-uppercase"
+                   name="GroupDesc"
+                   id="field_style"
+                   placeholder="Account Group Desc"
+                   type="text" />
+            
+          </div>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-sm rounded-pill my-btn-light" type="button">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+        <div class="col-md-2 text-end">
+          <div class="dropdown">
+            <button type="button" id="create-entity" *ngIf="userRights?.add" class="btn btn-sm rounded-pill my-btn-light" [routerLink]="['/ac-group/new']">
+              Add New
+            </button>
+            <div class="btn-group rounded-pill dropdown-end">
+              <button class="btn d-30 p-0 my-btn-light-grd" style="border-radius: 30px 0 0 30px;" type="button">
+                <i class="bi bi-gear-fill"></i>
+              </button>
+              <button class="btn d-30 btn-rounded p-0 btn-secondary dropdown-toggle"
+                      type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 0 30px 30px 0;">
+                <i class="bi bi-three-dots-vertical"></i>
+              </button>
+
+              <ul class="dropdown-menu dropdown-menu-end listData">
+                <li class="text-center">Exports </li>
+                <li class="divider dropdown-divider"></li>
+                <li class="dropdown-item">
+                  <i class="bi bi-file-earmark-excel text-success"></i>
+                  &nbsp; <span>Excel</span>
+                </li>
+                <li class="dropdown-item">
+                  <i class="bi bi-filetype-pdf text-danger"></i>
+                  &nbsp; <span>Pdf</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-sm table-striped">
+          <thead class="table-light-new">
+            <tr>
+              <th>Sr. No.</th>
+              <th>Account Nature</th>
+              <th>Schedule Code</th>
+              <th>Group Code</th>
+              <th>Group Description</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let AcGroup of acGroups; let i = index; trackBy: trackById">
+              <td>{{ i + 1 }}</td>
+              <td>{{ AcGroup.AC_Nature }}</td>
+              <td>{{ AcGroup.ScheduleCode }}</td>
+              <td>{{ AcGroup.GroupCode }}</td>
+              <td>{{ AcGroup.GroupDesc }}</td>
+              <td>{{ AcGroup.IsActive }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <button [routerLink]="['/ac-group', AcGroup.SerialNo, 'view']" class="btn btn-sm my-btn-light-grd"
+                          matTooltip="View" style="border-radius: 30px 0 0 30px;" matTooltipPosition="above" [disabled]="!this.userRights?.search"
+                          type="button">
+                    <i class="bi bi-eye-fill"></i>
+                  </button>
+                  <button type="button" matTooltipPosition="above" [disabled]="!this.userRights?.update"
+                          [routerLink]="['/ac-group',AcGroup.SerialNo, 'edit']"
+                          class="btn btn-sm my-btn-edit" matTooltip="Edit">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                  <button type="button" matTooltip="Print" matTooltipPosition="above"
+                          [routerLink]="['/ac-group', AcGroup.SerialNo, 'print']"
+                          class="btn btn-sm btn-secondary" [disabled]="!this.userRights?.print">
+                    <i class="bi bi-printer-fill"></i>
+                  </button>
+
+                  <button type="button" [disabled]="!this.userRights?.deleted" (click)="delete(AcGroup)" class="btn btn-sm my-btn-danger" style="border-radius: 0 30px 30px 0;" matTooltipPosition="above" matTooltip="Delete">
+                    <i class="bi bi-trash-fill"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div *ngIf="acGroups.length===0" class="alert alert-warning">No data found</div>
+      </div>
+    </div>
+  </div>
+</div>

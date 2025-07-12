@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="editForm" role="form" novalidate [formGroup]="editForm" (ngSubmit)="updateCostType()">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            Cost Code Type
+          </div>
+          <div class="card-body">
+            <div class="row mb-2 offset-2">
+              <div class="col-md-3 text-end">
+                <label class="form-control-label" for="field_name">Cost Code Type</label>
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control form-control-sm text-uppercase" name="costCodeId" id="field_name"
+                       formControlName="costCodeId" />
+              </div>
+            </div>
+            <div class="row mb-2 offset-2">
+              <div class="col-md-3 text-end">
+                <label class="form-control-label" for="field_name">Cost Code Type Desc.</label>
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control form-control-sm text-uppercase" name="CostDesc" id="field_name"
+                       formControlName="costCodeTypeDesc" />
+              </div>
+            </div>
+
+            <div class="row mb-2 offset-2">
+              <div class="col-md-3 text-end">
+                <label class="form-control-label" for="field_IsActive">Status</label>
+              </div>
+              <div class="col-md-6 d-flex align-items-center">
+                <input type="checkbox"
+                       formControlName="status"
+                       id="isActive" />
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="row card-margin-bottom-12">
+              <div class="col-md-5 text-end">
+
+              </div>
+              <div class="col-md-1" *ngIf="isEditMode">
+                <div class="col-md-1">
+                  <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light" [hidden]="!saving && isViewMode">
+                    Save
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <button type="button"
+                        id="cancel"
+                        class="btn btn-sm rounded-pill my-btn-light"
+                        (click)="previousState()">
+                  {{ isViewMode ? 'Back' : 'Close' }}
+                </button>
+              </div>
+              <div class="col-md-5">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

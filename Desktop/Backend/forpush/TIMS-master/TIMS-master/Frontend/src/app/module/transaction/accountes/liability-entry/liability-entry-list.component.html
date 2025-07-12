@@ -1,0 +1,180 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-title-box d-flex align-items-center justify-content-between">
+        <div class="page-title-right">
+          <ol class="breadcrumb m-0">
+            <li class="breadcrumb-item"><a href="javascript: void(0);">Accounting</a></li>
+            <li class="breadcrumb-item active">Liability Entries</li>
+          </ol>
+        </div>
+      </div>
+      <div class="card-title text-center">
+        LIABILITY ENTRY
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-box mb-2">
+    <div class="card-header bg-transparent border-bottom">
+      <div class="row">
+        <div class="col-md-2">
+          <select id="financialYear" class="form-select form-select-sm">
+            <option value="" [selected]="true">[Financial Year]</option>
+            <option *ngFor="let year of financialYears" [value]="year">{{ year }}</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select id="branchCode" class="form-select form-select-sm">
+            <option value="undefined" [selected]="true">[Select Branch]</option>
+            <option value="1234">Gurgaon</option>
+            <option value="1234">Panipat</option>
+          </select>
+        </div>
+
+        <div class="col-md-2">
+          <div class="search-wrapper-mini position-relative">
+            <div class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+              <i class="bi bi-search"></i>
+            </div>
+          <input class="form-control form-control-sm rounded-pill text-uppercase ps-4" [(ngModel)]="searchParams.supplier" placeholder="Supplier">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="search-wrapper-mini position-relative">
+            <div class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+              <i class="bi bi-search"></i>
+            </div>
+            <input class="form-control form-control-sm rounded-pill text-uppercase ps-4" [(ngModel)]="searchParams.billNumber" placeholder="Voucher Number">
+          </div>
+        </div>
+
+        <div class="col-md-1">
+          <button class="btn btn-sm rounded-pill my-btn-light-grd" type="button" (click)="search()">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+        <div class="col-md-3 text-end">
+          <button class="btn btn-sm rounded-pill my-btn-light" *ngIf="userRights?.add"
+                  [routerLink]="['/liability-entries/new']">
+            Add New
+          </button>
+          <div class="btn-group rounded-pill dropdown-end">
+            <button class="btn d-30 p-0 my-btn-light-grd" style="border-radius: 30px 0 0 30px;" type="button">
+              <i class="bi bi-gear-fill"></i>
+            </button>
+            <button class="btn d-30 btn-rounded p-0 btn-secondary dropdown-toggle"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 0 30px 30px 0;">
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-end listData">
+              <li class="text-center">Exports </li>
+              <li class="divider dropdown-divider"></li>
+              <li class="dropdown-item">
+                <i class="bi bi-file-earmark-excel text-success"></i>
+                &nbsp; <span>Excel</span>
+              </li>
+              <li class="dropdown-item">
+                <i class="bi bi-filetype-pdf text-danger"></i>
+                &nbsp; <span>Pdf</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <input type="date" class="form-control form-control-sm" [(ngModel)]="searchParams.fromDate" placeholder="From Date">
+        </div>
+        <div class="col-md-2">
+          <input type="date" class="form-control form-control-sm" [(ngModel)]="searchParams.fromDate" placeholder="From Date">
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-sm table-striped">
+          <thead class="table-light-new">
+          <tr>
+            <th>Financial Year</th>
+            <th>Bill Type</th>
+            <th>Bill Date</th>
+            <th>Supplier</th>
+            <th>Liability Type</th>
+            <th>Liability Date</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let entry of pagedEntries; let i = index; trackBy: trackId">
+            <td>{{ entry.financialYear }}</td>
+            <td>{{ entry.billType }}</td>
+            <td>{{ entry.billDate | date:'dd/MM/yyyy' }}</td>
+            <td>{{ entry.supplier }}</td>
+            <td>{{ entry.liabilityType }}</td>
+            <td>{{ entry.liabilityDate | date:'dd/MM/yyyy' }}</td>
+            <td class="text-end">
+              <div class="btn-group">
+                <button [routerLink]="['/liability-entries', entry.id, 'view']"
+                        class="btn btn-sm my-btn-light-grd"
+                        matTooltip="View" style="border-radius: 30px 0 0 30px;"
+                        matTooltipPosition="above" [disabled]="!userRights?.search">
+                  <i class="bi bi-eye-fill"></i>
+                </button>
+                <button [routerLink]="['/liability-entries', entry.id, 'edit']"
+                        class="btn btn-sm my-btn-edit"
+                        matTooltip="Edit" matTooltipPosition="above" [disabled]="!userRights?.update">
+                  <i class="bi bi-pencil-fill"></i>
+                </button>
+                <button type="button" [disabled]="!this.userRights?.print" matTooltip="Print" matTooltipPosition="above"
+                        [routerLink]="['/liability-entries', entry.id, 'print']"
+                        class="btn btn-sm btn-secondary">
+                  <i class="bi bi-printer-fill"></i>
+                </button>
+                <button *ngIf="this.userRights?.update" [routerLink]="['/liability-entries', entry.id, 'approve']"type="button" class="btn btn-sm btn-success"
+                        matTooltipPosition="above"
+                        matTooltip="Approve">
+                  <i class="bi bi-check2-square"></i>
+                </button>
+                <button (click)="delete(entry)"
+                        class="btn btn-sm my-btn-danger"
+                        style="border-radius: 0 30px 30px 0;"
+                        matTooltipPosition="above" matTooltip="Delete" [disabled]="!userRights?.deleted">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <div *ngIf="entries.length === 0" class="alert alert-warning">No liability entries found</div>
+
+<!--        <div class="d-flex justify-content-between mt-3">-->
+<!--          <div>-->
+<!--            <select class="form-select form-select-sm" style="width: auto;" [(ngModel)]="itemsPerPage" (change)="goToPage(1)">-->
+<!--              <option value="10">10 per page</option>-->
+<!--              <option value="25">25 per page</option>-->
+<!--              <option value="50">50 per page</option>-->
+<!--            </select>-->
+<!--          </div>-->
+<!--          <nav>-->
+<!--            <ul class="pagination pagination-sm">-->
+<!--              <li class="page-item" [class.disabled]="currentPage === 1">-->
+<!--                <a class="page-link" (click)="previousPage()">Previous</a>-->
+<!--              </li>-->
+<!--              <li class="page-item" *ngFor="let page of getPages()" [class.active]="page === currentPage">-->
+<!--                <a class="page-link" (click)="goToPage(page)">{{ page }}</a>-->
+<!--              </li>-->
+<!--              <li class="page-item" [class.disabled]="currentPage === totalPages">-->
+<!--                <a class="page-link" (click)="nextPage()">Next</a>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </nav>-->
+<!--        </div>-->
+      </div>
+    </div>
+  </div>
+</div>

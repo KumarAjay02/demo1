@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="editForm" role="form" novalidate [formGroup]="editForm" (ngSubmit)="updateACSchedule()">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            Account Schedule
+          </div>
+          <div class="card-body">
+            <div class="row mb-2 offset-2 text-center">
+              <div class="col-md-2 text-end">
+                <input type="hidden" formControlName="serialNo">
+                <label for="Ac_Nature" class="form-label">Account Nature</label>
+              </div>
+              <div class="col-md-4" style="text-align:left;">
+                <input type="hidden" name="serialNo" />
+                <p-autocomplete formControlName="glNature"
+                                id="acNature"
+                                field="accountNatureDesc"
+                                size="small"
+                                [forceSelection]="true"
+                                [suggestions]="acNatures"
+                                (completeMethod)="searchNature($event)"
+                                [dropdown]="true"
+                                [inputStyle]="{ 'width': '100%' ,'height':'30px'}">
+                </p-autocomplete>
+              </div>
+            </div>
+            <div class="row mb-2 offset-2 text-center">
+              <div class="col-md-2 text-end">
+                <label for="ScheduleCode" class="form-label">Schedule Code</label>
+              </div>
+              <div class="col-md-4">
+                <input type="text" class="form-control form-control-sm text-uppercase" name="scheduleCode" id="field_scheduleCode"
+                       formControlName="scheduleCode" />
+              </div>
+            </div>
+            <div class="row mb-2 offset-2 text-center">
+              <div class="col-md-2 text-end">
+                <label for="ScheduleCode" class="form-label">Schedule Desc</label>
+              </div>
+              <div class="col-md-4">
+                <input type="text" class="form-control form-control-sm text-uppercase" name="scheduleDesc" id="field_scheduleDesc"
+                       formControlName="scheduleDesc" />
+              </div>
+            </div>
+            <div class="row mb-2 offset-2">
+              <div class="col-md-2 text-end">
+                <label class="form-control-label" for="field_IsActive">Status</label>
+              </div>
+              <div class="col-md-4 d-flex align-items-center">
+                <input type="checkbox"
+                       formControlName="status"
+                       id="isActive" />
+              </div>
+            </div>
+
+          </div>
+          <div class="card-footer">
+            <div class="row card-margin-bottom-12">
+              <div class="col-md-4 text-end">
+
+              </div>
+
+              <div class="col-md-1" *ngIf="isEditMode">
+                <div class="col-md-1">
+                  <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light" [hidden]="!saving && isViewMode">
+                    Save
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <button type="button"
+                        id="cancel"
+                        class="btn btn-sm rounded-pill my-btn-light"
+                        (click)="previousState()">
+                  {{ isViewMode ? 'Back' : 'Close' }}
+                </button>
+              </div>
+              <div class="col-md-6">
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

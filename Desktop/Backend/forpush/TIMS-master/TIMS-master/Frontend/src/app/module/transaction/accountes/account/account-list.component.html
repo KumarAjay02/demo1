@@ -1,0 +1,175 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-title-box d-flex align-items-center justify-content-between">
+        <div class="page-title-right">
+          <ol class="breadcrumb m-0">
+            <ng-container>
+              <li class="breadcrumb-item"><a href="javascript: void(0);">Master Apps</a></li>
+              <li class="breadcrumb-item">Master</li>
+              <li class="breadcrumb-item active">Account Master</li>
+            </ng-container>
+          </ol>
+        </div>
+      </div>
+      <div class="card-title text-center">
+        Account Master
+      </div>
+    </div>
+  </div>
+  <div class="card card-box mb-2">
+    <div class="card-header bg-transparent border-bottom">
+      <div class="row">
+        <div class="col-sm-2 mb-2">
+          <div class="search-wrapper-mini position-relative">
+            <!--<div class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+              <i class="bi bi-search"></i>
+            </div>-->
+            <select class="form-select form-select-sm" [(ngModel)]="accountSearch.GL_ACCOUNT_NATURE">
+              <option value="undefined">-All-</option>
+              <option value="1">ASSETS</option>
+              <option value="2">LIABILITIES</option>
+              <option value="4">INCOME</option>
+              <option value="5">EXPENSES</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-2 mb-2">
+          <div class="search-wrapper-mini position-relative">
+            <!--<div class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+              <i class="bi bi-search"></i>
+            </div>-->
+            <select class="form-select form-select-sm" [(ngModel)]="accountSearch.GL_SCHEDULE">
+              <option value="undefined">-All-</option>
+              <option value="101">BRANCH & DIVISION</option>
+              <option value="102">CASH IN HAND</option>
+              <option value="103">CURRENT ASSETS</option>
+              <option value="104">DEFFERED TAX ASSETS</option>
+              <option value="105">FIXED ASSETS</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-2 mb-2">
+          <div class="search-wrapper-mini position-relative">
+            <!--<div class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+              <i class="bi bi-search"></i>
+            </div>-->
+            <select class="form-select form-select-sm" [(ngModel)]="accountSearch.GL_ACCOUNT_TYPE">
+              <option value="undefined">-All-</option>
+              <option value="CASH">CASH</option>
+              <option value="BANK">BANK</option>
+              <option value="JV">JOURNAL VOUCHER</option>
+              <option value="FUND TRANSFER">FUND TRANSFER</option>
+              <option value="OTHERS">OTHERS</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-2 mb-2">
+          <div class="search-wrapper-mini position-relative">
+            <div class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+              <i class="bi bi-search"></i>
+            </div>
+            <input class="form-control form-control-sm form-select-sm rounded-pill text-uppercase ps-4"
+                   name="GL_ACCOUNT_DESC"
+                   id="field_DocDtls"
+                   placeholder="Account Name"
+                   [(ngModel)]="accountSearch.GL_ACCOUNT_DESC"
+                   type="text" />
+          </div>
+        </div>
+        <div class="col-sm-2 mb-2">
+          <button class="btn btn-sm rounded-pill my-btn-light-grd" type="button" (click)="searchAccount()">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+        <div class="col-md-2 text-end">
+          <div class="dropdown">
+            <button type="button" id="create-entity" *ngIf="userRights?.add" class="btn btn-sm rounded-pill my-btn-light" [routerLink]="['/account-master/new']">
+              Add New
+            </button>
+            <div class="btn-group rounded-pill dropdown-end">
+              <button class="btn d-30 p-0 my-btn-light-grd" style="border-radius: 30px 0 0 30px;" type="button">
+                <i class="bi bi-gear-fill"></i>
+              </button>
+              <button class="btn d-30 btn-rounded p-0 btn-secondary dropdown-toggle"
+                      type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 0 30px 30px 0;">
+                <i class="bi bi-three-dots-vertical"></i>
+              </button>
+
+              <ul class="dropdown-menu dropdown-menu-end listData">
+                <li class="text-center">Exports </li>
+                <li class="divider dropdown-divider"></li>
+                <li class="dropdown-item">
+                  <i class="bi bi-file-earmark-excel text-success"></i>
+                  &nbsp; <span>Excel</span>
+                </li>
+                <li class="dropdown-item">
+                  <i class="bi bi-filetype-pdf text-danger"></i>
+                  &nbsp; <span>Pdf</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive" id="entities">
+        <table class="table table-sm table-striped" aria-describedby="page-heading">
+          <thead class="table-light-new">
+            <tr>
+              <th><span>Sr. No.</span></th>
+              <th>Acc. Nature</th>
+              <th>Acc. Schedule</th>
+              <th>Acc. Group</th>
+              <th>Acc. Code</th>
+              <th>Acc. Name</th>
+              <th>Acc. Type</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let account of accounts; let index = index; trackBy: trackId">
+              <td>{{  (index + 1) }}</td>
+              <td>{{ account.GL_ACCOUNT_NATURE }}</td>
+              <td>{{ account.GL_SCHEDULE }}</td>
+              <td>{{ account.GL_GROUP }}</td>
+              <td>{{ account.GL_ACCOUNT_CODE }}</td>
+              <td>{{ account.GL_ACCOUNT_DESC }}</td>
+              <td>{{ account.GL_ACCOUNT_TYPE }}</td>
+              <td>{{ account.IsActive }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <button [routerLink]="['/account-master', account.SERIAL_NO, 'view']" class="btn btn-sm my-btn-light-grd"
+                          matTooltip="View" style="border-radius: 30px 0 0 30px;" matTooltipPosition="above" [disabled]="!this.userRights?.search"
+                          type="button">
+                    <i class="bi bi-eye-fill"></i>
+                  </button>
+                  <button type="button" matTooltipPosition="above" [disabled]="!this.userRights?.update"
+                          [routerLink]="['/account-master', account.SERIAL_NO, 'edit']"
+                          class="btn btn-sm my-btn-edit" matTooltip="Edit">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                  <button type="button" [disabled]="!this.userRights?.print" matTooltip="Print" matTooltipPosition="above"
+                          [routerLink]="['/account-master', account.SERIAL_NO, 'print']"
+                          class="btn btn-sm btn-secondary">
+                    <i class="bi bi-printer-fill"></i>
+                  </button>
+
+                  <button type="button" [disabled]="!this.userRights?.deleted" (click)="delete(account)" class="btn btn-sm my-btn-danger" style="border-radius: 0 30px 30px 0;" matTooltipPosition="above" matTooltip="Delete">
+                    <i class="bi bi-trash-fill"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warning" id="no-result" *ngIf="accounts && accounts.length === 0">
+        <span>No data found</span>
+      </div>
+    </div>
+  </div>
+</div>
+

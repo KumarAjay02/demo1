@@ -1,0 +1,209 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="editForm" role="form" novalidate [formGroup]="editForm" (ngSubmit)="updateVoucherEntry()">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            Voucher Entry
+          </div>
+          <div class="card-body">
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="FINANCIAL_YEAR" class="form-label">Financial Year</label>
+              </div>
+              <div class="col-md-2">
+                <select class="form-select form-select-sm" formControlName="FINANCIAL_YEAR">
+                  <option value="undefined">-Select-</option>
+                  <option value="2324">2324</option>
+                  <option value="2425">2425</option>
+                  <option value="2526">2526</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="BRANCH_CODE" class="form-label">Branch</label>
+              </div>
+              <div class="col-md-2">
+                <select class="form-select form-select-sm" formControlName="BRANCH_CODE">
+                  <option value="undefined">-Select-</option>
+                  <option value="GGCO">GGCO</option>
+                  <option value="MYS">MYS</option>
+                  <option value="MDS">MDS</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="PAY_MODE" class="form-label">Pay Mode</label>
+              </div>
+              <div class="col-md-2">
+                <select class="form-select form-select-sm" formControlName="PAY_MODE">
+                  <option value="undefined">-Select-</option>
+                  <option value="CASH">Cash</option>
+                  <option value="BANK">Bank</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="DOC_TYPE" class="form-label">Doc Type</label>
+              </div>
+              <div class="col-md-2">
+                <select class="form-select form-select-sm" formControlName="DOC_TYPE">
+                  <option value="undefined">-Select-</option>
+                  <option value="PAYVOU">PAYMENT</option>
+                  <option value="RECVOU">RECEIPT</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="DOC_NO" class="form-label">Doc No</label>
+              </div>
+              <div class="col-md-2">
+                <input id="DOC_NO" formControlName="DOC_NO" class="form-control form-control-sm text-uppercase" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="DOC_DATE" class="form-label">Doc Date</label>
+              </div>
+              <div class="col-md-2">
+                <input type="date" id="DOC_DATE" formControlName="DOC_DATE" class="form-control form-control-sm text-uppercase" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="PAY_TYPE" class="form-label">Pay Type</label>
+              </div>
+              <div class="col-md-2">
+                <select formControlName="PAY_TYPE" class="form-select form-select-sm">
+                  <option value="">-Select-</option>
+                  <option value="NEFT">NEFT</option>
+                  <option value="CHEQUE">CHEQUE</option>
+                  <option value="IMPS">IMPS</option>
+                  <option value="RTGS">RTGS</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="CHEQUE_NO" class="form-label">{{editForm.get('PAY_TYPE')?.value}}&nbsp; No</label>
+              </div>
+              <div class="col-md-2">
+                <input type="number" id="CHEQUE_NO" formControlName="CHEQUE_NO" class="form-control form-control-sm text-uppercase" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="CHEQUE_DATE" class="form-label">{{editForm.get('PAY_TYPE')?.value}}&nbsp; Date</label>
+              </div>
+              <div class="col-md-2">
+                <input type="date" id="CHEQUE_DATE" formControlName="CHEQUE_DATE" class="form-control form-control-sm text-uppercase" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="BANK_ACCOUNT_NO" class="form-label">Bank Account No</label>
+              </div>
+              <div class="col-md-2">
+                <input type="number" id="BANK_ACCOUNT_NO" formControlName="BANK_ACCOUNT_NO" class="form-control form-control-sm text-uppercase" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="TSD_TYPE" class="form-label">TDS Type%</label>
+              </div>
+              <div class="col-md-2">
+                <input id="TSD_TYPE" formControlName="TSD_TYPE" class="form-control form-control-sm text-uppercase" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="PAID_RECEIVED_FROM" class="form-label">Pay/Rec</label>
+              </div>
+              <div class="col-md-2">
+                <input type="number" id="PAID_RECEIVED_FROM" formControlName="PAID_RECEIVED_FROM" class="form-control form-control-sm text-uppercase" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="GL_CODE" class="form-label">GL Code</label>
+              </div>
+              <div class="col-md-2">
+                <input id="GL_CODE" formControlName="GL_CODE" class="form-control form-control-sm text-uppercase" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="COST_CODE" class="form-label">Cost Code</label>
+              </div>
+              <div class="col-md-2">
+                <input id="COST_CODE" formControlName="COST_CODE" class="form-control form-control-sm text-uppercase" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="COST_CENTER" class="form-label">Cost Center</label>
+              </div>
+              <div class="col-md-2">
+                <input id="COST_CENTER" formControlName="COST_CENTER" class="form-control form-control-sm text-uppercase" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="CGST" class="form-label">CGST</label>
+              </div>
+              <div class="col-md-2">
+                <input type="number" id="CGST" formControlName="CGST" class="form-control form-control-sm text-uppercase" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="SGST" class="form-label">SGST</label>
+              </div>
+              <div class="col-md-2">
+                <input type="number" id="SGST" formControlName="SGST" class="form-control form-control-sm text-uppercase" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="IGST" class="form-label">IGST</label>
+              </div>
+              <div class="col-md-2">
+                <input type="number" id="IGST" formControlName="IGST" class="form-control form-control-sm text-uppercase" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="INVNO" class="form-label">Invoice No</label>
+              </div>
+              <div class="col-md-2">
+                <input type="number" id="INVNO" formControlName="INVNO" class="form-control form-control-sm text-uppercase" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="AMOUNT" class="form-label">Amount</label>
+              </div>
+              <div class="col-md-2">
+                <input type="number" id="AMOUNT" formControlName="AMOUNT" class="form-control form-control-sm text-uppercase" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="NARRATION" class="form-label">Narration</label>
+              </div>
+              <div class="col-md-10">
+                <input id="NARRATION" formControlName="NARRATION" class="form-control form-control-sm text-uppercase" />
+              </div>
+            </div>
+            </div>
+
+            <div class="card-footer">
+              <div class="row card-margin-bottom-12">
+                <div class="col-md-4 text-end">
+
+                </div>
+
+                <div class="col-md-1">
+                  <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                    Save
+                  </button>
+                </div>
+                <div class="col-md-1">
+                  <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                          (click)="previousState()">
+                    Close
+                  </button>
+                </div>
+                <div class="col-md-1">
+                  <button type="button" id="Approval" class="btn btn-sm rounded-pill my-btn-light">
+                    Approval
+                  </button>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+              </div>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>

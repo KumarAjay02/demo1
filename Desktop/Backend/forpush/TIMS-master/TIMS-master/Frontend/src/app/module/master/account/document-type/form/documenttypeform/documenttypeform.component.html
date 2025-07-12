@@ -1,0 +1,80 @@
+<div class="container">
+    <form>
+        <div class="card card-box mb-2">
+            <div class="card-title text-center">DOCUMENT TYPE MASTER</div>
+            <div class="card-body">
+
+
+                <div class="row">
+                    
+                    <div class="col-md-2     text-end labeltext">
+                        <label class="form-control-label" for="codeflg">Doc Catg</label>
+                    </div>
+                    <div class="col-md-4  mb-1">
+                        <select type="text" class="form-control form-control-sm text-uppercase" name="code"
+                            id="codeflg">
+                            <option>Select</option>
+                            <option>Libility</option>
+                            <option>Payment</option>
+                            <option>Voucher</option>
+                        </select>   
+
+                    </div>
+                    <div class="col-md-2     text-end labeltext">
+                        <label class="form-control-label" for="desflg">Doc Type</label>
+                    </div>
+                    <div class="col-md-4  mb-1">
+                        <input type="text" class="form-control form-control-sm text-uppercase" 
+                        name="stdCode"
+                        
+                        id="desflg" />
+                    </div>
+                    <div class="col-md-2     text-end labeltext">
+                        <label class="form-control-label" for="desflg">Doc Details</label>
+                    </div>
+                    <div class="col-md-4  mb-1">
+                        <input type="text" class="form-control form-control-sm text-uppercase" name="stdCode"
+                            id="desflg" />
+                    </div>
+                    
+                    
+
+                    <div class="col-md-2   text-end   labeltext">
+                        <label class="form-check-label" for="field_flag">Status</label>
+                    </div>
+                    <div class="col-md-4 ">
+                         <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" type="radio" name="active" [value]="'Yes'" formControlName="active" />
+                    <label class="form-check-label">Active</label>
+                  </div>
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" type="radio" name="active" [value]="'No'" formControlName="active" />
+                    <label class="form-check-label">InActive</label>
+                  </div>
+                </div>
+
+
+                    </div>
+
+
+                </div>
+
+                <!-- FORM ACTIONS -->
+                <div class="card-footer row card-margin-bottom-10 mt-3">
+                    <div class="col-md-5 text-end"></div>
+
+                    <div class="col-md-1">
+                        <button type="submit" class="btn btn-sm rounded-pill my-btn-light">Save</button>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="btn btn-sm rounded-pill my-btn-light">Close</button>
+                    </div>
+
+                    <div class="col-md-5"></div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>

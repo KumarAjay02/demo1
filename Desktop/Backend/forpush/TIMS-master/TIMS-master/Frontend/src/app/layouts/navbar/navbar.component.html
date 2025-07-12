@@ -1,0 +1,138 @@
+<header id="page-topbar">
+  <div class="navbar-header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <!-- Logo -->
+        <div class="navbar-logo">
+          <a routerLink="/dashboard">
+            <img src="assets/images/logo1.png" alt="App Logo" class="logo-light"  height="60px" width="120px" >
+            <img src="assets/images/logo1.png" alt="App Logo" class="logo-dark"  height="60px" width="120px" >
+          </a>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <!-- Main Menu -->
+        <div class="collapse navbar-collapse" [class.show]="!isCollapsed">
+          <ul class="navbar-nav">
+            <ng-container *ngFor="let item of menuItems">
+              <!-- Single Level Menu Item -->
+              <li class="nav-item" *ngIf="!item.children">
+                <a class="nav-link" [routerLink]="item.link" routerLinkActive="active">
+                  {{ item.menuName }}
+                </a>
+              </li>
+
+              <!-- Multi-Level Menu Item -->
+              <li class="nav-item dropdown" *ngIf="item.children">
+                <a class="nav-link dropdown-toggle" href="#" role="button">
+                  {{ item.menuName }}
+                  <mat-icon>expand_more</mat-icon>
+                </a>
+
+                <ul class="dropdown-menu">
+                  <ng-container *ngFor="let subItem of item.children">
+                    <!-- Submenu Item -->
+                    <li *ngIf="!subItem.children">
+                      <a class="dropdown-item" [routerLink]="subItem.link">
+                        {{ subItem.menuName }}
+                      </a>
+                    </li>
+
+                    <!-- Nested Submenu -->
+                    <li class="dropdown-submenu" *ngIf="subItem.children">
+                      <a class="dropdown-item dropdown-toggle" href="#">
+                        {{ subItem.menuName }}
+                        <mat-icon>chevron_right</mat-icon>
+                      </a>
+                      <ul class="dropdown-menu">
+                        <ng-container *ngFor="let subItem2 of subItem.children">
+                          <!-- Submenu Item -->
+                          <li *ngIf="!subItem2.children">
+                            <a class="dropdown-item" [routerLink]="subItem2.link">
+                              {{ subItem2.menuName }}
+                            </a>
+                          </li>
+
+                          <!-- Nested Submenu -->
+                          <li class="dropdown-submenu" *ngIf="subItem2.children">
+                            <a class="dropdown-item dropdown-toggle" href="#">
+                              {{ subItem2.menuName }}
+                              <mat-icon>chevron_right</mat-icon>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li *ngFor="let subSubItem2 of subItem2.children">
+                                <a class="dropdown-item" [routerLink]="subSubItem2.link">
+                                  {{ subSubItem2.menuName }}
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                        </ng-container>
+                      </ul>
+                    </li>
+                  </ng-container>
+                </ul>
+              </li>
+            </ng-container>
+          </ul>
+          <div class="navbar-controls">
+            <!-- Search Bar -->
+            <div class="card flex justify-center">
+              <p-autocomplete [style]="{ 'width': '175px'}" [(ngModel)]="selectedMenu"
+                              [inputStyle]="{ 'width': '100%','height':'30px' }" [forceSelection]="true" [suggestions]="filteredMenues" (completeMethod)="filterMenu($event)" (onSelect)="navigateToMenu($event)" placeholder="Search Menu" optionLabel="menuName"></p-autocomplete>
+            </div>
+            <!-- Theme Toggle -->
+            <button mat-icon-button
+                    class="theme-toggle"
+                    matTooltip="Toggle Dark/Light Mode"
+                    (click)="toggleTheme()">
+              <mat-icon>{{ currentTheme === 'dark' ? 'dark_mode' : 'light_mode' }}</mat-icon>
+            </button>
+
+            <!-- Fullscreen Toggle -->
+            <button mat-icon-button
+                    class="fullscreen-toggle"
+                    matTooltip="Toggle Fullscreen"
+                    (click)="toggleFullscreen()">
+              <mat-icon>{{ isFullscreen ? 'fullscreen_exit' : 'fullscreen' }}</mat-icon>
+            </button>
+
+            <!-- User Menu -->
+            <div class="user-menu">
+              <button mat-button [matMenuTriggerFor]="userMenu">
+                <div class="user-avatar">
+                  <mat-icon>account_circle</mat-icon>
+                </div>
+                <span class="user-name">{{ currentUser?.firstName }}</span>
+                <mat-icon>expand_more</mat-icon>
+              </button>
+
+              <mat-menu #userMenu="matMenu">
+                <button mat-menu-item routerLink="/profile">
+                  <mat-icon>account_circle</mat-icon>
+                  <span>Profile</span>
+                </button>
+                <button mat-menu-item (click)="openCompanySelection()">
+                  <mat-icon>settings</mat-icon>
+                  <span>Settings</span>
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-menu-item (click)="logout()" class="logout-btn">
+                  <mat-icon>logout</mat-icon>
+                  <span>Logout</span>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side Controls -->
+
+      </div>
+    </nav>
+  </div>
+</header>

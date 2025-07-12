@@ -1,0 +1,241 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="editForm" role="form" novalidate [formGroup]="editForm" (ngSubmit)="updateAccount()">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            Account Master
+          </div>
+          <div class="card-body">
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="GL_ACCOUNT_CODE" class="form-label">Account Code</label>
+              </div>
+              <div class="col-md-2">
+                <input id="GL_ACCOUNT_CODE" formControlName="GL_ACCOUNT_CODE" class="form-control form-control-sm text-uppercase" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="GL_ACCOUNT_DESC" class="form-label">Account Name</label>
+              </div>
+              <div class="col-md-6">
+                <input id="GL_ACCOUNT_DESC" formControlName="GL_ACCOUNT_DESC" class="form-control form-control-sm text-uppercase" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="GL_ACCOUNT_TYPE" class="form-label">Account Type</label>
+              </div>
+              <div class="col-md-2">
+                <select formControlName="GL_ACCOUNT_TYPE" class="form-select form-select-sm">
+                  <option value="">-Select-</option>
+                  <option value="CASH">CASH</option>
+                  <option value="BANK">BANK</option>
+                  <option value="FUND TRANSFER">FUND TRANSFER</option>
+                  <option value="JV">JOURNAL VOUCHER</option>
+                  <option value="OTHERS">OTHERS</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="GL_ACCOUNT_NATURE" class="form-label">Account Nature</label>
+              </div>
+              <div class="col-md-2">
+                <select formControlName="GL_ACCOUNT_NATURE" class="form-select form-select-sm">
+                  <option value="">-Select-</option>
+                  <option value="1">ASSETS</option>
+                  <option value="2">LIABILITIES</option>
+                  <option value="3">INCOME</option>
+                  <option value="4">EXPENSES</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="GL_SCHEDULE" class="form-label">GL. Schedule</label>
+              </div>
+              <div class="col-md-2">
+                <select formControlName="GL_SCHEDULE" class="form-select form-select-sm">
+                  <option value="">-Select-</option>
+                  <option value="101">Branch / Divisions</option>
+                  <option value="102">Cash-in-hand</option>
+                  <option value="103">Current Assets</option>
+                  <option value="104">Deffered Tax Assets</option>
+                  <option value="105">Fixed Assets</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="GL_GROUP" class="form-label">GL. Group</label>
+              </div>
+              <div class="col-md-2">
+                <select formControlName="GL_GROUP" class="form-select form-select-sm">
+                  <option value="">-Select-</option>
+                  <option value="10101">Branch / Divisions</option>
+                  <option value="10102">Pl Branch Division</option>
+                  <option value="10201">Cash In Hand</option>
+                  <option value="10301">Bank Account</option>
+                  <option value="10302">Branch Account</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="GL_TYPE" class="form-label">GL. Type</label>
+              </div>
+              <div class="col-md-2">
+                <select formControlName="GL_TYPE" class="form-select form-select-sm">
+                  <option value="A">ACCOUNT WISE</option>
+                  <option value="S">SUBLEDGER WISE</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="FUND_TRANSFER" class="form-label">Fund Transfer</label>
+              </div>
+              <div class="col-md-2">
+                <select formControlName="FUND_TRANSFER" class="form-select form-select-sm">
+                  <option value="Y">Yes</option>
+                  <option value="N">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="USE_STATUS" class="form-label">Usage Status</label>
+              </div>
+              <div class="col-md-2">
+                <select formControlName="USE_STATUS" class="form-select form-select-sm">
+                  <option value="Y">Required</option>
+                  <option value="N">Not Required</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="CREDIT_ALLOWED" class="form-label">Credit Allowed</label>
+              </div>
+              <div class="col-md-2">
+                <select formControlName="CREDIT_ALLOWED" class="form-select form-select-sm">
+                  <option value="Y">Yes</option>
+                  <option value="N">No</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="DEBIT_ALLOWED" class="form-label">Debit Allowed</label>
+              </div>
+              <div class="col-md-2">
+                <select formControlName="DEBIT_ALLOWED" class="form-select form-select-sm">
+                  <option value="Y">Yes</option>
+                  <option value="N">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="REQ_COST_REF" class="form-label">Cost Code Reference</label>
+              </div>
+              <div class="col-md-2">
+                <select formControlName="REQ_COST_REF" class="form-select form-select-sm">
+                  <option value="Y">Required</option>
+                  <option value="N">Not Required</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="REQ_COST_REF" class="form-label">Cost Code Reference</label>
+              </div>
+              <div class="col-md-2">
+                <select formControlName="REQ_COST_REF" class="form-select form-select-sm">
+                  <option value="Y">Required</option>
+                  <option value="N">Not Required</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="REQREFDATE" class="form-label">Reference Date</label>
+              </div>
+              <div class="col-md-2">
+                <select formControlName="REQREFDATE" class="form-select form-select-sm">
+                  <option value="Y">Required</option>
+                  <option value="N">Not Required</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="REQ_DOC_REF" class="form-label">Doc Reference</label>
+              </div>
+              <div class="col-md-2">
+                <select formControlName="REQ_DOC_REF" class="form-select form-select-sm">
+                  <option value="Y">Required</option>
+                  <option value="N">Not Required</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="REQ_PAID_TO" class="form-label">Paid To</label>
+              </div>
+              <div class="col-md-2">
+                <select formControlName="REQ_PAID_TO" class="form-select form-select-sm">
+                  <option value="Y">Required</option>
+                  <option value="N">Not Required</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="REQ_RECEIVED_FROM" class="form-label">Recieve From</label>
+              </div>
+              <div class="col-md-2">
+                <select formControlName="REQ_RECEIVED_FROM" class="form-select form-select-sm">
+                  <option value="Y">Required</option>
+                  <option value="N">Not Required</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="GL_OPENING_DATE" class="form-label">Opening Date</label>
+              </div>
+              <div class="col-md-2">
+                <input id="GL_OPENING_DATE" type="date" formControlName="GL_OPENING_DATE" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="IsActive" class="form-label">Status</label>
+              </div>
+              <div class="col-md-2">
+                <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" id="IsActive" type="radio" name="IsActive" [value]="true"
+                           formControlName="IsActive" />
+                    Active
+                  </div>
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" type="radio" name="IsActive" [value]="false"
+                           formControlName="IsActive" />
+                    Inactive
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="card-footer">
+            <div class="row card-margin-bottom-12">
+              <div class="col-md-5 text-end">
+
+              </div>
+
+              <div class="col-md-1">
+                <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                  Save
+                </button>
+              </div>
+              <div class="col-md-1">
+                <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                        (click)="previousState()">
+                  Close
+                </button>
+              </div>
+              <div class="col-md-5">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

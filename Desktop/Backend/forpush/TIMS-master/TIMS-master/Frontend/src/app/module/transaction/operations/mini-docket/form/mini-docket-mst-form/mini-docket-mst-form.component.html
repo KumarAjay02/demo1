@@ -1,0 +1,137 @@
+<div class="container-fluid">
+  <div class="row mt-5 ">
+    <div class="col-sm-12 m-lg-auto">
+
+      <form name="editForm" role="form" novalidate>
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            MINI DOCKET 
+          </div>
+          <div class="card-body my-3 cardbodyFont">
+            <div class="row">
+              <div class="col-md-2 col-lg-1   text-end labeltext">
+                <label class="form-control-label" for="field_country">Docket No</label>
+              </div>
+              <div class="col-md-4 col-lg-3 mb-3">
+                <input type="text" class="form-control form-control-sm text-uppercase" name="code" id="field_code" />
+
+              </div>
+              <div class="col-md-2 col-lg-1  text-end labeltext">
+                <label class="form-control-label" for="field_stdCode">Docket Date</label>
+              </div>
+              <div class="col-md-4 col-lg-3 mb-3">
+                <input type="date" class="form-control form-control-sm text-uppercase" name="stdCode"
+                  id="field_stdCode" />
+              </div>
+            
+
+
+              <div class="col-md-2 col-lg-1  text-end labeltext">
+                <label class="form-control-label" for="field_pinCode">Booking  Basis</label>
+              </div>
+               <div class="col-md-4 col-lg-3 mb-3">
+                <select type="text" class="form-select form-select-sm custom-select custom-select-sm" name="flag"
+                  id="field_flag" formControlName="IsActive" required maxlength="1">
+                    <option value="" selected disabled>Select</option>
+                  <option value="Y">BOD-BILL ON DELIVERY</option>
+                  <option value="N">FOC-FREE OF COST</option>
+                   <option value="N">PAID-PAID</option>
+                </select>
+              </div>
+
+
+              
+              <div class="col-md-2 col-lg-1  text-end labeltext">
+                <label class="form-control-label" for="field_pinCode">Consignor</label>
+              </div>
+               <div class="col-md-4 col-lg-3 mb-3">
+                <select type="text" class="form-select form-select-sm custom-select custom-select-sm" name="flag"
+                  id="field_flag" formControlName="IsActive" required maxlength="1">
+                    <option value="" selected disabled>Select</option>
+                  <option value="Y">9656-Adinath Recyclotronix Private Limited-GGCO</option>
+                  <option value="N">13787-Bindya Cargo Private Limited-GGCO</option>
+                   <option value="N">14236-Bolzen And Mutter India Private Limited-GGCO</option>
+                </select>
+              </div>
+              
+              <div class="col-md-2 col-lg-1   text-end labeltext">
+                <label class="form-control-label" for="field_pinCode">Delivery Branch</label>
+              </div>
+               <div class="col-md-4 col-lg-3 mb-3">
+                <select type="text" class="form-select form-select-sm custom-select custom-select-sm" name="flag"
+                  id="field_flag" formControlName="IsActive" required maxlength="1">
+                    <option value="" selected disabled>Select</option>
+                  <option value="Y">ABD-AURANGABAD</option>
+                  <option value="N">ALW-ALWAR</option>
+                   <option value="N">AMC-AMBLA</option>
+                </select>
+              </div>
+
+
+
+
+
+
+            
+
+
+               <div class="col-md-2 col-lg-1  text-end labeltext">
+                <label class="form-control-label" for="field_cityName">Booking Mode</label>
+              </div>
+              <div class="col-md-4 col-lg-3 mb-3">
+                <select type="text" class="form-select form-select-sm custom-select custom-select-sm" name="flag"
+                  id="field_flag" formControlName="IsActive" required maxlength="1">
+                    <option value="" selected disabled>Select</option>
+                  <option value="Y">AIR</option>
+                  <option value="N">AIR INTERNATIONAL</option>
+                   <option value="N">CARGO</option>
+                    <option value="N">EXPRESS</option>
+                    <option value="N">FULL TRUCK LOAD</option>
+                    <option value="N">OCEAN CARGO</option>
+                </select>
+              </div>
+              
+
+              <div class="col-md-2 col-lg-1  text-end labeltext">
+                <label class="form-control-label" for="field_pinCode">Total Pkg </label>
+              </div>
+              <div class="col-md-4 col-lg-3 mb-3">
+                <input type="text" class="form-control form-control-sm text-uppercase" name="pinCode"
+                  id="field_pinCode" />
+
+              </div>
+             
+           <div class="col-md-2 col-lg-1  text-end labeltext">
+                <label class="form-control-label" for="field_pinCode">Ch No</label>
+              </div>
+              <div class="col-md-4 col-lg-3 mb-3">
+                <input type="text" class="form-control form-control-sm text-uppercase" name="pinCode"
+                  id="field_pinCode" />
+              </div>
+            
+              
+<div class="card-footer">
+                <div class="row mb-2">
+                  <div class="col-md-5"></div>
+                  <div class="col-md-1">
+                    <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                      Save
+                    </button>
+                  </div>
+                  <div class="col-md-1">
+                    <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                      routerLink="/minidocket">
+                      Close
+                    </button>
+                  </div>
+                  <div class="col-md-5"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+     
+    </div>
+  </div>
+</div>

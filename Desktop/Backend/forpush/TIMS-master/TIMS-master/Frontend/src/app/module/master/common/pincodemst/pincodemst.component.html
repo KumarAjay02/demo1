@@ -1,0 +1,154 @@
+
+<div class="container-fluid">
+    <div class="row m-auto">
+      <div class="col-md-12 mt-2 mb-0 textheight">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb fs-6">
+            <li class="breadcrumb-item">Master</li>
+            <li class="breadcrumb-item active" aria-current="page">Pincode Master</li>
+          </ol>
+        </nav>
+      </div>
+
+      <div class="card-title text-center">PIN CODE MASTER</div>
+    </div>
+
+    <div class="card card-box mb-2">
+      <div class="card-header bg-transparent border-bottom">
+        <div class="row">
+          <div class="col-sm-3 mb-2">
+            <div class="search-wrapper-mini">
+              <div class="icon-wrapper">
+                <i class="bi bi-search"></i>
+              </div>
+              <input
+                class="form-control form-control-sm form-select-sm rounded-pill text-uppercase"
+                name="port"
+                id="field_style"
+                placeholder="Name"
+                type="text"
+              />
+            </div>
+          </div>
+          <div class="col-sm-3 mb-2">
+            <div class="search-wrapper-mini">
+              <div class="icon-wrapper">
+                <i class="bi bi-search"></i>
+              </div>
+              <input
+                class="form-control form-control-sm form-select-sm rounded-pill text-uppercase"
+                name="Code"
+                id="field_Code"
+                placeholder="Code"
+                type="text"
+              />
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <button class="btn d-30 p-0 btn-round-pill1 btn-light" type="button">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+          <div class="col-sm-4 text-end ">
+            <div class="">
+              <button
+                type="button"
+                class="btn d-35 textsize btn-round-pill1 my-btn-light mx-1"
+                [routerLink]="['add']"
+              >
+                Add New
+              </button>
+
+              <div class="btn-group rounded-pill dropdown-end">
+                <button
+                  class="btn d-30 btn-rounded p-0 my-btn-light" type="button">
+                  <i class="bi bi-gear-fill"></i>
+                </button>
+                <button class="btn d-30 btn-rounded p-0 btn-secondary dropdown-toggle btnnavlink"
+                type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                >
+                  <i class="bi bi-three-dots-vertical"></i>
+                </button>
+
+              <ul class="dropdown-menu dropdown-menu-end listData">
+                <li class="text-center">Exports </li>
+                <li class="divider dropdown-divider"></li>
+                <li class="dropdown-item">
+                      <i class="bi bi-file-earmark-excel text-success"></i>
+                      &nbsp; <span>Excel</span>
+                </li>
+                <li class="dropdown-item">
+                      <i class="bi bi-filetype-pdf text-danger"></i>
+                      &nbsp; <span>Pdf</span>
+                </li>
+              </ul>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   <div class="card-body">
+        <div class="table-responsive"  >
+          <table class="table table-sm table-striped" aria-describedby="page-heading">
+            <thead class="table-light-new">
+              <tr>
+                <th><span>Sr. No.</span></th>
+
+                <th>PIN CODE</th>
+                <th>PICKUP BRANCH</th>
+                <th>DELIVERY BRANCH</th>
+                <th>PICKUP DIS</th>
+                <th>DELIVERY DIS</th>
+
+                <th>  STATUS</th>
+
+                <th ></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let std of pincodemst; let index = index;">
+                <td>{{  (index + 1) }}</td>
+                <td>{{ std.pinCode }}</td>
+                <td>{{ std.pickupBranch }}</td>
+                <td>{{ std.deliveryBranch }}</td>
+                <td>{{ std.pickupDistance }}</td>
+                <td>{{ std.deliveryDistance }}</td>
+                <td>{{ std.isActive }}</td>
+                <td class="text-end button-column">
+                  <div class="btn-group flex-btn-group-container">
+
+                    <button type="button"  matTooltip="View" matTooltipPosition="above"
+                            class="btn d-30 p-0  my-btn-light btn-round-pill1" (click)="BtnView(index)" >
+                            <i class="bi bi-eye-fill"></i>
+
+                    </button>
+                    <button type="submit" matTooltip="Edit" matTooltipPosition="above"
+
+                            class="btn btn-sm my-btn-edit" (click)="BtnUpdate(index)">
+                            <i class="bi bi-pencil-fill"></i>
+
+                    </button>
+                    <button type="button" matTooltip="Print" matTooltipPosition="above"
+
+                            class="btn btn-sm btn-secondary">
+                            <i class="bi bi-printer-fill"></i>
+
+
+                    </button>
+                    <button type="button" matTooltip="Delete" matTooltipPosition="above"
+                     class="btn d-30 p-0  btn-danger btn-round-pill1">
+                      <i class="bi bi-trash-fill"></i>
+
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="alert alert-warning" id="no-result" *ngIf="pincodemst && pincodemst.length === 0">
+          <span>No data found</span>
+        </div>
+      </div>
+    </div>
+  </div>

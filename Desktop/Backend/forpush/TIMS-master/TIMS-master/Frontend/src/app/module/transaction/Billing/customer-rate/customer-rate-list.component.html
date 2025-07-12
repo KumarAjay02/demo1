@@ -1,0 +1,109 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-title-box d-flex align-items-center justify-content-between">
+        <div class="page-title-right">
+          <ol class="breadcrumb m-3">
+            <li class="breadcrumb-item"><a href="#">Master Apps</a></li>
+            <li class="breadcrumb-item">Operations</li>
+            <li class="breadcrumb-item">Customer Rate</li>
+          </ol>
+        </div>
+      </div>
+      <div class="card-title text-center">CUSTOMER RATE LIST</div>
+    </div>
+  </div>
+
+  <div class="card card-box mb-2">
+    <div class="card-header bg-transparent border-bottom">
+      <div class="row">
+        <div class="col-md-3">
+          <input class="form-control form-control-sm rounded-pill text-uppercase" placeholder="Customer Code"
+            [(ngModel)]="rateSearch.customerCode" />
+        </div>
+        <div class="col-md-3">
+          <input class="form-control form-control-sm rounded-pill text-uppercase" placeholder="From Branch"
+            [(ngModel)]="rateSearch.fromBranch" />
+        </div>
+        <div class="col-md-3">
+          <input class="form-control form-control-sm rounded-pill text-uppercase" placeholder="To Branch"
+            [(ngModel)]="rateSearch.toBranch" />
+        </div>
+        <div class="col-md-1">
+          <button class="btn btn-sm rounded-pill my-btn-light-grd" type="button" (click)="search()">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+        <div class="col-md-2 text-end">
+          <button *ngIf="userRights?.add" class="btn btn-sm rounded-pill my-btn-light"
+            [routerLink]="['/customerratelist/New']">
+            Add New
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-sm table-striped table-bordered">
+          <thead class="table-light-new">
+            <tr>
+              <th>Sr. No.</th>
+               <th>Contract No</th>
+              <th>Customer Code</th>
+              <th>From Branch</th>
+              <th>To Branch</th>
+              <th>Mode</th>
+              <th>Charge Type</th>
+              <th>Rate</th>             
+              <th>Fix Rate</th>
+              <th>Hamali</th>
+              <th>CFT</th>
+              <th>Minimum Weight</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let r of customerRates; let i = index; trackBy: trackId">
+              <td>{{ i + 1 }}</td>
+               <td>{{ r.contract_No }}</td>
+              <td>{{ r.customer_code }}</td>
+              <td>{{ r.from_Branch }}</td>
+              <td>{{ r.to_Branch }}</td>
+              <td>{{ r.mode }}</td>
+              <td>{{ r.charge_type }}</td>
+              <td>{{ r.rate }}</td>             
+              <td>{{ r.fix_rate }}</td>
+              <td>{{ r.hamali }}</td>
+              <td>{{ r.cft }}</td>
+              <td>{{ r.MINIMUM_WEIGHT }}</td>
+              <td class="text-end button-column">
+                <div class="btn-group flex-btn-group-container btn-round-pill1 ">
+                  <button type="button" matTooltip="View" matTooltipPosition="above"
+                    class="btn d-30 p-0  my-btn-light btn-round-pill1 " (click)="BtnView(i)">
+                    <i class="bi bi-eye-fill"></i>
+                  </button>
+                  <button type="submit" matTooltip="Edit" matTooltipPosition="above" class="btn btn-sm my-btn-edit"
+                    (click)="BtnUpdate(i)">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                  <button type="button" matTooltip="Print" matTooltipPosition="above" class="btn btn-sm btn-secondary">
+                    <i class="bi bi-printer-fill"></i>
+                  </button>
+                  <button type="button" matTooltip="Delete" matTooltipPosition="above"
+                    class="btn d-30 p-0  btn-danger btn-round-pill1 ">
+                    <i class="bi bi-trash-fill"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div *ngIf="customerRates.length === 0" class="alert alert-warning">
+        <span>No data found</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,119 @@
+<div class="container-fluid">
+    <div class="row mt-5 ">
+      <div class="col-sm-12 m-lg-auto">
+        <!--<app-card cardTitle="Hello">-->
+        <form name="editForm" role="form" novalidate>
+          <div class="card card-box mb-2">
+  
+            <div class="card-title text-center">
+             LOADINGSHEET REPORT & PRINT
+            </div>
+            <div class="card-body my-3 cardbodyFont">
+              <div class="row">
+
+                
+                <div class="col-md-2 col-lg-1   text-end labeltext">
+                    <label class="form-control-label" for="Areanameflg"> From Date</label>
+                  </div>
+                  <div class="col-md-2 col-lg-2 mb-3">
+                    <input type="date"
+                           class="form-control form-control-sm text-uppercase"
+                           name="pinCode"
+                           id="Areanameflg"
+                          [value]="currentdate"
+                           
+                             />
+                  </div>
+                <div class="col-md-2 col-lg-1   text-end labeltext">
+                    <label class="form-control-label" for="Areanameflg"> To Date</label>
+                  </div>
+                  <div class="col-md-2 col-lg-2 mb-3">
+                    <input type="date"
+                           class="form-control form-control-sm text-uppercase"
+                           name="pinCode"
+                           id="Areanameflg"
+                          
+                            [value]="currentdate"
+                             />
+                  </div>
+                <div class="col-md-2 col-lg-1 text-end labeltext">
+                    <label class="form-control-label" for="pincodeflg">Route</label>
+                  </div>
+                  <div class="col-md-2 col-lg-2 mb-3">
+                    <select type="text"
+                            class="form-select form-select-sm custom-select custom-select-sm"
+                            name="flag"
+                            id="pincodeflg"
+                      
+                            required
+                            maxlength="1">
+                      <option value="">All</option>
+                      <option value="">AMC TO CKNT</option>
+                      <option value="">AMD TO JPS</option>
+                      <option value="">BNG TO MYS </option>
+                    </select>
+                  </div>
+                
+            
+               
+               
+                 <div class=" col-lg-3 m-auto text-center mt-4 mt-lg-0">
+                  <button type="submit" id="save"   class="btn rounded-pill my-btn-light btn-sm mx-2">
+                    Show
+                  </button>
+                  <button type="button" id="cancel-save" class="btn rounded-pill my-btn-light btn-sm" >
+                    Excel
+                  </button>
+            
+               </div>
+                 
+               
+              </div>
+            
+              <div class="table-responsive mt-3">
+          <table class="table table-sm table-striped" aria-describedby="page-heading">
+            <thead class="table-light-new">
+              <tr>
+                <th>Sr. No</th>
+                <th>LoadingSheetNo</th>
+                <th>Route  </th>
+                <th>Vehicle No</th>
+                <th>Vehicle Type</th>
+                <th>Vehicle Size</th>
+                <th>Entry By</th>
+                 
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let items of loadingsheetprint; let index = index;">
+                <td>{{ (index + 1) }}</td>
+                <td>{{ items.loadingsheet }}</td>
+                <td>{{ items.route }}</td>
+                <td>{{ items.VEHICLEnO }}</td>
+                <td>{{ items.VEHICLEtYPE }}</td>
+                <td>{{ items.VEHICLEsIZE }}</td>
+                <td>{{ items.Entryby }}</td>
+             
+                <td class=" button-column">
+                  <div class="btn-group flex-btn-group-container btn-round-pill1 ">
+                    <button type="button" matTooltip="View" matTooltipPosition="above"
+                      class="btn d-30 p-0  my-btn-light-grd btn-round-pill1 ">
+                      <i class="bi bi-eye-fill"></i>
+                    </button>
+                    
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+            </div>
+          </div>
+        </form>
+        <!--</app-card>-->
+      </div>
+    </div>
+    </div>
+  

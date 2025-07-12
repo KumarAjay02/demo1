@@ -1,0 +1,143 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="editForm" role="form" novalidate [formGroup]="editForm" (ngSubmit)="updateContraVoucher()">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            Contra Voucher
+          </div>
+          <div class="card-body">
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="FINANCIAL_YEAR" class="form-label">Financial Year</label>
+              </div>
+              <div class="col-md-2">
+                <select class="form-select form-select-sm" formControlName="FINANCIAL_YEAR">
+                  <option value="undefined">-Select-</option>
+                  <option value="2324">2324</option>
+                  <option value="2425">2425</option>
+                  <option value="2526">2526</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="BRANCH_CODE" class="form-label">Branch</label>
+              </div>
+              <div class="col-md-2">
+                <select class="form-select form-select-sm" formControlName="BRANCH_CODE">
+                  <option value="undefined">-Select-</option>
+                  <option value="GGCO">GGCO</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="DOC_TYPE" class="form-label">Doc Type</label>
+              </div>
+              <div class="col-md-2">
+                <select class="form-select form-select-sm" formControlName="DOC_TYPE">
+                  <option value="undefined">-Select-</option>
+                  <option value="GLCW">Cash Withdrawal</option>
+                  <option value="GLBC">Bank Contra/Transfer</option>
+                  <option value="GLCD">Cash Deposit</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="DOC_NO" class="form-label">Doc No</label>
+              </div>
+              <div class="col-md-2">
+                <input id="DOC_NO" formControlName="DOC_NO" class="form-control form-control-sm text-uppercase" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="DOC_DATE" class="form-label">Doc Date</label>
+              </div>
+              <div class="col-md-2">
+                <input type="date" id="DOC_DATE" formControlName="DOC_DATE" class="form-control form-control-sm text-uppercase" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="PAY_TYPE" class="form-label">Pay Type</label>
+              </div>
+              <div class="col-md-2">
+                <select formControlName="PAY_TYPE" class="form-select form-select-sm">
+                  <option value="">-Select-</option>
+                  <option value="NEFT">NEFT</option>
+                  <option value="CHEQUE">CHEQUE</option>
+                  <option value="IMPS">IMPS</option>
+                  <option value="RTGS">RTGS</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="CHEQUE_NO" class="form-label">{{editForm.get('PAY_TYPE')?.value}}&nbsp; No</label>
+              </div>
+              <div class="col-md-2">
+                <input type="number" id="CHEQUE_NO" formControlName="CHEQUE_NO" class="form-control form-control-sm text-uppercase" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="CHEQUE_DATE" class="form-label">{{editForm.get('PAY_TYPE')?.value}}&nbsp; Date</label>
+              </div>
+              <div class="col-md-2">
+                <input type="date" id="CHEQUE_DATE" formControlName="CHEQUE_DATE" class="form-control form-control-sm text-uppercase" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="DEBIT_ACCOUNT_NO" class="form-label">Debit Account</label>
+              </div>
+              <div class="col-md-2">
+                <input type="number" id="DEBIT_ACCOUNT_NO" formControlName="DEBIT_ACCOUNT_NO" class="form-control form-control-sm text-uppercase" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="CREDIT_ACCOUNT_NO" class="form-label">Credit Account</label>
+              </div>
+              <div class="col-md-2">
+                <input type="number" id="CREDIT_ACCOUNT_NO" formControlName="CREDIT_ACCOUNT_NO" class="form-control form-control-sm text-uppercase" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="AMOUNT" class="form-label">Amount</label>
+              </div>
+              <div class="col-md-2">
+                <input type="number" id="AMOUNT" formControlName="AMOUNT" class="form-control form-control-sm text-uppercase" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="NARRATION" class="form-label">Narration</label>
+              </div>
+              <div class="col-md-10">
+                <input id="NARRATION" formControlName="NARRATION" class="form-control form-control-sm text-uppercase" />
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="row card-margin-bottom-12">
+              <div class="col-md-5 text-end">
+
+              </div>
+
+              <div class="col-md-1">
+                <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                  Save
+                </button>
+              </div>
+              <div class="col-md-1">
+                <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                        (click)="previousState()">
+                  Close
+                </button>
+              </div>
+              <div class="col-md-1">
+                <button type="button" id="Approval" class="btn btn-sm rounded-pill my-btn-light">
+                  Approval
+                </button>
+              </div>
+              <div class="col-md-4">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

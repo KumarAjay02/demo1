@@ -1,0 +1,173 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form [formGroup]="editForm" (ngSubmit)="save()">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            {{ isEditMode ? 'EDIT MR CHEQUE ENTRY' : (isViewMode ? 'VIEW MR CHEQUE ENTRY' : 'CREATE MR CHEQUE ENTRY') }}
+          </div>
+          <div class="card-body">
+            <!-- Basic Information -->
+            <div class="row mb-1">
+              <div class="col-md-1">Branch Code </div>
+              <div class="col-md-2">
+                <select formControlName="branchCode" class="form-select form-select-sm" required
+                        [disabled]="isViewMode">
+                  <option value="">Select Branch</option>
+                  <option value="BR001">BR001 - Main Branch</option>
+                  <option value="BR002">BR002 - West Branch</option>
+                  <option value="BR003">BR003 - East Branch</option>
+                </select>
+              </div>
+              <div class="col-md-1">Customer Name-Code </div>
+              <div class="col-md-2">
+                <select formControlName="customerNameCode" class="form-select form-select-sm" required [disabled]="isViewMode">
+                  <option value="">Select</option>
+                  <option *ngFor="let mode of customerName" [value]="mode.code + ' - ' + mode.name">
+                    {{ mode.code }} - {{ mode.name }}
+                  </option>
+                </select>
+              </div>
+              <div class="col-md-1">Customer Name </div>
+              <div class="col-md-5">
+                <input formControlName="customerName" class="form-control form-control-sm" required
+                       [disabled]="isViewMode" />
+              </div>
+
+            </div>
+
+
+            <!-- Payment Information -->
+            <div class="row mb-1">
+              <div class="col-md-1">Pay Mode </div>
+              <div class="col-md-2">
+                <select formControlName="payMode" class="form-select form-select-sm" required
+                        [disabled]="isViewMode">
+                  <option value="ToPay">ToPay</option>
+                  <option value="Paid">Paid</option>
+                  <option value="Bill">Bill</option>
+                </select>
+              </div>
+              <div class="col-md-1">Bank </div>
+              <div class="col-md-2">
+                <select formControlName="bank" class="form-select form-select-sm" required
+                        [disabled]="isViewMode">
+                  <option value="State Bank of India">State Bank of India</option>
+                  <option value="HDFC Bank">HDFC Bank</option>
+                  <option value="ICICI Bank">ICICI Bank</option>
+                </select>
+              </div>
+              <div class="col-md-1">Submission Date </div>
+              <div class="col-md-2">
+                <input formControlName="submissionDate" type="date" class="form-control form-control-sm" required
+                       [disabled]="isViewMode" />
+              </div>
+              <div class="col-md-2">Cancel Cheque</div>
+              <div class="col-md-1">
+                <div class="form-check form-switch">
+                  <input class="form-check-input  custom-switch" formControlName="cancelCheque" type="checkbox"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <div class="col-md-1">Pay Type </div>
+              <div class="col-md-2">
+                <select formControlName="payType" class="form-select form-select-sm" required
+                        [disabled]="isViewMode">
+                  <option value="NEFT">NEFT</option>
+                  <option value="CHEQUE">CHEQUE</option>
+                  <option value="IMPS">IMPS</option>
+                  <option value="RTGS">RTGS</option>
+                </select>
+              </div>
+              <div class="col-md-1">Cheque No.</div>
+              <div class="col-md-2">
+                <input formControlName="chequeNo" class="form-control form-control-sm"
+                       [disabled]="isViewMode" />
+              </div>
+              <div class="col-md-1">Cheque Date </div>
+              <div class="col-md-2">
+                <input formControlName="chequeDate" type="date" class="form-control form-control-sm" required
+                       [disabled]="isViewMode" />
+              </div>
+              <div class="col-md-2">Re-Submit</div>
+              <div class="col-md-1">
+                <div class="form-check form-switch">
+                  <input class="form-check-input  custom-switch" formControlName="reSubmit" type="checkbox"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <div class="col-md-1">Amount </div>
+              <div class="col-md-2">
+                <input formControlName="amount" type="number" step="0.01" class="form-control form-control-sm" required
+                       [disabled]="isViewMode" />
+              </div>
+              <div class="col-md-1">Deduction Amt.</div>
+              <div class="col-md-2">
+                <input formControlName="deduction" class="form-control form-control-sm"
+                       [disabled]="isViewMode" />
+              </div>
+              <div class="col-md-1">TDS Reverse Amount</div>
+              <div class="col-md-2">
+                <input formControlName="tdsReverseAmount" type="number" step="0.01" class="form-control form-control-sm"
+                       [disabled]="isViewMode" />
+              </div>
+
+            </div>
+            <div class="row mb-1">
+              <div class="col-md-1">Docket No</div>
+              <div class="col-md-2">
+                <input formControlName="docketNo" class="form-control form-control-sm"
+                       [disabled]="isViewMode" />
+              </div>
+              <div class="col-md-1">Remarks</div>
+              <div class="col-md-8">
+                <textarea formControlName="remarks" class="form-control form-control-sm" rows="1"
+                          [disabled]="isViewMode"></textarea>
+              </div>
+<!--              <div class="col-md-1">Multi&nbsp;Branch Payment</div>-->
+<!--              <div class="col-md-2">-->
+<!--                <input formControlName="multipleBranchPayment" type="number" step="0.01" class="form-control form-control-sm"-->
+<!--                       [disabled]="isViewMode" />-->
+<!--              </div>-->
+            </div>
+
+
+            <div class="row mb-1">
+
+
+
+
+
+
+            </div>
+            <!-- Form Actions -->
+            <div class="card-footer">
+              <div class="row card-margin-bottom-10">
+                <div class="col-md-5"></div>
+                <div class="col-md-1" *ngIf="!isViewMode">
+                  <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light"
+                          [disabled]="editForm.invalid || saving">
+                    <span *ngIf="!saving">Save</span>
+                    <span *ngIf="saving" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  </button>
+                </div>
+                <div class="col-md-1">
+                  <button type="button" id="cancel" class="btn btn-sm rounded-pill my-btn-light"
+                          (click)="previousState()">
+                    {{ isViewMode ? 'Back' : 'CLose' }}
+                  </button>
+                </div>
+                <div class="col-md-5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

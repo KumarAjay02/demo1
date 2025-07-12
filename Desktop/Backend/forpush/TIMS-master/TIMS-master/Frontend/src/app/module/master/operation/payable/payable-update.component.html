@@ -1,0 +1,481 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form [formGroup]="editForm" (ngSubmit)="updatePayable()">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            PAYABLE MASTER
+          </div>
+          <div class="card-body">
+            <!-- Nav Tabs -->
+            <ul class="nav nav-tabs mb-3" id="customerTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="master-tab" data-bs-toggle="tab" data-bs-target="#master"
+                        type="button" role="tab" aria-controls="master" aria-selected="true">Payable Master
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="details-tab" data-bs-toggle="tab" data-bs-target="#details"
+                        type="button" role="tab" aria-controls="details" aria-selected="false">Payable Branch
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="details-view-tab" data-bs-toggle="tab" data-bs-target="#view"
+                        type="button" role="tab" aria-controls="view" aria-selected="false">Payable Branch View
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content" id="customerTabsContent">
+              <!-- Tab 1: Master -->
+              <div class="tab-pane fade show active" id="master" role="tabpanel" aria-labelledby="master-tab">
+                <div class="row mb-2">
+                  <div class="col-md-1 ">Co Code</div>
+                  <div class="col-md-3"><input formControlName="coCode" class="form-control form-control-sm text-uppercase" /></div>
+                  <div class="col-md-1 ">Div Code</div>
+                  <div class="col-md-3"><input formControlName="divCode" class="form-control form-control-sm text-uppercase" /></div>
+                  <div class="col-md-1 ">Payable Form</div>
+                  <div class="col-md-3">
+                    <select formControlName="payableForm" class="form-select form-select-sm">
+                      <option value="undefined">-Select-</option>
+                      <option value="CompanyOwned">Company Owned</option>
+                      <option value="Supplier">Supplier</option>
+                      <option value="Broker">Broker</option>
+                      <option value="Vendor">Vendor</option>
+
+                    </select>
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-md-1 ">PAN No</div>
+                  <div class="col-md-3">
+                    <div class="input-group input-group-sm">
+                      <input formControlName="panNo" class="form-control form-control-sm text-uppercase" />
+                      <button type="button" matTooltip="Find" matTooltipPosition="above"
+                              class="btn btn-sm btn-secondary">
+                        <i class="bi bi-download"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-1 ">Adhaar No</div>
+                  <div class="col-md-3">
+                    <div class="input-group input-group-sm">
+                    <input formControlName="adhaarNo" class="form-control form-control-sm text-uppercase" />
+                      <button type="button" matTooltip="Find" matTooltipPosition="above"
+                              class="btn btn-sm btn-secondary">
+                        <i class="bi bi-download"></i>
+                      </button>
+                    </div>
+                    </div>
+                  <div class="col-md-1 ">Company Type</div>
+                  <div class="col-md-3">
+                    <select formControlName="companyType" class="form-select form-select-sm">
+                      <option value="undefined">-Select-</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-md-1 ">Payable Type</div>
+                  <div class="col-md-3">
+                    <select formControlName="payableId" class="form-select form-select-sm">
+                      <option value="undefined">-Select-</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1 ">Payable Name</div>
+                  <div class="col-md-3"><input formControlName="payableName" class="form-control form-control-sm text-uppercase" /></div>
+                  <div class="col-md-1 ">Association&nbsp;Dt</div>
+                  <div class="col-md-3"><input type="date" formControlName="associationDate" class="form-control form-control-sm" /></div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-md-1 ">Active State</div>
+                  <div class="col-md-3">
+                    <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" type="radio" name="activeState" [value]="'Active'" formControlName="activeState" />
+                        Active
+                      </div>
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" type="radio" name="activeState" [value]="'Inactive'" formControlName="activeState" />
+                        Inactive
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-1 ">Payable&nbsp;Cat.</div>
+                  <div class="col-md-3">
+                    <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" type="radio" name="payableCategory" [value]="'R'" formControlName="payableCategory" />
+                        Registered
+                      </div>
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" type="radio" name="payableCategory" [value]="'U'" formControlName="payableCategory" />
+                        UnRegistered
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-1 ">MSME</div>
+                  <div class="col-md-3">
+                    <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" type="radio" name="msme" [value]="'Yes'" formControlName="msme" />
+                        Yes
+                      </div>
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" type="radio" name="msme" [value]="'No'" formControlName="msme" />
+                        No
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-md-1 ">Account No</div>
+                  <div class="col-md-3"><input formControlName="accountNo" class="form-control form-control-sm" /></div>
+                  <div class="col-md-1 ">IFSC Code</div>
+                  <div class="col-md-3"><input formControlName="ifscCode" class="form-control form-control-sm text-uppercase" /></div>
+                  <div class="col-md-1 ">Bank Name</div>
+                  <div class="col-md-3"><input formControlName="bankName" class="form-control form-control-sm" /></div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-md-1 ">Remarks</div>
+                  <div class="col-md-3"><input formControlName="remarks" class="form-control form-control-sm" /></div>
+                  <div class="col-md-1 ">Dept Type</div>
+                  <div class="col-md-3"><input formControlName="deptType" class="form-control form-control-sm text-uppercase" /></div>
+                </div>
+                <div class="card-footer" >
+<!--                  <div class="">-->
+<!--                    <button-->
+<!--                      type="button"-->
+<!--                      class="btn btn-link p-0 m-0 border-0 bg-transparent text-success"-->
+<!--                      (click)="addRow()"-->
+<!--                      (keydown.enter)="addRow()"-->
+<!--                      (keydown.space)="addRow()"-->
+<!--                      aria-label="Add row" matTooltip="Add Details" matTooltipPosition="above"-->
+<!--                    >-->
+<!--                      <i class="bi bi-plus-circle text-success" style="font-size: 14px;">Add Details</i>-->
+<!--                    </button>-->
+<!--                  </div>-->
+                  <!-- Save/Close buttons -->
+                  <div class="row card-margin-bottom-10">
+                    <div class="col-md-5 "></div>
+                    <div class="col-md-1">
+                      <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">Save</button>
+                    </div>
+                    <div class="col-md-1">
+                      <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light" (click)="previousState()">Close</button>
+                    </div>
+                    <div class="col-md-5">
+                      <!--                <button type="button" class="btn btn-sm rounded-pill my-btn-light" (click)="openAddDetailModal()">➕ Add Detail</button>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="details" role="tabpanel" aria-labelledby="details-tab">
+
+                <!-- Branch and GST No -->
+                <div class="row mb-2">
+                  <div class="col-md-1">
+                    <label for="branchCode" class="form-label">Branch Code</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="branchCode" formControlName="detailBranchCode" class="form-control form-control-sm"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="branch" class="form-label">Branch Name</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="branch" formControlName="detailBranch" class="form-control form-control-sm"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="gstNo" class="form-label">GST&nbsp;No</label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="input-group input-group-sm">
+                      <input id="gstNo" formControlName="detailGstNo"
+                             class="form-control form-control-sm text-uppercase"/>
+                      <button type="button" matTooltip="Find" matTooltipPosition="above"
+                              class="btn btn-sm btn-secondary">
+                        <i class="bi bi-download"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Address and City -->
+                <div class="row mb-2">
+                  <div class="col-md-1">
+                    <label for="dealingPerson1" class="form-label">Dealing&nbsp;Person1</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="dealingPerson1" formControlName="detailDealingPerson1"
+                           class="form-control form-control-sm"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="address" class="form-label">Address</label>
+                  </div>
+                  <div class="col-md-3">
+                      <textarea id="address" formControlName="detailAddress" class="form-control form-control-sm"
+                                rows="1"></textarea>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="city" class="form-label">City</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="city" formControlName="detailCity" class="form-control form-control-sm"/>
+                  </div>
+
+                </div>
+
+                <div class="row mb-2">
+                  <div class="col-md-1">
+                    <label for="state" class="form-label">State</label>
+                  </div>
+                  <div class="col-md-3">
+                    <select id="state" formControlName="detailState" class="form-select form-select-sm">
+                      <option value="">Select State</option>
+                      <!-- Add state options here -->
+                    </select>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="country" class="form-label">Country</label>
+                  </div>
+                  <div class="col-md-3">
+                    <select id="country" formControlName="detailCountry" class="form-select form-select-sm">
+                      <option value="">Select Country</option>
+                      <option value="India">India</option>
+                      <!-- Add more country options as needed -->
+                    </select>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="pinCode" class="form-label">Pin&nbsp;Code</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="pinCode" formControlName="detailPinCode" class="form-control form-control-sm"
+                           type="number"/>
+                  </div>
+
+
+                </div>
+
+
+                <div class="row mb-2">
+                  <div class="col-md-1">
+                    <label for="email1" class="form-label">Email1</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="email1" formControlName="detailEmail1" class="form-control form-control-sm"
+                           type="email"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="landLine1" class="form-label">LandLine1</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="landLine1" formControlName="detailLandLine1" class="form-control form-control-sm"
+                           type="tel"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="mobile1" class="form-label">Mobile1</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="mobile1" formControlName="detailMobile1" class="form-control form-control-sm"
+                           type="tel"/>
+                  </div>
+
+
+                </div>
+
+                <!-- Email 2 and Mobile 2 -->
+                <div class="row mb-2">
+                  <div class="col-md-1">
+                    <label for="dealingPerson2" class="form-label">Dealing&nbsp;Person2</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="dealingPerson2" formControlName="detailDealingPerson2"
+                           class="form-control form-control-sm"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="email2" class="form-label">Email2</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="email2" formControlName="detailEmail2" class="form-control form-control-sm"
+                           type="email"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="mobile2" class="form-label">Mobile2</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="mobile2" formControlName="detailMobile2" class="form-control form-control-sm"
+                           type="tel"/>
+                  </div>
+
+                </div>
+
+                <!-- Status -->
+                <div class="row mb-2">
+                  <div class="col-md-1">
+                    <label for="surcharge" class="form-label">Surcharge</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="surcharge" formControlName="detailSurcharge" class="form-control form-control-sm"
+                           type="number" step="0.01"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="detailStatus" class="form-label">Status</label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" id="detailStatus" type="radio" name="detailStatus"
+                               [value]="'Active'"
+                               formControlName="detailStatus"/>
+                        Active
+                      </div>
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" type="radio" name="detailStatus" [value]="'Inactive'"
+                               formControlName="detailStatus"/>
+                        Inactive
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4"></div>
+                </div>
+                <div class="card-footer">
+                  <div class="row mb-2">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 text-center">
+                      <button type="submit" id="detailsAdd" (click)="addRow()"
+                              (keydown.enter)="addRow()"
+                              (keydown.space)="addRow()" class="btn btn-sm rounded-pill my-btn-light">
+                        Add
+                      </button>
+                      <button type="submit" id="detailsClear" (click)="clearDetail()"
+                              (keydown.enter)="clearDetail()"
+                              (keydown.space)="clearDetail()" class="btn btn-sm rounded-pill my-btn-light">
+                        Clear
+                      </button>
+                    </div>
+                    <div class="col-md-4"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="view" role="tabpanel" aria-labelledby="details-tab-view">
+                <div class="table-responsive mt-2"
+                     style="max-height: 250px; overflow-y: auto; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                  <table class="table table-sm table-bordered">
+                    <thead class="table-light-new">
+                    <tr>
+                      <th>SR.#</th>
+                      <th>Branch Code</th>
+                      <th >Branch</th>
+                      <th>GST No</th>
+                      <th>City</th>
+<!--                      <th>Status</th>-->
+                      <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <ng-container *ngFor="let detail of payableBranchDetails; let index=index">
+                      <tr>
+                        <td>{{index+1}}</td>
+                        <td>
+                          <input
+                            class="form-control form-control-sm text-uppercase"
+                            name="branchCode{{ index }}"
+                            id="field_branchCode{{ index }}"
+                            [ngModel]=detail.branchCode
+                            [disabled]="true"
+                            [ngModelOptions]="{ standalone: true }"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            class="form-control form-control-sm text-uppercase"
+                            name="branch{{ index }}"
+                            id="field_branch{{ index }}"
+                            [ngModel]=detail.branch
+                            [disabled]="true"
+                            [ngModelOptions]="{ standalone: true }"
+                          />
+                        </td>
+                        <td><input
+                          class="form-control form-control-sm text-uppercase"
+                          name="GST{{ index }}"
+                          id="field_GST{{ index }}"
+                          [ngModel]="detail.gstNo"
+                          [disabled]="true"
+                          [ngModelOptions]="{ standalone: true }"
+                        />
+                        </td>
+
+                        <td><input
+                          class="form-control form-control-sm text-uppercase"
+                          name="city{{ index }}"
+                          id="field_city{{ index }}"
+                          [ngModel]="detail.city"
+                          [disabled]="true"
+                          [ngModelOptions]="{ standalone: true }"
+                        /></td>
+
+<!--                        <td>-->
+<!--                          <div class="d-flex align-items-center gap-2">-->
+<!--                            <div class="form-check form-check-inline m-0">-->
+<!--                              <input-->
+<!--                                class="form-check-input"-->
+<!--                                type="radio"-->
+<!--                                [name]="'status' + index"-->
+<!--                                [value]="'Active'"-->
+<!--                                [(ngModel)]="detail.isActive"-->
+<!--                                [disabled]="true"-->
+<!--                                [ngModelOptions]="{ standalone: true }"-->
+<!--                                id="statusActive{{ index }}"-->
+<!--                              />-->
+<!--                              <label class="form-check-label" [for]="'statusActive' + index">Active</label>-->
+<!--                            </div>-->
+
+<!--                            <div class="form-check form-check-inline m-0">-->
+<!--                              <input-->
+<!--                                class="form-check-input"-->
+<!--                                type="radio"-->
+<!--                                [name]="'status' + index"-->
+<!--                                [value]="'Inactive'"-->
+<!--                                [(ngModel)]="detail.isActive"-->
+<!--                                [disabled]="true"-->
+<!--                                [ngModelOptions]="{ standalone: true }"-->
+<!--                                id="statusInactive{{ index }}"-->
+<!--                              />-->
+<!--                              <label class="form-check-label" [for]="'statusInactive' + index">Inactive</label>-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </td>-->
+                        <td class="">
+                          <div class="btn-group">
+                            <!-- <button class="btn btn-sm my-btn-light-grd" (click)="LoadDetail(detail)"
+                                    matTooltip="View" style="border-radius: 30px 0 0 30px;"
+                                    type="button">
+                              <i class="bi bi-eye-fill"></i>
+                            </button> -->
+                            <button type="button" (click)="removeCustomerDetail(index)" class="btn btn-sm my-btn-danger"
+                                    style="border-radius: 0 30px 30px 0;" matTooltipPosition="above"
+                                    matTooltip="Delete">
+                              <i class="bi bi-trash-fill"></i>
+                            </button>
+                          </div>
+
+                        </td>
+                      </tr>
+                    </ng-container>
+                    </tbody>
+                  </table>
+
+                  <div *ngIf="payableBranchDetails.length === 0" class="text-center text-muted">No Detail Added</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

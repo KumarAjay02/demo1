@@ -1,0 +1,379 @@
+<div class="container-fluid my-3">
+  <div class="card-title text-center">
+    {{ isEditMode ? 'EDIT BILL' : (isViewMode ? 'VIEW BILL' : 'CREATE BILL') }}
+  </div>
+  <div class="card-body p-1">
+    <form [formGroup]="">
+      <ul class="nav nav-tabs mb-1" id="docketTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button"
+            role="tab">Road / Cargo / Train / Air
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button"
+            role="tab">Werhouse / Packaging
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+          <div class="row">
+            <div class="col-sm-12">
+              <form [formGroup]="editForm" (ngSubmit)="save()">
+                <div class="card card-box mb-1">
+                  <div class="card-body">
+                    <!-- Row 1 -->
+                    <div class="row mb-1">
+                      <div class="col-md-1 ">Bill Branch </div>
+                      <div class="col-md-2">
+                        <select formControlName="billBranch" class="form-select form-select-sm" required
+                          [disabled]="isViewMode">
+                          <option value="">Select</option>
+                          <option *ngFor="let branch of billBranches" [value]="branch.code + ' - ' + branch.name">
+                            {{ branch.code }} - {{ branch.name }}
+                          </option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-1 ">Service Mode </div>
+                      <div class="col-md-2">
+                        <select formControlName="serviceMode" class="form-select form-select-sm" required
+                          [disabled]="isViewMode">
+                          <option value="">Select</option>
+                          <option *ngFor="let mode of serviceModes" [value]="mode.code + ' - ' + mode.name">
+                            {{ mode.code }} - {{ mode.name }}
+                          </option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-1 ">DWB Basis </div>
+                      <div class="col-md-2">
+                        <select formControlName="dwbBasis" class="form-select form-select-sm" required
+                          [disabled]="isViewMode">
+                          <option value="">Select</option>
+                          <option *ngFor="let basis of dwbBasisOptions" [value]="basis.code + ' - ' + basis.name">
+                            {{ basis.code }} - {{ basis.name }}
+                          </option>
+                        </select>
+                      </div>
+                      <div class="col-md-1 ">Customer </div>
+                      <div class="col-md-2">
+                        <select formControlName="customerNameCode" class="form-select form-select-sm" required
+                          [disabled]="isViewMode">
+                          <option value="">Select</option>
+                          <option *ngFor="let mode of customerName" [value]="mode.code + ' - ' + mode.name">
+                            {{ mode.code }} - {{ mode.name }}
+                          </option>
+                        </select>
+                      </div>
+
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="row mb-1">
+                      <div class="col-md-1 ">Fin. Year </div>
+                      <div class="col-md-2">
+                        <select formControlName="financialYear" class="form-select form-select-sm" required
+                          [disabled]="isViewMode">
+                          <option value="" [selected]='true'>Select</option>
+                          <option *ngFor="let basis of finanCialYear" [value]="basis.code + ' - ' + basis.year">
+                            {{ basis.code }} - {{ basis.year }}
+                          </option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-1 ">Tax % </div>
+                      <div class="col-md-2">
+                        <select formControlName="taxesApplicable" class="form-select form-select-sm" required
+                          [disabled]="isViewMode">
+                          <option value="undefined" [selected]="true">[Select]</option>
+                          <option value="0">0 %</option>
+                          <option value="5">5 %</option>
+                          <option value="12">12 %</option>
+                          <option value="18">18 %</option>
+                        </select>
+                      </div>
+                      <div class="col-md-1 ">DWB Upto </div>
+                      <div class="col-md-2">
+                        <input formControlName="dwbUpto" type="date" class="form-control form-control-sm" required
+                          [disabled]="isViewMode" />
+                      </div>
+                      <div class="col-md-1 ">Pod Upload</div>
+                      <div class="col-md-2">
+                        <div class="form-check form-switch">
+                          <input class="form-check-input  custom-switch" formControlName="podUpload" type="checkbox" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="row mb-1">
+                      <div class="col-md-1 ">Docket By </div>
+                      <div class="col-md-3">
+                        <div class="border rounded p-1 d-flex align-items-center gap-2">
+                          <div class="form-check form-check-inline m-0">
+                            <input class="form-check-input" type="radio" id="docketBy1" name="docketBy" value="Booking"
+                              formControlName="docketBy" required [disabled]="isViewMode" />
+                            <label class="form-check-label" for="docketBy1">Booking</label>
+                          </div>
+                          <div class="form-check form-check-inline m-0">
+                            <input class="form-check-input" type="radio" id="docketBy" name="docketBy" value="Delivery"
+                              formControlName="docketBy" [disabled]="isViewMode" />
+                            <label class="form-check-label" for="docketBy">Delivery</label>
+                          </div>
+                          <div class="form-check form-check-inline m-0">
+                            <input class="form-check-input" type="radio" name="docketBy" value="All"
+                              formControlName="docketBy" [disabled]="isViewMode" />
+                            <label class="form-check-label" for="docketBy">All</label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-1 ">Search Docket</div>
+                      <div class="col-md-2">
+                        <input formControlName="searchDocket" class="form-control form-control-sm hilight-focus"
+                          [disabled]="isViewMode" />
+                      </div>
+                    </div>
+                    <div class="ro mb-2">
+                      <div class="table-responsive mt-2"
+                        style="max-height: 500px; overflow-y: auto; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                        <table class="table table-sm table-bordered">
+                          <thead class="table-light-new">
+                            <tr>
+                              <th>S.No.</th>
+                              <th><input type="checkbox"></th>
+                              <th>DOCKET NO</th>
+                              <th>DOCKET DATE</th>
+                              <th>FROM</th>
+                              <th>TO</th>
+                              <th>BOOKING MODE</th>
+                              <th>TOTAL PCS</th>
+                              <th>WEIGHT</th>
+                              <th>CHARGE AMOUNT</th>
+                              <th style="width: 50px"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+
+                            <ng-container *ngFor="let detail of docket; let index=index">
+                              <tr>
+                                <td> {{index+1}}</td>
+                                <td><input type="checkbox" /></td>
+                                <td>{{detail.docketNo}}</td>
+                                <td>{{detail.bookingDate || 'dd/MM/yyyy'}}</td>
+                                <td></td>
+                                <td></td>
+                                <td>{{detail.bookingMode}}</td>
+                                <td>{{detail.totalPkgs}}</td>
+                                <td>{{detail.actualWeight}}</td>
+                                <td></td>
+                                <td class="text-end">
+                                  <div class="btn-group">
+                                    <button type="button" (click)="removeDocket(index)" class="btn btn-sm my-btn-danger"
+                                      style="border-radius: 0 30px 30px 0;" matTooltipPosition="above"
+                                      matTooltip="Delete">
+                                      <i class="bi bi-trash-fill"></i>
+                                    </button>
+                                  </div>
+
+                                </td>
+                              </tr>
+                            </ng-container>
+                          </tbody>
+
+                        </table>
+                      </div>
+                    </div>
+                    <!-- Form Actions -->
+                    <div class="card-footer">
+                      <div class="row card-margin-bottom-10 justify-content-center">
+                        <div class="col-md-1" *ngIf="!isViewMode">
+                          <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light"
+                            [disabled]="editForm.invalid || saving">
+                            <span *ngIf="!saving">Save</span>
+                            <span *ngIf="saving" class="spinner-border spinner-border-sm" role="status"
+                              aria-hidden="true"></span>
+                          </button>
+                        </div>
+                        <div class="col-md-1">
+                          <button type="button" id="cancel" class="btn btn-sm rounded-pill my-btn-light"
+                            (click)="previousState()">
+                            {{ isViewMode ? 'Back' : 'Close' }}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="tab2" role="tabpanel">
+        <div class="card card-box mb-1">
+          <div class="col-sm-12">
+            <div class="card-body">
+              <!-- Search Filter -->
+              <div class="row mb-2">
+                <div class="col-md-1">
+                  <label>Bill Branch</label>
+                </div>
+                <div class="col-md-2">
+                  <select class="form-select form-select-sm" formControlName="billBranch">
+                    <option *ngFor="let branch of branches" [value]="branch.id">{{ branch.name }}</option>
+                  </select>
+                </div>
+                <div class="col-md-1">
+                  <label>Service Mode</label>
+                </div>
+                <div class="col-md-2">
+                  <select formControlName="serviceModeswp" class="form-select form-select-sm" required
+                    [disabled]="isViewMode">
+                    <option value="">Select</option>
+                    <option *ngFor="let mode of serviceModeswp" [value]="mode.code + ' - ' + mode.name">
+                      {{ mode.code }} - {{ mode.name }}
+                    </option>
+                  </select>
+                </div>
+                <div class="col-md-1">
+                  <label>Financial Year</label>
+                </div>
+                <div class="col-md-2">
+                  <select class="form-select form-select-sm" formControlName="financialYear">
+                    <option *ngFor="let year of finanCialYear" [value]="year">{{ year }}</option>
+                  </select>
+                </div>
+                <div class="col-md-1">
+                  <label>Customer Name</label>
+                </div>
+                <div class="col-md-2">
+                  <select class="form-select form-select-sm" formControlName="customer">
+                    <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.name }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-md-1">
+                  <label>Taxes Applicable % </label>
+                </div>
+                <div class="col-md-2">
+                  <select class="form-select form-select-sm" formControlName="taxRate">
+                    <option *ngFor="let tax of taxRates" [value]="tax">{{ tax }}</option>
+                  </select>
+                </div>
+                <div class="col-md-1">
+                  <label>Bill Date</label>
+                </div>
+                <div class="col-md-2">
+                  <input type="date" class="form-control form-control-sm" formControlName="billDate" />
+                </div>
+                <div class="col-md-1">
+                  <label>Remarks</label>
+                </div>
+                <div class="col-md-5">
+                  <input type="text" class="form-control form-control-sm" formControlName="remarks" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card card-box mb-1">
+          <div class="col-lg-8 m-auto">
+            <div [formGroup]="billForm">
+              <div class="col-md-12 text-end my-2">
+                <button type="button" type="button" class="btn btn-sm btn-success me-1" (click)="addRow()"> + Add
+                  Row</button>
+              </div>
+              <table class="table table-bordered table-striped text-left table-sm">
+                <thead class="bg-danger text-white">
+                  <tr>
+                    <th>S/NO</th>
+                    <th>CHARGES NAME</th>
+                    <th>SQUARE FEET / Bag No / Qty</th>
+                    <th>RATE</th>
+                    <th>VALUE</th>
+                    <th>ACTION</th>
+                  </tr>
+                </thead>
+                <tbody formArrayName="chargeList">
+                  <tr *ngFor="let row of chargeList.controls; let i = index" [formGroupName]="i">
+                    <td>{{ i + 1 }}</td>
+                    <td>
+                      <select formControlName="description" class="form-select form-select-sm">
+                        <option value="">Select</option>
+                        <option *ngFor="let charge of chargeOptions " [value]="charge">{{ charge }}</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input type="number" formControlName="squareFeet" class="form-control form-control-sm text-end"
+                        (input)="onChargesChanged(i)" />
+                    </td>
+                    <td>
+                      <input type="number" formControlName="rate" class="form-control form-control-sm text-end"
+                        (input)="onChargesChanged(i)" />
+                    </td>
+                    <td>
+                      <input type="text" formControlName="value" class="form-control form-control-sm text-end"
+                        readonly />
+                    </td>
+                    <td class="text-center">
+                      <button type="button" class="btn btn-sm btn-outline-danger" (click)="removeRow(i)"
+                        class="btn btn-sm my-btn-danger" style="border-radius: 0 30px 30px 0;"
+                        matTooltipPosition="above" matTooltip="Delete">
+                        <i class="bi bi-trash-fill"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr class="fw-bold bg-secondary text-white">
+                    <td colspan="4" class="text-end">Total</td>
+                    <td class="text-end">{{ getTotalValue() | number : '1.2-2' }}</td>
+                  </tr>
+                  <tr class="fw-bold bg-secondary text-white">
+                    <td colspan="4" class="text-end">C GST</td>
+                    <td class="text-end">{{ getTotalValueCGST() | number : '1.2-2' }}</td>
+                  </tr>
+                  <tr class="fw-bold bg-secondary text-white">
+                    <td colspan="4" class="text-end">S GST</td>
+                    <td class="text-end">{{ getTotalValueCGST() | number : '1.2-2' }}</td>
+                  </tr>
+                  <tr class="fw-bold bg-secondary text-white">
+                    <td colspan="4" class="text-end">I GST</td>
+                    <td class="text-end">{{  getTotalValueIGST() | number : '1.2-2' }}</td>
+                  </tr>
+                  <tr class="fw-bold bg-secondary text-white">
+                    <td colspan="4" class="text-end">NET PAYABLE</td>
+                    <td class="text-end">{{ getTotalValueNet() | number : '1.2-2' }}</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+
+          </div>
+          <div class="card-footer">
+            <!-- Save/Close buttons -->
+            <div class="row card-margin-bottom-10">
+              <div class="col-md-5 text-end"></div>
+              <div class="col-md-1">
+                <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                  Save
+                </button>
+              </div>
+              <div class="col-md-1">
+                <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                  (click)="previousState()">
+                  Close
+                </button>
+              </div>
+              <div class="col-md-5"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

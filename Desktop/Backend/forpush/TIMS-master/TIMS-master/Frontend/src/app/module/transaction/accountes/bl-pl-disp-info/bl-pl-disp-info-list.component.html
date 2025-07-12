@@ -1,0 +1,154 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-title-box d-flex align-items-center justify-content-between">
+        <div class="page-title-right">
+          <ol class="breadcrumb m-0">
+            <ng-container>
+              <li class="breadcrumb-item"><a href="javascript: void(0);">Master Apps</a></li>
+              <li class="breadcrumb-item">Master</li>
+              <li class="breadcrumb-item active">Balance Sheet and Profit & Loss Display</li>
+            </ng-container>
+          </ol>
+        </div>
+      </div>
+      <div class="card-title text-center">
+        Balance Sheet and Profit & Loss Display
+      </div>
+    </div>
+  </div>
+  <div class="card card-box mb-2">
+    <div class="card-header bg-transparent border-bottom">
+      <div class="row">
+        <div class="col-md-2">
+          <div class="search-wrapper-mini">
+            <div class="icon-wrapper">
+              <i class="bx bx-search"></i>
+            </div>
+            <select class="form-select form-select-sm">
+              <option value="undefined">-Select-</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="search-wrapper-mini">
+            <div class="icon-wrapper">
+              <i class="bx bx-search"></i>
+            </div>
+            <select class="form-select form-select-sm">
+              <option value="undefined">-Select-</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="search-wrapper-mini">
+            <div class="icon-wrapper">
+              <i class="bx bx-search"></i>
+            </div>
+            <select class="form-select form-select-sm">
+              <option value="undefined">-Select-</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="search-wrapper-mini">
+            <div class="icon-wrapper">
+              <i class="bx bx-search"></i>
+            </div>
+            <select class="form-select form-select-sm">
+              <option value="undefined">-Select-</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-sm rounded-pill my-btn-light" type="button">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+        <div class="col-md-2 text-end">
+          <div class="dropdown">
+            <button type="button" id="create-entity" class="btn btn-sm rounded-pill my-btn-light" [routerLink]="['/bl-pl-disp-info/new']">
+              Add New
+            </button>
+            <div class="btn-group rounded-pill dropdown-end">
+              <button class="btn d-30 p-0 my-btn-light-grd" style="border-radius: 30px 0 0 30px;" type="button">
+                <i class="bi bi-gear-fill"></i>
+              </button>
+              <button class="btn d-30 btn-rounded p-0 btn-secondary dropdown-toggle"
+                      type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 0 30px 30px 0;">
+                <i class="bi bi-three-dots-vertical"></i>
+              </button>
+
+              <ul class="dropdown-menu dropdown-menu-end listData">
+                <li class="text-center">Exports </li>
+                <li class="divider dropdown-divider"></li>
+                <li class="dropdown-item">
+                  <i class="bi bi-file-earmark-excel text-success"></i>
+                  &nbsp; <span>Excel</span>
+                </li>
+                <li class="dropdown-item">
+                  <i class="bi bi-filetype-pdf text-danger"></i>
+                  &nbsp; <span>Pdf</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-sm table-striped">
+          <thead>
+            <tr>
+              <th>Account Nature</th>
+              <th>Payable ID</th>
+              <th>Head Name</th>
+              <th>Schedule Code</th>
+              <th>Group Code</th>
+              <th>SrNo</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let bspldispInfo of bsplDispInfos; let i = index; trackBy: trackById">
+              <td>{{ bspldispInfo.GL_NATURE }}</td>
+              <td>{{ bspldispInfo.BS_HEAD_CODE }}</td>
+              <td>{{ bspldispInfo.BS_HEAD_NAME }}</td>
+              <td>{{ bspldispInfo.SCHEDULE_CODE }}</td>
+              <td>{{ bspldispInfo.GL_GROUP_CODE }}</td>
+              <td>{{ bspldispInfo.SRNO }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <button [routerLink]="['/bl-pl-disp-info', bspldispInfo.Id, 'view']" class="btn btn-sm my-btn-light-grd"
+                          matTooltip="View" style="border-radius: 30px 0 0 30px;" matTooltipPosition="above"
+                          type="button">
+                    <i class="bi bi-eye-fill"></i>
+                  </button>
+                  <button type="button" matTooltipPosition="above"
+                          [routerLink]="['/bl-pl-disp-info', bspldispInfo.Id, 'edit']"
+                          class="btn btn-sm my-btn-edit" matTooltip="Edit">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                  <button type="button" matTooltip="Print" matTooltipPosition="above"
+                          [routerLink]="['bl-pl-disp-info', bspldispInfo.Id, 'print']"
+                          class="btn btn-sm btn-secondary">
+                    <i class="bi bi-printer-fill"></i>
+                  </button>
+
+                  <button type="button" class="btn btn-sm my-btn-danger" style="border-radius: 0 30px 30px 0;" matTooltipPosition="above" matTooltip="Delete">
+                    <i class="bi bi-trash-fill"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div *ngIf="bsplDispInfos.length === 0" class="alert alert-warning">No Balance Sheet and Profit & Loss Display Found</div>
+      </div>
+    </div>
+  </div>
+</div>

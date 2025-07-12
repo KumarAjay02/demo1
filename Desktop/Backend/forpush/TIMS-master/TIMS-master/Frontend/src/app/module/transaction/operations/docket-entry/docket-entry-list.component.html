@@ -1,0 +1,134 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-title-box d-flex align-items-center justify-content-between">
+        <div class="page-title-right">
+          <ol class="breadcrumb m-0">
+            <li class="breadcrumb-item"><a href="#">Master Apps</a></li>
+            <li class="breadcrumb-item">Operations</li>
+            <li class="breadcrumb-item">Docket Entry</li>
+          </ol>
+        </div>
+      </div>
+      <div class="card-title text-center">DOCKET ENTRY</div>
+    </div>
+  </div>
+
+  <div class="card card-box mb-2">
+    <div class="card-header bg-transparent border-bottom">
+      <div class="row">
+        <div class="col-md-2">
+          <input class="form-control form-control-sm rounded-pill text-uppercase"
+                 placeholder="Docket No"
+                 [(ngModel)]="docketSearch.docketNo" />
+        </div>
+        <div class="col-md-2">
+          <input class="form-control form-control-sm rounded-pill text-uppercase"
+                 placeholder="Consignor"
+                 [(ngModel)]="docketSearch.consignor" />
+        </div>
+        <div class="col-md-2">
+          <input class="form-control form-control-sm rounded-pill text-uppercase"
+                 placeholder="Booking Date From"
+                 [(ngModel)]="docketSearch.bookingDateFrom" />
+        </div>
+        <div class="col-md-2">
+          <input class="form-control form-control-sm rounded-pill text-uppercase"
+                 placeholder="Booking Date To"
+                 [(ngModel)]="docketSearch.bookingDateTo" />
+        </div>
+        <div class="col-md-1">
+          <button class="btn btn-sm rounded-pill my-btn-light-grd" type="button" (click)="search()">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+        <div class="col-md-3 text-end">
+          <button type="button" *ngIf="userRights?.add" class="btn btn-sm rounded-pill my-btn-light" [routerLink]="['/docket-entry/create']">
+            Add New
+          </button>
+          <div class="btn-group rounded-pill dropdown-end">
+            <button class="btn d-30 p-0 my-btn-light-grd" style="border-radius: 30px 0 0 30px;" type="button">
+              <i class="bi bi-gear-fill"></i>
+            </button>
+            <button class="btn d-30 btn-rounded p-0 btn-secondary dropdown-toggle"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 0 30px 30px 0;">
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-end listData">
+              <li class="text-center">Exports </li>
+              <li class="divider dropdown-divider"></li>
+              <li class="dropdown-item">
+                <i class="bi bi-file-earmark-excel text-success"></i>
+                &nbsp; <span>Excel</span>
+              </li>
+              <li class="dropdown-item">
+                <i class="bi bi-filetype-pdf text-danger"></i>
+                &nbsp; <span>Pdf</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-sm table-striped table-bordered">
+          <thead class="table-light-new">
+          <tr>
+            <th>Sr. No.</th>
+            <th>Docket No</th>
+            <th>Consignor</th>
+            <th>Booking Date From</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let d of dockets; let i = index; trackBy: trackId">
+            <td>{{ i + 1 }}</td>
+            <td>{{ d.docketNo }}</td>
+            <td>{{ d.consignorName }}</td>
+            <td>{{ d.bookingDate }}</td>
+            <td class="text-end">
+              <div class="btn-group">
+                <button [routerLink]="['/docket-entry', d.id, 'view']"
+                        class="btn btn-sm my-btn-light-grd" matTooltipPosition="above"
+                        matTooltip="View" style="border-radius: 30px 0 0 30px;"
+                        [disabled]="!userRights?.search">
+                  <i class="bi bi-eye-fill"></i>
+                </button>
+
+                <button [routerLink]="['/docket-entry', d.id, 'edit']"
+                        class="btn btn-sm my-btn-edit"
+                        matTooltip="Edit" matTooltipPosition="above"
+                        [disabled]="!userRights?.update">
+                  <i class="bi bi-pencil-fill"></i>
+                </button>
+
+                <button [routerLink]="['/docket-entry', d.id, 'print']"
+                        class="btn btn-sm btn-secondary"
+                        matTooltip="Print" matTooltipPosition="above"
+                        [disabled]="!userRights?.print">
+                  <i class="bi bi-printer-fill"></i>
+                </button>
+
+                <button (click)="delete(d)"
+                        class="btn btn-sm my-btn-danger" style="border-radius: 0 30px 30px 0;"
+                        matTooltip="Delete" matTooltipPosition="above"
+                        [disabled]="!userRights?.deleted">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div *ngIf="dockets.length === 0" class="alert alert-warning">
+        <span>No data found</span>
+      </div>
+    </div>
+  </div>
+</div>

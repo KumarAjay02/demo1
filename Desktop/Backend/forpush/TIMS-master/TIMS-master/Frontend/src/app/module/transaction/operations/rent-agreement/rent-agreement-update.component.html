@@ -1,0 +1,215 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form [formGroup]="editForm" (ngSubmit)="save()">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            {{ isEditMode ? 'RENT AGREEMENT UPDATE' : (isViewMode ? 'RENT AGREEMENT VIEW' : 'RENT AGREEMENT ENTRY') }}
+          </div>
+          <div class="card-body p-1 ">
+            <ul class="nav nav-tabs mb-1" id="docketTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1"
+                        type="button" role="tab">Agreement Detail
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2"
+                        type="button" role="tab">Previous Agreement Details
+                </button>
+              </li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <!-- TAB 1 -->
+              <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                <!-- Basic Information -->
+                <div class="row mb-1">
+                  <div class="col-md-1 "><label for="financialYear" class="form-label">Financial&nbsp;Year </label></div>
+                  <div class="col-md-2">
+                    <select id="financialYear" formControlName="financialYear" class="form-select form-select-sm"
+                            [disabled]="isViewMode">
+                      <option value="">[Select]</option>
+                      <option *ngFor="let year of financialYears" [value]="year">{{ year }}</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1"><label for="supplierName" class="form-label">Supplier&nbsp;Name </label></div>
+                  <div class="col-md-2">
+                    <select id="supplierName" class="form-select form-select-sm" formControlName="supplierName">
+                      <option value="undefined" [selected]="true">[Supplier]</option>
+                      <option value="ALL">ALL</option>
+                      <option value="ABC Suppliers Pvt Ltd">ABC Suppliers Pvt Ltd</option>
+                      <option value="XYZ Distributors">XYZ Distributors</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1"><label for="status" class="form-label">Status </label></div>
+                  <div class="col-md-2">
+                    <select id="status" formControlName="status" class="form-select form-select-sm"
+                            [disabled]="isViewMode">
+                      <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1"><label for="rentType" class="form-label">Rent Type </label></div>
+                  <div class="col-md-2">
+                    <select id="rentType" formControlName="rentType" class="form-select form-select-sm"
+                            [disabled]="isViewMode">
+                      <option value="">[Select]</option>
+                      <option *ngFor="let type of rentTypes" [value]="type">{{ type }}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Agreement Dates -->
+                <div class="row mb-1 align-items-center">
+                  <div class="col-md-1"><label for="agreementFromDate" class="form-label">From Date </label></div>
+                  <div class="col-md-2">
+                    <input type="date" id="agreementFromDate" formControlName="agreementFromDate"
+                           class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="agreementToDate" class="form-label">To Date </label></div>
+                  <div class="col-md-2">
+                    <input type="date" id="agreementToDate" formControlName="agreementToDate"
+                           class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="noticePeriod" class="form-label">Notice&nbsp;Period </label></div>
+                  <div class="col-md-2">
+                    <input type="text" id="noticePeriod" formControlName="noticePeriod"
+                           class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="lockingPeriod" class="form-label">Locking&nbsp;Period</label></div>
+                  <div class="col-md-2">
+                    <input type="text" id="lockingPeriod" formControlName="lockingPeriod"
+                           class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+                </div>
+
+                <!-- Property Details -->
+                <div class="row mb-1">
+                  <div class="col-md-1"><label for="areaSqft" class="form-label">Area (sqft) </label></div>
+                  <div class="col-md-2">
+                    <input type="number" id="areaSqft" formControlName="areaSqft" class="form-control form-control-sm"
+                           [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="monthlyRentAmount" class="form-label">Monthly&nbsp;Rent </label>
+                  </div>
+                  <div class="col-md-2">
+                    <input type="number" id="monthlyRentAmount" formControlName="monthlyRentAmount"
+                           class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="advanceAmount" class="form-label">Advance </label></div>
+                  <div class="col-md-2">
+                    <input type="number" id="advanceAmount" formControlName="advanceAmount"
+                           class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="securityDeposit" class="form-label">Security&nbsp;Deposit </label>
+                  </div>
+                  <div class="col-md-2">
+                    <input type="number" id="securityDeposit" formControlName="securityDeposit"
+                           class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+                </div>
+
+                <!-- Tax Details -->
+                <div class="row mb-1">
+                  <div class="col-md-1"><label for="tdsPercentage" class="form-label">TDS %</label></div>
+                  <div class="col-md-2">
+                    <input type="number" id="tdsPercentage" formControlName="tdsPercentage"
+                           class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="gstPercentage" class="form-label">GST %</label></div>
+                  <div class="col-md-2">
+                    <input type="number" id="gstPercentage" formControlName="gstPercentage"
+                           class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="rcm" class="form-label">RCM</label></div>
+                  <div class="col-md-2">
+                    <select id="rcm" formControlName="rcm" class="form-select form-select-sm" [disabled]="isViewMode">
+                      <option *ngFor="let option of rcmOptions" [value]="option">{{ option }}</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1"><label for="electricityUnitRate" class="form-label">Electricity Unit
+                    Rate</label></div>
+                  <div class="col-md-2">
+                    <input type="number" id="electricityUnitRate" formControlName="electricityUnitRate"
+                           class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+                </div>
+
+                <!-- Supplier Details -->
+                <div class="row mb-1" style="--bs-gutter-x:0.5rem">
+                  <div class="col-md-12 text-center heading">
+                    <label for="panNo"  class="form-label">Supplier Details</label>
+                  </div>
+                </div>
+                <div class="row mb-1">
+                  <div class="col-md-1"><label for="panNo" class="form-label">PAN No</label></div>
+                  <div class="col-md-2">
+                    <input type="text" id="panNo" formControlName="panNo" class="form-control form-control-sm"
+                           [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="gstNo" class="form-label">GST No</label></div>
+                  <div class="col-md-2">
+                    <input type="text" id="gstNo" formControlName="gstNo" class="form-control form-control-sm"
+                           [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="address" class="form-label">Address</label></div>
+                  <div class="col-md-5">
+                    <input type="text" id="address" formControlName="address" class="form-control form-control-sm"
+                           [disabled]="isViewMode">
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="row card-margin-bottom-10">
+                    <div class="col-md-5 text-end"></div>
+                    <div class="col-md-1" *ngIf="!isViewMode">
+                      <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light"
+                              [disabled]="editForm.invalid || saving">
+                        <span *ngIf="!saving">Save</span>
+                        <span *ngIf="saving" class="spinner-border spinner-border-sm" role="status"
+                              aria-hidden="true"></span>
+                      </button>
+                    </div>
+                    <div class="col-md-1">
+                      <button type="button" id="cancel" class="btn btn-sm rounded-pill my-btn-light"
+                              (click)="previousState()">
+                        {{ isViewMode ? 'Back' : 'Close' }}
+                      </button>
+                    </div>
+                    <div class="col-md-5"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="tab2" role="tabpanel">
+              <div class="table-responsive">
+                <table class="table table-sm table-striped">
+                  <thead class="table-light-new">
+                  <tr>
+                    <th>Agreement No</th>
+                    <th>From Date</th>
+                    <th>To Date</th>
+                    <th>Rent Type</th>
+                    <th>Monthly Rent</th>
+                    <th>Security Deposit</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let agreement of previousAgreements; let i = index;">
+                    <td>{{ agreement.agreementNumber }}</td>
+                    <td>{{ agreement.agreementFromDate | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ agreement.agreementToDate | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ agreement.rentType }}</td>
+                    <td>{{ agreement.monthlyRentAmount | currency:'INR' }}</td>
+                    <td>{{ agreement.securityDeposit | currency:'INR' }}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

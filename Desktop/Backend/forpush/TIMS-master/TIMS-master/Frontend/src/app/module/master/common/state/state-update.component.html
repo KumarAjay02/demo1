@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="editForm" role="form" novalidate [formGroup]="editForm" (ngSubmit)="updateState()">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            STATE   MASTER
+          </div>
+          <div class="card-body">
+            <div class="row mb-2">
+              <div class="col-md-1 text-end">
+                <label class="form-control-label" for="field_code">State Code</label>
+              </div>
+              <div class="col-md-3">
+                <input type="text"
+                       class="form-control form-control-sm text-uppercase"
+                       name="code"
+                       id="field_code"
+                       formControlName="code" />
+
+              </div>
+              <div class="col-md-1   text-end">
+                <label class="form-control-label" for="field_name">State Name</label>
+              </div>
+              <div class="col-md-3">
+                <input type="text"
+                       class="form-control form-control-sm text-uppercase"
+                       name="name"
+                       id="field_name"
+                       formControlName="name" />
+
+              </div>
+              <div class="col-md-1 text-end">
+                <label class="form-control-label" for="field_flag">Status</label>
+              </div>
+              <div class="col-md-3">
+                <select type="text"
+                        class="form-select form-select-sm custom-select custom-select-sm"
+                        name="flag"
+                        id="field_flag"
+                        formControlName="flag"
+                        required
+                        maxlength="1">
+                  <option value="Y">Active</option>
+                  <option value="N">Inactive</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row card-margin-bottom-10">
+              <div class="col-md-5 text-end">
+
+              </div>
+
+              <div class="col-md-1">
+                <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                  Save
+                </button>
+              </div>
+              <div class="col-md-1">
+                <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light" (click)="previousState()">
+                  Close
+                </button>
+              </div>
+              <div class="col-md-5">
+
+              </div>
+            </div>
+            <div></div>
+
+          </div>
+        </div>
+      </form>
+      <!--</app-card>-->
+    </div>
+  </div>
+  </div>

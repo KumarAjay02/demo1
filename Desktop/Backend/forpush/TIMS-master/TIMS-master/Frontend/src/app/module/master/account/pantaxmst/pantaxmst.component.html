@@ -1,0 +1,256 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-flex align-items-center justify-content-start">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <ng-container>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Master Apps</a></li>
+                            <li class="breadcrumb-item">Master</li>
+                            <li class="breadcrumb-item">Pan tax Master</li>
+                        </ng-container>
+                    </ol>
+                </div>
+            </div>
+            <div class="card-title text-center">
+                PAN TAX
+            </div>
+            <div class="card-body p-1">
+                <ul class="nav nav-tabs mb-1" id="docketTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1"
+                            type="button" role="tab">Pan Tax Special
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button"
+                            role="tab">Pan Tax 
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <!-- TAB 1 -->
+                    <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                        <div class="card card-box mb-1">
+                            <div class="card-header bg-transparent border-bottom">
+                                <div class="row justify-content-end"> 
+                                    <div class="col-md-2">
+                                        <div class="search-wrapper-mini position-relative">
+                                            <div
+                                                class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+                                                <i class="bi bi-search"></i>
+                                            </div>
+                                            <input
+                                                class="form-control form-control-sm form-select-sm rounded-pill text-uppercase ps-4"
+                                                placeholder="Pan Number"/>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-1">
+                                        <button class="btn btn-sm rounded-pill my-btn-light-grd">
+                                            <i class="bi bi-search"></i>
+                                        </button>
+                                    </div>
+                                    <div class="col-md-3 text-end">
+                                        <button class="btn btn-sm rounded-pill my-btn-light" [routerLink]="['add']">Add
+                                            New</button>
+                                        <div class="btn-group rounded-pill dropdown-end">
+                                            <button class="btn d-30 p-0 my-btn-light-grd"
+                                                style="border-radius: 30px 0 0 30px;" type="button">
+                                                <i class="bi bi-gear-fill"></i>
+                                            </button>
+                                            <button class="btn d-30 btn-rounded p-0 btn-secondary dropdown-toggle"
+                                                type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                                style="border-radius: 0 30px 30px 0;">
+                                                <i class="bi bi-three-dots-vertical"></i>
+                                            </button>
+
+                                            <ul class="dropdown-menu dropdown-menu-end listData">
+                                                <li class="text-center">Exports </li>
+                                                <li class="divider dropdown-divider"></li>
+                                                <li class="dropdown-item">
+                                                    <i class="bi bi-file-earmark-excel text-success"></i>
+                                                    &nbsp; <span>Excel</span>
+                                                </li>
+                                                <li class="dropdown-item">
+                                                    <i class="bi bi-filetype-pdf text-danger"></i>
+                                                    &nbsp; <span>Pdf</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-striped table-bordered">
+                                        <thead class="table-light-new">
+                                            <tr>
+                                                <th>Sr No</th>
+                                                <th>PAN NUMBER</th>
+                                                <th>PAN CODE</th>
+                                                <th>STATUS</th>
+                                                
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let pan of pantaxSpecial; let i = index; ">
+                                                <td>{{ i + 1 }}</td>
+                                                
+                                                <td>{{ pan.PanNumber }}</td>
+                                                <td>{{pan.PanNumberCode }}</td>
+                                                <td>{{ pan.Status }}</td>
+                                                <td class="text-end">
+                                                    <div class="btn-group">
+                                                        <button [routerLink]="['view']"
+                                                            class="btn btn-sm my-btn-light-grd" matTooltip="View"
+                                                            style="border-radius: 30px 0 0 30px;"
+                                                            matTooltipPosition="above" type="button">
+                                                            <i class="bi bi-eye-fill"></i>
+                                                        </button>
+                                                        <button type="button" matTooltipPosition="above"
+                                                            [routerLink]="['edit']"
+                                                            class="btn btn-sm my-btn-edit" matTooltip="Edit">
+                                                            <i class="bi bi-pencil-fill"></i>
+                                                        </button>
+                                                        <button type="button" matTooltip="Print"
+                                                            matTooltipPosition="above"
+                                                            [routerLink]="['print']"
+                                                            class="btn btn-sm btn-secondary">
+                                                            <i class="bi bi-printer-fill"></i>
+                                                        </button>
+                                                        <button type="button" class="btn btn-sm my-btn-danger"
+                                                            style="border-radius: 0 30px 30px 0;"
+                                                            matTooltipPosition="above" matTooltip="Delete">
+                                                            <i class="bi bi-trash-fill"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div *ngIf="pantaxSpecial.length === 0" class="alert alert-warning">No Road TCS Entries
+                                        Found</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab2" role="tabpanel">
+                        <div class="card card-box mb-1">
+                            <div class="card-header bg-transparent border-bottom">
+                                <div class="row justify-content-end"> 
+                                    <div class="col-md-2">
+                                        <div class="search-wrapper-mini position-relative">
+                                            <div
+                                                class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+                                                <i class="bi bi-search"></i>
+                                            </div>
+                                            <input
+                                                class="form-control form-control-sm form-select-sm rounded-pill text-uppercase ps-4"
+                                                placeholder="Pan Code"/>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-1">
+                                        <button class="btn btn-sm rounded-pill my-btn-light-grd">
+                                            <i class="bi bi-search"></i>
+                                        </button>
+                                    </div>
+                                    <div class="col-md-3 text-end">
+                                        <button class="btn btn-sm rounded-pill my-btn-light" [routerLink]="['add-tax']">Add
+                                            New</button>
+                                        <div class="btn-group rounded-pill dropdown-end">
+                                            <button class="btn d-30 p-0 my-btn-light-grd"
+                                                style="border-radius: 30px 0 0 30px;" type="button">
+                                                <i class="bi bi-gear-fill"></i>
+                                            </button>
+                                            <button class="btn d-30 btn-rounded p-0 btn-secondary dropdown-toggle"
+                                                type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                                style="border-radius: 0 30px 30px 0;">
+                                                <i class="bi bi-three-dots-vertical"></i>
+                                            </button>
+
+                                            <ul class="dropdown-menu dropdown-menu-end listData">
+                                                <li class="text-center">Exports </li>
+                                                <li class="divider dropdown-divider"></li>
+                                                <li class="dropdown-item">
+                                                    <i class="bi bi-file-earmark-excel text-success"></i>
+                                                    &nbsp; <span>Excel</span>
+                                                </li>
+                                                <li class="dropdown-item">
+                                                    <i class="bi bi-filetype-pdf text-danger"></i>
+                                                    &nbsp; <span>Pdf</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-striped table-bordered">
+                                        <thead class="table-light-new">
+                                            <tr>
+                                                <th>Sr No</th>
+                                               
+                                                <th>PAN CODE</th>
+                                                <th>TAX RATE</th>
+                                                <th>FINANCIAL YEAR</th>
+                                                
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let pan of pantax; let i = index; ">
+                                                <td>{{ i + 1 }}</td>
+                                                
+                                                <td>{{ pan.panNumberCode }}</td>
+                                                <td>{{ pan.Tax_rate }}</td>
+                                                <td>{{ pan.Financial_Year }}</td>
+                                                
+                                                <td class="text-end">
+                                                    <div class="btn-group">
+                                                        <button [routerLink]="['view']"
+                                                            class="btn btn-sm my-btn-light-grd" matTooltip="View"
+                                                            style="border-radius: 30px 0 0 30px;"
+                                                            matTooltipPosition="above" type="button">
+                                                            <i class="bi bi-eye-fill"></i>
+                                                        </button>
+                                                        <button type="button" matTooltipPosition="above"
+                                                            [routerLink]="['edit']"
+                                                            class="btn btn-sm my-btn-edit" matTooltip="Edit">
+                                                            <i class="bi bi-pencil-fill"></i>
+                                                        </button>
+                                                        <button type="button" matTooltip="Print"
+                                                            matTooltipPosition="above"
+                                                            [routerLink]="['print']"
+                                                            class="btn btn-sm btn-secondary">
+                                                            <i class="bi bi-printer-fill"></i>
+                                                        </button>
+                                                        <button type="button" class="btn btn-sm my-btn-danger"
+                                                            style="border-radius: 0 30px 30px 0;"
+                                                            matTooltipPosition="above" matTooltip="Delete">
+                                                            <i class="bi bi-trash-fill"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div *ngIf="pantax.length === 0" class="alert alert-warning">No Road TCS Entries
+                                        Found</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

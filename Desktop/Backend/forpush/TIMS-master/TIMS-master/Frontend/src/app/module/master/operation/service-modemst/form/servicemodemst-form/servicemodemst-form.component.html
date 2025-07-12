@@ -1,0 +1,106 @@
+<div class="container-fluid">
+   <div class="row mt-5 ">
+      <div class="col-sm-12 m-lg-auto">
+         <form name="editForm" role="form" novalidate>
+            <div class="card card-box mb-2">
+               <div class="card-title text-center">
+                  SERVICE MODE   
+               </div>
+               <div class="card-body my-3 cardbodyFont">
+                  <div class="row">
+                     <div class="col-md-2 col-lg-1   text-end labeltext">
+                        <label class="form-control-label" for="field_country">Company Code</label>
+                     </div>
+                      <div class="col-md-4 col-lg-3 mb-3">
+                        <select type="text"
+                           class="form-select form-select-sm custom-select custom-select-sm"
+                           name="flag"
+                           id="field_flag"
+                           required
+                           maxlength="1">
+                           <option value="">FTL</option>
+                           <option value="">VOLVO</option>
+                           <option value="">AIR</option>
+                          <option value="">EXPRESS</option>
+                        </select>
+                     </div>
+                     <div class="col-md-2 col-lg-1   text-end labeltext">
+                        <label class="form-control-label" for="productflg">Product Name</label>
+                     </div>
+                     <div class="col-md-4 col-lg-3 mb-3">
+                        <input type="text"
+                           class="form-control form-control-sm text-uppercase"
+                           name="pinCode"
+                           id="productflg"
+                           />
+                     </div>
+                     <div class="col-md-2 col-lg-1 text-end labeltext">
+                        <label class="form-control-label" for="field_flag">Service Mode</label>
+                     </div>
+                     <div class="col-md-4 col-lg-3 mb-3">
+                        <select type="text"
+                           class="form-select form-select-sm custom-select custom-select-sm"
+                           name="flag"
+                           id="field_flag"
+                           required
+                           maxlength="1">
+                           <option value="">Air</option>
+                           <option value="">Road</option>
+                           <option value="">Train</option>
+                          <option value="">Sea</option>
+                        </select>
+                     </div>
+                     <div class="col-md-2 col-lg-1 text-end   labeltext">
+                        <label class="form-control-label" for="field_flag">Status</label>
+                     </div>      
+              <div class="col-md-4 col-lg-3 mb-3">
+                <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" id="Status" type="radio" name="Status" [value]="'Y'"
+                      formControlName="Status" />
+                    Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </div>
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" type="radio" name="Status" [value]="'N'" formControlName="Status" />
+                    No
+                  </div>
+                </div>
+              </div>
+
+                     <!-- <div class="m-auto text-center mt-4">
+                        <button type="submit" id="save"   class="btn shadow-lg btn-secondary rounded-5 mx-2 btn-sm">
+                        Save
+                        </button>
+                        <button type="button" id="cancel-save" class="btn shadow-lg btn-secondary rounded-5 mx-2 btn-sm" routerLink="/serviceModemst" >
+                        Close
+                        </button>
+                     </div> -->
+                     
+<div class="card-footer">
+                <div class="row mb-2">
+                  <div class="col-md-5"></div>
+                  <div class="col-md-1">
+                    <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                      Save
+                    </button>
+                  </div>
+                  <div class="col-md-1">
+                    <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                      routerLink="/serviceModemst">
+                      Close
+                    </button>
+                  </div>
+                  <div class="col-md-5"></div>
+                </div>
+              </div>
+
+
+
+
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
+   </div>
+</div>

@@ -1,0 +1,139 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+<div class="row">
+  <div class="col-12">
+    <div class="page-title-box d-flex align-items-center justify-content-between">
+      <div class="page-title-right">
+        <ol class="breadcrumb m-0">
+          <ng-container>
+            <li class="breadcrumb-item"><a href="javascript: void(0);">Features</a></li>
+            <li class="breadcrumb-item">Rights</li>
+            <li class="breadcrumb-item active">User Rights</li>
+          </ng-container>
+        </ol>
+      </div>
+    </div>
+    <div class="card-title text-center">
+      USER RIGHTS
+    </div>
+  </div>
+</div>
+<div class="card card-box mb-2">
+  <div class="card-header bg-transparent border-bottom">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="search-wrapper-mini">
+          <div class="icon-wrapper">
+            <i class="bx bx-search"></i>
+          </div>
+          <select type="text"
+                  class="form-select form-control-sm text-uppercase"
+                  name="userList"
+                  id="field_userList"
+                  [(ngModel)]="selectedUserId"
+                  [ngModelOptions]="{ standalone: true }"
+                  (change)="filterRights(selectedUserId)">
+            <option value="0">Select</option>
+            <option *ngFor="let usr of userList " [value]="usr.id">
+              {{usr.user+"("+usr.login+")"}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+
+      </div>
+      <div class="col-md-4">
+<!--        <button class="btn d-30 p-0 btn-pill btn-primary" type="button" >-->
+<!--          <i class="bx bx-search label-icon font-size-12"></i>-->
+<!--        </button>-->
+      </div>
+      <div class="col-md-2 text-end">
+        <div class="dropdown" dropdown>
+          <button type="button"  (click)="updateRights()" id="create-entity" class="btn btn-sm rounded-pill my-btn-light" >
+            Assign
+          </button>
+        </div>
+      </div>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive" id="entities">
+      <table class="table table-sm table-striped" aria-describedby="page-heading">
+        <thead class="table-light-new">
+          <tr>
+            <th>Menu Name</th>
+            <th>Menu Type</th>
+            <th><span><input type="checkbox" name="chkviewall" id="chkviewall" (change)="onCheckboxChange($event,'view')" /></span><span>View</span></th>
+            <th><span><input type="checkbox" name="chkaddall" id="chkaddall" (change)="onCheckboxChange($event,'add')"/></span><span>Add</span></th>
+            <th><span><input type="checkbox" name="chkeditall" id="chkeditall" (change)="onCheckboxChange($event,'edit')"/></span><span>Update</span></th>
+            <th><span><input type="checkbox" name="chkdeleteall" id="chkdeleteall" (change)="onCheckboxChange($event,'delete')" /></span><span>Delete</span></th>
+            <th><span><input type="checkbox" name="chkprintall" id="chkprintall" (change)="onCheckboxChange($event,'print')" /></span><span>Print</span></th>
+            <th><span><input type="checkbox" name="chksearchall" id="chksearchall" (change)="onCheckboxChange($event,'search')" /></span><span>Search</span></th>
+            <th><span><input type="checkbox" name="chkapprovalall" id="chkapprovalall" (change)="onCheckboxChange($event,'approval')" /></span><span>Approval</span></th>
+            <th><span><input type="checkbox" name="chkactiveall" id="chkactiveall" (change)="onCheckboxChange($event,'active')" /></span><span>Active</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let right of rights; let index = index;">
+            <td>{{ right.menuName }}</td>
+
+            <td>{{ right.menuType }}</td>
+            <td><span><input
+              type="checkbox"
+              name="view{{ index }}"
+              id="view{{ index }}"
+              [(ngModel)]="right.view"
+            /></span></td>
+            <td><span><input
+              type="checkbox"
+              name="add{{ index }}"
+              id="add{{ index }}"
+              [(ngModel)]="right.add"
+            /></span></td>
+            <td><span><input
+              type="checkbox"
+              name="edit{{ index }}"
+              id="edit{{ index }}"
+              [(ngModel)]="right.update"
+            /></span></td>
+            <td><span><input
+              type="checkbox"
+              name="deleted{{ index }}"
+              id="deleted{{ index }}"
+              [(ngModel)]="right.deleted"
+            /></span></td>
+            <td><span><input
+              type="checkbox"
+              name="print{{ index }}"
+              id="print{{ index }}"
+              [(ngModel)]="right.print"
+            /></span></td>
+            <td><span><input
+              type="checkbox"
+              name="search{{ index }}"
+              id="search{{ index }}"
+              [(ngModel)]="right.search"
+            /></span></td>
+            <td><span><input
+              type="checkbox"
+              name="approval{{ index }}"
+              id="approval{{ index }}"
+              [(ngModel)]="right.approval"
+            /></span></td>
+            <td><span><input
+              type="checkbox"
+              name="active{{ index }}"
+              id="active{{ index }}"
+              [(ngModel)]="right.isActive"
+            /></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert alert-warning" id="no-result" *ngIf="rights && rights.length === 0">
+      <span>No data found</span>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+

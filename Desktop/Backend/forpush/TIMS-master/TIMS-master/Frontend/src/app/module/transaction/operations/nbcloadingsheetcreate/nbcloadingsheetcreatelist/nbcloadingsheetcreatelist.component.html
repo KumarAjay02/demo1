@@ -1,0 +1,118 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-flex align-items-center justify-content-between">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="#">Operation </a></li>
+                        <li class="breadcrumb-item">Loadingsheet</li>
+                        <li class="breadcrumb-item">Loadingsheet Create</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="card-title text-center">LOADINGSHEET CREATE</div>
+        </div>
+    </div>
+
+    <div class="card card-box mb-2">
+        <div class="card-header bg-transparent border-bottom">
+            <div class="row">
+
+                <div class="col-md-3">
+                    <input class="form-control form-control-sm rounded-pill text-uppercase"
+                        placeholder="loadingsheet No" type="text" />
+                </div>
+                <div class="col-md-3">
+                    <input class="form-control form-control-sm rounded-pill text-uppercase" placeholder="Barcode No"
+                        type="text" />
+                </div>
+
+                <div class="col-md-2">
+                    <button class="btn btn-sm rounded-pill my-btn-light-grd" type="button">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+                <div class="col-sm-4 text-end">
+                    <button type="button" class="btn btn-sm rounded-pill my-btn-light" [routerLink]="['new']">
+                        Add New
+                    </button>
+                    <div class="btn-group rounded-pill dropdown-end">
+                        <button class="btn d-30 p-0 my-btn-light-grd" style="border-radius: 30px 0 0 30px;"
+                            type="button">
+                            <i class="bi bi-gear-fill"></i>
+                        </button>
+                        <button class="btn d-30 btn-rounded p-0 btn-secondary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 0 30px 30px 0;">
+                            <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-menu-end listData">
+                            <li class="text-center">Exports </li>
+                            <li class="divider dropdown-divider"></li>
+                            <li class="dropdown-item">
+                                <i class="bi bi-file-earmark-excel text-success"></i>
+                                &nbsp; <span>Excel</span>
+                            </li>
+                            <li class="dropdown-item">
+                                <i class="bi bi-filetype-pdf text-danger"></i>
+                                &nbsp; <span>Pdf</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-sm table-striped table-bordered">
+                    <thead class="table-light-new">
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Route </th>
+                            <th>Vehicle No</th>
+                            <th>Barcode No</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let items of nbcloadingsheetlist; let i = index; ">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ items.route }}</td>
+                            <td>{{ items.VEHICLEnO }}</td>
+                            <td>{{ items.BarcodeNo }}</td>
+                            <td class="text-end">
+                                <div class="btn-group">
+                                    <button [routerLink]="['view'+i]" class="btn btn-sm my-btn-light-grd"
+                                        matTooltipPosition="above" matTooltip="View"
+                                        style="border-radius: 30px 0 0 30px;">
+                                        <i class="bi bi-eye-fill"></i>
+                                    </button>
+
+                                    <button [routerLink]="['edit'+i]" class="btn btn-sm my-btn-edit" matTooltip="Edit"
+                                        matTooltipPosition="above">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </button>
+
+                                    <button [routerLink]="['print'+i]" class="btn btn-sm btn-secondary"
+                                        matTooltip="Print" matTooltipPosition="above">
+                                        <i class="bi bi-printer-fill"></i>
+                                    </button>
+
+                                    <button class="btn btn-sm my-btn-danger" style="border-radius: 0 30px 30px 0;"
+                                        matTooltip="Delete" matTooltipPosition="above">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div *ngIf="nbcloadingsheetlist.length === 0" class="alert alert-warning">
+                <span>No data found</span>
+            </div>
+        </div>
+    </div>
+</div>

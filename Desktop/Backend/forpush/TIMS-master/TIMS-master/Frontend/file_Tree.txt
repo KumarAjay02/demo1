@@ -1,0 +1,1026 @@
+module/
+├─ master/
+│  ├─ account/
+│  │  ├─ document-type/
+│  │  │  ├─ form/
+│  │  │  │  └─ documenttypeform/
+│  │  │  │     ├─ documenttypeform.component.html
+│  │  │  │     ├─ documenttypeform.component.scss
+│  │  │  │     └─ documenttypeform.component.ts
+│  │  │  ├─ document-type.component.html
+│  │  │  ├─ document-type.component.scss
+│  │  │  ├─ document-type.component.ts
+│  │  │  └─ documenttype.route.ts
+│  │  ├─ financialyearopening/
+│  │  │  ├─ list/
+│  │  │  │  └─ financialyearopeninglist/
+│  │  │  │     ├─ financialyearopeninglist.component.html
+│  │  │  │     ├─ financialyearopeninglist.component.scss
+│  │  │  │     └─ financialyearopeninglist.component.ts
+│  │  │  ├─ models/
+│  │  │  │  └─ financialyearopening.model.ts
+│  │  │  ├─ service/
+│  │  │  │  ├─ financialyearopeaning.service.spec.ts
+│  │  │  │  └─ financialyearopeaning.service.ts
+│  │  │  ├─ financialyearopening.component.html
+│  │  │  ├─ financialyearopening.component.scss
+│  │  │  ├─ financialyearopening.component.ts
+│  │  │  └─ financialyearopening.route.ts
+│  │  ├─ gstratemst/
+│  │  │  ├─ form/
+│  │  │  │  └─ gstratemstform/
+│  │  │  │     ├─ gstratemstform.component.html
+│  │  │  │     ├─ gstratemstform.component.scss
+│  │  │  │     └─ gstratemstform.component.ts
+│  │  │  ├─ model/
+│  │  │  │  └─ gstratemst.model.ts
+│  │  │  ├─ service/
+│  │  │  │  ├─ gstratemst.service.spec.ts
+│  │  │  │  └─ gstratemst.service.ts
+│  │  │  ├─ gstratemst.component.html
+│  │  │  ├─ gstratemst.component.scss
+│  │  │  ├─ gstratemst.component.ts
+│  │  │  └─ gstratemst.routes.ts
+│  │  ├─ pantaxmst/
+│  │  │  ├─ form/
+│  │  │  │  ├─ pantaxmst-form/
+│  │  │  │  │  ├─ pantaxmst-form.component.html
+│  │  │  │  │  ├─ pantaxmst-form.component.scss
+│  │  │  │  │  └─ pantaxmst-form.component.ts
+│  │  │  │  └─ pantaxmstform/
+│  │  │  │     ├─ pantaxmstform.component.html
+│  │  │  │     ├─ pantaxmstform.component.scss
+│  │  │  │     ├─ pantaxmstform.component.spec.ts
+│  │  │  │     └─ pantaxmstform.component.ts
+│  │  │  ├─ models/
+│  │  │  │  └─ pantaxmodel.ts
+│  │  │  ├─ service/
+│  │  │  │  ├─ pantaxservice.service.spec.ts
+│  │  │  │  └─ pantaxservice.service.ts
+│  │  │  ├─ pantax.route.ts
+│  │  │  ├─ pantaxmst.component.html
+│  │  │  ├─ pantaxmst.component.scss
+│  │  │  ├─ pantaxmst.component.spec.ts
+│  │  │  └─ pantaxmst.component.ts
+│  │  ├─ tdsratemst/
+│  │  │  ├─ form/
+│  │  │  │  └─ tdsratemst-form/
+│  │  │  │     ├─ tdsratemst-form.component.html
+│  │  │  │     ├─ tdsratemst-form.component.scss
+│  │  │  │     └─ tdsratemst-form.component.ts
+│  │  │  ├─ services/
+│  │  │  │  └─ tdsratemst.service.ts
+│  │  │  ├─ tdsratemst.component.html
+│  │  │  ├─ tdsratemst.component.scss
+│  │  │  ├─ tdsratemst.component.ts
+│  │  │  └─ tdsratemst.route.ts
+│  │  └─ vendorvehicleratemst/
+│  │     ├─ form/
+│  │     │  └─ vendorvehicleratemst-form/
+│  │     │     ├─ vendorvehicleratemst-form.component.html
+│  │     │     ├─ vendorvehicleratemst-form.component.scss
+│  │     │     └─ vendorvehicleratemst-form.component.ts
+│  │     ├─ model/
+│  │     │  └─ vendorvehicleratemodel.ts
+│  │     ├─ service/
+│  │     │  ├─ vendorvehicleratemst.service.spec.ts
+│  │     │  └─ vendorvehicleratemst.service.ts
+│  │     ├─ vendorvehicleratemst.component.html
+│  │     ├─ vendorvehicleratemst.component.scss
+│  │     ├─ vendorvehicleratemst.component.ts
+│  │     └─ vendorvehicleratemst.routes.ts
+│  ├─ Billing/
+│  ├─ booking-basicmst/
+│  │  ├─ form/
+│  │  │  └─ bookingbasismst-form/
+│  │  │     ├─ bookingbasismst-form.component.css
+│  │  │     ├─ bookingbasismst-form.component.html
+│  │  │     ├─ bookingbasismst-form.component.spec.ts
+│  │  │     └─ bookingbasismst-form.component.ts
+│  │  ├─ models/
+│  │  │  └─ bookingbasicmst.model.ts
+│  │  ├─ services/
+│  │  │  ├─ bookingbasicmst.service.spec.ts
+│  │  │  └─ bookingbasicmst.service.ts
+│  │  ├─ booking-basicmst.component.css
+│  │  ├─ booking-basicmst.component.html
+│  │  ├─ booking-basicmst.component.spec.ts
+│  │  ├─ booking-basicmst.component.ts
+│  │  └─ bookingbasic.routes.ts
+│  ├─ common/
+│  │  ├─ branch-mst/
+│  │  │  ├─ form/
+│  │  │  │  └─ branchmst-form/
+│  │  │  │     ├─ branchmst-form.component.css
+│  │  │  │     ├─ branchmst-form.component.html
+│  │  │  │     ├─ branchmst-form.component.spec.ts
+│  │  │  │     └─ branchmst-form.component.ts
+│  │  │  ├─ models/
+│  │  │  │  ├─ branch.model.ts
+│  │  │  │  └─ branchmst.ts
+│  │  │  ├─ services/
+│  │  │  │  ├─ branchmst.service.spec.ts
+│  │  │  │  └─ branchmst.service.ts
+│  │  │  ├─ branch-mst.component.css
+│  │  │  ├─ branch-mst.component.html
+│  │  │  ├─ branch-mst.component.spec.ts
+│  │  │  ├─ branch-mst.component.ts
+│  │  │  └─ branchmst.routes.ts
+│  │  ├─ city/
+│  │  │  ├─ model/
+│  │  │  │  ├─ city-search.model.ts
+│  │  │  │  └─ city.model.ts
+│  │  │  ├─ city-delete-dialog.component.html
+│  │  │  ├─ city-delete-dialog.component.ts
+│  │  │  ├─ city-list.component.html
+│  │  │  ├─ city-list.component.ts
+│  │  │  ├─ city-update.component.html
+│  │  │  ├─ city-update.component.ts
+│  │  │  ├─ city.routes.ts
+│  │  │  └─ city.service.ts
+│  │  ├─ companydivisionmst/
+│  │  │  ├─ companydivisionmst-form/
+│  │  │  │  ├─ companydivisionmst-form.component.css
+│  │  │  │  ├─ companydivisionmst-form.component.html
+│  │  │  │  └─ companydivisionmst-form.component.ts
+│  │  │  ├─ models/
+│  │  │  │  ├─ companydivisonmst.model.ts
+│  │  │  │  └─ division.model.ts
+│  │  │  ├─ services/
+│  │  │  │  ├─ companydivisionmst.service.spec.ts
+│  │  │  │  └─ companydivisionmst.service.ts
+│  │  │  ├─ companydivisionmst.component.css
+│  │  │  ├─ companydivisionmst.component.html
+│  │  │  ├─ companydivisionmst.component.spec.ts
+│  │  │  ├─ companydivisionmst.component.ts
+│  │  │  └─ companydivisionmst.routes.ts
+│  │  ├─ companymst/
+│  │  │  ├─ form/
+│  │  │  │  └─ companymst-form/
+│  │  │  │     ├─ companymst-form.component.css
+│  │  │  │     ├─ companymst-form.component.html
+│  │  │  │     └─ companymst-form.component.ts
+│  │  │  ├─ models/
+│  │  │  │  ├─ company.model.ts
+│  │  │  │  └─ companymst.model.ts
+│  │  │  ├─ services/
+│  │  │  │  ├─ companymst.service.spec.ts
+│  │  │  │  └─ companymst.service.ts
+│  │  │  ├─ companymst.component.css
+│  │  │  ├─ companymst.component.html
+│  │  │  ├─ companymst.component.spec.ts
+│  │  │  ├─ companymst.component.ts
+│  │  │  └─ companymst.routes.ts
+│  │  ├─ country/
+│  │  │  ├─ model/
+│  │  │  │  ├─ country-search.model.ts
+│  │  │  │  └─ country.model.ts
+│  │  │  ├─ country-delete-dialog.component.html
+│  │  │  ├─ country-delete-dialog.component.ts
+│  │  │  ├─ country-list.component.html
+│  │  │  ├─ country-list.component.ts
+│  │  │  ├─ country-update.component.html
+│  │  │  ├─ country-update.component.ts
+│  │  │  ├─ country.routes.ts
+│  │  │  └─ country.service.ts
+│  │  ├─ pincodemst/
+│  │  │  ├─ form/
+│  │  │  │  ├─ models/
+│  │  │  │  │  └─ pincodemst.model.ts
+│  │  │  │  └─ pincodemst-form/
+│  │  │  │     ├─ pincodemst-form.component.css
+│  │  │  │     ├─ pincodemst-form.component.html
+│  │  │  │     ├─ pincodemst-form.component.spec.ts
+│  │  │  │     └─ pincodemst-form.component.ts
+│  │  │  ├─ services/
+│  │  │  │  ├─ pincodemst.service.spec.ts
+│  │  │  │  └─ pincodemst.service.ts
+│  │  │  ├─ pincodemst.component.css
+│  │  │  ├─ pincodemst.component.html
+│  │  │  ├─ pincodemst.component.spec.ts
+│  │  │  ├─ pincodemst.component.ts
+│  │  │  └─ pincodemst.route.ts
+│  │  └─ state/
+│  │     ├─ model/
+│  │     │  └─ state.model.ts
+│  │     ├─ state-list.component.html
+│  │     ├─ state-list.component.ts
+│  │     ├─ state-master-delete-dialog.component.html
+│  │     ├─ state-master-delete-dialog.component.ts
+│  │     ├─ state-master.route.ts
+│  │     ├─ state-update.component.html
+│  │     ├─ state-update.component.scss
+│  │     ├─ state-update.component.ts
+│  │     └─ state.service.ts
+│  └─ operation/
+│     ├─ booking-basicmst/
+│     │  ├─ form/
+│     │  │  └─ bookingbasismst-form/
+│     │  │     ├─ bookingbasismst-form.component.css
+│     │  │     ├─ bookingbasismst-form.component.html
+│     │  │     ├─ bookingbasismst-form.component.spec.ts
+│     │  │     └─ bookingbasismst-form.component.ts
+│     │  ├─ models/
+│     │  │  └─ bookingbasicmst.model.ts
+│     │  ├─ services/
+│     │  │  ├─ bookingbasicmst.service.spec.ts
+│     │  │  └─ bookingbasicmst.service.ts
+│     │  ├─ booking-basicmst.component.css
+│     │  ├─ booking-basicmst.component.html
+│     │  ├─ booking-basicmst.component.spec.ts
+│     │  ├─ booking-basicmst.component.ts
+│     │  └─ bookingbasic.routes.ts
+│     ├─ card-ratemst/
+│     │  ├─ form/
+│     │  │  └─ cardrate-form/
+│     │  │     ├─ cardrate-form.component.css
+│     │  │     ├─ cardrate-form.component.html
+│     │  │     └─ cardrate-form.component.ts
+│     │  ├─ models/
+│     │  │  └─ cardRate.model.ts
+│     │  ├─ services/
+│     │  │  ├─ cardrateservice.service.spec.ts
+│     │  │  └─ cardrateservice.service.ts
+│     │  ├─ card-ratemst.component.css
+│     │  ├─ card-ratemst.component.html
+│     │  ├─ card-ratemst.component.spec.ts
+│     │  ├─ card-ratemst.component.ts
+│     │  └─ cardRate.route.ts
+│     ├─ charges-mst/
+│     │  ├─ form/
+│     │  │  └─ charges-mst-from/
+│     │  │     ├─ charges-mst-from.component.css
+│     │  │     ├─ charges-mst-from.component.html
+│     │  │     ├─ charges-mst-from.component.spec.ts
+│     │  │     └─ charges-mst-from.component.ts
+│     │  ├─ models/
+│     │  │  └─ chargesmst.ts
+│     │  ├─ services/
+│     │  │  ├─ chargesmst.service.spec.ts
+│     │  │  └─ chargesmst.service.ts
+│     │  ├─ chagesmst.routes.ts
+│     │  ├─ charges-mst.component.css
+│     │  ├─ charges-mst.component.html
+│     │  ├─ charges-mst.component.spec.ts
+│     │  └─ charges-mst.component.ts
+│     ├─ currency-master/
+│     │  ├─ form/
+│     │  │  ├─ currency-mst-form.component.html
+│     │  │  ├─ currency-mst-form.component.scss
+│     │  │  ├─ currency-mst-form.component.spec.ts
+│     │  │  └─ currency-mst-form.component.ts
+│     │  ├─ models/
+│     │  │  └─ currencyModel.ts
+│     │  ├─ services/
+│     │  │  ├─ currency-mst-services.service.spec.ts
+│     │  │  └─ currency-mst-services.service.ts
+│     │  ├─ currency-mst.component.html
+│     │  ├─ currency-mst.component.scss
+│     │  ├─ currency-mst.component.spec.ts
+│     │  ├─ currency-mst.component.ts
+│     │  └─ currencymasterRoutes.ts
+│     ├─ customer/
+│     │  ├─ model/
+│     │  │  ├─ customer-branch.model.ts
+│     │  │  ├─ customer-plant.model.ts
+│     │  │  ├─ customer-search.model.ts
+│     │  │  └─ customer.model.ts
+│     │  ├─ customer-delete-dialog.component.html
+│     │  ├─ customer-delete-dialog.component.ts
+│     │  ├─ customer-list.component.html
+│     │  ├─ customer-list.component.ts
+│     │  ├─ customer-update.component.html
+│     │  ├─ customer-update.component.ts
+│     │  ├─ customer.routes.ts
+│     │  └─ customer.service.ts
+│     ├─ material-master/
+│     │  ├─ material-master-form/
+│     │  │  ├─ material-master-form.component.css
+│     │  │  ├─ material-master-form.component.html
+│     │  │  ├─ material-master-form.component.spec.ts
+│     │  │  └─ material-master-form.component.ts
+│     │  ├─ models/
+│     │  │  └─ materialmst.model.ts
+│     │  ├─ services/
+│     │  │  ├─ materialmst-service.service.spec.ts
+│     │  │  └─ materialmst-service.service.ts
+│     │  ├─ material-master.component.css
+│     │  ├─ material-master.component.html
+│     │  ├─ material-master.component.spec.ts
+│     │  ├─ material-master.component.ts
+│     │  └─ materialmst.routes.ts
+│     ├─ packing-mst/
+│     │  ├─ form/
+│     │  │  └─ packingmst-form/
+│     │  │     ├─ packingmst-form.component.css
+│     │  │     ├─ packingmst-form.component.html
+│     │  │     ├─ packingmst-form.component.spec.ts
+│     │  │     └─ packingmst-form.component.ts
+│     │  ├─ models/
+│     │  │  └─ packingmst.model.ts
+│     │  ├─ services/
+│     │  │  ├─ packingmst.service.spec.ts
+│     │  │  └─ packingmst.service.ts
+│     │  ├─ packing-mst.component.css
+│     │  ├─ packing-mst.component.html
+│     │  ├─ packing-mst.component.spec.ts
+│     │  ├─ packing-mst.component.ts
+│     │  └─ packingmst.route.ts
+│     ├─ payable/
+│     │  ├─ detail/
+│     │  ├─ model/
+│     │  │  ├─ branch-master.model.ts
+│     │  │  ├─ payable-branch.model.ts
+│     │  │  ├─ payable-detail.model.ts
+│     │  │  ├─ payable-search.model.ts
+│     │  │  └─ payable.model.ts
+│     │  ├─ payable-delete-dialog.component.html
+│     │  ├─ payable-delete-dialog.component.ts
+│     │  ├─ payable-detail-dialog.component.html
+│     │  ├─ payable-detail-dialog.component.ts
+│     │  ├─ payable-list.component.html
+│     │  ├─ payable-list.component.ts
+│     │  ├─ payable-update.component.html
+│     │  ├─ payable-update.component.ts
+│     │  ├─ payable.routes.ts
+│     │  └─ payable.service.ts
+│     ├─ routemst/
+│     │  ├─ form/
+│     │  │  └─ routemst-form/
+│     │  │     ├─ routemst-form.component.css
+│     │  │     ├─ routemst-form.component.html
+│     │  │     └─ routemst-form.component.ts
+│     │  ├─ model/
+│     │  │  └─ routemst.model.ts
+│     │  ├─ services/
+│     │  │  └─ routemst.service.ts
+│     │  ├─ routemst.component.css
+│     │  ├─ routemst.component.html
+│     │  ├─ routemst.component.ts
+│     │  └─ routemst.routes.ts
+│     ├─ service-modemst/
+│     │  ├─ form/
+│     │  │  └─ servicemodemst-form/
+│     │  │     ├─ servicemodemst-form.component.css
+│     │  │     ├─ servicemodemst-form.component.html
+│     │  │     ├─ servicemodemst-form.component.spec.ts
+│     │  │     └─ servicemodemst-form.component.ts
+│     │  ├─ models/
+│     │  │  └─ serviceMode.model.ts
+│     │  ├─ services/
+│     │  │  ├─ servicemodemst.service.spec.ts
+│     │  │  └─ servicemodemst.service.ts
+│     │  ├─ service-modemst.component.css
+│     │  ├─ service-modemst.component.html
+│     │  ├─ service-modemst.component.spec.ts
+│     │  ├─ service-modemst.component.ts
+│     │  └─ servicemode.route.ts
+│     ├─ vehicle/
+│     │  ├─ model/
+│     │  │  └─ vehicle.model.ts
+│     │  ├─ vehicle-delete-dialog.component.html
+│     │  ├─ vehicle-delete-dialog.component.ts
+│     │  ├─ vehicle-list.component.html
+│     │  ├─ vehicle-list.component.ts
+│     │  ├─ vehicle-update.component.html
+│     │  ├─ vehicle-update.component.scss
+│     │  ├─ vehicle-update.component.ts
+│     │  ├─ vehicle.routes.ts
+│     │  └─ vehicle.service.ts
+│     ├─ vehicle-capacity-master/
+│     │  ├─ form/
+│     │  │  ├─ vehicle-capacity-master-form.component.html
+│     │  │  ├─ vehicle-capacity-master-form.component.scss
+│     │  │  ├─ vehicle-capacity-master-form.component.spec.ts
+│     │  │  └─ vehicle-capacity-master-form.component.ts
+│     │  ├─ models/
+│     │  │  └─ vehiclecapacitymaster.ts
+│     │  ├─ services/
+│     │  │  ├─ vehicle-capacity-master.service.spec.ts
+│     │  │  └─ vehicle-capacity-master.service.ts
+│     │  ├─ vehicle-capacity-master.component.html
+│     │  ├─ vehicle-capacity-master.component.scss
+│     │  ├─ vehicle-capacity-master.component.spec.ts
+│     │  ├─ vehicle-capacity-master.component.ts
+│     │  └─ vehicleCapacityRoutes.ts
+│     ├─ vehicle-mst/
+│     │  ├─ form/
+│     │  │  ├─ vehicle-master.component.css
+│     │  │  ├─ vehicle-master.component.html
+│     │  │  ├─ vehicle-master.component.spec.ts
+│     │  │  └─ vehicle-master.component.ts
+│     │  ├─ models/
+│     │  │  └─ vehiclemst.ts
+│     │  ├─ services/
+│     │  │  ├─ vehiclemst.service.spec.ts
+│     │  │  └─ vehiclemst.service.ts
+│     │  ├─ vehicle-master-form.component.css
+│     │  ├─ vehicle-master-form.component.html
+│     │  ├─ vehicle-master-form.component.spec.ts
+│     │  └─ vehicle-master-form.component.ts
+│     ├─ vehicleratemst/
+│     │  ├─ form/
+│     │  │  └─ vehicleratemst-form/
+│     │  │     ├─ vehicleratemst-form.component.css
+│     │  │     ├─ vehicleratemst-form.component.html
+│     │  │     ├─ vehicleratemst-form.component.spec.ts
+│     │  │     └─ vehicleratemst-form.component.ts
+│     │  ├─ models/
+│     │  │  └─ vehicleratemst.model.ts
+│     │  ├─ services/
+│     │  │  ├─ vehicleratemst.service.spec.ts
+│     │  │  └─ vehicleratemst.service.ts
+│     │  ├─ vehicleratemst.component.css
+│     │  ├─ vehicleratemst.component.html
+│     │  ├─ vehicleratemst.component.spec.ts
+│     │  └─ vehicleratemst.component.ts
+│     └─ vehicletracking -mst/
+│        ├─ form/
+│        │  ├─ vehicletraking-mst-form.component.css
+│        │  ├─ vehicletraking-mst-form.component.html
+│        │  └─ vehicletraking-mst-form.component.ts
+│        ├─ models/
+│        │  └─ vehicletrackingmaster.ts
+│        ├─ services/
+│        │  ├─ vehicletrackingmst.service.spec.ts
+│        │  └─ vehicletrackingmst.service.ts
+│        ├─ vehicletracking-mst.component.css
+│        ├─ vehicletracking-mst.component.html
+│        ├─ vehicletracking-mst.component.ts
+│        └─ vehicletrackingmst.routes.ts
+├─ report/
+└─ transaction/
+   ├─ accountes/
+   │  ├─ ac-group/
+   │  │  ├─ model/
+   │  │  │  └─ ac-group.module.ts
+   │  │  ├─ ac-group-delete-dialog.component.html
+   │  │  ├─ ac-group-delete-dialog.component.ts
+   │  │  ├─ ac-group-list.component.html
+   │  │  ├─ ac-group-list.component.ts
+   │  │  ├─ ac-group-update.component.html
+   │  │  ├─ ac-group-update.component.ts
+   │  │  ├─ ac-group.routes.ts
+   │  │  └─ ac-group.service.ts
+   │  ├─ ac-nature/
+   │  │  ├─ model/
+   │  │  │  └─ ac-nature.model.ts
+   │  │  ├─ ac-nature-delete-dialog.component.html
+   │  │  ├─ ac-nature-delete-dialog.component.ts
+   │  │  ├─ ac-nature-list.component.html
+   │  │  ├─ ac-nature-list.component.ts
+   │  │  ├─ ac-nature-update.component.html
+   │  │  ├─ ac-nature-update.component.ts
+   │  │  ├─ ac-nature.routes.ts
+   │  │  └─ ac-nature.service.ts
+   │  ├─ ac-schedule/
+   │  │  ├─ model/
+   │  │  │  ├─ ac-schedule-search.model.ts
+   │  │  │  └─ ac-schedule.model.ts
+   │  │  ├─ ac-schedule-delete-dialog.component.html
+   │  │  ├─ ac-schedule-delete-dialog.component.ts
+   │  │  ├─ ac-schedule-list.component.html
+   │  │  ├─ ac-schedule-list.component.ts
+   │  │  ├─ ac-schedule-update.component.html
+   │  │  ├─ ac-schedule-update.component.ts
+   │  │  ├─ ac-schedule.routes.ts
+   │  │  └─ ac-schedule.service.ts
+   │  ├─ account/
+   │  │  ├─ model/
+   │  │  │  ├─ account-search.module.ts
+   │  │  │  └─ account.module.ts
+   │  │  ├─ account-delete-dialog.component.html
+   │  │  ├─ account-delete-dialog.component.ts
+   │  │  ├─ account-list.component.html
+   │  │  ├─ account-list.component.ts
+   │  │  ├─ account-update.component.html
+   │  │  ├─ account-update.component.ts
+   │  │  ├─ account.routes.ts
+   │  │  └─ account.service.ts
+   │  ├─ bank/
+   │  │  ├─ model/
+   │  │  │  └─ bank.module.ts
+   │  │  ├─ bank-delete-dialog.component.html
+   │  │  ├─ bank-delete-dialog.component.ts
+   │  │  ├─ bank-list.component.html
+   │  │  ├─ bank-list.component.ts
+   │  │  ├─ bank-update.component.html
+   │  │  ├─ bank-update.component.ts
+   │  │  ├─ bank.routes.ts
+   │  │  └─ bank.service.ts
+   │  ├─ bl-pl-disp-info/
+   │  │  ├─ model/
+   │  │  │  └─ bl-pl-disp-info.module.ts
+   │  │  ├─ bl-pl-disp-info-list.component.html
+   │  │  ├─ bl-pl-disp-info-list.component.ts
+   │  │  ├─ bl-pl-disp-info-update.component.html
+   │  │  ├─ bl-pl-disp-info-update.component.ts
+   │  │  ├─ bl-pl-disp-info.routes.ts
+   │  │  └─ bl-pl-disp-info.service.ts
+   │  ├─ contra-voucher/
+   │  │  ├─ model/
+   │  │  │  ├─ contra-voucher-search.module.ts
+   │  │  │  └─ contra-voucher.module.ts
+   │  │  ├─ contra-voucher-delete-dialog.component.html
+   │  │  ├─ contra-voucher-delete-dialog.component.ts
+   │  │  ├─ contra-voucher-list.component.html
+   │  │  ├─ contra-voucher-list.component.ts
+   │  │  ├─ contra-voucher-update.component.html
+   │  │  ├─ contra-voucher-update.component.ts
+   │  │  ├─ contra-voucher.routes.ts
+   │  │  └─ contra-voucher.service.ts
+   │  ├─ cost-type/
+   │  │  ├─ model/
+   │  │  │  ├─ costtype-search.module.ts
+   │  │  │  └─ costtype.module.ts
+   │  │  ├─ costtype-delete-dialog.component.html
+   │  │  ├─ costtype-delete-dialog.component.ts
+   │  │  ├─ costtype-list.component.html
+   │  │  ├─ costtype-list.component.ts
+   │  │  ├─ costtype-update.component.html
+   │  │  ├─ costtype-update.component.ts
+   │  │  ├─ costtype.routes.ts
+   │  │  └─ costtype.service.ts
+   │  ├─ costCenter/
+   │  │  ├─ form/
+   │  │  │  └─ cost-center-mst-form/
+   │  │  │     ├─ cost-center-mst-form.component.html
+   │  │  │     ├─ cost-center-mst-form.component.scss
+   │  │  │     ├─ cost-center-mst-form.component.spec.ts
+   │  │  │     └─ cost-center-mst-form.component.ts
+   │  │  ├─ model/
+   │  │  │  └─ costCenterModel.ts
+   │  │  ├─ service/
+   │  │  │  ├─ cost-center-mst-service.service.spec.ts
+   │  │  │  └─ cost-center-mst-service.service.ts
+   │  │  ├─ cost-center-mst.component.html
+   │  │  ├─ cost-center-mst.component.scss
+   │  │  ├─ cost-center-mst.component.spec.ts
+   │  │  ├─ cost-center-mst.component.ts
+   │  │  └─ costCenterRoutes.ts
+   │  ├─ credit-Note/
+   │  │  ├─ credit-note/
+   │  │  │  ├─ credit-note.component.html
+   │  │  │  ├─ credit-note.component.scss
+   │  │  │  ├─ credit-note.component.spec.ts
+   │  │  │  └─ credit-note.component.ts
+   │  │  ├─ service/
+   │  │  │  ├─ credit-note-service.service.spec.ts
+   │  │  │  └─ credit-note-service.service.ts
+   │  │  └─ creditNoteRoutes.ts
+   │  ├─ debit -Note/
+   │  │  ├─ form/
+   │  │  │  ├─ debit-note-form.component.html
+   │  │  │  ├─ debit-note-form.component.scss
+   │  │  │  ├─ debit-note-form.component.spec.ts
+   │  │  │  └─ debit-note-form.component.ts
+   │  │  ├─ model/
+   │  │  │  └─ debitNote.ts
+   │  │  ├─ service/
+   │  │  │  ├─ debit-note-service.service.spec.ts
+   │  │  │  └─ debit-note-service.service.ts
+   │  │  ├─ debit-note.component.html
+   │  │  ├─ debit-note.component.scss
+   │  │  ├─ debit-note.component.spec.ts
+   │  │  ├─ debit-note.component.ts
+   │  │  └─ debitNoteRoutes.ts
+   │  ├─ doc-type/
+   │  │  ├─ model/
+   │  │  │  ├─ doctype-search.module.ts
+   │  │  │  └─ doctype.module.ts
+   │  │  ├─ doctype-delete-dialog.component.html
+   │  │  ├─ doctype-delete-dialog.component.ts
+   │  │  ├─ doctype-list.component.html
+   │  │  ├─ doctype-list.component.ts
+   │  │  ├─ doctype-update.component.html
+   │  │  ├─ doctype-update.component.ts
+   │  │  ├─ doctype.routes.ts
+   │  │  └─ doctype.service.ts
+   │  ├─ interbranch-ft/
+   │  │  ├─ model/
+   │  │  │  ├─ interbranch-ft-search.module.ts
+   │  │  │  └─ interbranch-ft.module.ts
+   │  │  ├─ interbranch-ft-delete-dialog.component.html
+   │  │  ├─ interbranch-ft-delete-dialog.component.ts
+   │  │  ├─ interbranch-ft-list.component.html
+   │  │  ├─ interbranch-ft-list.component.ts
+   │  │  ├─ interbranch-ft-update.component.html
+   │  │  ├─ interbranch-ft-update.component.ts
+   │  │  ├─ interbranch-ft.routes.ts
+   │  │  └─ interbranch-ft.service.ts
+   │  ├─ journal-voucher/
+   │  │  ├─ model/
+   │  │  │  └─ journalvoucher.module.ts
+   │  │  ├─ journalvoucher-delete-dialog.component.html
+   │  │  ├─ journalvoucher-delete-dialog.component.ts
+   │  │  ├─ journalvoucher-list.component.html
+   │  │  ├─ journalvoucher-list.component.ts
+   │  │  ├─ journalvoucher-update.component.html
+   │  │  ├─ journalvoucher-update.component.ts
+   │  │  ├─ journalvoucher.routes.ts
+   │  │  └─ journalvoucher.service.ts
+   │  ├─ liability-entry/
+   │  │  ├─ model/
+   │  │  │  ├─ liability-detail.model.ts
+   │  │  │  ├─ liability-entry.model.ts
+   │  │  │  └─ liability-payment.model.ts
+   │  │  ├─ liability-entry-delete-dialog.component.html
+   │  │  ├─ liability-entry-delete-dialog.component.ts
+   │  │  ├─ liability-entry-list.component.html
+   │  │  ├─ liability-entry-list.component.ts
+   │  │  ├─ liability-entry-update.component.html
+   │  │  ├─ liability-entry-update.component.ts
+   │  │  ├─ liability-entry.routes.ts
+   │  │  └─ liability-entry.service.ts
+   │  ├─ net-Salary-Payment/
+   │  │  ├─ model/
+   │  │  │  └─ netSalaryPayment.ts
+   │  │  ├─ net-salaryt-payment/
+   │  │  │  ├─ net-salaryt-payment.component.html
+   │  │  │  ├─ net-salaryt-payment.component.scss
+   │  │  │  ├─ net-salaryt-payment.component.spec.ts
+   │  │  │  └─ net-salaryt-payment.component.ts
+   │  │  └─ netSalaryPaymentRoutes.ts
+   │  ├─ tcs-payment/
+   │  │  ├─ model/
+   │  │  │  ├─ tcs-payment.model.ts
+   │  │  │  └─ tcs.model.ts
+   │  │  ├─ tcs-payment-delete-dialog.component.html
+   │  │  ├─ tcs-payment-delete-dialog.component.ts
+   │  │  ├─ tcs-payment-list.component.html
+   │  │  ├─ tcs-payment-list.component.ts
+   │  │  ├─ tcs-payment-update.component.html
+   │  │  ├─ tcs-payment-update.component.ts
+   │  │  ├─ tcs-payment.routes.ts
+   │  │  └─ tcs-payment.service.ts
+   │  └─ voucher-entry/
+   │     ├─ model/
+   │     │  └─ voucherentry.module.ts
+   │     ├─ voucherentry-delete-dialog.component.html
+   │     ├─ voucherentry-delete-dialog.component.ts
+   │     ├─ voucherentry-list.component.html
+   │     ├─ voucherentry-list.component.ts
+   │     ├─ voucherentry-update.component.html
+   │     ├─ voucherentry-update.component.ts
+   │     ├─ voucherentry.routes.ts
+   │     └─ voucherentry.service.ts
+   ├─ Billing/
+   │  ├─ bill-dispatch-receive/
+   │  │  ├─ model/
+   │  │  │  └─ billDispatchReceiveModel.ts
+   │  │  ├─ bill-dispatch-receive.component.html
+   │  │  ├─ bill-dispatch-receive.component.scss
+   │  │  ├─ bill-dispatch-receive.component.spec.ts
+   │  │  ├─ bill-dispatch-receive.component.ts
+   │  │  └─ billdispatchreceiveRoutes.ts
+   │  ├─ bill-submission/
+   │  │  ├─ model/
+   │  │  │  └─ bill-submission.model.ts
+   │  │  ├─ bill-submission-delete-dialog.component.html
+   │  │  ├─ bill-submission-delete-dialog.component.ts
+   │  │  ├─ bill-submission-list.component.html
+   │  │  ├─ bill-submission-list.component.ts
+   │  │  ├─ bill-submission-update.component.html
+   │  │  ├─ bill-submission-update.component.ts
+   │  │  ├─ bill-submission.routes.ts
+   │  │  └─ bill-submission.service.ts
+   │  ├─ bulk-docket-update/
+   │  │  ├─ bulk-docket-freight-update.component.scss
+   │  │  ├─ bulk-docket-Update.component.html
+   │  │  ├─ bulk-docket-update.component.ts
+   │  │  └─ bulkdocketupdate.route.ts
+   │  ├─ create-bill/
+   │  │  ├─ model/
+   │  │  │  ├─ bill-search.model.ts
+   │  │  │  ├─ bill.model.ts
+   │  │  │  └─ group-invoice.model.ts
+   │  │  ├─ bill-delete-dialog.component.html
+   │  │  ├─ bill-delete-dialog.component.ts
+   │  │  ├─ bill-list.component.html
+   │  │  ├─ bill-list.component.ts
+   │  │  ├─ bill-update.component.html
+   │  │  ├─ bill-update.component.ts
+   │  │  ├─ bill.routes.ts
+   │  │  └─ bill.service.ts
+   │  ├─ customer-rate/
+   │  │  ├─ model/
+   │  │  │  └─ customer-rate-model.ts
+   │  │  ├─ customer-rate-list.component.html
+   │  │  ├─ customer-rate-list.component.ts
+   │  │  ├─ customer-rate.component.html
+   │  │  ├─ customer-rate.component.ts
+   │  │  ├─ customer-rate.service.ts
+   │  │  └─ CustomerRate.route.ts
+   │  ├─ einvoice/
+   │  │  ├─ einvoice.component.html
+   │  │  ├─ einvoice.component.scss
+   │  │  ├─ einvoice.component.ts
+   │  │  └─ einvoice.route.ts
+   │  ├─ mr-cheque-adjustment/
+   │  │  ├─ model/
+   │  │  │  ├─ adjusted-invoice.model.ts
+   │  │  │  └─ mr-transfer-adjustment.model.ts
+   │  │  ├─ mr-transfer-adjustment-delete-dialog.component.html
+   │  │  ├─ mr-transfer-adjustment-delete-dialog.component.ts
+   │  │  ├─ mr-transfer-adjustment-list.component.html
+   │  │  ├─ mr-transfer-adjustment-list.component.ts
+   │  │  ├─ mr-transfer-adjustment-update.component.html
+   │  │  ├─ mr-transfer-adjustment-update.component.ts
+   │  │  ├─ mr-transfer-adjustment.routes.ts
+   │  │  └─ mr-transfer-adjustment.service.ts
+   │  └─ mr-cheque-entry/
+   │     ├─ model/
+   │     │  └─ mr-cheque-entry.model.ts
+   │     ├─ mr-cheque-entry-delete-dialog.component.html
+   │     ├─ mr-cheque-entry-delete-dialog.component.ts
+   │     ├─ mr-cheque-entry-list.component.html
+   │     ├─ mr-cheque-entry-list.component.ts
+   │     ├─ mr-cheque-entry-update.component.html
+   │     ├─ mr-cheque-entry-update.component.ts
+   │     ├─ mr-cheque-entry.routes.ts
+   │     └─ mr-cheque-entry.service.ts
+   └─ operations/
+      ├─ awbchallan/
+      │  ├─ form/
+      │  │  └─ awbchallanform/
+      │  │     ├─ awbchallanform.component.html
+      │  │     ├─ awbchallanform.component.scss
+      │  │     └─ awbchallanform.component.ts
+      │  ├─ models/
+      │  │  └─ awbchallanModel.ts
+      │  ├─ service/
+      │  │  ├─ awbchallanservice.service.spec.ts
+      │  │  └─ awbchallanservice.service.ts
+      │  ├─ awbchallan.component.html
+      │  ├─ awbchallan.component.scss
+      │  ├─ awbchallan.component.ts
+      │  └─ awbchallan.Route.ts
+      ├─ challan/
+      │  ├─ model/
+      │  │  ├─ challan-search.model.ts
+      │  │  └─ challan.model.ts
+      │  ├─ challan-delete-dialog.component.html
+      │  ├─ challan-delete-dialog.component.ts
+      │  ├─ challan-list.component.html
+      │  ├─ challan-list.component.ts
+      │  ├─ challan-update.component.html
+      │  ├─ challan-update.component.scss
+      │  ├─ challan-update.component.ts
+      │  ├─ challan.routes.ts
+      │  ├─ challan.service.ts
+      │  ├─ drs-close.component.html
+      │  └─ drs-close.component.ts
+      ├─ docket-enquiry/
+      │  ├─ model/
+      │  │  ├─ docket-enquiry-search.model.ts
+      │  │  └─ docket-enquiry.model.ts
+      │  ├─ docket-enquiry-view.component.html
+      │  ├─ docket-enquiry-view.component.ts
+      │  ├─ docket-enquiry.routes.ts
+      │  └─ docket-enquiry.service.ts
+      ├─ docket-entry/
+      │  ├─ model/
+      │  │  ├─ docket-cft.model.ts
+      │  │  ├─ docket-entry-search.model.ts
+      │  │  ├─ docket-entry.model.ts
+      │  │  ├─ docket-eway.model.ts
+      │  │  └─ docket-part-detail.model.ts
+      │  ├─ docket-delete-dialog.component.html
+      │  ├─ docket-delete-dialog.component.ts
+      │  ├─ docket-entry-list.component.html
+      │  ├─ docket-entry-list.component.ts
+      │  ├─ docket-entry-update.component.html
+      │  ├─ docket-entry-update.component.ts
+      │  ├─ docket-entry.routes.ts
+      │  └─ docket-entry.service.ts
+      ├─ drs-challan/
+      │  ├─ drs-challan.component.html
+      │  ├─ drs-challan.component.scss
+      │  ├─ drs-challan.component.ts
+      │  └─ drschallanRoutes.ts
+      ├─ drs-challan-close/
+      │  ├─ drs-challan-close.component.html
+      │  ├─ drs-challan-close.component.scss
+      │  ├─ drs-challan-close.component.spec.ts
+      │  ├─ drs-challan-close.component.ts
+      │  └─ drschallanclose.routes.ts
+      ├─ drsplanningsheet/
+      │  ├─ service/
+      │  │  ├─ drsplanningsheet.service.spec.ts
+      │  │  └─ drsplanningsheet.service.ts
+      │  ├─ drsplanningsheet.component.html
+      │  ├─ drsplanningsheet.component.scss
+      │  ├─ drsplanningsheet.component.spec.ts
+      │  ├─ drsplanningsheet.component.ts
+      │  └─ drsplanningsheet.routes.ts
+      ├─ hop-od-cod-dispatch-received/
+      │  ├─ model/
+      │  │  └─ hop-od-cod-dispatch-received-Model.ts
+      │  ├─ hop-od-cod-dispatch-received-form.component.html
+      │  ├─ hop-od-cod-dispatch-received-form.component.scss
+      │  ├─ hop-od-cod-dispatch-received-form.component.spec.ts
+      │  ├─ hop-od-cod-dispatch-received-form.component.ts
+      │  └─ hoPodCodDispatchReceiveRoutes.ts
+      ├─ hopodreceived/
+      │  ├─ form/
+      │  │  └─ hopodreceived-form/
+      │  │     ├─ hopodreceived-form.component.html
+      │  │     ├─ hopodreceived-form.component.scss
+      │  │     └─ hopodreceived-form.component.ts
+      │  ├─ models/
+      │  │  └─ hopodreceived.Model.ts
+      │  ├─ service/
+      │  │  ├─ hopodreceivedservice.service.spec.ts
+      │  │  └─ hopodreceivedservice.service.ts
+      │  ├─ hopodreceived.component.html
+      │  ├─ hopodreceived.component.scss
+      │  ├─ hopodreceived.component.ts
+      │  └─ hopodreceived.route.ts
+      ├─ loading-sheet-create/
+      │  ├─ loadingsheetcreatelist/
+      │  │  ├─ loadingsheetcreatelist.component.html
+      │  │  ├─ loadingsheetcreatelist.component.scss
+      │  │  └─ loadingsheetcreatelist.component.ts
+      │  ├─ models/
+      │  │  └─ loadingSheetCreate.model.ts
+      │  ├─ services/
+      │  │  ├─ loading-sheet-create.service.spec.ts
+      │  │  └─ loading-sheet-create.service.ts
+      │  ├─ loading-sheet-create.component.html
+      │  ├─ loading-sheet-create.component.scss
+      │  ├─ loading-sheet-create.component.spec.ts
+      │  ├─ loading-sheet-create.component.ts
+      │  └─ loadingsheet.routes.ts
+      ├─ loading-sheet-print/
+      │  ├─ service/
+      │  │  ├─ loadingsheet-print.service.spec.ts
+      │  │  └─ loadingsheet-print.service.ts
+      │  ├─ loading-sheet-print.component.html
+      │  ├─ loading-sheet-print.component.scss
+      │  ├─ loading-sheet-print.component.spec.ts
+      │  ├─ loading-sheet-print.component.ts
+      │  └─ loadingsheetprint.routes.ts
+      ├─ loadingsheet-status-and-report/
+      │  ├─ loadingsheet-status-and-report.component.html
+      │  ├─ loadingsheet-status-and-report.component.scss
+      │  ├─ loadingsheet-status-and-report.component.spec.ts
+      │  ├─ loadingsheet-status-and-report.component.ts
+      │  └─ loadingsheetstatusReport.routes.ts
+      ├─ market-vehicle-approval/
+      │  ├─ form/
+      │  │  ├─ market-vehicle-approval-form.component.html
+      │  │  ├─ market-vehicle-approval-form.component.scss
+      │  │  ├─ market-vehicle-approval-form.component.spec.ts
+      │  │  └─ market-vehicle-approval-form.component.ts
+      │  ├─ models/
+      │  │  ├─ marketvehicleapprovalmodel.ts
+      │  │  └─ marketvehicleapprovalmodeladd.ts
+      │  ├─ services/
+      │  │  ├─ marketvehicleapprovalservices.service.spec.ts
+      │  │  └─ marketvehicleapprovalservices.service.ts
+      │  ├─ market-vehicle-approval.component.html
+      │  ├─ market-vehicle-approval.component.scss
+      │  ├─ market-vehicle-approval.component.spec.ts
+      │  ├─ market-vehicle-approval.component.ts
+      │  └─ marketvehicleapprovalRoute.ts
+      ├─ mini-docket/
+      │  ├─ form/
+      │  │  └─ mini-docket-mst-form/
+      │  │     ├─ mini-docket-mst-form.component.css
+      │  │     ├─ mini-docket-mst-form.component.html
+      │  │     ├─ mini-docket-mst-form.component.spec.ts
+      │  │     └─ mini-docket-mst-form.component.ts
+      │  ├─ models/
+      │  │  └─ minidocketmaster.ts
+      │  ├─ services/
+      │  │  ├─ minidocketmst.service.spec.ts
+      │  │  └─ minidocketmst.service.ts
+      │  ├─ mini-docket-mst.component.css
+      │  ├─ mini-docket-mst.component.html
+      │  ├─ mini-docket-mst.component.spec.ts
+      │  ├─ mini-docket-mst.component.ts
+      │  └─ minidocketRoutes.ts
+      ├─ nbc-qrcode/
+      │  ├─ nbc-qrcode.component.html
+      │  ├─ nbc-qrcode.component.scss
+      │  ├─ nbc-qrcode.component.spec.ts
+      │  ├─ nbc-qrcode.component.ts
+      │  └─ npcqrcode.route.ts
+      ├─ nbcloadingsheetcreate/
+      │  ├─ nbcloadingsheetcreatelist/
+      │  │  ├─ nbcloadingsheetcreatelist.component.html
+      │  │  ├─ nbcloadingsheetcreatelist.component.scss
+      │  │  ├─ nbcloadingsheetcreatelist.component.spec.ts
+      │  │  └─ nbcloadingsheetcreatelist.component.ts
+      │  ├─ nbcloadingsheetcreate.component.html
+      │  ├─ nbcloadingsheetcreate.component.scss
+      │  ├─ nbcloadingsheetcreate.component.spec.ts
+      │  ├─ nbcloadingsheetcreate.component.ts
+      │  └─ nbcloadingsheetcreate.route.ts
+      ├─ nbcunloadingsheet/
+      │  ├─ nbcunloadingsheet.component.html
+      │  ├─ nbcunloadingsheet.component.scss
+      │  ├─ nbcunloadingsheet.component.ts
+      │  └─ nbcunloadingsheet.routes.ts
+      ├─ rent-agreement/
+      │  ├─ model/
+      │  │  └─ rent-agreement.model.ts
+      │  ├─ rent-agreement-delete-dialog.component.html
+      │  ├─ rent-agreement-delete-dialog.component.ts
+      │  ├─ rent-agreement-list.component.html
+      │  ├─ rent-agreement-list.component.ts
+      │  ├─ rent-agreement-update.component.html
+      │  ├─ rent-agreement-update.component.ts
+      │  ├─ rent-agreement.routes.ts
+      │  └─ rent-agreement.service.ts
+      ├─ rent-liability-approval/
+      │  ├─ model/
+      │  │  ├─ rent-agreement.model.ts
+      │  │  └─ rent-liability-approval.model.ts
+      │  ├─ rent-liability-approval-delete-dialog.component.html
+      │  ├─ rent-liability-approval-delete-dialog.component.ts
+      │  ├─ rent-liability-approval-list.component.html
+      │  ├─ rent-liability-approval-list.component.ts
+      │  ├─ rent-liability-approval-update.component.html
+      │  ├─ rent-liability-approval-update.component.ts
+      │  ├─ rent-liability-approval.routes.ts
+      │  └─ rent-liability-approval.service.ts
+      ├─ rent-payment/
+      │  ├─ model/
+      │  │  └─ rent-payment.model.ts
+      │  ├─ rent-payment-delete-dialog.component.html
+      │  ├─ rent-payment-delete-dialog.component.ts
+      │  ├─ rent-payment-list.component.html
+      │  ├─ rent-payment-list.component.ts
+      │  ├─ rent-payment-update.component.html
+      │  ├─ rent-payment-update.component.ts
+      │  ├─ rent-payment.routes.ts
+      │  └─ rent-payment.service.ts
+      ├─ road-tcs/
+      │  ├─ model/
+      │  │  ├─ challan.model.ts
+      │  │  ├─ road-tcs-search.model.ts
+      │  │  └─ road-tcs.model.ts
+      │  ├─ road-tcs-delete-dialog.component.html
+      │  ├─ road-tcs-delete-dialog.component.ts
+      │  ├─ road-tcs-list.component.html
+      │  ├─ road-tcs-list.component.ts
+      │  ├─ road-tcs-update.component.html
+      │  ├─ road-tcs-update.component.scss
+      │  ├─ road-tcs-update.component.ts
+      │  ├─ road-tcs.routes.ts
+      │  └─ road-tcs.service.ts
+      ├─ stationary-allocation/
+      │  ├─ form/
+      │  │  ├─ stationary-allocation-mst-form.component.css
+      │  │  ├─ stationary-allocation-mst-form.component.html
+      │  │  ├─ stationary-allocation-mst-form.component.spec.ts
+      │  │  └─ stationary-allocation-mst-form.component.ts
+      │  ├─ models/
+      │  │  └─ stationaryallocationmaster.ts
+      │  ├─ services/
+      │  │  ├─ stationarymst.service.spec.ts
+      │  │  └─ stationarymst.service.ts
+      │  ├─ stationary-allocation-mst.component.css
+      │  ├─ stationary-allocation-mst.component.html
+      │  ├─ stationary-allocation-mst.component.spec.ts
+      │  ├─ stationary-allocation-mst.component.ts
+      │  └─ stationaryRoutes.ts
+      ├─ stationary-recieve/
+      │  ├─ models/
+      │  │  └─ stationaryrecieve.ts
+      │  ├─ services/
+      │  │  ├─ stationary-recieve-services.service.spec.ts
+      │  │  └─ stationary-recieve-services.service.ts
+      │  ├─ stationary-recieve.component.html
+      │  ├─ stationary-recieve.component.scss
+      │  ├─ stationary-recieve.component.spec.ts
+      │  ├─ stationary-recieve.component.ts
+      │  └─ stationaryRecieveRoutes.ts
+      ├─ tallysheet-mst/
+      │  ├─ form/
+      │  │  ├─ tallysheet-mst-form.component.css
+      │  │  ├─ tallysheet-mst-form.component.html
+      │  │  ├─ tallysheet-mst-form.component.spec.ts
+      │  │  └─ tallysheet-mst-form.component.ts
+      │  ├─ models/
+      │  │  └─ tallysheet.ts
+      │  ├─ services/
+      │  │  ├─ tallysheet.service.spec.ts
+      │  │  └─ tallysheet.service.ts
+      │  ├─ tallysheet-mst.component.css
+      │  ├─ tallysheet-mst.component.html
+      │  ├─ tallysheet-mst.component.spec.ts
+      │  ├─ tallysheet-mst.component.ts
+      │  └─ tallysheetRoutes.ts
+      └─ unloading-sheet/
+         ├─ model/
+         │  └─ unloading.model.ts
+         ├─ services/
+         │  ├─ unloading-sheet.service.spec.ts
+         │  └─ unloading-sheet.service.ts
+         ├─ unloading-sheet.component.css
+         ├─ unloading-sheet.component.html
+         ├─ unloading-sheet.component.spec.ts
+         ├─ unloading-sheet.component.ts
+         └─ unloadingSheet.routes.ts

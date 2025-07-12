@@ -1,0 +1,159 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form [formGroup]="editForm" (ngSubmit)="save()">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            {{ isEditMode ? 'EDIT USER' : (isViewMode ? 'VIEW USER' : (userExists ? 'EDIT USER' : 'CREATE USER')) }}
+          </div>
+          <div class="card-body">
+            <!-- Login Code Check -->
+            <div class="row mb-1" >
+              <div class="col-md-1"><label for="login" class="form-label">Login Code </label></div>
+              <div class="col-md-2">
+                <div class="input-group input-group-sm">
+                  <input type="text" id="login" formControlName="login" class="form-control form-control-sm" [readOnly]="isViewMode || isEditMode || userExists">
+                  <button type="button" matTooltip="Search" matTooltipPosition="above"
+                          class="btn btn-sm btn-secondary" [hidden]="isEditMode || isViewMode"
+                          (click)="checkUser()" [disabled]="!editForm.get('login')?.valid || checkingUser">
+                    <i class="bi bi-search"></i>
+                    <span *ngIf="!checkingUser"></span>
+                    <span *ngIf="checkingUser" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-1"><label for="password" class="form-label">Password</label></div>
+              <div class="col-md-2">
+                <div class="input-group auth-pass-inputgroup">
+                  <input
+                    [type]="isHide ? 'text' : 'password'"
+                    id="password"
+                    class="form-control custom-input"
+                    formControlName="password"
+                    placeholder="Enter password"
+                    aria-label="Password"
+                    [ngClass]="{ 'is-invalid': isFieldInvalid('password') }"
+                  />
+                  <button class="btn btn-light" type="button" (click)="showHide()">
+<!--                    <mat-icon class="small-icon">remove_red_eye</mat-icon>-->
+                    <mat-icon class="small-icon">
+                      {{ isHide ?'visibility'  : 'visibility_off' }}
+                    </mat-icon>
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-1"><label for="userName" class="form-label">User Name</label></div>
+              <div class="col-md-2">
+                <input type="text" id="userName" formControlName="user" class="form-control form-control-sm" [disabled]="isViewMode">
+              </div>
+              <div class="col-md-1"><label for="department" class="form-label">Department</label></div>
+              <div class="col-md-2">
+                <input type="text" id="department" formControlName="dept" class="form-control form-control-sm" [disabled]="isViewMode">
+              </div>
+
+            </div>
+
+
+            <!-- Authorization Levels -->
+            <div class="row mb-1">
+              <div class="col-md-1"><label class="form-label">Companies</label>
+              </div>
+              <div class="col-md-5">
+                  <div class="card flex justify-center">
+                    <p-multiselect [options]="companies" [(ngModel)]="selectedCompanies"
+                            size="small"  optionLabel="coName" placeholder="Select Companies"
+                                   [ngModelOptions]="{standalone: true}" [maxSelectedLabels]="3" styleClass="w-full md:w-80" ></p-multiselect>
+                  </div>
+              </div>
+              <div class="col-md-1"><label for="email" class="form-label">Email</label></div>
+              <div class="col-md-2">
+                <input type="email" id="email" formControlName="email" class="form-control form-control-sm" [disabled]="isViewMode">
+              </div>
+              <div class="col-md-1"><label for="mobile" class="form-label">Mobile</label></div>
+              <div class="col-md-2">
+                <input type="text" id="mobile"  maxlength="10"  formControlName="mobile" class="form-control form-control-sm" [disabled]="isViewMode">
+              </div>
+            </div>
+          <div class="row mb-1">
+              <div class="col-md-1"><label class="form-label">Division</label>
+              </div>
+              <div class="col-md-5">
+                <div class="card flex justify-center">
+                  <p-multiselect [options]="divisions" [(ngModel)]="selectedDivision"
+                                 optionLabel="divName" placeholder="Select Division"
+                                 [ngModelOptions]="{standalone: true}" [maxSelectedLabels]="3" styleClass="w-full md:w-80" ></p-multiselect>
+                </div>
+              </div>
+            <div class="col-md-1"><label for="email" class="form-label">HOD Email</label></div>
+            <div class="col-md-2">
+              <input type="email" id="hodEmail" formControlName="hodmail" class="form-control form-control-sm" [disabled]="isViewMode">
+            </div>
+            <div class="col-md-1"><label for="field_userList" class="form-label">Default&nbsp;Branch</label></div>
+            <div class="col-md-2">
+              <select type="text"
+                      class="form-select form-control-sm text-uppercase"
+                      name="userList" formControlName="defaultPremises"
+                      id="field_userList"
+                      [disabled]="isViewMode">
+                <option value="0">Select</option>
+                <option *ngFor="let branch of branches " [value]="branch.branchCode">
+                  {{branch.branchName}}
+                </option>
+              </select>
+            </div>
+          </div>
+            <div class="row mb-1">
+              <div class="col-md-1"><label class="form-label">Branches</label>
+              </div>
+              <div class="col-md-5">
+                <div class="card flex justify-center">
+                  <p-multiselect [options]="branches" [(ngModel)]="selectedBranches"
+                                 optionLabel="branchName" placeholder="Select Branches"
+                                 [ngModelOptions]="{standalone: true}" [maxSelectedLabels]="3" styleClass="w-full md:w-80" ></p-multiselect>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <label>Active
+                  <input id="isActive" type="checkbox" formControlName="userStatus" />
+                </label>
+              </div>
+              <div class="col-md-1">
+                  <label>Locked
+                    <input id="isLocked" type="checkbox" formControlName="userLock" />
+                  </label>
+              </div>
+              <div class="col-md-2">
+                <label>Permanent&nbsp;Lock
+                  <input id="isPermLocked" type="checkbox" formControlName="permLock" />
+                </label>
+              </div>
+            </div>
+
+
+
+            <div class="card-footer">
+              <div class="row card-margin-bottom-10">
+                <div class="col-md-5 text-end"></div>
+                <div class="col-md-1" *ngIf="!isViewMode">
+                  <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light"
+                          [disabled]="editForm.invalid || saving || isViewMode">
+                    <span *ngIf="!saving">Save</span>
+                    <span *ngIf="saving" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  </button>
+                </div>
+                <div class="col-md-1">
+                  <button type="button" id="cancel" class="btn btn-sm rounded-pill my-btn-light"
+                          (click)="previousState()">
+                    {{ isViewMode ? 'Back' : 'Close' }}
+                  </button>
+                </div>
+                <div class="col-md-5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

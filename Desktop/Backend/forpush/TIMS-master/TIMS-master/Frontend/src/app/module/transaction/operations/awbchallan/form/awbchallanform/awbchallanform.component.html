@@ -1,0 +1,229 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="editForm" role="form" novalidate>
+                <div class="card card-box mb-1">
+                    <div class="card-title text-center">
+                        AWB CHALLAN
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-1">
+                            <div class="col-md-1">
+                                <label for="code" class="form-label">Date</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="code" type="date" formControlName="CityCode"
+                                    class="form-control form-control-sm text-uppercase" />
+                            </div>
+                            <div class="col-md-1">
+                                <label for="name" class="form-label">To Branch</label>
+                            </div>
+                            <div class="col-md-2">
+                                <select id="name" formControlName="CityName"
+                                    class="form-select form-select-sm text-uppercase">
+                                    <option>Select</option>
+                                    <option>Noida</option>
+                                    <option>Haryana</option>
+                                    <option>Pune</option>
+                                </select>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="pinCode" class="form-label">Awb No</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="category" formControlName="Category" type="text"
+                                    class="form-control form-control-sm" />
+                                <!-- <p-autocomplete class="form-control form-control-sm" formControlName="PinCode" id="pinCode" optionLabel="PinCode" [dropdown]="true" [forceSelection]="true" [suggestions]="pinCodes" (completeMethod)="searchPinCode($event)"></p-autocomplete> -->
+                            </div>
+                            <div class="col-md-1">
+                                <label for="stdCode" class="form-label">Awb Date</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="stdCode" formControlName="Stdcode" type="date"
+                                    class="form-control form-control-sm" />
+                            </div>
+                        </div>
+                        <div class="row mb-1">
+                            <div class="col-md-1">
+                                <label for="category" class="form-label">Flight No</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="category" type="text" formControlName="Category"
+                                    class="form-control form-control-sm" />
+                            </div>
+                            <div class="col-md-1">
+                                <label for="stateZone" class="form-label">Flight Name</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="stateZone" formControlName="Zone" class="form-control form-control-sm" />
+                            </div>
+                            <div class="col-md-1">
+                                <label class="form-label">Departure Time</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="category" type="text" formControlName="Category"
+                                    class="form-control form-control-sm" />
+                                <!-- <p-autocomplete class="form-control form-control-sm" formControlName="PinCode" id="pinCode" optionLabel="PinCode" [dropdown]="true" [forceSelection]="true" [suggestions]="pinCodes" (completeMethod)="searchPinCode($event)"></p-autocomplete> -->
+                            </div>
+                            <div class="col-md-1">
+                                <label for="state" class="form-label">Brocker Name</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="state" formControlName="StateCode" class="form-control form-control-sm" />
+                            </div>
+                        </div>
+                        <div class="row mb-1">
+                            <div class="col-12">
+                                <label class="form-label" for="field_flag"><b>Bill Details </b></label>
+                                <hr>
+
+                            </div>
+
+                        </div>
+                        <div class="row mb-1">
+                            <div class="col-md-1 ">
+                                <label class="form-label" for="field_flag">No Of Pkg</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="state" formControlName="StateCode" class="form-control form-control-sm" />
+                            </div>
+                            <div class="col-md-1 ">
+                                <label class="form-label" for="field_flag">Actual Wt</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="state" formControlName="StateCode" class="form-control form-control-sm" />
+                            </div>
+                            <div class="col-md-1 ">
+                                <label class="form-label" for="field_flag">Charge Wt</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="state" formControlName="StateCode" class="form-control form-control-sm" />
+                            </div>
+                            <div class="col-md-1 ">
+                                <label class="form-label" for="field_flag">Total Amount</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="state" formControlName="StateCode" class="form-control form-control-sm" />
+                            </div>
+
+                        </div>
+                        <div class="row mb-1">
+                            <div class="col-md-1 ">
+                                <label class="form-label" for="field_flag">Weight Chg</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="state" formControlName="StateCode" class="form-control form-control-sm" />
+                            </div>
+                            <div class="col-md-1 ">
+                                <label class="form-label" for="field_flag">CFT Wt</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="state" formControlName="StateCode" class="form-control form-control-sm" />
+
+                            </div>
+
+
+                        </div>
+                        <div class="row ">
+                            <div class="col-12  mt-2">
+                                <label class="form-label" for="field_flag"><b>Docket Details</b></label>
+                                <hr>
+
+                            </div>
+
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-1 ">
+                                <label class="form-label" for="docket">Docket No</label>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="input-group input-group-sm">
+                                    <input formControlName="docket"
+                                        class="form-control form-control-sm text-uppercase" />
+                                    <button type="button" matTooltip="Find" matTooltipPosition="above"
+                                        class="btn btn-sm btn-secondary">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-1 ">
+                                <label class="form-label" for="field_flag">Dwb NO</label>
+                            </div>
+                            <div class="col-md-2 mb-1">
+                                <input id="state" disabled formControlName="StateCode" class="form-control form-control-sm" />
+
+                            </div>
+                            <div class="col-md-1 ">
+                                <label class="form-label" for="field_flag">Origin</label>
+                            </div>
+                            <div class="col-md-2 mb-1">
+                                <input id="state" disabled formControlName="StateCode" class="form-control form-control-sm" />
+
+                            </div>
+                            <div class="col-md-1 ">
+                                <label class="form-label" for="field_flag">Destination</label>
+                            </div>
+                            <div class="col-md-2 mb-1">
+                                <input id="state" disabled formControlName="StateCode" class="form-control form-control-sm" />
+
+                            </div>
+                            <div class="col-md-1 ">
+                                <label class="form-label" for="field_flag">Consignee</label>
+                            </div>
+                            <div class="col-md-2 mb-1">
+                                <input id="state" disabled formControlName="StateCode" class="form-control form-control-sm" />
+
+                            </div>
+                            <div class="col-md-1 ">
+                                <label class="form-label" for="field_flag">Consinor</label>
+                            </div>
+                            <div class="col-md-2 mb-1">
+                                <input id="state" disabled formControlName="StateCode" class="form-control form-control-sm" />
+
+                            </div>
+                            <div class="col-md-1 ">
+                                <label class="form-label" for="field_flag">Total Pcs</label>
+                            </div>
+                            <div class="col-md-2 mb-1">
+                                <input id="state" disabled formControlName="StateCode" class="form-control form-control-sm" />
+
+                            </div>
+                            <div class="col-md-1 ">
+                                <label class="form-label" for="field_flag">Actual Weight</label>
+                            </div>
+                            <div class="col-md-2 mb-1">
+                                <input id="state" disabled formControlName="StateCode" class="form-control form-control-sm" />
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-footer">
+                        <!-- Save/Close buttons -->
+                        <div class="row">
+                            <div class="col-md-5 text-end"></div>
+                            <div class="col-md-1">
+                                <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                                    Save
+                                </button>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                                    routerLink="/AwbChallanmst">
+                                    Close
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

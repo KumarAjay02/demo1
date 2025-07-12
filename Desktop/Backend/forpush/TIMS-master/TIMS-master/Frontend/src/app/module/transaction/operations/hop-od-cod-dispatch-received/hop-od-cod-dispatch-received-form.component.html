@@ -1,0 +1,341 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="editForm" [formGroup]="editForm">
+        <div class="card card-box mb-1">
+          <div class="card-title text-center">
+            HO/POD/COD /DISPATCH /RECEIVE
+          </div>
+          <div class="card-body">
+            <ul class="nav nav-tabs mb-3" id="customerTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="dispatch-tab" data-bs-toggle="tab" data-bs-target="#dispatch-pane"
+                  type="button" role="tab" aria-controls="dispatch-pane" aria-selected="true">
+                  Dispatch
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="print-tab" data-bs-toggle="tab" data-bs-target="#print-pane" type="button"
+                  role="tab" aria-controls="print-pane" aria-selected="false">
+                  Pending Report
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="receive-tab" data-bs-toggle="tab" data-bs-target="#receive-pane"
+                  type="button" role="tab" aria-controls="receive-pane" aria-selected="false">
+                  Receive
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content" id="customerTabsContent">
+              <!-- Start Dispatch -->
+              <div class="tab-pane fade show active" id="dispatch-pane" role="tabpanel" aria-labelledby="dispatch-tab">
+                <div class="tab-pane fade show active" id="master" role="tabpane" aria-labelledby="master-tab">
+                  <div class="row mb-1">
+                    <div class="col-md-1">
+                      <label for="" class="form-label">Reference No</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input type="" id="" formControlName="" class="form-control form-control-sm text-uppercase" />
+                    </div>
+                    <div class="col-md-1">
+                      <label for="" class="form-label">From Date</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input type="date" id="" formControlName=""
+                        class="form-control form-control-sm" />
+                    </div>
+                    <div class="col-md-1">
+                      <label for="" class="form-label">To Date</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input type="date" id="" formControlName=""
+                        class="form-control form-control-sm" />
+                    </div>
+                  </div>
+                  <div class="row mb-1">
+                    <div class="col-md-1">
+                      <label for="divCode" class="form-label"> From Branch </label>
+                    </div>
+                    <div class="col-md-3">
+                      <select id="type" formControlName="type" class="form-select form-select-sm">
+                        <option value="" disabled selected>Select</option>
+                        <option value=""> ABD > AURANGABAD </option>
+                        <option value=""> ALW > ALWAR </option>
+                        <option value=""> AMC > AMBALA </option>
+                        <option value=""> AMD > AHMEDABAD </option>
+                      </select>
+                    </div>
+                    <div class="col-md-1">
+                      <label for="divCode" class="form-label">To Branch </label>
+                    </div>
+                    <div class="col-md-3">
+                      <select id="type" formControlName="type" class="form-select form-select-sm">
+                        <option value="" disabled selected>Select</option>
+                        <option value=""> ABD > AURANGABAD </option>
+                        <option value=""> ALW > ALWAR </option>
+                        <option value=""> AMC > AMBALA </option>
+                        <option value=""> AMD > AHMEDABAD </option>
+                      </select>
+                    </div>
+                    <div class="col-md-1">
+                      <label for="" class="form-label">Type</label>
+                    </div>
+                    <div class="col-md-3">
+                      <select id="type" formControlName="type" class="form-select form-select-sm">
+                        <option value="" disabled selected>Select</option>
+                        <option value=""> HO </option>
+                        <option value=""> POD </option>
+                        <option value="">COD</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- Thrid row  -->
+                  <div class="row mb-1">
+                    <div class="col-md-1">
+                      <label for="" class="form-label"> Copy Type</label>
+                    </div>
+                    <div class="col-md-3">
+                      <select id="type" formControlName="type" class="form-select form-select-sm">
+                        <option value="" disabled selected>Select</option>
+                        <option value=""> HO </option>
+                        <option value=""> POD </option>
+                        <option value="">COD</option>
+                      </select>
+                    </div>
+                    <div class="col-md-1">
+                      <label for="" class="form-label">Docket No</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input type="text" id="customerCode" formControlName="customerCode"
+                        class="form-control form-control-sm" />
+                    </div>
+                    <div class="col-md-1">
+                      <label for="" class="form-label"> Branch </label>
+                    </div>
+                    <div class="col-md-3">
+                      <select id="type" formControlName="type" class="form-select form-select-sm">
+                        <option value="" disabled selected>Select</option>
+                        <option value=""> ABD > AURANGABAD </option>
+                        <option value=""> ALW > ALWAR </option>
+                        <option value=""> AMC > AMBALA </option>
+                        <option value=""> AMD > AHMEDABAD </option>
+                      </select>
+                    </div>
+                  </div>
+                  <!--four row-->
+                  <div class="row mb-1">
+                    <div class="col-md-1">
+                      <label for="" class="form-label">Dispatch Mode</label>
+                    </div>
+                    <div class="col-md-3">
+                      <select id="type" formControlName="type" class="form-select form-select-sm">
+                        <option value="" selected>Select</option>
+                        <option value="">Road </option>
+                        <option value=""> Rail </option>
+                        <option value="">Air</option>
+                      </select>
+                    </div>
+                    <div class="col-md-1">
+                      <label for="" class="form-label">Dispatch By</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input type="text" id="customerCode" formControlName=""
+                        class="form-control form-control-sm" />
+                    </div>
+                    <div class="col-md-1">
+                      <label for="" class="form-label">Dispatch No </label>
+                    </div>
+                    <div class="col-md-3">
+                      <input type="text" id="" formControlName=""
+                        class="form-control form-control-sm" />
+                    </div>
+                  </div>
+                  <!-- Dispatch Table Start Tab1-->
+                  <div>
+                    <table class="table table-sm table-bordered table-bordered mb-0">
+                      <thead class="table-light">
+                        <tr>
+                          <th>SR</th>
+                          <th>Dwbno </th>
+                          <th>DwbDate </th>
+                          <th>Origin </th>
+                          <th>Destination </th>
+                          <th>BookingBasis </th>
+                          <th>Consignor </th>
+                          <th>Consignee </th>
+                          <th>Billing Party</th>
+                          <th>Delivery date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><input type="checkbox" class="row-select" /></td>
+                          <td>DWB123456</td>
+                          <td>2025-06-20</td>
+                          <td>Mumbai</td>
+                          <td>Delhi</td>
+                          <td>To-Pay</td>
+                          <td>ABC Traders</td>
+                          <td>XYZ Enterprises</td>
+                          <td>XYZ Enterprises</td>
+                          <td>2025-06-24</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- Dispatch Table End Tab1-->
+                  <div class="card-footer">
+                    <div class="row card-margin-bottom-10">
+                      <div class="col-md-5 text-end"></div>
+                      <div class="col-md-1">
+                        <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                          Save
+                        </button>
+                      </div>
+                      <div class="col-md-1">
+                        <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light">
+                          Close
+                        </button>
+                      </div>
+                      <div class="col-md-5"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Start PendingReport -->
+              <div class="tab-pane fade" id="print-pane" role="tabpanel" aria-labelledby="print-tab">
+                <div class="row mb-1">
+                  <div class="row mb-1">
+                    <div class="col-md-1">
+                      <label for="" class="form-label">ReferenceNo</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input type="" id="" formControlName="" class="form-control form-control-sm text-uppercase" />
+                    </div>
+                  </div>
+                  <!-- PendingReport Table Start Tab2-->
+                  <div>
+                    <table class="table table-sm table-bordered table-bordered mb-0">
+                      <thead class="table-light">
+                        <tr>
+                          <th>Dwbno </th>
+                          <th>DwbDate </th>
+                          <th>Origin </th>
+                          <th>Destination </th>
+                          <th>BookingBasis </th>
+                          <th>Consignor </th>
+                          <th>Consignee </th>
+                          <th>Billing Party</th>
+                          <th>Delivery date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>DWB100001</td>
+                          <td>2025-06-20</td>
+                          <td>Mumbai</td>
+                          <td>Delhi</td>
+                          <td>Paid</td>
+                          <td>ABC Logistics Pvt Ltd</td>
+                          <td>Reliance Retail</td>
+                          <td>ABC Logistics Pvt Ltd</td>
+                          <td>2025-06-23</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- PendingReport Table End Tab2-->
+                  <div class="card-footer">
+                    <div class="row card-margin-bottom-10">
+                      <div class="col-md-5 text-end"></div>
+                      <div class="col-md-1">
+                        <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                          Print
+                        </button>
+                      </div>
+                      <div class="col-md-1">
+                        <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light">
+                          Close
+                        </button>
+                      </div>
+                      <div class="col-md-5"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Start Receive -->
+              <div class="tab-pane fade" id="receive-pane" role="tabpanel" aria-labelledby="receive-tab">
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label class="form-label">Reference No</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input type="" class="form-control form-control-sm text-uppercase" />
+                  </div>
+                  <div class="col-md-1">
+                    <label class="form-label">Docket No</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input type="date" class="form-control form-control-sm" />
+                  </div>
+                </div>
+                <!-- Receive Table Start Tab3-->
+                <div>
+                  <table class="table table-sm table-bordered table-bordered mb-0">
+                    <thead class="table-light">
+                      <tr>
+                        <th>Select</th>
+                        <th>Docket No </th>
+                        <th>Reference NO </th>
+                        <th>Booking Date </th>
+                        <th>Dispatch Branch </th>
+                        <th>Dispatch To </th>
+                        <th>Basis </th>
+                        <th>Consginor</th>
+                        <th>Consingee </th>
+                        <th>Billing Party </th>
+                        <th>Remarks</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="checkbox" /></td>
+                        <td>DKT001</td>
+                        <td>REF1001</td>
+                        <td>2025-06-20</td>
+                        <td>Mumbai</td>
+                        <td>Delhi</td>
+                        <td>Paid</td>
+                        <td>ABC Exports</td>
+                        <td>XYZ Traders</td>
+                        <td>ABC Exports</td>
+                        <td>Handle with care</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="card-footer">
+                  <div class="row card-margin-bottom-10">
+                    <div class="col-md-5 text-end"></div>
+                    <div class="col-md-1">
+                      <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                        Save
+                      </button>
+                    </div>
+                    <div class="col-md-1">
+                      <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light">
+                        Close
+                      </button>
+                    </div>
+                    <div class="col-md-5"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

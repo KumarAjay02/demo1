@@ -1,0 +1,17 @@
+/* Make the title bar the drag handle */
+.cdk-drag-handle {
+  cursor: move;
+  padding: 10px;
+  background: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Prevent text selection while dragging */
+.cdk-drag-preview {
+  user-select: none;
+}
+
+/* Optional: Add some visual feedback while dragging */
+.cdk-drag-placeholder {
+  opacity: 0.5;
+}

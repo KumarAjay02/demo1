@@ -1,0 +1,19 @@
+export class marketvehicleapprovalmodel{
+    MarketVehicleRequest?:string;
+    RequestNo?:string;
+    RequestDate?:string;
+    FromBranch?:string;
+    ToBranch?:string;
+    RequirementType?:string;
+    TouchingStatus?:string;
+    TouchingPoint?:string;
+    LoadingPlace?:string;
+    UnLoadingPlace?:string;
+    GoodTypes?:string;
+    ActualWeight?:string;
+    VehicleType?:string;
+    VehicleCapacity?:string;
+    ApprovalRemarks?:string;
+    Remarks?:string;
+    Status?:boolean;
+}

@@ -1,0 +1,229 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="editForm" role="form" novalidate [formGroup]="editForm" >
+        <div class="card card-box mb-1">
+          <div class="card-title text-center">
+             DEBIT NOTE
+          </div>
+          <div class="card-body">
+            <ul class="nav nav-tabs mb-3" id="customerTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="master-tab" data-bs-toggle="tab" data-bs-target="#master"
+                        type="button" role="tab" aria-controls="master" aria-selected="true">Debit
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="details-tab" data-bs-toggle="tab" data-bs-target="#details"
+                        type="button" role="tab" aria-controls="details" aria-selected="false">Debit Note Details
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content" id="customerTabsContent">
+              <div class="tab-pane fade show active" id="master" role="tabpanel" aria-labelledby="master-tab">
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label for="coCode" class="form-label">Financial Year</label>
+                  </div>
+                   <div class="col-md-3">
+                    <select id="type" formControlName="type" class="form-select form-select-sm">
+                     <option value="" disabled selected hidden>Select</option>
+                       <option value="">2425</option>
+                       <option value="">2526</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="divCode" class="form-label">Branch</label>
+                  </div>
+                   <div class="col-md-3">
+                    <select id="type" formControlName="type" class="form-select form-select-sm">
+                     <option value="" disabled selected >Select</option>
+                       <option value="">ABD-AURANGABAD</option>
+                       <option value="">ALW-ALWAR</option>
+                       <option value="">AMC-AMBALA</option>
+                       <option value="">AMD-AHMEDABAD</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="customerCode" class="form-label">From Date</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input type="date" id="customerCode" formControlName="customerCode" class="form-control form-control-sm"/>
+                  </div>
+                </div>
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label for="panNumber" class="form-label">To Date</label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="input-group input-group-sm">
+                    <input type="date" id="panNumber" formControlName="panNumber"
+                           class="form-control form-control-sm text-uppercase"/>
+                    </div>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="customerName" class="form-label">Doc Type</label>
+                  </div>
+                  <div class="col-md-3">
+                    <select id="type" formControlName="type" class="form-select form-select-sm">
+                     <option value="" disabled selected hidden>Select</option>
+                       <option value="">CUSTOMER BILL</option>
+                       <option value="">FLEET FINAL PAYMENT</option>
+                       <option value="">INTER COMPANY RECEIVE</option>
+                       <option value="">INTER COMPANY TRANSFER</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="suntekCode" class="form-label">Doc No</label>
+                  </div>
+                  <div class="col-md-3">
+                    <select id="type" formControlName="type" class="form-select form-select-sm">
+                     <option value="" disabled selected hidden>Select</option>
+                       <option value=""></option>
+                       <option value=""></option>
+                    </select>
+                  </div>
+                </div>
+                <!--Changes start-->
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label for="type" class="form-label">Debit Note No</label>
+                  </div>
+                 <div class="col-md-3">
+                    <select id="type" formControlName="type" class="form-select form-select-sm">
+                     <option value="" disabled selected hidden>Select</option>
+                       <option value=""></option>
+                    </select>
+                  </div>
+                </div>
+                 <div>
+                  <table class="table table-sm table-bordered table-bordered mb-0">
+                    <thead class="table-light">
+                    <tr>
+                      <th>Doc  No</th>
+                      <th>Doc Date</th>
+                      <th>Invoice Date Name</th>
+                      <th>Supplier Code</th>
+                      <th>Supplier Name</th> 
+                      <th>Cgst</th>
+                      <th>Sgst</th>
+                      <th>Igst</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                  </table>
+                </div>
+                <div class="card-footer">
+                  <div class="row card-margin-bottom-10">
+                    <div class="col-md-5 text-end"></div>
+                    <div class="col-md-1">
+                      <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                        Save
+                      </button>
+                    </div>
+                    <div class="col-md-1">
+                      <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                              (click)="previousState()">
+                        Close
+                      </button>
+                    </div>
+                    <div class="col-md-5"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="details" role="tabpanel" aria-labelledby="details-tab">
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label for="cuBranchCode" class="form-label">Amount </label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="cuBranchCode" formControlName="detailCuBranchCode"
+                           class="form-control form-control-sm text-uppercase"
+                    />
+                  </div>
+                  <div class="col-md-1">
+                    <label for="branchCode" class="form-label">Tax Applicable</label>
+                  </div>
+                   <div class="col-md-3">
+                    <select id="type" formControlName="type" class="form-select form-select-sm">
+                     <option value="" disabled selected hidden>Select</option>
+                       <option value="">0 %</option>
+                       <option value="">CGST: 2.50%, SGST: 2.50%</option>
+                       <option value="">IGST: 5.00%</option>
+                       <option value="">IGST: 18.00%</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="branch" class="form-label">CGST</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="branch" formControlName="detailBranch" class="form-control form-control-sm"/>
+                  </div>
+                </div>
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label for="gstNo" class="form-label">SGST</label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="input-group input-group-sm">
+                      <input id="gstNo" formControlName="detailGstNo"
+                             class="form-control form-control-sm text-uppercase"/>
+                    </div>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="dealingPerson1" class="form-label">IGST</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="dealingPerson1" formControlName="detailDealingPerson1"
+                           class="form-control form-control-sm"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="address" class="form-label">CESS</label>
+                  </div>
+                  <div class="col-md-3">
+                      <input id="dealingPerson1" formControlName="detailDealingPerson1"
+                           class="form-control form-control-sm"/>
+                  </div>
+                </div>
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label for="city" class="form-label">Debit Note Date</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input type="date" id="city" formControlName="detailCity" class="form-control form-control-sm"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="state" class="form-label">Reason</label>
+                  </div>
+                  <div class="col-md-3">
+                     <input  id="city" formControlName="detailCity" class="form-control form-control-sm"/>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="row mb-1">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 text-center">
+                      <button type="submit" id="detailsAdd" 
+                               class="btn btn-sm rounded-pill my-btn-light">
+                        Add
+                      </button>
+                      <button type="submit" id="detailsClear" 
+                              class="btn btn-sm rounded-pill my-btn-light">
+                        Clear
+                      </button>
+                    </div>
+                    <div class="col-md-4"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="view" role="tabpanel" aria-labelledby="details-tab-view">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

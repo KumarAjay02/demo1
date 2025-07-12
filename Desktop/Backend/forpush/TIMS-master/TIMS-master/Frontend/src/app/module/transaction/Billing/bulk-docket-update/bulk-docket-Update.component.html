@@ -1,0 +1,387 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-title-box d-flex align-items-center justify-content-between">
+        <div class="page-title-right">
+          <ol class="breadcrumb m-3">
+            <li class="breadcrumb-item"><a href="javascript:void(0);">Billing</a></li>
+            <li class="breadcrumb-item active">Bulk Docket Update</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-title text-center">Bulk Docket Update</div>
+
+    <div class="card-body p-1">
+      <form [formGroup]="docketForm">
+        <ul class="nav nav-tabs mb-1" id="docketTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button"
+              role="tab">Bulk Docket Freight Update
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button"
+              role="tab">Bulk Bill Customer Update
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <!-- TAB 1 Bulk Docket Freight Update-->
+          <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+            <div class="col-sm-12">
+              <div class="card card-box mb-2">
+                <div class="card-body">
+                  <!-- Search Filter -->
+                  <div class="row mb-2">
+                    <div class="col-md-1">
+                      <label for="bookingBranch" class="me-2 w-100">Booking Branch</label>
+                    </div>
+                    <div class="col-md-3">
+                      <select id="bookingBranch" class="form-select form-select-sm" formControlName="bookingBranch">
+                        <option value="">[Select Branch]</option>
+                        <option *ngFor="let branch of bookingBranches" [value]="branch">{{ branch }}</option>
+                      </select>
+                    </div>
+
+                    <div class="col-md-1">
+                      <label for="fromDate" class="me-2 w-100">From Date</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input id="fromDate" type="date" class="form-control form-control-sm"
+                        formControlName="fromDate" />
+                    </div>
+
+                    <div class="col-md-1">
+                      <label for="toDate" class="me-2 w-100">To Date</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input id="toDate" type="date" class="form-control form-control-sm" formControlName="toDate" />
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-md-1">
+                      <label for="customer" class="me-2 w-100">Customer Name</label>
+                    </div>
+                    <div class="col-md-3">
+                      <select id="customer" class="form-select form-select-sm" formControlName="customer">
+                        <option value="">[Select Customer]</option>
+                        <option *ngFor="let customer of customers" [value]="customer.code + '|' + customer.name">
+                          {{ customer.name }}
+                        </option>
+                      </select>
+                    </div>
+
+                    <div class="col-md-1">
+                      <label for="deliveryBranch" class="me-2 w-100">Delivery Branch</label>
+                    </div>
+                    <div class="col-md-3">
+                      <select id="deliveryBranch" class="form-select form-select-sm" formControlName="deliveryBranch">
+                        <option value="">[Select Branch]</option>
+                        <option *ngFor="let branch of deliveryBranches" [value]="branch">{{ branch }}</option>
+                      </select>
+                    </div>
+
+                    <div class="col-md-1">
+                      <label for="mode" class="me-2 w-100">Mode</label>
+                    </div>
+                    <div class="col-md-3">
+                      <select id="mode" class="form-select form-select-sm" formControlName="mode">
+                        <option value="">[Select Mode]</option>
+                        <option *ngFor="let mode of modes" [value]="mode">{{ mode }}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <div class="row card-margin-bottom-10">
+                    <div class="col-md-5 text-end"></div>
+                    <div class="col-md-1">
+                      <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Docket Data Table -->
+            <div class="card">
+              <table class="table table-sm table-bordered table-striped">
+                <thead class="table-light-new">
+                  <tr>
+                    <th>DOCKET NO.</th>
+                    <th>DATE</th>
+                    <th>ORIGIN</th>
+                    <th>DESTINATION</th>
+                    <th>PKGS</th>
+                    <th>QTY</th>
+                    <th>ACT WT</th>
+                    <th><input type="checkbox" (click)="copyColumn('chWt')" /> CH. WT.</th>
+                    <th>CHARGE TYPE</th>
+                    <th><input type="checkbox" (click)="copyColumn('rate')" /> RATE</th>
+                    <th><input type="checkbox" (click)="copyColumn('freight')" /> FREIGHT</th>
+                    <th><input type="checkbox" (click)="copyColumn('collection')" /> COLLECTION</th>
+                    <th><input type="checkbox" (click)="copyColumn('delivery')" /> DELIVERY</th>
+                    <th><input type="checkbox" (click)="copyColumn('dktCh')" /> DKT. CH.</th>
+                    <th><input type="checkbox" (click)="copyColumn('fov')" /> FOV</th>
+                    <th><input type="checkbox" (click)="copyColumn('surcharge')" /> SURCHARGE</th>
+                    <th><input type="checkbox" (click)="copyColumn('misc')" /> MISC</th>
+                    <th>TOTAL</th>
+                  </tr>
+                </thead>
+                <tbody formArrayName="docketList">
+                  <tr *ngFor="let docket of docketList.controls; let i = index; trackBy: trackId" [formGroupName]="i">
+                    <td>{{ docket.value.lblDocketNo }}</td>
+                    <td>{{ docket.value.lblDocketDate }}</td>
+                    <td>{{ docket.value.lblOrigin }}</td>
+                    <td>{{ docket.value.lblDestination }}</td>
+                    <td>{{ docket.value.lblPkgs }}</td>
+                    <td>{{ docket.value.lblQty }}</td>
+                    <td>{{ docket.value.lblActWt }}</td>
+
+                    <td>
+                      <input type="number" class="form-control form-control-sm" formControlName="chWt"
+                        [id]="'chWt_' + i" (input)="calculateTotal(i)" />
+                    </td>
+
+                    <td>
+                      <select class="form-select form-select-sm" formControlName="chType" [id]="'chType_' + i">
+                        <option value="W">Weight</option>
+                        <option value="P">Pkgs</option>
+                        <option value="Q">Qty</option>
+                      </select>
+                    </td>
+
+                    <td>
+                      <input type="number" class="form-control form-control-sm" formControlName="rate"
+                        [id]="'rate_' + i" (input)="calculateTotal(i)" />
+                    </td>
+
+                    <td>
+                      <input type="number" class="form-control form-control-sm" formControlName="freight"
+                        [id]="'freight_' + i" (input)="calculateTotal(i)" />
+                    </td>
+
+                    <td>
+                      <input type="number" class="form-control form-control-sm" formControlName="collection"
+                        [id]="'collection_' + i" (input)="calculateTotal(i)" />
+                    </td>
+
+                    <td>
+                      <input type="number" class="form-control form-control-sm" formControlName="delivery"
+                        [id]="'delivery_' + i" (input)="calculateTotal(i)" />
+                    </td>
+
+                    <td>
+                      <input type="number" class="form-control form-control-sm" formControlName="dktCh"
+                        [id]="'dktCh_' + i" (input)="calculateTotal(i)" />
+                    </td>
+
+                    <td>
+                      <input type="number" class="form-control form-control-sm" formControlName="fov" [id]="'fov_' + i"
+                        (input)="calculateTotal(i)" />
+                    </td>
+
+                    <td>
+                      <input type="number" class="form-control form-control-sm" formControlName="surcharge"
+                        [id]="'surcharge_' + i" (input)="calculateTotal(i)" />
+                    </td>
+
+                    <td>
+                      <input type="number" class="form-control form-control-sm" formControlName="misc"
+                        [id]="'misc_' + i" (input)="calculateTotal(i)" />
+                    </td>
+
+                    <td>
+                      <input type="number" class="form-control form-control-sm" formControlName="total"
+                        [id]="'total_' + i" readonly />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB 2 Bulk Bill Customer Update-->
+          <div class="tab-pane fade" id="tab2" role="tabpanel">
+            <div class="card card-box mb-1">
+              <div class="card-body">
+                <div class="col-sm-12">
+                  <div class="card card-box mb-2">
+                    <div class="card-body">
+                      <div class="row mb-2">
+                        <div class="col-md-1">
+                          <label for="billBranchSelect1" class="form-label">Bill Branch</label>
+                        </div>
+                        <div class="col-md-3">
+                          <select id="billBranchSelect1" class="form-select form-select-sm" formControlName="billBranchSearch" (change)="onBranchChange()">
+                            <option value="">[Select]</option>
+                            <option *ngFor="let branch of billBranches" [value]="branch">{{ branch }}</option>
+                          </select>
+                        </div>
+
+                        <div class="col-md-1">
+                          <label for="billCustomerSelect1" class="form-label">Bill Customer</label>
+                        </div>
+                        <div class="col-md-3">
+                          <select id="billCustomerSelect1" class="form-select form-select-sm" formControlName="billCustomerSearch">
+                            <option value="">[Select]</option>
+                            <option *ngFor="let customer of billCustomers" [value]="customer.code + '|' + customer.name">
+                              {{ customer.name }}
+                            </option>
+                          </select>
+                        </div>
+
+                        <div class="col-md-1">
+                          <label for="toBranchSelect" class="form-label">To Branch</label>
+                        </div>
+                        <div class="col-md-3">
+                          <select id="toBranchSelect" class="form-select form-select-sm" formControlName="toBranch">
+                            <option value="">[Select]</option>
+                            <option *ngFor="let branch of consigneeBranches" [value]="branch">{{ branch }}</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="row mb-2">
+                        <div class="col-md-1">
+                          <label for="fromDateInput" class="form-label">From Date</label>
+                        </div>
+                        <div class="col-md-3">
+                          <input id="fromDateInput" type="date" class="form-control form-control-sm" formControlName="fromDate" />
+                        </div>
+
+                        <div class="col-md-1">
+                          <label for="toDateInput" class="form-label">To Date</label>
+                        </div>
+                        <div class="col-md-3">
+                          <input id="toDateInput" type="date" class="form-control form-control-sm" formControlName="toDate" />
+                        </div>
+
+                        <div class="col-md-1">
+                          <label for="paymentBasisSelect1" class="form-label">Booking Basis</label>
+                        </div>
+                        <div class="col-md-3">
+                          <select id="paymentBasisSelect1" class="form-select form-select-sm" formControlName="paymentBasis">
+                            <option value="">[Select]</option>
+                            <option *ngFor="let basis of paymentBases" [value]="basis">{{ basis }}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card-footer">
+                      <div class="row card-margin-bottom-12">
+                        <div class="col-md-5 text-end"></div>
+                        <div class="col-md-1">
+                          <button type="button" id="Show" class="btn btn-sm rounded-pill my-btn-light">Show</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card card-box mb-2">
+                    <div class="card-body">
+                      <div class="row card-margin-bottom-12">
+                        <div class="col-md-5 text-end"></div>
+                        <div class="col-md-2">
+                          <label for="Changedetails" class="form-label">
+                            <h5>Change details</h5>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-1">
+                          <label for="billBranchSelect2" class="form-label">Bill Branch</label>
+                        </div>
+                        <div class="col-md-3">
+                          <select id="billBranchSelect2" class="form-select form-select-sm" formControlName="billBranchSearch" (change)="onBranchChange()">
+                            <option value="">[Select]</option>
+                            <option *ngFor="let branch of billBranches" [value]="branch">{{ branch }}</option>
+                          </select>
+                        </div>
+
+                        <div class="col-md-1">
+                          <label for="billCustomerSelect2" class="form-label">Bill Customer</label>
+                        </div>
+                        <div class="col-md-3">
+                          <select id="billCustomerSelect2" class="form-select form-select-sm" formControlName="billCustomerSearch">
+                            <option value="">[Select]</option>
+                            <option *ngFor="let customer of billCustomers" [value]="customer.code + '|' + customer.name">
+                              {{ customer.name }}
+                            </option>
+                          </select>
+                        </div>
+
+                        <div class="col-md-1">
+                          <label for="paymentBasisSelect2" class="form-label">Booking Basis</label>
+                        </div>
+                        <div class="col-md-3">
+                          <select id="paymentBasisSelect2" class="form-select form-select-sm" formControlName="paymentBasis">
+                            <option value="">[Select]</option>
+                            <option *ngFor="let basis of paymentBases" [value]="basis">{{ basis }}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card-footer">
+                    <div class="row card-margin-bottom-12">
+                      <div class="col-md-5 text-end"></div>
+                      <div class="col-md-1">
+                        <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">Save</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Grid Table -->
+                <div class="card">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-bordered table-striped">
+                      <thead class="table-light-new">
+                        <tr>
+                          <th><input type="checkbox" (change)="toggleSelectAll($event)" /></th>
+                          <th>DWB No</th>
+                          <th>Basis</th>
+                          <th>Mode</th>
+                          <th>Bkg Date</th>
+                          <th>From</th>
+                          <th>Destination</th>
+                          <th>Consignor</th>
+                          <th>Consignee</th>
+                          <th>Bill Customer</th>
+                          <th>Act Wt</th>
+                          <th>Chargable Wt</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let row of billDocketList; let i = index; trackBy: trackId">
+                          <td><input type="checkbox" [(ngModel)]="row.selected" /></td>
+                          <td>{{ row.dwbNo }}</td>
+                          <td>{{ row.paymentType }}</td>
+                          <td>{{ row.productCode }}</td>
+                          <td>{{ row.dwbDate }}</td>
+                          <td>{{ row.origin }}</td>
+                          <td>{{ row.destination }}</td>
+                          <td>{{ row.consignor }}</td>
+                          <td>{{ row.consignee }}</td>
+                          <td>{{ row.billCustomer }}</td>
+                          <td>{{ row.actualWeight }}</td>
+                          <td>{{ row.chargableWeight }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
