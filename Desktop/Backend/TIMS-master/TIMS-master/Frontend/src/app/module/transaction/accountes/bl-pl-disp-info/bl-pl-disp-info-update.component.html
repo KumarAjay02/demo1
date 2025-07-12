@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="editForm" role="form" novalidate [formGroup]="editForm" (ngSubmit)="updateBsPlDispInfo()">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            Balance Sheet and Profit & Loss Display
+          </div>
+          <div class="card-body">
+            <div class="row mb-2 offset-2 text-center">
+              <div class="col-md-2 text-end">
+                <label for="GL_NATURE" class="form-label">GL Nature</label>
+              </div>
+              <div class="col-md-4">
+                <select formControlName="GL_NATURE" class="form-select form-select-sm">
+                  <option value="undefined">-Select-</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-2 offset-2 text-center">
+              <div class="col-md-2 text-end">
+                <label for="BS_HEAD_CODE" class="form-label">Head Name</label>
+              </div>
+              <div class="col-md-4">
+                <select formControlName="BS_HEAD_CODE" class="form-select form-select-sm">
+                  <option value="undefined">-Select-</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-2 offset-2 text-center">
+              <div class="col-md-2 text-end">
+                <label for="SCHEDULE_CODE" class="form-label">Schedule Code</label>
+              </div>
+              <div class="col-md-4">
+                <select formControlName="SCHEDULE_CODE" class="form-select form-select-sm">
+                  <option value="undefined">-Select-</option>
+                </select>
+              </div>
+
+            </div>
+            <div class="row mb-2 offset-2 text-center">
+              <div class="col-md-2 text-end">
+                <label for="GL_GROUP_CODE" class="form-label">Group Code</label>
+              </div>
+              <div class="col-md-4">
+                <select formControlName="GL_GROUP_CODE" class="form-select form-select-sm">
+                  <option value="undefined">-Select-</option>
+                </select>
+              </div>
+
+            </div>
+            
+        </div>
+        <div class="card-footer">
+          <div class="row card-margin-bottom-12">
+            <div class="col-md-4 text-end">
+
+            </div>
+
+            <div class="col-md-1">
+              <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                Save
+              </button>
+            </div>
+            <div class="col-md-1">
+              <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                (click)="previousState()">
+                Close
+              </button>
+            </div>
+            <div class="col-md-6">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      </form>
+    </div>
+  </div>
+</div>

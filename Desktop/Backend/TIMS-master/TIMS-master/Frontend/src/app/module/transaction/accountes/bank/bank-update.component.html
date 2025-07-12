@@ -1,0 +1,253 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="editForm" role="form" novalidate [formGroup]="editForm" (ngSubmit)="updateBank()">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            Bank
+          </div>
+          <div class="card-body">
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="BRANCH_CODE" class="form-label">Branch</label>
+              </div>
+              <div class="col-md-2">
+                <input id="BRANCH_CODE" formControlName="BRANCH_CODE" class="form-control form-control-sm text-uppercase" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="BANK_NAME" class="form-label">Bank Name</label>
+              </div>
+              <div class="col-md-6">
+                <input id="BANK_NAME" formControlName="BANK_NAME" class="form-control form-control-sm text-uppercase" />
+              </div>
+              
+              
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="BANK_ACCOUNT_CODE" class="form-label">Bank Account Code</label>
+              </div>
+              <div class="col-md-2">
+                <input id="BANK_ACCOUNT_CODE" formControlName="BANK_ACCOUNT_CODE" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="BANK_ACCOUNT_NO" class="form-label">Account No</label>
+              </div>
+              <div class="col-md-2">
+                <input id="BANK_ACCOUNT_NO" formControlName="BANK_ACCOUNT_NO" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="IFSC_CODE" class="form-label">IFSC Code</label>
+              </div>
+              <div class="col-md-2">
+                <input id="IFSC_CODE" formControlName="IFSC_CODE" class="form-control form-control-sm" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="BANK_ADDRESS" class="form-label">Bank Address</label>
+              </div>
+              <div class="col-md-6">
+                <input id="BANK_ADDRESS" formControlName="BANK_ADDRESS" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="COUNTRY" class="form-label">Country</label>
+              </div>
+              <div class="col-md-2">
+                <input id="COUNTRY" formControlName="COUNTRY" class="form-control form-control-sm" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="STATE" class="form-label">State</label>
+              </div>
+              <div class="col-md-2">
+                <input id="STATE" formControlName="STATE" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="CITY" class="form-label">City</label>
+              </div>
+              <div class="col-md-2">
+                <input id="CITY" formControlName="CITY" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="PINCODE" class="form-label">Pin Code</label>
+              </div>
+              <div class="col-md-2">
+                <input type="number" id="PINCODE" formControlName="PINCODE" class="form-control form-control-sm" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              
+              <div class="col-md-2 text-end">
+                <label for="BANK_PHONE1" class="form-label">Phone 1</label>
+              </div>
+              <div class="col-md-2">
+                <input id="BANK_PHONE1" formControlName="BANK_PHONE1" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="BANK_PHONE2" class="form-label">Phone 2</label>
+              </div>
+              <div class="col-md-2">
+                <input id="BANK_PHONE2" formControlName="BANK_PHONE2" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="BANK_EMAIL" class="form-label">Email ID</label>
+              </div>
+              <div class="col-md-2">
+                <input id="BANK_EMAIL" formControlName="BANK_EMAIL" class="form-control form-control-sm" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="CONTACT_PERSON_NAME" class="form-label">Contact Person</label>
+              </div>
+              <div class="col-md-6">
+                <input id="CONTACT_PERSON_NAME" formControlName="CONTACT_PERSON_NAME" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="CONTACT_MOBILE" class="form-label">Mobile No</label>
+              </div>
+              <div class="col-md-2">
+                <input id="CONTACT_MOBILE" formControlName="CONTACT_MOBILE" class="form-control form-control-sm" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="CONTACT_EMAIL" class="form-label">Contact Email ID</label>
+              </div>
+              <div class="col-md-2">
+                <input id="CONTACT_EMAIL" formControlName="CONTACT_EMAIL" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="MANAGER_NAME" class="form-label">Bank Manager</label>
+              </div>
+              <div class="col-md-2">
+                <input id="MANAGER_NAME" formControlName="MANAGER_NAME" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="MANAGER_MOBILE" class="form-label">Manager Mobile No</label>
+              </div>
+              <div class="col-md-2">
+                <input id="MANAGER_MOBILE" formControlName="MANAGER_MOBILE" class="form-control form-control-sm" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="MANAGER_EMAIL" class="form-label">Manager Email ID</label>
+              </div>
+              <div class="col-md-2">
+                <input id="MANAGER_EMAIL" formControlName="MANAGER_EMAIL" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="OPEN_DATE" class="form-label">Open Date</label>
+              </div>
+              <div class="col-md-2">
+                <input type="date" id="OPEN_DATE" formControlName="OPEN_DATE" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="CLOSE_DATE" class="form-label">Close Date</label>
+              </div>
+              <div class="col-md-2">
+                <input type="date" id="CLOSE_DATE" formControlName="CLOSE_DATE" class="form-control form-control-sm" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="CREDIT_LIMIT" class="form-label">Credit Limit</label>
+              </div>
+              <div class="col-md-2">
+                <input id="CREDIT_LIMIT" formControlName="CREDIT_LIMIT" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="GUARANTEE_AMOUNT" class="form-label">Guarantee Amount</label>
+              </div>
+              <div class="col-md-2">
+                <input id="GUARANTEE_AMOUNT" formControlName="GUARANTEE_AMOUNT" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="JOINT_ACCOUNT" class="form-label">Joint A/c</label>
+              </div>
+              <div class="col-md-2">
+                <input id="JOINT_ACCOUNT" formControlName="JOINT_ACCOUNT" class="form-control form-control-sm" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="SIGNATORY_1" class="form-label">Authorised Signatory1</label>
+              </div>
+              <div class="col-md-2">
+                <input id="SIGNATORY_1" formControlName="SIGNATORY_1" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="SIGNATORY_2" class="form-label">Authorised Signatory2</label>
+              </div>
+              <div class="col-md-2">
+                <input id="SIGNATORY_2" formControlName="SIGNATORY_2" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="SIGNATORY_3" class="form-label">Authorised Signatory3</label>
+              </div>
+              <div class="col-md-2">
+                <input id="SIGNATORY_3" formControlName="SIGNATORY_3" class="form-control form-control-sm" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-2 text-end">
+                <label for="SIGNATORY_4" class="form-label">Authorised Signatory4</label>
+              </div>
+              <div class="col-md-2">
+                <input id="SIGNATORY_4" formControlName="SIGNATORY_4" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="SIGNATORY_5" class="form-label">Authorised Signatory5</label>
+              </div>
+              <div class="col-md-2">
+                <input id="SIGNATORY_5" formControlName="SIGNATORY_5" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-2 text-end">
+                <label for="IsActive" class="form-label">Status</label>
+              </div>
+              <div class="col-md-2">
+                <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" id="IsActive" type="radio" name="IsActive" [value]="true"
+                      formControlName="IsActive" />
+                    Active
+                  </div>
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" type="radio" name="IsActive" [value]="false"
+                      formControlName="IsActive" />
+                    Inactive
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="row card-margin-bottom-12">
+              <div class="col-md-5 text-end">
+
+              </div>
+
+              <div class="col-md-1">
+                <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                  Save
+                </button>
+              </div>
+              <div class="col-md-1">
+                <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                  (click)="previousState()">
+                  Close
+                </button>
+              </div>
+              <div class="col-md-5">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

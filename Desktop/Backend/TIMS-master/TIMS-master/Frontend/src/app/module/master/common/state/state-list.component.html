@@ -1,0 +1,133 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-title-box d-flex align-items-center justify-content-between">
+        <div class="page-title-right">
+          <ol class="breadcrumb m-0">
+            <ng-container>
+              <li class="breadcrumb-item"><a href="javascript: void(0);">Master Apps</a></li>
+              <li class="breadcrumb-item">Master</li>
+              <li class="breadcrumb-item active">State Master</li>
+            </ng-container>
+          </ol>
+        </div>
+      </div>
+      <div class="card-title text-center">
+        STATE MASTER
+      </div>
+    </div>
+  </div>
+  <div class="card card-box mb-2">
+    <div class="card-header bg-transparent border-bottom">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="search-wrapper-mini position-relative">
+            <div class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+              <i class="bi bi-search"></i>
+            </div>
+            <input class="form-control form-control-sm form-select-sm rounded-pill text-uppercase ps-4"
+                   name="port"
+                   id="field_style"
+                   placeholder="Name"
+                   type="text"/>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="search-wrapper-mini position-relative">
+            <div class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+              <i class="bi bi-search"></i>
+            </div>
+            <input class="form-control form-control-sm form-select-sm rounded-pill text-uppercase ps-4"
+                   name="Code"
+                   id="field_Code"
+                   placeholder="Code"
+                   type="text" />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-sm rounded-pill my-btn-light-grd" type="button">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+        <div class="col-md-2 text-end">
+          <button type="button" id="create-entity" class="btn btn-sm rounded-pill my-btn-light"
+                  [routerLink]="['/state-master/new']">
+            Add New
+          </button>
+          <div class="btn-group rounded-pill dropdown-end">
+            <button class="btn d-30 p-0 my-btn-light-grd" style="border-radius: 30px 0 0 30px;" type="button">
+              <i class="bi bi-gear-fill"></i>
+            </button>
+            <button class="btn d-30 btn-rounded p-0 btn-secondary dropdown-toggle"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 0 30px 30px 0;">
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-end listData">
+              <li class="text-center">Exports </li>
+              <li class="divider dropdown-divider"></li>
+              <li class="dropdown-item">
+                <i class="bi bi-file-earmark-excel text-success"></i>
+                &nbsp; <span>Excel</span>
+              </li>
+              <li class="dropdown-item">
+                <i class="bi bi-filetype-pdf text-danger"></i>
+                &nbsp; <span>Pdf</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive" id="entities">
+        <table class="table table-sm table-striped" aria-describedby="page-headin`g">
+          <thead class="table-light-new">
+          <tr>
+            <th><span>Sr. No.</span></th>
+            <th>State Code</th>
+            <th>State Name</th>
+            <th>Flag</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let state of states; let index = index; trackBy: trackById">
+            <td>{{ (index + 1) }}</td>
+            <td>{{ state.stateCode }}</td>
+            <td>{{ state.stateName }}</td>
+            <td>{{ state.isActive }}</td>
+            <td class="text-end">
+              <div class="btn-group">
+                <button [routerLink]="['/state-master', state.id, 'view']" class="btn btn-sm my-btn-light-grd"
+                        matTooltip="View" style="border-radius: 30px 0 0 30px;" matTooltipPosition="above"
+                        type="button">
+                  <i class="bi bi-eye-fill"></i>
+                </button>
+                <button type="button"
+                        [routerLink]="['/state-master', state.id, 'edit']"
+                        class="btn btn-sm my-btn-edit" matTooltip="Edit" matTooltipPosition="above">
+                  <i class="bi bi-pencil-fill"></i>
+                </button>
+                <button type="button" matTooltip="Print" matTooltipPosition="above"
+                        [routerLink]="['/state-master', state.id, 'print']"
+                        class="btn btn-sm btn-secondary">
+                  <i class="bi bi-printer-fill"></i>
+                </button>
+
+                <button type="button" (click)="delete(state)" class="btn btn-sm my-btn-danger" style="border-radius: 0 30px 30px 0;"
+                        matTooltipPosition="above" matTooltip="Delete">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warning" id="no-result" *ngIf="states && states.length === 0">
+        <span>No data found</span>
+      </div>
+    </div>
+  </div>
+</div>

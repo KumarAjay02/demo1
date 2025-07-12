@@ -1,0 +1,260 @@
+<div class="container">
+  <form [formGroup]="editForm" (ngSubmit)="updateVehicle()">
+    <div class="card card-box mb-2">
+      <div class="card-title text-center">VEHICLE MASTER</div>
+      <div class="card-body">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs mb-3" id="vehicleTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1"
+                    type="button" role="tab">Master</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2"
+                    type="button" role="tab">Attachments</button>
+          </li>
+<!--          <li class="nav-item" role="presentation">-->
+<!--            <button class="nav-link" id="tab3-tab" data-bs-toggle="tab" data-bs-target="#tab3"-->
+<!--                    type="button" role="tab">Approval</button>-->
+<!--          </li>-->
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <!-- TAB 1 -->
+          <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+            <div class="row mb-1">
+              <!-- CO Code -->
+              <div class="col-md-1 text-end">CO Code</div>
+              <div class="col-md-3">
+                <input type="text" formControlName="coCode" class="form-control form-control-sm text-uppercase" />
+              </div>
+
+              <!-- Div Code -->
+              <div class="col-md-1 text-end">Div Code</div>
+              <div class="col-md-3">
+                <input type="text" formControlName="divCode"  class="form-control form-control-sm text-uppercase" />
+              </div>
+
+              <!-- Branch Code -->
+              <div class="col-md-1 text-end">Branch Code</div>
+              <div class="col-md-3">
+                <input type="text" formControlName="branchCode" class="form-control form-control-sm text-uppercase" />
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <!-- Vehicle No -->
+              <div class="col-md-1 text-end">Vehicle No</div>
+              <div class="col-md-3">
+                <div class="input-group input-group-sm">
+                <input type="text" formControlName="vehicleNo" class="form-control form-control-sm text-uppercase" />
+                <button type="button" matTooltip="Find" matTooltipPosition="above"
+                        class="btn btn-sm btn-secondary">
+                  <i class="bi bi-download"></i>
+                </button>
+                </div>
+              </div>
+
+              <!-- Chasis No -->
+              <div class="col-md-1 text-end">Chasis No</div>
+              <div class="col-md-3">
+                <input type="text" formControlName="chasisNo" class="form-control form-control-sm text-uppercase" />
+              </div>
+
+              <!-- Engine No -->
+              <div class="col-md-1 text-end">Engine No</div>
+              <div class="col-md-3">
+                <input type="text" formControlName="engineNo" class="form-control form-control-sm text-uppercase" />
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <!-- Payable Form -->
+              <div class="col-md-1 text-end">Payable Form</div>
+              <div class="col-md-3">
+                <select formControlName="payableForm" class="form-select form-select-sm">
+                  <option value="undefined">-Select-</option>
+                  <option value="CompanyOwned">Company Owned</option>
+                  <option value="Supplier">Supplier</option>
+                  <option value="Broker">Broker</option>
+                  <option value="Vendor">Vendor</option>
+                </select>
+              </div>
+
+              <!-- Payable ID -->
+              <div class="col-md-1 text-end">Payable Id</div>
+              <div class="col-md-3">
+                <input type="text" formControlName="payableId" class="form-control form-control-sm text-uppercase" />
+              </div>
+
+              <!-- Model No -->
+              <div class="col-md-1 text-end">Model No</div>
+              <div class="col-md-3">
+                <input type="text" formControlName="vehicleModel" class="form-control form-control-sm text-uppercase" />
+              </div>
+            </div>
+            <div class="row mb-1">
+              <!-- Mobile No -->
+              <div class="col-md-1 text-end">Mobile No</div>
+              <div class="col-md-3">
+                <input type="text" formControlName="mobileNo" class="form-control form-control-sm text-uppercase" />
+              </div>
+
+              <!-- Vehicle Year -->
+              <div class="col-md-1 text-end">Vehicle Year</div>
+              <div class="col-md-3">
+                <input type="text" formControlName="vehicleYear" class="form-control form-control-sm text-uppercase" />
+              </div>
+
+              <!-- Actual Capacity -->
+              <div class="col-md-1 text-end">Act. Capacity</div>
+              <div class="col-md-3">
+                <input type="text" formControlName="actualCapacity" class="form-control form-control-sm text-uppercase" />
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <!-- Carrying Capacity -->
+              <div class="col-md-1 text-end">Carr. Capacity</div>
+              <div class="col-md-3">
+                <input type="text" formControlName="caringCapacity" class="form-control form-control-sm text-uppercase" />
+              </div>
+
+              <!-- Ins Start Date -->
+              <div class="col-md-1 text-end">Ins. Start Dt.</div>
+              <div class="col-md-3">
+                <input type="date"  formControlName="insStartDate" class="form-control form-control-sm text-uppercase" />
+              </div>
+
+              <!-- Ins Expiry -->
+              <div class="col-md-1 text-end">Ins. Expiry</div>
+              <div class="col-md-3">
+                <input type="date" formControlName="insExpiry" class="form-control form-control-sm text-uppercase" />
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <!-- Owner PAN No -->
+              <div class="col-md-1 text-end">Owner PAN No.</div>
+              <div class="col-md-3">
+                <div class="input-group input-group-sm">
+                  <input type="text" formControlName="ownerPanNo" class="form-control form-control-sm text-uppercase" />
+                  <button type="button" matTooltip="Find" matTooltipPosition="above"
+                          class="btn btn-sm btn-secondary">
+                    <i class="bi bi-download"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Vehicle Size -->
+              <div class="col-md-1 text-end">Vehicle Size</div>
+              <div class="col-md-3">
+                <select formControlName="vehicleSize" class="form-select form-select-sm">
+                  <option value="undefined">-Select-</option>
+                </select>
+              </div>
+
+              <!-- Capacity -->
+              <div class="col-md-1 text-end">Capacity</div>
+              <div class="col-md-3">
+                <input type="text" formControlName="capacity" class="form-control form-control-sm text-uppercase" />
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <!-- Status Radio -->
+              <div class="col-md-1 text-end">Status</div>
+              <div class="col-md-3">
+                <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" type="radio" name="status" [value]="'Active'" formControlName="status" />
+                    <label class="form-check-label">Active</label>
+                  </div>
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" type="radio" name="status" [value]="'BlackListed'" formControlName="status" />
+                    <label class="form-check-label">BlackListed</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Active Radio -->
+              <div class="col-md-1 text-end">Active</div>
+              <div class="col-md-3">
+                <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" type="radio" name="active" [value]="'Yes'" formControlName="active" />
+                    <label class="form-check-label">Yes</label>
+                  </div>
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" type="radio" name="active" [value]="'No'" formControlName="active" />
+                    <label class="form-check-label">No</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2 -->
+          <div class="tab-pane fade" id="tab2" role="tabpanel">
+            <div class="row mb-2">
+              <div class="col-md-1 text-end">Vehicle No</div>
+              <div class="col-md-3">
+                  <input type="text" [value]="editForm.get('vehicleNo')?.value" readonly class="form-control form-control-sm text-uppercase input-no-border" />
+              </div>
+
+            </div>
+            <!-- File Uploads for DL, RC, INS -->
+            <!-- File Upload: DL -->
+            <div class="row mb-2">
+              <div class="col-md-1 text-end">Upload PUC</div>
+              <div class="col-md-3">
+                <input type="file" class="form-control form-control-sm" (change)="onFileSelected($event, 'PUC')" />
+              </div>
+            </div>
+
+            <!-- File Upload: RC -->
+            <div class="row mb-2">
+              <div class="col-md-1 text-end">Upload RC</div>
+              <div class="col-md-3">
+                <input type="file" class="form-control form-control-sm" (change)="onFileSelected($event, 'RC')" />
+              </div>
+            </div>
+
+            <!-- File Upload: INS -->
+            <div class="row mb-2">
+              <div class="col-md-1 text-end">Upload INS</div>
+              <div class="col-md-3">
+                <input type="file" class="form-control form-control-sm" (change)="onFileSelected($event, 'INS')" />
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-1 text-end"></div>
+              <div class="col-md-3">
+                <button type="button" class="btn btn-sm rounded-pill my-btn-light">Approve</button>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="tab-pane fade" id="tab3" role="tabpanel">
+          </div>
+        </div>
+
+        <!-- FORM ACTIONS -->
+        <div class="card-footer row card-margin-bottom-10 mt-3">
+          <div class="col-md-5 text-end"></div>
+
+          <div class="col-md-1">
+            <button type="submit" class="btn btn-sm rounded-pill my-btn-light">Save</button>
+          </div>
+          <div class="col-md-1">
+            <button type="button" class="btn btn-sm rounded-pill my-btn-light" (click)="previousState()">Close</button>
+          </div>
+
+          <div class="col-md-5"></div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

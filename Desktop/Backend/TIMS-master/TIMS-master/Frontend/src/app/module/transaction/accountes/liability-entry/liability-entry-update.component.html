@@ -1,0 +1,414 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form [formGroup]="editForm" (ngSubmit)="save()">
+        <div class="card card-box mb-1">
+          <div class="card-title text-center">
+            {{ isEditMode ? 'EDIT LIABILITY ENTRY' : (isViewMode ? 'VIEW LIABILITY ENTRY' : (isApprovalMode ? 'APPROVE LIABILITY ENTRY' : 'CREATE LIABILITY ENTRY')) }}
+          </div>
+          <div class="card-body p-1">
+            <ul class="nav nav-tabs mb-1" id="docketTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1"
+                        type="button" role="tab">{{ mainTabText }}
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2"
+                        type="button" role="tab">Liability Payment
+                </button>
+              </li>
+
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <!-- TAB 1 -->
+              <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                <div class="row mb-1">
+                  <div class="col-md-1"><label for="financialYear" class="form-label">Financial&nbsp;Year</label></div>
+                  <div class="col-md-2">
+                    <select formControlName="financialYear" id="financialYear" class="form-select form-select-sm"
+                            [disabled]="isViewMode">
+                      <option value="">[Select]</option>
+                      <option *ngFor="let year of financialYears" [value]="year">{{ year }}</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1"><label for="branchCode" class="form-label">Branch&nbsp;Code</label></div>
+                  <div class="col-md-2">
+                    <select formControlName="branchCode" id="branchCode" class="form-select form-select-sm"
+                            [disabled]="isViewMode">
+                      <option value="undefined" [selected]="true">[Select Branch]</option>
+                      <option value="1234">Gurgaon</option>
+                      <option value="1234">Panipat</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1"><label for="liabilityType" class="form-label">Liability&nbsp;Type </label></div>
+                  <div class="col-md-2">
+                    <select formControlName="liabilityType" id="liabilityType" class="form-select form-select-sm"
+                            [disabled]="isViewMode">
+                      <option value="">[Select]</option>
+                      <option *ngFor="let type of liabilityTypes" [value]="type">{{ type }}</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1"><label for="billType" class="form-label">Bill&nbsp;Type </label></div>
+                  <div class="col-md-2">
+                    <select formControlName="billType" id="billType" class="form-select form-select-sm"
+                            [disabled]="isViewMode">
+                      <option value="">[Select]</option>
+                      <option *ngFor="let type of billTypes" [value]="type">{{ type }}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+
+                  <div class="col-md-1"><label for="billDate" class="form-label">Bill&nbsp;Date </label></div>
+                  <div class="col-md-2">
+                    <input type="date" id="billDate" formControlName="billDate" class="form-control form-control-sm"
+                           [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="liabilityDate" class="form-label">Liability&nbsp;Date </label></div>
+                  <div class="col-md-2">
+                    <input type="date" id="liabilityDate" formControlName="liabilityDate"
+                           class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="supplier" class="form-label">Supplier</label></div>
+                  <div class="col-md-2">
+                    <select formControlName="supplier" id="supplier" class="form-select form-select-sm"
+                            [disabled]="isViewMode">
+                      <option value="undefined" [selected]="true">[Select Supplier]</option>
+                      <option value="1234">SANGWAN CARGO</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1"><label for="companyType" class="form-label">Company&nbsp;Type</label></div>
+                  <div class="col-md-2">
+                    <select id="companyType" formControlName="companyType" class="form-select form-select-sm"
+                            [disabled]="isViewMode">
+                      <option value="undefined" [selected]="true">[Select Supplier]</option>
+                      <option value="1234">SANGWAN CARGO</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row mb-1">
+                  <div class="col-md-1"><label for="liabilityDueDate"
+                                               class="form-label">Liability&nbsp;Due&nbsp;Dt.</label></div>
+                  <div class="col-md-2">
+                    <input type="date" id="liabilityDueDate" formControlName="liabilityDueDate"
+                           class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="roundOff" class="form-label">Round&nbsp;Off</label></div>
+                  <div class="col-md-2">
+                    <input type="text" formControlName="roundOff" id="roundOff" class="form-control form-control-sm"
+                           [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="shortExcess" class="form-label">Short&nbsp;Excess</label></div>
+                  <div class="col-md-2">
+                    <input type="text" formControlName="shortExcess" id="shortExcess"
+                           class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="branchGstin" class="form-label">Branch&nbsp;GSTIN</label></div>
+                  <div class="col-md-2">
+                    <input type="text" formControlName="branchGstin" id="branchGstin"
+                           class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+                </div>
+                <div class="row mb-1">
+                  <div class="col-md-1"><label for="supplierGstin" class="form-label">Supplier&nbsp;GSTIN</label></div>
+                  <div class="col-md-2">
+                    <input type="text" id="supplierGstin" formControlName="supplierGstin"
+                           class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="inoviceNo" class="form-label">Invoice&nbsp;No</label></div>
+                  <div class="col-md-2">
+                    <input type="text" id="inoviceNo" formControlName="inoviceNo" class="form-control form-control-sm"
+                           [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="narration" class="form-label">Narration</label></div>
+                  <div class="col-md-5">
+                    <input type="text" id="narration" formControlName="narration" class="form-control form-control-sm"
+                           [disabled]="isViewMode">
+                  </div>
+
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-md-1"><label for="tds" class="form-label">TDS</label></div>
+                  <div class="col-md-2">
+                    <input type="number" id="tds" formControlName="tds" class="form-control form-control-sm"
+                           [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="deduction" class="form-label">Deduction</label></div>
+                  <div class="col-md-2">
+                    <input type="number" id="deduction" formControlName="deduction" class="form-control form-control-sm"
+                           [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="repayAmt" class="form-label">Repay Amt.</label></div>
+                  <div class="col-md-2">
+                    <input type="number" id="repayAmt" formControlName="repayAmt" class="form-control form-control-sm"
+                           [disabled]="isViewMode">
+                  </div>
+                  <div class="col-md-1"><label for="isRCM" class="form-label">IS RCM</label></div>
+                  <div class="col-md-2">
+                    <div class="form-check form-switch mt-2">
+                      <input id="isRCM" class="form-check-input custom-switch" type="checkbox"
+                             formControlName="isRCM"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="row  mb-2">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-bordered">
+                      <thead class="table-light-new">
+                      <tr>
+                        <th>Sr. No</th>
+                        <th>ACCOUNT CODE</th>
+                        <th>COST CENTER</th>
+                        <th>BASE AMOUNT</th>
+                        <th>TAXES APPLICABLE %</th>
+                        <th>CGST</th>
+                        <th>SGST</th>
+                        <th>IGST</th>
+                        <th>TOTAL</th>
+                        <th>ACTION</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let dtl of liabilityDetail; let i = index;">
+                        <td>{{ i + 1 }}</td>
+                        <td><input type="text" [(ngModel)]="dtl.accountCode" class="form-control form-control-sm"
+                                   [ngModelOptions]="{standalone: true}"/></td>
+                        <td><input type="text" [(ngModel)]="dtl.costCenter" class="form-control form-control-sm"
+                                   [ngModelOptions]="{standalone: true}"/></td>
+                        <td><input type="text" [(ngModel)]="dtl.baseAmount" class="form-control form-control-sm"
+                                   [ngModelOptions]="{standalone: true}"/></td>
+                        <td><input type="text" [(ngModel)]="dtl.taxesApplicable" class="form-control form-control-sm"
+                                   [ngModelOptions]="{standalone: true}"/></td>
+                        <td><input type="text" [(ngModel)]="dtl.cgst" class="form-control form-control-sm"
+                                   [ngModelOptions]="{standalone: true}"/></td>
+                        <td><input type="text" [(ngModel)]="dtl.sgst" class="form-control form-control-sm"
+                                   [ngModelOptions]="{standalone: true}"/></td>
+                        <td><input type="text" [(ngModel)]="dtl.igst" class="form-control form-control-sm"
+                                   [ngModelOptions]="{standalone: true}"/></td>
+                        <td><input type="text" [(ngModel)]="dtl.total" class="form-control form-control-sm"
+                                   [ngModelOptions]="{standalone: true}"/></td>
+                        <td class="text-center" style="min-width: 80px">
+                          <div class="btn-group">
+                            <button *ngIf="!isApprovalMode && !isViewMode" type="button" class="btn btn-sm my-btn-danger"
+                                    matTooltipPosition="above"
+                                    matTooltip="Delete">
+                              <i class="bi bi-trash-fill"></i>
+                            </button>
+                            <div class="form-check form-switch mt-2" *ngIf="isApprovalMode">
+                              <input [(ngModel)]="dtl.approved" class="form-check-input custom-switch" type="checkbox"
+                                     [ngModelOptions]="{standalone: true}"/>
+                            </div>
+                          </div>
+
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="row card-margin-bottom-10">
+                    <div class="col-md-5 text-end"></div>
+                    <div class="col-md-1" *ngIf="!isViewMode">
+                      <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light"
+                              [disabled]="editForm.invalid || saving">
+                        <span *ngIf="!saving">Save</span>
+                        <span *ngIf="saving" class="spinner-border spinner-border-sm" role="status"
+                              aria-hidden="true"></span>
+                      </button>
+                    </div>
+                    <div class="col-md-1">
+                      <button type="button" id="cancel" class="btn btn-sm rounded-pill my-btn-light"
+                              (click)="previousState()">
+                        {{ isViewMode ? 'Back' : 'Close' }}
+                      </button>
+                    </div>
+                    <div class="col-md-5"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="tab2" role="tabpanel">
+                <div class="row mb-1">
+                  <div class="col-md-1"><label for="financialYear1" class="form-label">Financial&nbsp;Year</label></div>
+                  <div class="col-md-2">
+                    <select id="financialYear1" formControlName="financialYear" class="form-select form-select-sm" [disabled]="isViewMode">
+                      <option value="undefined" [selected]="true">[Select Year]</option>
+                      <option value="2526">2526</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-1"><label for="branchCode1" class="form-label">Branch&nbsp;Code</label></div>
+                  <div class="col-md-2">
+                    <select id="branchCode1" formControlName="branchCode" class="form-select form-select-sm" [disabled]="isViewMode">
+                      <option value="undefined" [selected]="true">[Select Branch]</option>
+                      <option value="PNRO">PNRO</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-1"><label for="supplier1" class="form-label">Supplier</label></div>
+                  <div class="col-md-2">
+                    <select id="supplier1" formControlName="supplier" class="form-select form-select-sm" [disabled]="isViewMode">
+                      <option value="undefined" [selected]="true">[Supplier]</option>
+                      <option value="8">8&gt;SBL EXPRESS INDIA PVT LTD&gt;PNRO</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-1"><label for="liabilityNo" class="form-label">Liability&nbsp;No</label></div>
+                  <div class="col-md-2">
+                    <select id="liabilityNo" formControlName="liabilityNo" class="form-select form-select-sm" [disabled]="isViewMode">
+                      <option value="undefined" [selected]="true">[Liability No]</option>
+                      <option value="8">lb0002345</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-md-1"><label for="liabilityDate1" class="form-label">Liability&nbsp;Date</label></div>
+                  <div class="col-md-2">
+                    <input type="date" id="liabilityDate1" formControlName="liabilityDate" class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+
+                  <div class="col-md-1"><label for="liabilityType1" class="form-label">Liability&nbsp;Type</label></div>
+                  <div class="col-md-2">
+                    <select id="liabilityType1" (change)="liabilityChange()" formControlName="liabilityType1" class="form-select form-select-sm" [disabled]="isViewMode">
+                      <option value="undefined" [selected]="true">[Liability Type]</option>
+                      <option value="FINAL PAYMENT">FINAL PAYMENT</option>
+                      <option value="ADVANCE">ADVANCE</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-1"><label for="payMode1" class="form-label">Pay&nbsp;Mode</label></div>
+                  <div class="col-md-2">
+                    <select id="payMode1" formControlName="payMode" class="form-select form-select-sm" [disabled]="isViewMode">
+                      <option value="undefined" [selected]="true">[Pay Mode]</option>
+                      <option value="Bank" [selected]="true">Bank</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-1"><label for="bank" class="form-label">Bank</label></div>
+                  <div class="col-md-2">
+                    <select id="bank" formControlName="bank" class="form-select form-select-sm" [disabled]="isViewMode">
+                      <option value="undefined" [selected]="true">[Select Bank]</option>
+                      <option value="10067M">10067M-ICICI BANK-002105027</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-md-1"><label for="payType" class="form-label">Pay&nbsp;Type</label></div>
+                  <div class="col-md-2">
+                    <select id="payType" formControlName="payType" class="form-select form-select-sm" [disabled]="isViewMode">
+                      <option value="undefined" [selected]="true">[Select Type]</option>
+                      <option value="NEFT">NEFT</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-1"><label for="neftNumber" class="form-label">NEFT&nbsp;Number</label></div>
+                  <div class="col-md-2">
+                    <input type="text" id="neftNumber" formControlName="neftNumber" class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+
+                  <div class="col-md-1"><label for="neftDate" class="form-label">NEFT&nbsp;Date</label></div>
+                  <div class="col-md-2">
+                    <input type="date" id="neftDate" formControlName="neftDate" class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+
+                  <div class="col-md-1"><label for="panNo" class="form-label">PAN&nbsp;No</label></div>
+                  <div class="col-md-2">
+                    <input type="text" id="panNo" formControlName="panNo" class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-md-1"><label for="paymentDate" class="form-label">Payment&nbsp;Date</label></div>
+                  <div class="col-md-2">
+                    <input type="date" id="paymentDate" formControlName="paymentDate" class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+
+                  <div class="col-md-1"><label for="payRemarks" class="form-label">Pay&nbsp;Remarks</label></div>
+                  <div class="col-md-5">
+                    <input type="text" id="payRemarks" formControlName="payRemarks" class="form-control form-control-sm" [disabled]="isViewMode">
+                  </div>
+                </div>
+                <div class="row  mb-2">
+                  <div class="col-md-12">
+                  <div class="table-responsive mt-2"
+                       style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                    <table class="table table-sm table-bordered" style="min-width: 1500px;">
+                      <thead class="table-light-new">
+                      <tr>
+                        <th>Sr. No</th>
+                        <th></th>
+                        <th>LIB NO</th>
+                        <th>LIB TYPE</th>
+                        <th>LIB DATE</th>
+                        <th>LIB REF</th>
+                        <th>COST CODE</th>
+                        <th>COST CODE DESC</th>
+                        <th>INVOICE NO</th>
+                        <th>INVOICE DATE</th>
+                        <th>INVOICE AMT</th>
+                        <th>CGST</th>
+                        <th>SGST</th>
+                        <th>IGST</th>
+                        <th>TDS Amt</th>
+                        <th>DED AMT</th>
+                        <th>TOTAL AMT</th>
+                        <th>TOTAL PREPAY</th>
+                        <th>ALREADY PAID</th>
+                        <th>DEBIT NOTE AMT</th>
+                        <th>DEBIT NOTE CGST</th>
+                        <th>DEBIT NOTE SGST</th>
+                        <th>DEBIT NOTE IGST</th>
+                        <th>{{finalPaymentHeader}}</th>
+                        <th>LIABILITY ACCOUNT</th>
+                        <th></th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let dtl of liabilityPayment; let i = index;">
+                        <td>{{ i + 1 }}</td>
+                        <td><input type="checkbox"></td>
+                        <td>{{dtl.libNumber}}</td>
+                        <td>{{dtl.libType}}</td>
+                        <td>{{dtl.libDate}}</td>
+                        <td>{{dtl.libReference}}</td>
+                        <td>{{dtl.libCostCode}}</td>
+                        <td>{{dtl.libCostCodeDescription}}</td>
+                        <td>{{dtl.invoiceNo}}</td>
+                        <td>{{dtl.invoiceDate}}</td>
+                        <td>{{dtl.invoiceAmount}}</td>
+                        <td>{{dtl.cgst}}</td>
+                        <td>{{dtl.sgst}}</td>
+                        <td>{{dtl.igst}}</td>
+                        <td>{{dtl.tdsAmount}}</td>
+                        <td>{{dtl.dedAmount}}</td>
+                        <td>{{dtl.totalAmount}}</td>
+                        <td>{{dtl.totalPrepaidAmount}}</td>
+                        <td>{{dtl.alreadyPaidAmount}}</td>
+                        <td>{{dtl.debitNoteAmount}}</td>
+                        <td>{{dtl.debitNoteCgstAmount}}</td>
+                        <td>{{dtl.debitNoteSgstAmount}}</td>
+                        <td>{{dtl.debitNoteIgstAmount}}</td>
+                        <td><input type="text" [(ngModel)]="dtl.finalPaymentAmount" class="form-control form-control-sm"
+                                   [ngModelOptions]="{standalone: true}"/></td>
+                        <td>{{dtl.liabilityAmount}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

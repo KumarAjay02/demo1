@@ -1,0 +1,222 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form [formGroup]="editForm" (ngSubmit)="updateChallan()">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            <div class="btn-group">
+              CHALLAN&nbsp;ENTRY&nbsp;FOR&nbsp;&nbsp;&nbsp;
+              <select *ngIf="this.mode==='add'" formControlName="challanType" class="form-select form-select-sm">
+                <option value="undefined" [selected]="true">-Select Challan Type-</option>
+                <option value="LONGROUTE">Long Route Challan</option>
+                <option value="PICKUP">Pickup Challan</option>
+                <option value="LOCAL">Local B2B Challan</option>
+                <option value="SUPLEMENTARY">Supplementary Challan</option>
+<!--                <option value="LOADINGSHEET">Long Route Challan With Loading Sheet(Barcode)</option>-->
+                <option value="DRS">Delivery Run Sheet (DRS)</option>
+              </select>
+              <input *ngIf="this.mode!=='add'" [disabled]="true" type="text" class="form-control form-control-sm" [(ngModel)]="this.selChallanType" [ngModelOptions]="{ standalone: true }"
+              >
+              <input type="text" class="form-control form-control-sm text-end" [disabled]="true" value="{{this.selBranch}}">
+            </div>
+
+          </div>
+          <div class="card-body">
+            <ng-container *ngIf="editForm.get('challanType')?.value==='LONGROUTE' || editForm.get('challanType')?.value==='SUPLEMENTARY'">
+              <div class="row mb-2">
+                <div class="col-md-1 ">Date</div>
+                <div class="col-md-2">
+                  <input formControlName="date" class="form-control form-control-sm" type="date"/>
+                </div>
+                <div class="col-md-1 ">To Branch</div>
+                <div class="col-md-2">
+                  <!--                <div class="form-check form-switch">-->
+                  <!--                  <input class="form-check-input" type="checkbox" formControlName="noRemote"/>-->
+                  <!--                </div>-->
+                  <select formControlName="toBranch" class="form-select form-select-sm">
+                    <option value="undefined" [selected]="true">-Select Branch-</option>
+                  </select>
+                </div>
+                <div class="col-md-1 ">Mode</div>
+                <div class="col-md-2">
+                  <select formControlName="mode" class="form-select form-select-sm">
+                    <option value="undefined" [selected]="true">-Select Mode-</option>
+                    <option value="ROAD">ROAD</option>
+                    <option value="RAIL">RAIL</option>
+                  </select>
+                </div>
+                <div class="col-md-1 ">Vehicle/ Train No</div>
+                <div class="col-md-2">
+                  <input formControlName="vehicleNumber" class="form-control form-control-sm text-uppercase"/>
+                </div>
+              </div>
+              <div class="row mb-2">
+              <div class="col-md-1 ">Seal No</div>
+              <div class="col-md-2">
+                <input formControlName="sealNo" class="form-control form-control-sm text-uppercase"/>
+              </div>
+              <div class="col-md-1 ">Docket No</div>
+              <div class="col-md-2">
+                <input formControlName="docketNo"  class="form-control form-control-sm text-uppercase hilight-focus"/>
+              </div>
+            </div>
+           </ng-container>
+            <ng-container *ngIf="editForm.get('challanType')?.value==='PICKUP'">
+              <div class="row mb-2">
+                <div class="col-md-1 ">Date</div>
+                <div class="col-md-2">
+                  <input formControlName="pDate" class="form-control form-control-sm" type="date"/>
+                </div>
+                <div class="col-md-1 ">Vehicle No</div>
+                <div class="col-md-2">
+                  <input formControlName="pVehicleNumber" class="form-control form-control-sm text-uppercase"/>
+                </div>
+                <div class="col-md-1 ">Cons E-Way Bill</div>
+                <div class="col-md-2">
+                  <input formControlName="pConsEwayBill" class="form-control form-control-sm text-uppercase"/>
+                </div>
+                <div class="col-md-1 ">Docket No</div>
+                <div class="col-md-2">
+                  <input formControlName="pdocketNo" class="form-control form-control-sm text-uppercase  hilight-focus"/>
+                </div>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="editForm.get('challanType')?.value==='LOCAL'">
+              <div class="row mb-2">
+                <div class="col-md-1 ">Date</div>
+                <div class="col-md-2">
+                  <input formControlName="LDate" class="form-control form-control-sm" type="date"/>
+                </div>
+                <div class="col-md-1 ">To Branch</div>
+                <div class="col-md-2">
+                  <select formControlName="LToBranch" class="form-select form-select-sm">
+                    <option value="undefined" [selected]="true">-Select Branch-</option>
+                  </select>
+                </div>
+                <div class="col-md-1 ">Data Transfer</div>
+                <div class="col-md-2">
+                  <select formControlName="LDataTransfer" class="form-select form-select-sm">
+                    <option value="Yes">Yes</option>
+                    <option value="No" [selected]="true" >No</option>
+                  </select>
+                </div>
+                <div class="col-md-1 ">Vehicle No</div>
+                <div class="col-md-2">
+                  <input formControlName="LVehicleNumber" class="form-control form-control-sm text-uppercase"/>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-md-1 ">TCS No</div>
+                <div class="col-md-2">
+                  <input formControlName="LTCSNo" class="form-control form-control-sm text-uppercase"/>
+                </div>
+                <div class="col-md-1 ">Docket No</div>
+                <div class="col-md-2">
+                  <input formControlName="LDocketNo" class="form-control form-control-sm text-uppercase  hilight-focus"/>
+                </div>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="editForm.get('challanType')?.value==='LOADINGSHEET'">
+              <div class="row mb-2">
+                <div class="col-md-1 ">Date</div>
+                <div class="col-md-2">
+                  <input formControlName="LSDate" class="form-control form-control-sm" type="date"/>
+                </div>
+                <div class="col-md-1 ">Vehicle No</div>
+                <div class="col-md-2">
+                  <input formControlName="LSVehicleNumber" class="form-control form-control-sm text-uppercase"/>
+                </div>
+                <div class="col-md-1 ">Docket No</div>
+                <div class="col-md-2">
+                  <input formControlName="LSdocketNo" class="form-control form-control-sm text-uppercase  hilight-focus"/>
+                </div>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="editForm.get('challanType')?.value==='DRS'">
+              <div class="row mb-2">
+                <div class="col-md-1 ">Date</div>
+                <div class="col-md-2">
+                  <input formControlName="dDate" class="form-control form-control-sm" type="date"/>
+                </div>
+                <div class="col-md-1 ">Vehicle No</div>
+                <div class="col-md-2">
+                  <input formControlName="dVehicleNumber" class="form-control form-control-sm text-uppercase"/>
+                </div>
+                <div class="col-md-1 ">Docket No</div>
+                <div class="col-md-2">
+                  <input formControlName="ddocketNo" class="form-control form-control-sm text-uppercase  hilight-focus"/>
+                </div>
+              </div>
+            </ng-container>
+            <div class="row mb-2">
+              <div class="col-md-1 ">Remark</div>
+              <div class="col-md-11">
+                <input formControlName="remark" class="form-control form-control-sm"/>
+              </div>
+            </div>
+            <div class="ro mb-2">
+              <div class="table-responsive mt-2"
+                   style="max-height: 500px; overflow-y: auto; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                <table class="table table-sm table-bordered" >
+                  <thead class="table-light-new">
+                  <tr>
+                    <th>S.No.</th>
+                    <th>DOCKET NO</th>
+                    <th>ORIGIN</th>
+                    <th>DESTINATION</th>
+                    <th>CONSIGNOR</th>
+                    <th>CONSIGNEE</th>
+                    <th>PCS</th>
+                    <th>ACTUAL WEIGHT</th>
+                    <th style="width: 50px"></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+
+                  <ng-container *ngFor="let detail of docket; let index=index">
+                    <tr>
+                      <td> {{index+1}}</td>
+                      <td><input type="checkbox"/>{{detail.docketNo}}</td>
+                      <td></td>
+                      <td></td>
+                      <td>{{detail.consignorName}}</td>
+                      <td>{{detail.consigneeName}}</td>
+                      <td>{{detail.totalPkgs}}</td>
+                      <td>{{detail.actualWeight}}</td>
+                      <td class="">
+                        <div class="btn-group">
+                          <button type="button" (click)="removeDocket(index)" class="btn btn-sm my-btn-danger"
+                                  style="border-radius: 0 30px 30px 0;" matTooltipPosition="above"
+                                  matTooltip="Delete">
+                            <i class="bi bi-trash-fill"></i>
+                          </button>
+                        </div>
+
+                      </td>
+                    </tr>
+                  </ng-container>
+                  </tbody>
+
+                </table>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="row card-margin-bottom-10">
+                <div class="col-md-5 "></div>
+                <div class="col-md-1">
+                  <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">Save</button>
+                </div>
+                <div class="col-md-1">
+                  <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                          (click)="previousState()">Close
+                  </button>
+                </div>
+                <div class="col-md-5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

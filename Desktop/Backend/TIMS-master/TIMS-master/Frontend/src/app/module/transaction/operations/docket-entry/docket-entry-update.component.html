@@ -1,0 +1,686 @@
+<div class="container">
+
+  <form name="editForm" role="form" novalidate [formGroup]="editForm" (ngSubmit)="updateEntry()">
+    <div class="card card-box mb-1">
+      <div class="card-title text-center">DOCKET ENTRY</div>
+      <div class="card-body p-1">
+        <ul class="nav nav-tabs mb-1" id="docketTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1"
+                    type="button" role="tab">Docket Entry
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2"
+                    type="button" role="tab">Packing/CFT
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab3-tab" data-bs-toggle="tab" data-bs-target="#tab3"
+                    type="button" role="tab">E-Way Bill Details
+            </button>
+          </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <!-- TAB 1 -->
+          <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+            <div class="row mb-1">
+              <div class="col-md-1 ">
+                <label for="docketNo"  class="form-label">Dwb No.</label>
+              </div>
+              <div class="col-md-2">
+                <input type="text" id="docketNo" formControlName="docketNo" class="form-control form-control-sm"/>
+              </div>
+              <div class="col-md-1 ">Booking Date</div>
+              <div class="col-md-2">
+                <input type="date" formControlName="bookingDate" class="form-control form-control-sm"/>
+              </div>
+              <div class="col-md-1 ">Booking Mode</div>
+              <div class="col-md-2">
+                <select formControlName="bookingMode" class="form-select form-select-sm">
+                  <option value="undefined" [selected]="true">-Select-</option>
+                  <option value="AIR">AIR</option>
+                  <option value="ROAD">AIR INTERNATIONAL</option>
+                  <option value="AIR">CARGO</option>
+                  <option value="ROAD">EXPRESS</option>
+                  <option value="AIR">FULL TRUCK LOAD</option>
+                  <option value="ROAD">OCEAN CARGO</option>
+                  <option value="AIR">OTHER SUPPORT SERVICES</option>
+                  <option value="ROAD">OTHER TRANSPORT SERVICES</option>
+                  <option value="AIR">PACKAGING</option>
+                  <option value="ROAD">ROAD</option>
+                  <option value="AIR">TRAIN</option>
+                  <option value="ROAD">VOLVO BUS SERVICE</option>
+                  <option value="AIR">WAREHOUSE</option>
+                  <!-- Add more if needed -->
+                </select>
+              </div>
+              <div class="col-md-1 ">Service Mode</div>
+              <div class="col-md-2">
+                <select formControlName="serviceMode" class="form-select form-select-sm">
+                  <option value="undefined" [selected]="true">-Select-</option>
+                  <option value="PF">PREMIUM FLIGHT</option>
+                  <option value="GCR">GCR-CARGO FLIGHT</option>
+                  <option value="FT">FAST TRACK</option>
+                  <option value="HC">HAND CARRY</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <div class="col-md-1 ">Booking Basis</div>
+              <div class="col-md-2">
+                <select formControlName="bookingBasis" class="form-select form-select-sm">
+                  <option value="undefined" [selected]="true">-Select-</option>
+                  <option value="BOD">BILL ON DELIVERY</option>
+                  <option value="FOC">FREE OF COST</option>
+                  <option value="PAID">PAID</option>
+                  <option value="TPB">THIRD PARTY BILL</option>
+                  <option value="TBB">TO BE BILLED</option>
+                  <option value="FOD">TO PAY</option>
+                </select>
+              </div>
+              <div class="col-md-1 ">Cheque By</div>
+              <div class="col-md-2">
+                <input type="text" formControlName="chequeBy" class="form-control form-control-sm"/>
+              </div>
+              <div class="col-md-1 ">PickUp By</div>
+              <div class="col-md-2">
+                <input type="text" formControlName="pickupBy" class="form-control form-control-sm"/>
+              </div>
+              <div class="col-md-1 ">EOD</div>
+              <div class="col-md-2">
+                <select formControlName="eod" class="form-select form-select-sm">
+                  <option value="undefined" [selected]="true">-Select-</option>
+                  <option value="BDD">BADD</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <div class="col-md-3">
+                <div class="card card-box" style="padding: 0px">
+                  <div class="row mb-1">
+                    <div class="col-md-12">
+                      <div class="card-title-flat text-center">Delivery Details</div>
+                    </div>
+                  </div>
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Delv. Branch</div>
+                    <div class="col-md-8">
+                      <select formControlName="delvBranch" class="form-select form-select-sm">
+                        <option value="undefined" [selected]="true">-Select-</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Pin Code</div>
+                    <div class="col-md-8">
+                      <select formControlName="pinCode" class="form-select form-select-sm">
+                      <option value="undefined" [selected]="true">-Select-</option>
+                    </select>               </div>
+                  </div>
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Distance</div>
+                    <div class="col-md-8">
+                      <input type="text" formControlName="distance" class="form-control form-control-sm"/>
+                    </div>
+                  </div>
+                  <div class="row mb-1">
+                    <div class ="col-md-12">
+                      &nbsp;
+                    </div>
+                  </div>
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">DelvType</div>
+                    <div class="col-md-8"><select formControlName="delvType" class="form-select form-select-sm">
+                      <option value="undefined" [selected]="true">-Select-</option>
+                    </select>
+                    </div>
+                  </div>
+                  <div class="row mb-1">
+                    <div class ="col-md-12">
+                      &nbsp;
+                    </div>
+                  </div>
+                  <div class="row mb-1">
+                    <div class ="col-md-12">
+                      &nbsp;
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card card-box" style="padding: 0px">
+                  <!-- Title -->
+                  <div class="row mb-1">
+                    <div class="col-md-12">
+                      <div class="card-title-flat text-center">Consignor</div>
+                    </div>
+                  </div>
+
+                  <!-- Code -->
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Consignor</div>
+                    <div class="col-md-8">
+                      <select formControlName="consignorCode" class="form-select form-select-sm">
+                        <option value="undefined" [selected]="true">-Select-</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Name -->
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Name</div>
+                    <div class="col-md-8">
+                      <input type="text" formControlName="consignorName"
+                             class="form-control form-control-sm"/>
+                    </div>
+                  </div>
+
+                  <!-- Address -->
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Add</div>
+                    <div class="col-md-8">
+                      <input type="text" formControlName="consignorAddress" class="form-control form-control-sm"/>
+                    </div>
+                  </div>
+
+                  <!-- Phone -->
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Phone</div>
+                    <div class="col-md-8">
+                      <input type="text" formControlName="consignorPhone" class="form-control form-control-sm"/>
+                    </div>
+                  </div>
+
+                  <!-- Mobile -->
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Mobile</div>
+                    <div class="col-md-8">
+                      <input type="text" formControlName="consignorMobile" class="form-control form-control-sm"/>
+                    </div>
+                  </div>
+
+                  <!-- Email -->
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Email</div>
+                    <div class="col-md-8">
+                      <input type="email" formControlName="consignorEmail" class="form-control form-control-sm"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card card-box" style="padding: 0px">
+                  <div class="row mb-1">
+                    <div class="col-md-12">
+                      <div class="card-title-flat text-center">Consignee</div>
+                    </div>
+                  </div>
+
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Consignee</div>
+                    <div class="col-md-8">
+                      <select formControlName="consigneeCode" class="form-select form-select-sm">
+                        <option value="undefined" [selected]="true">-Select-</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Name</div>
+                    <div class="col-md-8">
+                      <input type="text" formControlName="consigneeName" class="form-control form-control-sm"/>
+                    </div>
+                  </div>
+
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Add</div>
+                    <div class="col-md-8">
+                      <input type="text" formControlName="consigneeAddress" class="form-control form-control-sm"/>
+                    </div>
+                  </div>
+
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Phone</div>
+                    <div class="col-md-8">
+                      <input type="text" formControlName="consigneePhone" class="form-control form-control-sm"/>
+                    </div>
+                  </div>
+
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Mobile</div>
+                    <div class="col-md-8">
+                      <input type="text" formControlName="consigneeMobile" class="form-control form-control-sm"/>
+                    </div>
+                  </div>
+
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Email</div>
+                    <div class="col-md-8">
+                      <input type="email" formControlName="consigneeEmail" class="form-control form-control-sm"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card card-box" style="padding: 0px">
+                  <div class="row mb-1">
+                    <div class="col-md-12">
+                      <div class="card-title-flat text-center">Billing Party</div>
+                    </div>
+                  </div>
+
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Party</div>
+                    <div class="col-md-8">
+                      <select formControlName="billingPartyCode" class="form-select form-select-sm">
+                        <option value="undefined" [selected]="true">-Select-</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Name</div>
+                    <div class="col-md-8">
+                      <input type="text" formControlName="billingPartyName" class="form-control form-control-sm"/>
+                    </div>
+                  </div>
+
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Add</div>
+                    <div class="col-md-8">
+                      <input type="text" formControlName="billingPartyAddress" class="form-control form-control-sm"/>
+                    </div>
+                  </div>
+
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Phone</div>
+                    <div class="col-md-8">
+                      <input type="text" formControlName="billingPartyPhone" class="form-control form-control-sm"/>
+                    </div>
+                  </div>
+
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Mobile</div>
+                    <div class="col-md-8">
+                      <input type="text" formControlName="billingPartyMobile" class="form-control form-control-sm"/>
+                    </div>
+                  </div>
+
+                  <div class="row mb-1">
+                    <div class="col-md-4 ">Email</div>
+                    <div class="col-md-8">
+                      <input type="email" formControlName="billingPartyEmail" class="form-control form-control-sm"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--            <div class="card-title text-center"></div>-->
+            <hr style="margin-top: 0px;margin-bottom: 4px">
+            <div class="row mb-1">
+              <div class="col-md-1 ">Total Pkgs.</div>
+              <div class="col-md-2">
+                <input type="text" formControlName="totalPkgs" class="form-control form-control-sm"/>
+              </div>
+              <div class="col-md-1 ">Act. Wt(Kgs)</div>
+              <div class="col-md-2">
+                <input type="text" formControlName="actualWeight" class="form-control form-control-sm"/>
+              </div>
+              <div class="col-md-1 ">CFT. Wt(Kgs)</div>
+              <div class="col-md-2">
+                <input type="text" formControlName="cftWeight" class="form-control form-control-sm"/>
+              </div>
+              <div class="col-md-1 ">CHG. Wt(Kgs)</div>
+              <div class="col-md-2">
+                <input type="text" formControlName="chargeableWeight" class="form-control form-control-sm"/>
+              </div>
+            </div>
+
+
+            <div class="row mb-1">
+              <div class="col-md-1 ">Remarks</div>
+              <div class="col-md-5">
+                <input type="text" placeholder="Enter Remarks" formControlName="remarks" class="form-control form-control-sm"/>
+              </div>
+              <div class="col-md-1 ">Prepared By</div>
+              <div class="col-md-2">
+                <select formControlName="prepareBy" class="form-select form-select-sm">
+                  <option value="">-Select-</option>
+                  <option value="Vikash">Vikash</option>
+                </select>
+              </div>
+              <div class="col-md-1 ">Marking By</div>
+              <div class="col-md-2">
+                <select formControlName="markingBy" class="form-select form-select-sm">
+                  <option value="">-Select-</option>
+                  <option value="Vikash">Vikash</option>
+                </select>
+              </div>
+            </div>
+            <div class="card-footer">
+            <div class="row card-margin-bottom-10">
+              <div class="col-md-5 "></div>
+              <div class="col-md-1">
+                <button type="submit" class="btn btn-sm rounded-pill my-btn-light">Save</button>
+              </div>
+              <div class="col-md-1">
+                <button type="button" class="btn btn-sm rounded-pill my-btn-light" (click)="previousState()">Close
+                </button>
+              </div>
+              <div class="col-md-5"></div>
+            </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="tab2" role="tabpanel">
+            <div class="row mb-1">
+              <div class="col-md-1 ">Packing</div>
+              <div class="col-md-2">
+                <select formControlName="packing" class="form-select form-select-sm">
+                  <option value="undefined" [selected]="true">-Select-</option>
+                  <!-- Add more if needed -->
+                </select>
+              </div>
+              <div class="col-md-1 ">Material</div>
+              <div class="col-md-2">
+                <select formControlName="material" class="form-select form-select-sm">
+                  <option value="undefined" [selected]="true">-Select-</option>
+                  <!-- Add more if needed -->
+                </select>
+              </div>
+              <div class="col-md-1 ">Private Mark</div>
+              <div class="col-md-2">
+                <input type="text" formControlName="privateMark" class="form-control form-control-sm"/>
+              </div>
+              <div class="col-md-1 ">Content</div>
+              <div class="col-md-2">
+                <input type="number" formControlName="content" class="form-control form-control-sm"/>
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <div class="col-md-1 ">Pickup Date</div>
+              <div class="col-md-2">
+                <input type="date" formControlName="pickupDate" class="form-control form-control-sm"/>
+              </div>
+              <div class="col-md-1 ">Pickup Req No.</div>
+              <div class="col-md-2">
+                <select formControlName="pickupReqNo" class="form-select form-select-sm">
+                  <option value="undefined" [selected]="true">-Select-</option>
+                  <!-- Add more if needed -->
+                </select>
+              </div>
+              <div class="col-md-1 ">DC No</div>
+              <div class="col-md-2">
+                <input type="text" placeholder="DC No" formControlName="dcNo" class="form-control form-control-sm"/>
+              </div>
+            </div>
+            <div class="table-responsive mt-2"
+                 style="max-height: 500px; overflow-y: auto; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+              <table class="table table-sm ">
+                <thead class="table-light-new">
+                <tr>
+                  <th>S.No.</th>
+                  <th>LENGTH</th>
+                  <th>WIDTH</th>
+                  <th>HEIGHT</th>
+                  <th>CFT</th>
+                  <th>PKGS</th>
+                  <th>CFT WT.(KG)</th>
+                  <th style="width: 50px"></th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <ng-container *ngFor="let detail of docketCft; let index=index">
+                  <tr>
+                    <td>{{index+1}}</td>
+                    <td>
+                      <input
+                        class="form-control form-control-sm text-uppercase"
+                        name="branchCode{{ index }}"
+                        id="field_branchCode{{ index }}"
+                        [ngModel]=detail.length
+                        [ngModelOptions]="{ standalone: true }"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        class="form-control form-control-sm text-uppercase"
+                        name="branch{{ index }}"
+                        id="field_branch{{ index }}"
+                        [ngModel]=detail.width
+                        [ngModelOptions]="{ standalone: true }"
+                      />
+                    </td>
+                    <td><input
+                      class="form-control form-control-sm text-uppercase"
+                      name="GST{{ index }}"
+                      id="field_GST{{ index }}"
+                      [ngModel]="detail.height"
+                      [ngModelOptions]="{ standalone: true }"
+                    />
+                    </td>
+
+                    <td><input
+                      class="form-control form-control-sm text-uppercase"
+                      name="city{{ index }}"
+                      id="field_city{{ index }}"
+                      [ngModel]="detail.cft"
+                      [disabled]="true"
+                      [ngModelOptions]="{ standalone: true }"
+                    /></td>
+
+                    <td><input
+                      class="form-control form-control-sm text-uppercase"
+                      name="city{{ index }}"
+                      id="field_city{{ index }}"
+                      [ngModel]="detail.packages"
+                      [ngModelOptions]="{ standalone: true }"
+                    />
+                    </td>
+                    <td><input
+                      class="form-control form-control-sm text-uppercase"
+                      name="city{{ index }}"
+                      id="field_city{{ index }}"
+                      [ngModel]="detail.cftWt"
+                      [disabled]="true"
+                      [ngModelOptions]="{ standalone: true }"
+                    />
+                    </td>
+                    <td class="">
+                      <div class="btn-group">
+                        <button type="button" (click)="removeCft(index)" class="btn btn-sm my-btn-danger"
+                                style="border-radius: 0 30px 30px 0;" matTooltipPosition="above"
+                                matTooltip="Delete">
+                          <i class="bi bi-trash-fill"></i>
+                        </button>
+                      </div>
+
+                    </td>
+                  </tr>
+                </ng-container>
+                <tr>
+                  <td colspan="8" class="text-center">
+                    <button type="button" class="btn btn-sm rounded-pill my-btn-light" (click)="addRow()"
+                            (keydown.enter)="addRow()"
+                            (keydown.space)="addRow()">Add Row
+                    </button>
+                  </td>
+                </tr>
+                </tbody>
+
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="tab3" role="tabpanel">
+            <div class="row mb-1">
+              <div class="col-md-1 ">
+                <label class="form-label">No of Invoices</label>
+              </div>
+              <div class="col-md-2">
+                <input type="number" (change)="addEwayRow()" formControlName="noOfInvoices" class="form-control form-control-sm"/>
+              </div>
+            </div>
+            <div class="table-responsive mt-2"
+                 style="max-height: 500px; overflow-y: auto; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+              <table class="table table-sm table-bordered" >
+                <thead class="table-light-new">
+                <tr>
+                  <th>S.No.</th>
+                  <th>E-WAY BILL NO</th>
+                  <th>INOVICE NO</th>
+                  <th>E-WAY EXPIRY DATE</th>
+                  <th>DATE</th>
+                  <th>VALUE</th>
+                  <th>QUANTITY</th>
+                  <th style="width: 80px">ACTION</th>
+                  <th style="width: 50px"></th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <ng-container *ngFor="let detail of docketEway; let index=index">
+                  <tr>
+                    <td>{{index+1}}</td>
+                    <td>
+                      <input
+                        class="form-control form-control-sm text-uppercase"
+                        name="branchCode{{ index }}"
+                        id="field_branchCode{{ index }}"
+                        [ngModel]=detail.eWayBillNo
+                        [ngModelOptions]="{ standalone: true }"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        class="form-control form-control-sm text-uppercase"
+                        name="branch{{ index }}"
+                        id="field_branch{{ index }}"
+                        [ngModel]=detail.invoiceNo
+                        [ngModelOptions]="{ standalone: true }"
+                      />
+                    </td>
+                    <td><input
+                      class="form-control form-control-sm text-uppercase"
+                      name="GST{{ index }}"
+                      id="field_GST{{ index }}"
+                      [ngModel]="detail.eWayExpiryDate"
+                      [ngModelOptions]="{ standalone: true }"
+                    />
+                    </td>
+
+                    <td><input
+                      class="form-control form-control-sm text-uppercase"
+                      name="city{{ index }}"
+                      id="field_city{{ index }}"
+                      [ngModel]="detail.date"
+                      [disabled]="true"
+                      [ngModelOptions]="{ standalone: true }"
+                    /></td>
+
+                    <td><input
+                      class="form-control form-control-sm text-uppercase"
+                      name="city{{ index }}"
+                      id="field_city{{ index }}"
+                      [ngModel]="detail.value"
+                      [ngModelOptions]="{ standalone: true }"
+                    />
+                    </td>
+                    <td><input
+                      class="form-control form-control-sm text-uppercase"
+                      name="city{{ index }}"
+                      id="field_city{{ index }}"
+                      [ngModel]="detail.quantity"
+                      [ngModelOptions]="{ standalone: true }"
+                    />
+                    </td>
+                    <td>
+                      <div class="btn-group">
+                      <i class="bi bi-plus-circle text-success" matTooltip="Add Part" matTooltipPosition="above"  style="font-size: x-large" (click)="changeExpand(detail, true)" *ngIf="!detail.expanded"></i>
+                      <i class="bi bi-dash-circle text-danger"  style="font-size: x-large" (click)="changeExpand(detail, false)" *ngIf="detail.expanded"></i>
+                      </div>
+                    </td>
+                    <td class="">
+                      <div class="btn-group">
+                        <button type="button" (click)="removeEway(index)" class="btn btn-sm my-btn-danger"
+                                style="border-radius: 0 30px 30px 0;" matTooltipPosition="above"
+                                matTooltip="Delete">
+                          <i class="bi bi-trash-fill"></i>
+                        </button>
+                      </div>
+
+                    </td>
+                  </tr>
+                  <tr *ngIf="detail.expanded">
+                    <td colspan="3"></td>
+                    <td colspan="9" style="border: #000000 2px solid">
+                      <table class="table table-sm table-bordered mb-0">
+                        <thead class="table-light">
+                        <tr>
+                          <th style="width: 5%">SL#</th>
+                          <th style="width: 25%">Consignor Part No</th>
+                          <th style="width: 25%">Consignee Part No</th>
+                          <th style="width: 18%">Actual Qty</th>
+                          <th style="width: 17%">No of Pkg</th>
+                          <th style="width: 10%" colspan="2"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let partBean of detail.partDetails; let partIndex = index">
+                          <td>{{partIndex+1}}</td>
+                          <td><input
+                            class="form-control form-control-sm text-uppercase"
+                            name="consignorPartNo{{ index }}{{partIndex}}}"
+                            id="field_consignorPartNo{{ index }}{{partIndex}}}"
+                            [ngModel]="partBean.consignorPartNo"
+                            [ngModelOptions]="{ standalone: true }"></td>
+                          <td ><input
+                            class="form-control form-control-sm text-uppercase"
+                            name="consigneePartNo{{ index }}{{partIndex}}}"
+                            id="field_consigneePartNo{{ index }}{{partIndex}}}"
+                            [ngModel]="partBean.consigneePartNo"
+                            [ngModelOptions]="{ standalone: true }"></td>
+                          <td ><input type="number"
+                            class="form-control form-control-sm text-uppercase"
+                            name="actualQty{{ index }}{{partIndex}}}"
+                            id="field_actualQty{{ index }}{{partIndex}}}"
+                            [ngModel]="partBean.actualQuantity"
+                            [ngModelOptions]="{ standalone: true }"></td>
+                          <td><input type="number"
+                                     class="form-control form-control-sm text-uppercase"
+                                     name="noOfPakages{{ index }}{{partIndex}}}"
+                                     id="field_noOfPakages{{ index }}{{partIndex}}}"
+                                     [ngModel]="partBean.noOfPackages"
+                                     [ngModelOptions]="{ standalone: true }"></td>
+                          <td><a class="btn btn-link btn-sm" matTooltipPosition="above"
+                                 matTooltip="Add New Part" (click)="addPart(detail)">Add&nbsp;New</a><td>
+                          <td>
+                          <button type="button" (click)="removePart(detail,index)" class="btn btn-sm my-btn-danger"
+                                  style="border-radius: 0 30px 30px 0;" matTooltipPosition="above"
+                                  matTooltip="Delete">
+                            <i class="bi bi-trash-fill"></i>
+                          </button>
+                        </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                    <td colspan="3"></td>
+                  </tr>
+                </ng-container>
+                </tbody>
+
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </form>
+
+</div>

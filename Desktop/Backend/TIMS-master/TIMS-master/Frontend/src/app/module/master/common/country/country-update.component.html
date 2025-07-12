@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="editForm" role="form" novalidate [formGroup]="editForm" (ngSubmit)="updateCountry()">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            COUNTRY MASTER
+          </div>
+          <div class="card-body">
+            <div class="row mb-2">
+              <div class="col-md-1 text-end">
+                <label class="form-control-label" for="field_code">Country Code</label>
+              </div>
+              <div class="col-md-3">
+                <div *ngIf="editForm.get('countryCode')?.invalid && editForm.get('countryCode')?.touched">
+                  <small class="text-danger">Country code is required</small>
+                  <small class="text-danger" *ngIf="editForm.get('countryCode')?.errors?.['pattern']">
+                    Only numbers are allowed.
+                  </small>
+                  <small class="text-danger" *ngIf="editForm.get('countryCode')?.errors?.['maxlength']">
+                    Maximum 5 digits allowed.
+                  </small>
+                </div>
+                <input type="text" class="form-control form-control-sm text-uppercase" name="countryCode"
+                  id="field_code" formControlName="countryCode" [maxLength]="5"  />
+              </div>
+              <div class="col-md-1 text-end">
+                <label class="form-control-label" for="field_name">Country Name</label>
+              </div>
+              <div class="col-md-3">
+                <div *ngIf="editForm.get('countryName')?.invalid && editForm.get('countryName')?.touched">
+                  <small class="text-danger">Country name is required.</small>
+                </div>
+                <input type="text" class="form-control form-control-sm text-uppercase" name="countryName"
+                  id="field_name" formControlName="countryName" />
+              </div>
+              <div class="col-md-1 text-end">
+                <label class="form-control-label" for="CurrencyFlg">Currency</label>
+              </div>
+              <div class="col-md-3">
+                <div *ngIf="editForm.get('currency')?.invalid && editForm.get('currency')?.touched">
+                  <small class="text-danger">Currency is required</small>
+                </div>
+                <select class="form-select form-select-sm custom-select custom-select-sm" name="currency"
+                  id="CurrencyFlg" formControlName="currency" required>
+                  <option value="INR">Rupee</option>
+                  <option value="Dol">Doller</option>
+
+                </select>
+              </div>
+            </div>
+            <div class="row mb-2">
+
+
+
+              <div class="col-md-1 text-end">
+                <label class="form-control-label" for="field_flag">Status</label>
+              </div>
+              <div class="col-md-3">
+
+                <select class="form-select form-select-sm custom-select custom-select-sm" name="isActive"
+                  id="field_flag" formControlName="isActive" required>
+                  <option value="Y">Active</option>
+                  <option value="N">Inactive</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row card-margin-bottom-10">
+              <div class="col-md-5 text-end">
+
+              </div>
+
+              <div class="col-md-1">
+                <button type="submit" [disabled]="editForm.invalid" id="save"
+                  class="btn btn-sm rounded-pill my-btn-light" *ngIf="!isMode">
+                  Save
+                </button>
+              </div>
+              <div class="col-md-1">
+                <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                  (click)="previousState()">
+                  Close
+                </button>
+              </div>
+              <div class="col-md-5">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

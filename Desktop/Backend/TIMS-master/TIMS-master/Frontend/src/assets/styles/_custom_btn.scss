@@ -1,0 +1,109 @@
+.my-btn-light {
+  --bs-btn-color: #000;
+  --bs-btn-bg: #dcdcdf;
+  --bs-btn-border-color: #dcdcdf;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #d3d4d5;
+  --bs-btn-hover-border-color: #c6c7c8;
+  --bs-btn-focus-shadow-rgb: 211, 212, 213;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #c6c7c8;
+  --bs-btn-active-border-color: #babbbc;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #000;
+  --bs-btn-disabled-bg: #dcdcdf;
+  --bs-btn-disabled-border-color: #dcdcdf;
+  height: var(--btn-height);
+  min-width: var(--btn-min-width);
+  font-size: medium;
+}
+.my-btn-light-grd {
+  --bs-btn-color: #000;
+  --bs-btn-bg: #dcdcdf;
+  --bs-btn-border-color: #dcdcdf;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #d3d4d5;
+  --bs-btn-hover-border-color: #c6c7c8;
+  --bs-btn-focus-shadow-rgb: 211, 212, 213;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #c6c7c8;
+  --bs-btn-active-border-color: #babbbc;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #000;
+  --bs-btn-disabled-bg: #dcdcdf;
+  --bs-btn-disabled-border-color: #dcdcdf;
+}
+//.my-btn-light-d30 {
+//  --bs-btn-color: #000;
+//  --bs-btn-bg: #dcdcdf;
+//  --bs-btn-border-color: #dcdcdf;
+//  --bs-btn-hover-color: #000;
+//  --bs-btn-hover-bg: #d3d4d5;
+//  --bs-btn-hover-border-color: #c6c7c8;
+//  --bs-btn-focus-shadow-rgb: 211, 212, 213;
+//  --bs-btn-active-color: #000;
+//  --bs-btn-active-bg: #c6c7c8;
+//  --bs-btn-active-border-color: #babbbc;
+//  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+//  --bs-btn-disabled-color: #000;
+//  --bs-btn-disabled-bg: #dcdcdf;
+//  --bs-btn-disabled-border-color: #dcdcdf;
+//  --bs-btn-border-radius: 30px !important;
+//}
+.my-btn-edit {
+  --bs-btn-color: #000;
+  --bs-btn-bg: #b7b5b5;
+  --bs-btn-border-color: #b7b5b5;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #d3d4d5;
+  --bs-btn-hover-border-color: #c6c7c8;
+  --bs-btn-focus-shadow-rgb: 211, 212, 213;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #c6c7c8;
+  --bs-btn-active-border-color: #babbbc;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #000;
+  --bs-btn-disabled-bg: #b7b5b5;
+  --bs-btn-disabled-border-color: #b7b5b5;
+}
+.my-btn-danger {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #dc3545;
+  --bs-btn-border-color: #dc3545;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #bb2d3b;
+  --bs-btn-hover-border-color: #b02a37;
+  --bs-btn-focus-shadow-rgb: 225,83,97;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #b02a37;
+  --bs-btn-active-border-color: #a52834;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #dc3545;
+  --bs-btn-disabled-border-color: #dc3545;
+}
+.my-btn-primary{
+  --bs-btn-color:#fff;
+  --bs-btn-bg:#0d6efd;
+  --bs-btn-border-color:#0d6efd;
+  --bs-btn-hover-color:#fff;
+  --bs-btn-hover-bg:#0b5ed7;
+  --bs-btn-hover-border-color:#0a58ca;
+  --bs-btn-focus-shadow-rgb:49,132,253;
+  --bs-btn-active-color:#fff;
+  --bs-btn-active-bg:#0a58ca;
+  --bs-btn-active-border-color:#0a53be;
+  --bs-btn-active-shadow:inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color:#fff;
+  --bs-btn-disabled-bg:#0d6efd;
+  --bs-btn-disabled-border-color:#0d6efd;
+  height: var(--btn-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;}
+.my-btn-primary-round{--bs-btn-color:#fff;--bs-btn-bg:#0d6efd;--bs-btn-border-color:#0d6efd;--bs-btn-hover-color:#fff;--bs-btn-hover-bg:#0b5ed7;--bs-btn-hover-border-color:#0a58ca;--bs-btn-focus-shadow-rgb:49,132,253;--bs-btn-active-color:#fff;--bs-btn-active-bg:#0a58ca;--bs-btn-active-border-color:#0a53be;--bs-btn-active-shadow:inset 0 3px 5px rgba(0, 0, 0, 0.125);--bs-btn-disabled-color:#fff;--bs-btn-disabled-bg:#0d6efd;--bs-btn-disabled-border-color:#0d6efd;--bs-btn-border-radius: 30px !important;height: var(--btn-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;}

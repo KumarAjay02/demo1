@@ -1,0 +1,429 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="editForm" role="form" novalidate [formGroup]="editForm" (ngSubmit)="updateCustomer()">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            MARKET VEHICLE REQUEST
+          </div>
+          <div class="card-body">
+           
+            <ul class="nav nav-tabs mb-3" id="customerTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="master-tab" data-bs-toggle="tab" data-bs-target="#master"
+                  type="button" role="tab" aria-controls="master" aria-selected="true">Vehicle Details
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="details-tab" data-bs-toggle="tab" data-bs-target="#details" type="button"
+                  role="tab" aria-controls="details" aria-selected="false">Broker Details
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="details-view-tab" data-bs-toggle="tab" data-bs-target="#view" type="button"
+                  role="tab" aria-controls="view" aria-selected="false">Broker View
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content" id="customerTabsContent">
+             
+              <div class="tab-pane fade show active" id="master" role="tabpanel" aria-labelledby="master-tab">
+                <div class="row mb-2">
+                  <div class="col-md-1">
+                    <label for="coCode" class="form-label">From Branch</label>
+                  </div>
+                  <div class="col-md-3">
+                    <select id="country" formControlName="country" class="form-select form-select-sm" required>
+                      <option value="" disabled selected>Select</option>
+                      <option value="Local">Local</option>
+                      <option value="Long Route">Long Route</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="divCode" class="form-label">To Branch</label>
+                  </div>
+                  <div class="col-md-3">
+                    <select id="country" formControlName="country" class="form-select form-select-sm" required>
+                      <option value="Select" disabled selected>Select</option>
+                      <option value="Alw">Alw-Alwar</option>
+                      <option value="BDD">Bdd-Baddi</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="customerCode" class="form-label">Loading Place</label>
+                  </div>
+                  <div class="col-md-3">
+                    <select id="country" formControlName="country" class="form-select form-select-sm" required>
+                      <option value="Select" disabled selected>Select</option>
+                      <option value="Delhi">Delhi </option>
+                      <option value="Pune">Pune</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row mb-2">
+                  <div class="col-md-1">
+                    <label for="panNumber" class="form-label">UnLoading Place</label>
+                  </div>
+                  <div class="col-md-3">
+                    <select id="country" formControlName="country" class="form-select form-select-sm" required>
+                      <option value="" disabled selected>Select</option>
+                      <option value="Local">Local</option>
+                      <option value="Long Route">Long Route</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="customerName" class="form-label">Requirement Type</label>
+                  </div>
+                  <div class="col-md-3">
+                    <select id="country" formControlName="country" class="form-select form-select-sm" required>
+                      <option value="" disabled selected>Select</option>
+                      <option value="Local">Local</option>
+                      <option value="Long Route">Long Route</option>
+
+                    </select>
+                  </div>
+
+                  <div class="col-md-1">
+                    <label for="suntekCode" class="form-label">Touching Point</label>
+                  </div>
+                  <div class="col-md-3">
+                    <select id="country" formControlName="country" class="form-select form-select-sm" required>
+                      <option value=""  selected>Select</option>
+                      <option value="">1</option>
+                      <option value="">2</option>
+                      <option value="">3</option>
+                      <option value="">4</option>
+                    </select>
+                  </div>
+
+
+                </div>
+
+                <div class="row mb-2">
+                  <div class="col-md-1">
+                    <label for="tradName" class="form-label">Goods Type</label>
+                  </div>
+                  <div class="col-md-3">
+                    <select id="country" formControlName="country" class="form-select form-select-sm" required>
+                      <option value="" disabled selected>Select</option>
+                      <option value="">Light Weight</option>
+                      <option value="">Heavy Weight</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-1">
+                    <label for="tradName" class="form-label">Act Wt of Goods </label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="tradName" formControlName="tradeName"
+                      class="form-control form-control-sm text-uppercase" />
+                  </div>
+                  <div class="col-md-1">
+                    <label for="tradName" class="form-label">Vehicle Type</label>
+                  </div>
+                  <div class="col-md-3">
+                    <select id="country" formControlName="country" class="form-select form-select-sm" required>
+                      <option value="" disabled selected>Select</option>
+                      <option value="">100-Porter</option>
+                      <option value="">200-Volvo</option>
+                    </select>
+                  </div>
+
+                </div>
+
+                <div class="row mb-2">
+                  <div class="col-md-1">
+                    <label for="oemFlag" class="form-label">Vehicle Capacity</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="tradName" formControlName="tradeName"
+                      class="form-control form-control-sm text-uppercase" />
+                  </div>
+
+
+
+                  <div class="col-md-1">
+                    <label for="website" class="form-label">Remark</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="website" formControlName="webSite" class="form-control form-control-sm" />
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="details" role="" aria-labelledby="details-tab">
+                 <div class="table-responsive mt-2"
+                  >
+                  <div class="row mb-2">
+                    <div class="col-md-1">
+                      <label for="branch" class="form-label">Broker </label>
+                    </div>
+                    <div class="col-md-3">
+                      <select id="country" formControlName="country" class="form-select form-select-sm" required>
+                        <option value="" disabled selected>Select</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                      </select>
+
+                    </div>
+                    <div class="col-md-1">
+                      <label for="gstNo" class="form-label">Address</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input class="form-control form-control-sm text-uppercase" />
+                    </div>
+                    <div class="col-md-1">
+                      <label for="dealingPerson1" class="form-label">Contact</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input id="dealingPerson1" formControlName="dealingPerson1"
+                        class="form-control form-control-sm" />
+                    </div>
+                  </div>
+
+              
+                  <div class="row mb-2">
+
+
+                    <div class="col-md-1">
+                      <label for="city" class="form-label">Pan No</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input id="city" formControlName="city" class="form-control form-control-sm" />
+                    </div>
+                    <div class="col-md-1">
+                      <label for="email1" class="form-label">Pan Name</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input id="email1" formControlName="email1" class="form-control form-control-sm" type="email" />
+                    </div>
+                    <div class="col-md-1">
+                      <label for="email1" class="form-label">Acc No</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input id="email1" formControlName="email1" class="form-control form-control-sm" type="email" />
+                    </div>
+                  </div>
+
+                  
+                   <div class="row mb-2">
+
+                    <div class="col-md-1">
+                      <label for="pinCode" class="form-label">Bank Name</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input id="pinCode" formControlName="pinCode" class="form-control form-control-sm"
+                        type="number" />
+                    </div>
+
+                    <div class="col-md-1">
+                      <label for="pinCode" class="form-label">Ifse Code</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input id="pinCode" formControlName="pinCode" class="form-control form-control-sm"
+                        type="number" />
+                    </div>
+                    <div class="col-md-1">
+                      <label for="landLine1" class="form-label">Borker Rate</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input id="landLine1" formControlName="landLine1" class="form-control form-control-sm"
+                        type="tel" />
+                    </div>
+                  </div>
+
+                
+                   <div class="row mb-2">
+                    <div class="col-md-1">
+                      <label for="country" class="form-label">Advance</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input id="dealingPerson2" formControlName="dealingPerson2"
+                        class="form-control form-control-sm" />
+
+                    </div>
+                    <div class="col-md-1">
+                      <label for="dealingPerson2" class="form-label">Remark</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input id="dealingPerson2" formControlName="dealingPerson2"
+                        class="form-control form-control-sm" />
+                    </div>
+                    <div class="col-md-1">
+                      <label for="mobile1" class="form-label">Gps Links</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input id="mobile1" formControlName="mobile1" class="form-control form-control-sm" type="tel" />
+                    </div>
+                  </div> 
+
+                  
+                   <div class="row mb-2">
+                    <div class="col-md-1">
+                      <label for="" class="form-label">Gps Id</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input id="" formControlName="" class="form-control form-control-sm" type="email" />
+                    </div>
+                    <div class="col-md-1">
+                      <label for="" class="form-label">Gps Pass</label>
+                    </div>
+                    <div class="col-md-3">
+                      <input id="" formControlName="mobile2" class="form-control form-control-sm" type="tel" />
+                    </div>
+
+                  </div> 
+
+                 
+                 
+
+                    <div class="ml-20px">
+                      <button type="submit" id="detailsAdd" (click)="addRow()" (keydown.enter)="addRow()"
+                        (keydown.space)="addRow()" class="btn btn-sm rounded-pill my-btn-light">
+                        Add
+                      </button>
+                    </div>
+                    
+                
+
+                </div>
+              </div>
+              <div class="tab-pane fade" id="view" role="tabpanel" aria-labelledby="details-tab-view">
+                <div class="table-responsive mt-2"
+                >
+                  <table class="table table-sm table-ls table-striped" style=" max-width: auto;">
+                    <thead>
+                      <tr>
+                        <th>Branch</th>
+                        <th>Broker Name</th>
+                        <th>Address</th>
+                        <th>Contact Number</th>
+                        <th>Pan No</th>
+                        <th>Pan Card Name</th>
+                        <th>Acc No</th>
+                        <th>Bank Name</th>
+                        <th>Ifsc Code</th>
+                        <th>Broker Rate</th>
+                        <th>Advance</th>
+                        <th>Remark</th>
+                        <th>Gps Link</th>
+                        <th>Gps Id</th>
+                        <th>Gps Pass</th>
+                        <th></th>
+                      
+                       
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <ng-container *ngFor="let detail of customerBranchDetails; let index=index">
+                        <tr>
+                          
+                          <td>
+                            <input class="form-control form-control-sm text-uppercase" name="branch{{ index }}"
+                              id="field_branch{{ index }}" [ngModel]=detail.branch
+                              [ngModelOptions]="{ standalone: true }" />
+                          </td>
+                          <td><input class="form-control form-control-sm text-uppercase" name="brokerName{{ index }}"
+                              id="field_GST{{ index }}" [ngModel]="detail.brokerName"
+                              [ngModelOptions]="{ standalone: true }" />
+                          </td>
+                           <td><input class="form-control form-control-sm text-uppercase" name="address{{ index }}"
+                              id="field_address{{ index }}" [ngModel]="detail.address"
+                              [ngModelOptions]="{ standalone: true }" /></td>
+                          <td><input class="form-control form-control-sm text-uppercase" name="panCardNo{{ index }}"
+                              id="field_city{{ index }}" [ngModel]="detail.panCardNo"
+                              [ngModelOptions]="{ standalone: true }" /></td>
+                          <td><input class="form-control form-control-sm text-uppercase" name="panCardName{{ index }}"
+                              id="field_state{{ index }}" [ngModel]="detail.panCardName"
+                              [ngModelOptions]="{ standalone: true }" /></td>
+
+                          <td><input class="form-control form-control-sm text-uppercase" name="accNo{{ index }}"
+                              id="field_pinCode{{ index }}" [ngModel]="detail.accNo"
+                              [ngModelOptions]="{ standalone: true }" /></td>
+
+                          <td><input class="form-control form-control-sm text-uppercase" name="bankName{{ index }}"
+                              id="field_country{{ index }}" [ngModel]="detail.bankName"
+                              [ngModelOptions]="{ standalone: true }" /></td>
+                          <td><input class="form-control form-control-sm text-uppercase" name="ifseCode{{ index }}"
+                              id="field_contactPerson{{ index }}" [ngModel]="detail.ifseCode"
+                              [ngModelOptions]="{ standalone: true }" /></td>
+                          <td><input class="form-control form-control-sm text-uppercase" name="brokerRate{{ index }}"
+                              id="field_email1{{ index }}" [ngModel]="detail.brokerRate"
+                              [ngModelOptions]="{ standalone: true }" /></td>
+                          <td><input class="form-control form-control-sm text-uppercase" name="advance{{ index }}"
+                              id="field_landLine1{{ index }}" [ngModel]="detail.advance"
+                              [ngModelOptions]="{ standalone: true }" /></td>
+                          <td><input class="form-control form-control-sm text-uppercase" name="remark{{ index }}"
+                              id="field_mobile1{{ index }}" [ngModel]="detail.remark"
+                              [ngModelOptions]="{ standalone: true }" /></td>
+                               <td><input class="form-control form-control-sm text-uppercase" name="gpsLinks{{ index }}"
+                              id="field_mobile1{{ index }}" [ngModel]="detail.gpsLinks"
+                              [ngModelOptions]="{ standalone: true }" /></td>
+                               <td><input class="form-control form-control-sm text-uppercase" name="gpsId{{ index }}"
+                              id="field_mobile1{{ index }}" [ngModel]="detail.gpsId"
+                              [ngModelOptions]="{ standalone: true }" /></td>
+                               <td><input class="form-control form-control-sm text-uppercase" name="gpsPass{{ index }}"
+                              id="field_mobile1{{ index }}" [ngModel]="detail.gpsPass"
+                              [ngModelOptions]="{ standalone: true }" /></td>
+                               <!-- <td><input class="form-control form-control-sm text-uppercase" name="gpsPass{{ index }}"
+                              id="field_mobile1{{ index }}" [ngModel]="detail.gpsPass"
+                              [ngModelOptions]="{ standalone: true }" /></td> -->
+                              <td></td>
+                              
+                              
+                              
+                          
+                          <!-- <td>
+                            <button class="btn btn-link p-0 m-0 border-0 bg-transparent text-success" type="button"
+                              matTooltip="Add Plants" matTooltipPosition="above">
+                              <i *ngIf="!detail.expand" class="bi bi-plus-circle text-success"
+                                (click)="changeExpand(detail,true)" style="font-size: 18px;"></i>
+                              <i *ngIf="detail.expand" class="bi bi-dash-circle text-danger"
+                                (click)="changeExpand( detail, false)" style="font-size: 18px;"></i>
+                            </button>
+                          </td> -->
+                          <!-- <td>
+                            <div class="d-flex align-items-center gap-2">
+
+                            </div>
+                          </td> -->
+                          <td class="text-end">
+                            <button type="button" (click)="removerequestDetail(index)" class="btn btn-sm my-btn-danger"
+                              style="border-radius: 0 30px 30px 0;" matTooltipPosition="above" matTooltip="Delete">
+                              <i class="bi bi-trash-fill"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </ng-container>
+                    </tbody>
+                  </table>
+
+                  <div *ngIf="customerBranchDetails.length === 0" class="text-center text-muted">No Detail Added</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+           
+            <div class="row card-margin-bottom-10">
+              <div class="col-md-5 text-end"></div>
+              <div class="col-md-1">
+                <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                  Save
+                </button>
+              </div>
+              <div class="col-md-1">
+                <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                  (click)="previousState()">
+                  Close
+                </button>
+              </div>
+              <div class="col-md-5"></div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

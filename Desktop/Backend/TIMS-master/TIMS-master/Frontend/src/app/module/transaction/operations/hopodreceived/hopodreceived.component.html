@@ -1,0 +1,143 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+<div class="row">
+  <div class="col-12">
+    <div class="page-title-box d-flex align-items-center justify-content-between">
+      <div class="page-title-right">
+        <ol class="breadcrumb m-0">
+          <ng-container>
+            <li class="breadcrumb-item"><a href="javascript: void(0);">Master</a></li>
+            <li class="breadcrumb-item">Operation</li>
+            <li class="breadcrumb-item active">Ho pod Received</li>
+          </ng-container>
+        </ol>
+      </div>
+    </div>
+    <div class="card-title text-center">
+     HO/POD/COD/RECEIVED
+    </div>
+  </div>
+</div>
+<div class="card card-box mb-2">
+  <div class="card-header bg-transparent border-bottom">
+    <div class="row">
+      <div class="col-sm-3 mb-2">
+        <div class="search-wrapper-mini position-relative">
+          <div class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+            <i class="bi bi-search"></i>
+          </div>
+          <input class="form-control form-control-sm form-select-sm rounded-pill text-uppercase ps-4"
+                 name="city"
+                 id="field_city"
+                 placeholder="Refrence No" 
+               
+                 type="text" />
+        </div>
+      </div>
+      <div class="col-sm-3 mb-2">
+        <div class="search-wrapper-mini position-relative">
+          <div class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+            <i class="bi bi-search"></i>
+          </div>
+          <input class="form-control form-control-sm form-select-sm rounded-pill text-uppercase ps-4"
+                 name="Code"
+                 id="field_Code"
+                 placeholder="Docket No"
+             
+                 type="text" />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm rounded-pill my-btn-light-grd" type="button">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+      <div class="col-md-2 text-end">
+        <div class="dropdown">
+          <button type="button" id="create-entity" disabled  class="btn btn-sm rounded-pill my-btn-light" [routerLink]="['add']">
+            Add New
+          </button>
+          <div class="btn-group rounded-pill dropdown-end">
+            <button class="btn d-30 p-0 my-btn-light-grd" style="border-radius: 30px 0 0 30px;" type="button">
+              <i class="bi bi-gear-fill"></i>
+            </button>
+            <button class="btn d-30 btn-rounded p-0 btn-secondary dropdown-toggle"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 0 30px 30px 0;">
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-end listData">
+              <li class="text-center">Exports </li>
+              <li class="divider dropdown-divider"></li>
+              <li class="dropdown-item">
+                <i class="bi bi-file-earmark-excel text-success"></i>
+                &nbsp; <span>Excel</span>
+              </li>
+              <li class="dropdown-item">
+                <i class="bi bi-filetype-pdf text-danger"></i>
+                &nbsp; <span>Pdf</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive" id="entities">
+      <table class="table table-sm table-striped" aria-describedby="page-heading">
+        <thead class="table-light-new">
+          <tr>
+            <th><span>Sr. No.</span></th>
+            <th>Docket No</th>
+            <th>Refrence No</th>
+            <th>Type</th>
+            <th>Booking Date</th>
+            <th>Billing Party</th>
+            <th>Remark</th>
+            
+            <th ></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let awb of hopodlistdata; let index = index;  ">
+            <td>{{  (index + 1) }}</td>
+            <td>{{ awb.DocketNo }}</td>
+            <td>{{ awb.RefrenceNo}}</td>
+            <td>{{  awb.Type }}</td>
+            <td>{{ awb.BookingDate }}</td>
+            <td>{{ awb.BillingParty}}</td>
+            <td>{{ awb.Remark }}</td>
+            
+              <td class="text-end">
+                <div class="btn-group">
+                  <button (click)="Edit(index)" class="btn btn-sm my-btn-light-grd"
+                          matTooltip="View" style="border-radius: 30px 0 0 30px;" matTooltipPosition="above"  
+                          type="button">
+                    <i class="bi bi-eye-fill"></i>
+                  </button>
+                  <button type="button" matTooltipPosition="above" 
+                           (click)="update(index)"
+                          class="btn btn-sm my-btn-edit" matTooltip="Edit">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                  <button type="button"   matTooltip="Print" matTooltipPosition="above"
+                          [routerLink]="['print']"
+                          class="btn btn-sm btn-secondary">
+                    <i class="bi bi-printer-fill"></i>
+                    </button>
+
+                    <button type="button" disabled  class="btn btn-sm my-btn-danger" style="border-radius: 0 30px 30px 0;" matTooltipPosition="above" matTooltip="Delete">
+                      <i class="bi bi-trash-fill"></i>
+                    </button>
+                </div>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert alert-warning" id="no-result" *ngIf="hopodlistdata && hopodlistdata.length === 0">
+      <span>No data found</span>
+    </div>
+  </div>
+</div>
+</div>

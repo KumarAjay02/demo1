@@ -1,0 +1,367 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form [formGroup]="editForm" (ngSubmit)="updateRoadTcs()">
+        <div class="card card-box mb-1">
+          <div class="card-title text-center">
+            ROAD TCS CREATE
+          </div>
+          <div class="card-body p-1">
+            <ul class="nav nav-tabs mb-1" id="docketTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1"
+                        type="button" role="tab">Road TCS
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2"
+                        type="button" role="tab">Challan
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <!-- TAB 1 -->
+              <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                <div class="row mb-1">
+                  <div class="col-md-12">
+                    <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" id="tcsType" type="radio" name="tcsType"
+                               [value]="'L'" formControlName="tcsType"/>
+                        Long Route TCS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      </div>
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" type="radio" name="tcsType" [value]="'B'"
+                               formControlName="tcsType">
+                        Local B2B/PC/DC TCS
+                      </div>
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" type="radio" name="tcsType" [value]="'F'"
+                               formControlName="tcsType"/>
+                        Feeder
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-1">
+                  <div class="col-md-6">
+                    <div class="card card-box" style="padding: 0px">
+                      <div class="row mb-1">
+                        <div class="col-md-12">
+                          <div class="card-title-grey-flat text-center">TCS Detail</div>
+                        </div>
+                      </div>
+                      <div class="row mb-1">
+                        <div class="col-md-2 ">Date</div>
+                        <div class="col-md-4">
+                          <input formControlName="date" class="form-control form-control-sm" type="date"/>
+                        </div>
+                        <div class="col-md-2 ">To Branch</div>
+                        <div class="col-md-4">
+                          <select formControlName="toBranch" class="form-select form-select-sm">
+                            <option value="undefined" [selected]="true">-Select-</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Bangalore">Bangalore</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row mb-1">
+                        <div class="col-md-2 ">Vehicle No.</div>
+                        <div class="col-md-4">
+                          <input formControlName="vehicleNumber" class="form-control form-control-sm text-uppercase"/>
+                        </div>
+                        <div class="col-md-2 ">Payable</div>
+                        <div class="col-md-4">
+                          <select formControlName="toBranch" class="form-select form-select-sm">
+                            <option value="undefined" [selected]="true">-Select-</option>
+                            <option value="Vendor">Vendor</option>
+                            <option value="Broker">Broker</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row mb-1">
+                        <div class="col-md-2 ">PAN No.</div>
+                        <div class="col-md-4">
+                          <input formControlName="panNo" class="form-control form-control-sm text-uppercase"/>
+                        </div>
+                        <div class="col-md-2 ">Vendor/Broker</div>
+                        <div class="col-md-4">
+                          <input formControlName="vendorBrokerName" class="form-control form-control-sm"/>
+                        </div>
+                      </div>
+                      <div class="row mb-1">
+                        <div class="col-md-2 ">Driver Name</div>
+                        <div class="col-md-4">
+                          <input formControlName="driverName" class="form-control form-control-sm"/>
+                        </div>
+                        <div class="col-md-2 ">Driver No.</div>
+                        <div class="col-md-4">
+                          <input formControlName="driverNo" class="form-control form-control-sm"/>
+                        </div>
+                      </div>
+                      <div class="row mb-1">
+                        <div class="col-md-2 ">Vehicle Size</div>
+                        <div class="col-md-4">
+                          <select formControlName="vehicleSize" class="form-select form-select-sm">
+                            <option value="undefined" [selected]="true">-Select-</option>
+                            <option value="20FT">20FT</option>
+                            <option value="32FT">32FT</option>
+                            <option value="40FT">40FT</option>
+                          </select>
+                        </div>
+                        <div class="col-md-2 ">Route</div>
+                        <div class="col-md-4">
+                          <select formControlName="route" class="form-select form-select-sm">
+                            <option value="undefined" [selected]="true">-Select-</option>
+                            <option value="Mumbai-Delhi">Mumbai-Delhi</option>
+                            <option value="Delhi-Bangalore">Delhi-Bangalore</option>
+                            <option value="Bangalore-Mumbai">Bangalore-Mumbai</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row mb-1">
+                        <div class="col-md-2 ">Seal Number</div>
+                        <div class="col-md-4">
+                          <input formControlName="sealNumber" class="form-control form-control-sm"/>
+                        </div>
+                        <div class="col-md-2 ">Weight Guarantee</div>
+                        <div class="col-md-4">
+                          <input formControlName="weightGuarantee" type="number" class="form-control form-control-sm"/>
+                        </div>
+                      </div>
+                      <div class="row mb-1">
+                        <div class="col-md-2 ">Challan Search Type</div>
+                        <div class="col-md-10">
+                          <select class="form-select form-select-sm">
+                            <option value="undefined" [selected]="true">-Select Challan Type-</option>
+                            <option value="LONGROUTE">Long Route Challan</option>
+                            <option value="PICKUP">Pickup Challan</option>
+                            <option value="LOCAL">Local B2B Challan</option>
+                            <option value="SUPLEMENTARY">Supplementary Challan</option>
+                            <!--                <option value="LOADINGSHEET">Long Route Challan With Loading Sheet(Barcode)</option>-->
+                            <option value="DRS">Delivery Run Sheet (DRS)</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="card card-box" style="padding: 0px">
+                      <div class="row mb-1">
+                        <div class="col-md-12">
+                          <div class="card-title-grey-flat text-center">Touching Point</div>
+                        </div>
+                      </div>
+                      <div class="row mb-1">
+                        <div class="col-md-4">No. of Touching Point</div>
+                        <div class="col-md-8">
+                          <input formControlName="noOfTouchingPoint" (change)="touchingPointChange()" type="number"
+                                 class="form-control form-control-sm"/>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-4 text-center">1.</div>
+                        <div class="col-md-8">
+                          <select class="form-select form-select-sm" formControlName="touchingPoint1">
+                            <option value="undefined" [selected]="true">-Select-</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Bangalore">Bangalore</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-4 text-center">2.</div>
+                        <div class="col-md-8">
+                          <select class="form-select form-select-sm" formControlName="touchingPoint2">
+                            <option value="undefined" [selected]="true">-Select-</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Bangalore">Bangalore</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-4 text-center">3.</div>
+                        <div class="col-md-8">
+                          <select class="form-select form-select-sm" formControlName="touchingPoint3">
+                            <option value="undefined" [selected]="true">-Select-</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Bangalore">Bangalore</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-4 text-center">4.</div>
+                        <div class="col-md-8">
+                          <select class="form-select form-select-sm" formControlName="touchingPoint4">
+                            <option value="undefined" [selected]="true">-Select-</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Bangalore">Bangalore</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-4 text-center">5.</div>
+                        <div class="col-md-8">
+                          <select class="form-select form-select-sm" formControlName="touchingPoint5">
+                            <option value="undefined" [selected]="true">-Select-</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Bangalore">Bangalore</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="card card-box" style="padding: 0px">
+                      <div class="row mb-2">
+                        <div class="col-md-12">
+                          <div class="card-title-grey-flat text-center">Amount/Weight</div>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-4">Lorry Hire</div>
+                        <div class="col-md-8">
+                          <input formControlName="lorryHire" type="number" class="form-control form-control-sm"/>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-4 ">Extra Amount</div>
+
+                        <div class="col-md-8">
+                          <input formControlName="extraAmount" type="number" class="form-control form-control-sm"/>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-4 ">Advance</div>
+                        <div class="col-md-8">
+                          <input formControlName="advance" type="number" class="form-control form-control-sm"/>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-4 ">Balance</div>
+                        <div class="col-md-8">
+                          <input formControlName="balance" type="number" class="form-control form-control-sm" readonly/>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-4 ">कांटा वजन</div>
+                        <div class="col-md-8">
+                          <input formControlName="kantaVajan" type="number" class="form-control form-control-sm"/>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col-md-4 ">TDS Applicable</div>
+                        <div class="col-md-8">
+                          <div class="form-check form-switch mt-2">
+                            <input class="form-check-input  custom-switch" type="checkbox"
+                                   formControlName="tdsApplicable"/>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-1">
+                  <div class="col-md-1 ">Remarks</div>
+                  <div class="col-md-11">
+                    <input formControlName="remarks" class="form-control form-control-sm"/>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="row card-margin-bottom-10">
+                    <div class="col-md-5 "></div>
+                    <div class="col-md-1">
+                      <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">Save</button>
+                    </div>
+                    <div class="col-md-1">
+                      <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                              (click)="previousState()">Close
+                      </button>
+                    </div>
+                    <div class="col-md-5"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="tab2" role="tabpanel">
+                <div class="row mb-1">
+                  <div class="col-md-2">
+                    <button class="btn btn-sm my-btn-light">Search Challan</button>
+                  </div>
+                  <div class="col-md-1 d-flex align-items-center">
+                    <label for="from_dt" >Date&nbsp;Between</label>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="search-wrapper-mini position-relative">
+                      <div class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+                        <i class="bi bi-search"></i>
+                      </div>
+                      <input type="date" id="from_dt" class="form-control form-control-sm form-select-sm rounded-pill text-uppercase ps-4"
+                             />
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="search-wrapper-mini position-relative">
+                      <div class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+                        <i class="bi bi-search"></i>
+                      </div>
+                      <input type="date" class="form-control form-control-sm form-select-sm rounded-pill text-uppercase ps-4"
+                            />
+                    </div>
+                  </div>
+                </div>
+                <div class="row  mb-2">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-bordered">
+                      <thead class="table-light-new">
+                      <tr>
+                        <th>Sr. No.</th>
+                        <th class="text-center"><input type="checkbox"></th>
+                        <th>Challan No</th>
+                        <th>Date</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Mode</th>
+                        <th>Challan Type</th>
+                        <th>Vehicle No</th>
+                        <th>Weight</th>
+                        <th>ACK_IND</th>
+                        <th>ACK_BY</th>
+                        <th>CLNERP</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let d of challans; let i = index;">
+                        <td>{{ i + 1 }}</td>
+                        <td class="text-center"><input type="checkbox"></td>
+                        <td>{{ d.challanNumber }}</td>
+                        <td>{{ d.date }}</td>
+                        <td>{{ d.fromBranch }}</td>
+                        <td>{{ d.toBranch }}</td>
+                        <td>{{ d.mode }}</td>
+                        <td>{{ d.challanType }}</td>
+                        <td>{{ d.vehicleNumber }}</td>
+                        <td>{{ d.weight }}</td>
+                        <td>{{ d.ackInd }}</td>
+                        <td>{{ d.ackBy }}</td>
+                        <td>{{ d.clnErp }}</td>
+
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

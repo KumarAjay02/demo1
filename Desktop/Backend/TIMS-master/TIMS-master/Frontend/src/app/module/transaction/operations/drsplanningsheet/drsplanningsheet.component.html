@@ -1,0 +1,119 @@
+<div class="container-fluid">
+    <div class="row mt-5 ">
+      <div class="col-sm-12 m-lg-auto">
+        <!--<app-card cardTitle="Hello">-->
+        <form name="editForm" role="form" novalidate>
+          <div class="card card-box mb-2">
+  
+            <div class="card-title text-center">
+             DRS PLANNINGSHEET CREATE
+            </div>
+            <div class="card-body my-3 cardbodyFont">
+              <div class="row">
+                <div class="col-md-2 col-lg-1   text-end labeltext">
+                    <label class="form-control-label" for="Areanameflg">Date</label>
+                  </div>
+                  <div class="col-md-2 col-lg-2 mb-3">
+                    <input type="date"
+                           class="form-control form-control-sm text-uppercase"
+                           name="pinCode"
+                           id="Areanameflg"
+                           [value]="currentDate"
+                             />
+                  </div>
+                 
+                <div class="col-md-2 col-lg-1 text-end labeltext">
+                    <label class="form-control-label" for="pincodeflg">Vehicle No</label>
+                  </div>
+                  <div class="col-md-2 col-lg-2 mb-3">
+                    <select type="text"
+                            class="form-select form-select-sm custom-select custom-select-sm"
+                            name="flag"
+                            id="pincodeflg"
+                      
+                            required
+                            maxlength="1">
+                      <option value="">RJ40GA5758</option>
+                      <option value="">HR55V1717</option>
+                      <option value="">RJ14GH0918 </option>
+                    </select>
+                  </div>
+            
+
+                <div class="col-md-2 col-lg-1  text-end labeltext">
+                  <label class="form-control-label" for="Codflg">Barcode No </label>
+                </div>
+                <div class="col-md-2 col-lg-2 mb-3">
+                  <input type="text"
+                         class="form-control form-control-sm text-uppercase"
+                         name="pinCode"
+                         id="Codflg"
+                        
+                  
+                           />
+                
+                </div>
+
+               
+
+               
+                <div  class=" col-lg-2 m-auto text-center">
+                  <button type="submit" id="save"   class="btn mx-2  btn-sm rounded-pill my-btn-light">
+                    Save
+                  </button>
+                  <button type="button" id="cancel-save" class="btn rounded-pill my-btn-light btn-sm" routerLink="/loadingSheetCreate" >
+                    Close
+                  </button>
+                </div>
+                 
+
+                 <div class="table-responsive mt-3">
+              <table class="table table-sm table-striped" aria-describedby="page-heading">
+                <thead class="table-light-new">
+                  <tr>
+                    <th>Sr. No</th>
+                    <th>LoadingSheetNo</th>
+                    <th>Route </th>
+                    <th>Vehicle No</th>
+                    <th>Vehicle Type</th>
+                    <th>Barcode No</th>
+            
+
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let items of draplanningsheet; let index = index;">
+                    <td>{{ (index + 1) }}</td>
+                    <td>{{ items.loadingsheet }}</td>
+                    <td>{{ items.route }}</td>
+                    <td>{{ items.VEHICLEnO }}</td>
+                    <td>{{ items.VEHICLEtYPE }}</td>
+                    <td>{{ items.barcodeNo }}</td>
+                   
+
+                    <td class=" button-column">
+                      <div class="btn-group flex-btn-group-container btn-round-pill1 ">
+                        <button type="button" matTooltip="Delete" matTooltipPosition="above"
+                          class="btn d-30 p-0  btn-danger btn-round-pill1 ">
+                          <i class="bi bi-trash-fill"></i>
+                        </button>
+
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+               
+              </div>
+            
+  
+            </div>
+          </div>
+        </form>
+        <!--</app-card>-->
+      </div>
+    </div>
+    </div>
+  

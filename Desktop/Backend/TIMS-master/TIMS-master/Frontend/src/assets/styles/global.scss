@@ -1,0 +1,445 @@
+/* @import 'bootstrap-variables';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables'; */
+/* ==============================================================
+Bootstrap tweaks
+===============================================================*/
+
+body {
+  font-size: 0.7521875rem;
+}
+
+.modal-holder {
+  animation-name: example;
+  animation-duration: 0.3s;
+}
+
+@keyframes example {
+  0% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.carousel-item {
+  transition: opacity 0.7s ease !important;
+  position: absolute !important;
+  display: block !important;
+  opacity: 0;
+}
+
+.carousel-item.active {
+  position: relative !important;
+  opacity: 1;
+}
+
+ngx-dropzone {
+  border: 2px dashed var(--bs-border-color) !important;
+}
+
+ngx-dropzone-preview {
+  max-width: none !important;
+  justify-content: normal !important;
+  height: 80px !important;
+  min-height: 80px !important;
+  background-image: none !important;
+  img {
+    opacity: 1 !important;
+  }
+
+  ngx-dropzone-label {
+    position: unset !important;
+  }
+}
+
+#icon-shortcuts {
+  background-color: #99edc3;
+  color: #000;
+  border: 0;
+  width: 24px;
+  margin: -8px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+#box-shortcuts {
+  position: relative;
+}
+
+.datepicker-inline ngb-datepicker {
+  box-sizing: border-box !important;
+  width: 100% !important; //or any percentage width you want
+}
+
+.datepicker-inline .ngb-dp-header {
+  padding-top: 0 !important;
+}
+
+.datepicker-inline ngb-datepicker .ngb-dp-month {
+  width: 100% !important;
+}
+.datepicker-inline ngb-datepicker .ngb-dp-weekdays,
+.datepicker-inline ngb-datepicker .ngb-dp-week {
+  justify-content: space-evenly !important;
+}
+
+.datepicker-inline .ngb-dp-month-name {
+  border-bottom: 1px solid;
+}
+.datepicker-inline .ngb-dp-arrow {
+  border-bottom: 1px solid;
+}
+
+.datepicker-inline .ngb-dp-arrow button {
+}
+
+.datepicker-inline .ngb-dp-weekdays {
+}
+
+.datepicker-inline .ngb-dp-weekday {
+  width: 100% !important;
+  border: 1px solid rgba(122, 123, 151, 0.3);
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.datepicker-inline ngb-datepicker-month:first-child {
+  // background-color: #fff !important;
+}
+.datepicker-inline .ngb-dp-day,
+.datepicker-inline .ngb-dp-week-number {
+  width: 100% !important;
+  border: 1px solid rgba(122, 123, 151, 0.3);
+  text-align: right;
+  height: 3em !important;
+}
+
+.left-cal-intime {
+  width: 50%;
+  float: left;
+  text-align: left;
+  margin-left: 5px;
+  font-size: 0.85em;
+  opacity: 0.8;
+  font-weight: 400 !important;
+}
+
+.left-used-cal-intime {
+  width: 100%;
+  text-align: center;
+  color: green;
+  font-weight: bold;
+  margin-left: -20px;
+  font-size: 0.85em;
+  opacity: 0.8;
+}
+
+.right-cal-intime {
+  width: 50%;
+  float: right;
+  margin-right: 5px;
+  font-size: 0.85em;
+  opacity: 0.8;
+}
+
+.d-r-2 {
+  height: 2rem !important;
+  line-height: 2rem !important;
+  width: 2rem !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.d-30 {
+  height: 30px !important;
+  line-height: 30px !important;
+  width: 30px !important;
+}
+
+.d-20 {
+  height: 20px !important;
+  line-height: 20px !important;
+  width: 20px !important;
+}
+
+.d-62 {
+  height: 62px !important;
+  line-height: 62px !important;
+  width: 62px !important;
+}
+
+.d-90 {
+  height: 90px !important;
+  line-height: 90px !important;
+  width: 90px !important;
+}
+
+.xlModal > .modal-dialog {
+  max-width: 1490px !important;
+  min-width: 971px !important;
+  width: 95% !important;
+}
+
+.sxlModal > .modal-dialog {
+  max-width: 971px !important;
+  min-width: 971px !important;
+  width: 85% !important;
+}
+
+.mediumModal > .modal-dialog {
+  max-width: 850px !important;
+  min-width: 850px !important;
+  width: 75% !important;
+}
+.form-control:read-only {
+  background-color: var(--bs-body-bg);
+  opacity: 1;
+}
+
+.form-1-box {
+  padding-top: 30px;
+  text-align: left;
+}
+
+.form-1-box legend {
+  font-size: inherit;
+  line-height: 30px;
+  margin-top: -30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.form-2-box {
+  padding-top: 10px;
+  text-align: left;
+}
+
+.form-2-box legend {
+  font-size: inherit;
+  line-height: 30px;
+  margin-top: -30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.example-tree-invisible {
+  display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+.checklist-leaf-node {
+  padding-left: 40px;
+}
+
+.mat-mdc-form-field-bottom-align {
+  height: 0 !important;
+}
+.mdc-text-field {
+  padding: 0 !important;
+}
+
+.mat-mdc-form-field {
+  width: 100% !important;
+}
+
+.w-100 .mat-mdc-form-field {
+  width: 100px !important;
+}
+
+[data-bs-theme='light'] .cdk-overlay-pane {
+  background-color: #fff;
+}
+[data-bs-theme='dark'] .cdk-overlay-pane {
+  background-color: #32394f;
+}
+
+g [pointer-events='bounding-box'] {
+  display: none;
+}
+
+[data-bs-theme='light'] tabset li .active {
+  background-color: #eff2f7 !important;
+  color: #000;
+}
+
+[data-bs-theme='dark'] tabset li .active {
+  background-color: #fff !important;
+  color: #000;
+}
+
+[data-bs-theme='light'] .right-bar .right-bar-toggle {
+  color: var(--bs-gray-200);
+}
+
+[data-bs-theme='dark'] .right-bar .right-bar-toggle {
+  color: var(--bs-gray-800);
+}
+
+[data-bs-theme='light'] .cal-header {
+  color: #000;
+  background-color: #eff2f7;
+  border-color: #d7dade;
+}
+
+[data-bs-theme='dark'] .cal-header {
+  color: #a6b0cf;
+  background-color: #32394e;
+  border-color: #32394e;
+}
+.cdk-overlay-container {
+  /* position: absolute !important; */
+  z-index: 10000 !important;
+}
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+.div-header-light {
+  color: #000;
+  font-weight: bold;
+  padding: 5px;
+  background-color: #eff2f7;
+  border: 1px solid #d7dade;
+}
+
+.div-body-light {
+  color: #000;
+  padding: 5px;
+  border: 1px solid #d7dade;
+}
+
+.p-multiselect .p-multiselect-label {
+  padding: 0.47rem 0.75rem !important;
+  font-size: 0.7125rem !important;
+}
+
+.p-component {
+  font-size: 0.95rem !important;
+  font-weight: normal;
+}
+.p-autocomplete-option
+{
+  font-size: 0.95rem !important;
+  font-weight: normal;
+  background-color: black;
+}
+
+element {
+}
+*, ::before, ::after {
+  box-sizing: border-box;
+
+}
+*, ::before, ::after {
+  box-sizing: border-box;
+
+}
+.p-autocomplete-option {
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  color: var(--p-autocomplete-option-color);
+
+}
+.p-autocomplete-option {
+  font-size: 0.95rem !important;
+  font-weight: normal;
+  padding: .2rem .2rem !important;
+}
+
+.form-control-sm {
+  min-height: calc(1.5em + 0.6rem + calc(var(--bs-border-width) * 2)) !important;
+  padding-top: 0.15rem !important;
+  padding-bottom: 0.15rem !important;
+  font-size: 0.7521875rem !important;
+}
+
+.form-select-sm {
+  min-height: calc(1.5em + 0.6rem + calc(var(--bs-border-width) * 2)) !important;
+  padding-top: 0.15rem !important;
+  padding-bottom: 0.15rem !important;
+  font-size: 0.7521875rem !important;
+}
+.btn-sm,
+.btn-group-sm > .btn {
+  --bs-btn-font-size: 0.7521875rem !important;
+}
+
+.cost-group-0 {
+  background-color: #ccd1fe !important;
+}
+
+.cost-group-1 {
+  background-color: #e6e8fe !important;
+}
+
+.cost-group-2 {
+  background-color: #f9f9fe !important;
+}
+
+.text-success-dark {
+  text-color: #033500;
+}
+
+.big-checkbox {
+  width: 30px;
+  height: 30px;
+}
+
+.btn-sm,
+.btn-group-sm > .btn {
+  --bs-btn-padding-y: 0.3rem !important;
+}
+
+.line-strike {
+  color: red;
+  text-decoration: line-through;
+}
+.NgxEditor__Content {
+  min-height: 120px; /* make all of the editor area clickable */
+}
+
+.text-primary-new {
+  color: #c5191c !important;
+}
+
+.btn-primary-new {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #e33235;
+  --bs-btn-border-color: #e33235;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #c5191c;
+  --bs-btn-hover-border-color: #850b0d;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #c5191c;
+  --bs-btn-active-border-color: #850b0d;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #f18363;
+  --bs-btn-disabled-border-color: #f18363;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: var(--bs-nav-pills-link-active-color);
+  background-color: #c5191c;
+}

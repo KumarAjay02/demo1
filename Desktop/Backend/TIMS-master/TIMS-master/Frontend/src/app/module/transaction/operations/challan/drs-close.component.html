@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form [formGroup]="editForm" (ngSubmit)="updateChallan()">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            <div class="btn-group">
+              DRS CLOSER&nbsp; &nbsp;&nbsp;({{this.selBranch}})
+<!--              <input type="text" class="form-control form-control-sm text-end" [disabled]="true" value="{{this.selBranch}}">-->
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row mb-2">
+                <div class="col-md-1 ">Date</div>
+                <div class="col-md-2">
+                  <input formControlName="dDate" [disabled]="true" class="form-control form-control-sm" type="text"/>
+                </div>
+                <div class="col-md-1 ">Vehicle No</div>
+                <div class="col-md-2">
+                  <input formControlName="dVehicleNumber"  [disabled]="true" class="form-control form-control-sm text-uppercase"/>
+                </div>
+                <div class="col-md-1 ">DRS No</div>
+                <div class="col-md-2">
+                  <input formControlName="id"  [disabled]="true" class="form-control form-control-sm"/>
+                </div>
+              </div>
+            <div class="row mb-2">
+              <div class="col-md-1 ">Remark</div>
+              <div class="col-md-11">
+                <input formControlName="remark" class="form-control form-control-sm"/>
+              </div>
+            </div>
+            <div class="ro mb-2">
+              <div class="table-responsive mt-2"
+                   style="max-height: 500px; overflow-y: auto; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                <table class="table table-sm table-bordered" >
+                  <thead class="table-light-new">
+                  <tr>
+                    <th>S.No.</th>
+                    <th>DOCKET NO</th>
+                    <th>ORIGIN</th>
+                    <th>DESTINATION</th>
+                    <th>CONSIGNOR</th>
+                    <th>CONSIGNEE</th>
+                    <th>PCS</th>
+                    <th>ACTUAL WEIGHT</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+
+                  <ng-container *ngFor="let detail of docket; let index=index">
+                    <tr>
+                      <td>{{index+1}}</td>
+                      <td><input type="checkbox" /> {{detail.docketNo}} </td>
+                      <td></td>
+                      <td></td>
+                      <td>{{detail.consignorName}}</td>
+                      <td>{{detail.consigneeName}}</td>
+                      <td>{{detail.totalPkgs}}</td>
+                      <td>{{detail.actualWeight}}</td>
+                    </tr>
+                  </ng-container>
+                  </tbody>
+
+                </table>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="row card-margin-bottom-10">
+                <div class="col-md-5 "></div>
+                <div class="col-md-1">
+                  <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">Submit</button>
+                </div>
+                <div class="col-md-1">
+                  <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                          (click)="previousState()">Back
+                  </button>
+                </div>
+                <div class="col-md-5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

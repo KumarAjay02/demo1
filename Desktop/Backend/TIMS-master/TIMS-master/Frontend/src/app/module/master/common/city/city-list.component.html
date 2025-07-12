@@ -1,0 +1,191 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+<div class="row">
+  <div class="col-12">
+    <div class="page-title-box d-flex align-items-center justify-content-between">
+      <div class="page-title-right">
+        <ol class="breadcrumb m-0">
+          <ng-container>
+            <li class="breadcrumb-item"><a href="javascript: void(0);">Master Apps</a></li>
+            <li class="breadcrumb-item">Master</li>
+            <li class="breadcrumb-item active">City Master</li>
+          </ng-container>
+        </ol>
+      </div>
+    </div>
+    <div class="card-title text-center">
+      CITY    MASTER
+    </div>
+  </div>
+</div>
+<div class="card card-box mb-2">
+  <div class="card-header bg-transparent border-bottom">
+    <div class="row">
+      <div class="col-sm-3 mb-2">
+        <div class="search-wrapper-mini position-relative">
+          <div class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+            <i class="bi bi-search"></i>
+          </div>
+          <input class="form-control form-control-sm form-select-sm rounded-pill text-uppercase ps-4"
+                 name="city"
+                 id="field_city"
+                 placeholder="Name"
+                 [(ngModel)]="citySearch.cityName"
+                 type="text" />
+        </div>
+      </div>
+      <div class="col-sm-3 mb-2">
+        <div class="search-wrapper-mini position-relative">
+          <div class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+            <i class="bi bi-search"></i>
+          </div>
+          <input class="form-control form-control-sm form-select-sm rounded-pill text-uppercase ps-4"
+                 name="Code"
+                 id="field_Code"
+                 placeholder="Code"
+                 [(ngModel)]="citySearch.cityCode"
+                 type="text" />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm rounded-pill my-btn-light-grd" type="button" (click)="search()">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+      <div class="col-md-2 text-end">
+        <div class="dropdown">
+          <button type="button" id="create-entity" *ngIf="userRights?.add" class="btn btn-sm rounded-pill my-btn-light" [routerLink]="['/city-master/new']">
+            Add New
+          </button>
+          <div class="btn-group rounded-pill dropdown-end" *ngIf="userRights?.print">
+            <button class="btn d-30 p-0 my-btn-light-grd" style="border-radius: 30px 0 0 30px;" type="button">
+              <i class="bi bi-gear-fill"></i>
+            </button>
+            <button class="btn d-30 btn-rounded p-0 btn-secondary dropdown-toggle"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 0 30px 30px 0;">
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-end listData">
+              <li class="text-center">Exports </li>
+              <li class="divider dropdown-divider"></li>
+              <li class="dropdown-item" (click)="exportAsExcel()" title="Export to Excel" style="cursor: pointer;">
+                <i class="bi bi-file-earmark-excel text-success"></i>
+                &nbsp; <span>Excel</span>
+              </li>
+              <li class="dropdown-item" (click)="exportAsPdf()" title="Export to PDF" style="cursor: pointer;">
+                <i class="bi bi-filetype-pdf text-danger"></i>
+                &nbsp; <span>Pdf</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive" id="entities">
+      <table class="table table-sm table-striped" aria-describedby="page-heading">
+        <thead class="table-light-new">
+          <tr>
+            <th><span>Sr. No.</span></th>
+            <th>CITY CODE</th>
+            <th>CITY NAME</th>
+            <th>PIN CODE</th>
+            <th>STD CODE</th>
+            <th>CATEGORY</th>
+            <th>STATE ZONE</th>
+            <th>COUNTRY</th>
+            <th>STATE</th>
+            <th >ACTIVE</th>
+            <th ></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let city of paginatedCities(); let index = index; trackBy: trackId">
+            <td>{{  (page - 1) * pageSize + index + 1 }}</td>
+            <td>{{ city.cityCode }}</td>
+            <td>{{ city.cityName }}</td>
+            <td>{{ city.pinCode }}</td>
+            <td>{{ city.stdCode }}</td>
+            <td>{{ city.category }}</td>
+            <td>{{ city.zone }}</td>
+            <td>{{ city.countryName }}</td>
+            <td>{{ city.stateName }}</td>
+            <td>{{ city.isActive }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <button [routerLink]="['/city-master', city.id, 'view']" class="btn btn-sm my-btn-light-grd"
+                          matTooltip="View" style="border-radius: 30px 0 0 30px;" matTooltipPosition="above" [disabled]="!this.userRights?.search"
+                          type="button">
+                    <i class="bi bi-eye-fill"></i>
+                  </button>
+                  <button type="button" matTooltipPosition="above" [disabled]="!this.userRights?.update"
+                          [routerLink]="['/city-master', city.id, 'edit']"
+                          class="btn btn-sm my-btn-edit" matTooltip="Edit">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                    <button type="button" [disabled]="!this.userRights?.deleted" (click)="delete(city)" class="btn btn-sm my-btn-danger" style="border-radius: 0 30px 30px 0;" matTooltipPosition="above" matTooltip="Delete">
+                      <i class="bi bi-trash-fill"></i>
+                    </button>
+                </div>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+      <nav *ngIf="totalPages > 1">
+        <div class="d-flex justify-content-between align-items-center mb-1">
+          <div>
+            <label class="me-2">Records per page:</label>
+            <select
+              class="form-select form-select-sm d-inline-block w-auto"
+              [(ngModel)]="pageSize"
+              (change)="setPage(1)"
+            >
+              <option *ngFor="let size of pageSizeOptions" [value]="size">{{ size }}</option>
+            </select>
+          </div>
+          <div *ngIf="cities.length">
+            Showing {{ (page - 1) * pageSize + 1 }} –
+            {{ Math.min(page * pageSize, cities.length) }} of {{ cities.length }} entries
+          </div>
+          <div>
+            <ul class="pagination pagination-sm justify-content-end mt-3">
+
+              <!-- Previous -->
+              <li class="page-item" [class.disabled]="page === 1">
+                <button class="page-link" (click)="setPage(page - 1)">
+                  <i class="bi bi-chevron-left"></i>
+                </button>
+              </li>
+
+              <!-- Page Numbers -->
+              <li
+                class="page-item"
+                *ngFor="let p of [].constructor(totalPages); let i = index"
+                [class.active]="page === i + 1"
+              >
+                <button class="page-link" (click)="setPage(i + 1)">
+                  {{ i + 1 }}
+                </button>
+              </li>
+
+              <!-- Next -->
+              <li class="page-item" [class.disabled]="page === totalPages">
+                <button class="page-link" (click)="setPage(page + 1)">
+                  <i class="bi bi-chevron-right"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+      </nav>
+
+    </div>
+    <div class="alert alert-warning" id="no-result" *ngIf="cities && cities.length === 0">
+      <span>No data found</span>
+    </div>
+  </div>
+</div>
+</div>

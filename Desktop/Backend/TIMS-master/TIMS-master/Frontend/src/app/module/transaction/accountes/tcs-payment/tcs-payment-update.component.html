@@ -1,0 +1,178 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form [formGroup]="editForm" (ngSubmit)="save()">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            {{ isEditMode ? 'EDIT TCS PAYMENT' : (isViewMode ? 'VIEW TCS PAYMENT' : 'CREATE TCS PAYMENT') }}
+          </div>
+          <div class="card-body">
+            <div class="row mb-1">
+              <div class="col-md-12">
+                <div class="border rounded p-1 d-flex align-items-center gap-2">
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" type="radio" id="paymentType" name="paymentType" value="ADVANCE"
+                           formControlName="paymentType" required [disabled]="isViewMode" />
+                    <label class="form-check-label" for ="paymentType">Advance</label>
+                  </div>
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" type="radio" name="paymentType" value="FINAL"
+                           formControlName="paymentType" [disabled]="isViewMode" />
+                    <label class="form-check-label">Final</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <div class="col-md-1"><label for="fromDate" class="form-label">From Date</label></div>
+              <div class="col-md-2">
+                <input type="date" id="fromDate" formControlName="fromDate" class="form-control form-control-sm" [disabled]="isViewMode">
+              </div>
+              <div class="col-md-1"><label for="toDate" class="form-label">To Date</label></div>
+              <div class="col-md-2">
+                <input type="date" id=toDate formControlName="toDate" class="form-control form-control-sm" [disabled]="isViewMode">
+              </div>
+              <div class="col-md-1"> <label for="branchCode" class="form-label">Branch&nbsp;Code</label></div>
+              <div class="col-md-2">
+                <select formControlName="branchCode" id="branchCode" class="form-select form-select-sm" [disabled]="isViewMode">
+                  <option value="undefined" [selected]="true">[Select Branch]</option>
+                  <option value="1234">Gurgaon</option>
+                  <option value="1234">Panipat</option>
+                </select>
+              </div>
+              <div class="col-md-1"> <label class="form-label">Supplier</label></div>
+              <div class="col-md-2">
+                <select formControlName="supplier" class="form-select form-select-sm" [disabled]="isViewMode">
+                  <option value="undefined" [selected]="true">[Select Supplier]</option>
+                  <option value="1234">SANGWAN CARGO</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <div class="col-md-1">  <label class="form-label">Pay Mode</label></div>
+              <div class="col-md-2">
+                <select formControlName="mode" class="form-select form-select-sm" [disabled]="isViewMode">
+                  <option value="undefined" [selected]="true">[Select Pay Mode]</option>
+                  <option value="Bank">BANK</option>
+                </select>
+              </div>
+              <div class="col-md-1"> <label class="form-label">Bank Details</label></div>
+              <div class="col-md-5">
+                <select formControlName="bankDetails" class="form-select form-select-sm" [disabled]="isViewMode">
+                  <option value="undefined" [selected]="true">[Select Bank Detail]</option>
+                  <option value="ABC">BANK ABC</option>
+                </select>
+              </div>
+              <div class="col-md-1"> <label class="form-label">Pay Type</label></div>
+              <div class="col-md-2">
+                <select formControlName="payType" class="form-select form-select-sm" [disabled]="isViewMode">
+                  <option value="undefined" [selected]="true">[Select Pay Mode]</option>
+                  <option value="NEFT">NEFT</option>
+                  <option value="RTGS">RTGS</option>
+                  <option value="IMPS">IMPS</option>
+                  <option value="CHEQUE">Cheque</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <div class="col-md-1"><label class="form-label">{{editForm.get('payType')?.value}}&nbsp;Number</label></div>
+              <div class="col-md-2">
+                <input type="text" formControlName="neftNumber" class="form-control form-control-sm" [disabled]="isViewMode">
+              </div>
+              <div class="col-md-1"><label class="form-label">{{editForm.get('payType')?.value}}&nbsp;Date</label></div>
+              <div class="col-md-2">
+                <input type="date" formControlName="neftDate" class="form-control form-control-sm" [disabled]="isViewMode">
+              </div>
+              <div class="col-md-1"><label class="form-label">Narration</label></div>
+              <div class="col-md-3">
+                <input type="text" formControlName="narration" class="form-control form-control-sm" [disabled]="isViewMode">
+              </div>
+              <div class="col-md-2">
+                <button class="btn btn-sm my-btn-light">Search TCS</button>
+              </div>
+            </div>
+            <div class="row  mb-2">
+              <div class="table-responsive">
+                <table class="table table-sm table-bordered">
+                  <thead class="table-light-new">
+                  <tr>
+                    <th>Sr. No</th>
+                    <th>SELECT</th>
+                    <th>TCS NO</th>
+                    <th>TCS DATE</th>
+                    <th>BROKER/VENDOR NAME</th>
+                    <th>LHC AMT.</th>
+                    <th>ADVANCE PAID</th>
+                    <th>BALANCE</th>
+                    <th>HAMALI(RS.)</th>
+                    <th>EXTRA KM AMOUNT</th>
+                    <th>HALTING(RS.)</th>
+                    <th>RTO(RS.)</th>
+                    <th>INCENTIVE(RS.)</th>
+                    <th>LATE PANELTY(RS.)</th>
+                    <th>MATERIAL DAMAGE(RS.)</th>
+                    <th>OTHER DED(RS.)</th>
+                    <th>TOTAL LORRY HIRE</th>
+                    <th>TDS AMOUNT</th>
+                    <th>TOTAL INC AMT</th>
+                    <th>TOTAL DEDUCTION AMT</th>
+                    <th>FINAL PAYMENT AMOUNT</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let tcs of tcsList; let i = index;">
+                    <td>{{ i + 1 }}</td>
+                    <td><input type="checkbox" [(ngModel)]="tcs.selected" [ngModelOptions]="{standalone: true}" /></td>
+                    <td>{{ tcs.tcsNo }}</td>
+                    <td>{{ tcs.tcsDate }}</td>
+                    <td>{{ tcs.brokerName }}</td>
+                    <td><input type="text" [disabled]="editForm.get('paymentType')?.value==='ADVANCE' " [(ngModel)]="tcs.lhcAmt" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}" /></td>
+                    <td><input type="text" [disabled]="editForm.get('paymentType')?.value!=='ADVANCE' " [(ngModel)]="tcs.advancePaid" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}"/></td>
+                    <td><input type="text" [disabled]="editForm.get('paymentType')?.value==='ADVANCE' "[(ngModel)]="tcs.balance" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}"/></td>
+                    <td><input type="text" [disabled]="editForm.get('paymentType')?.value==='ADVANCE' "[(ngModel)]="tcs.hamali" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}"/></td>
+                    <td><input type="text" [disabled]="editForm.get('paymentType')?.value==='ADVANCE' "[(ngModel)]="tcs.extraKmAmount" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}"/></td>
+                    <td><input type="text" [disabled]="editForm.get('paymentType')?.value==='ADVANCE' "[(ngModel)]="tcs.halting" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}"/></td>
+                    <td><input type="text" [disabled]="editForm.get('paymentType')?.value==='ADVANCE' "[(ngModel)]="tcs.rto" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}"/></td>
+                    <td><input type="text" [disabled]="editForm.get('paymentType')?.value==='ADVANCE' "[(ngModel)]="tcs.incentive" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}"/></td>
+                    <td><input type="text" [disabled]="editForm.get('paymentType')?.value==='ADVANCE' "[(ngModel)]="tcs.latePenalty" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}"/></td>
+                    <td><input type="text" [disabled]="editForm.get('paymentType')?.value==='ADVANCE' "[(ngModel)]="tcs.materialDamage" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}"/></td>
+                    <td><input type="text" [disabled]="editForm.get('paymentType')?.value==='ADVANCE' "[(ngModel)]="tcs.otherDeduction" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}"/></td>
+                    <td><input type="text" [disabled]="editForm.get('paymentType')?.value==='ADVANCE' "[(ngModel)]="tcs.totalLorryHire" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}"/></td>
+                    <td><input type="text" [disabled]="editForm.get('paymentType')?.value==='ADVANCE' "[(ngModel)]="tcs.tdsAmount" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}"/></td>
+                    <td><input type="text" [disabled]="editForm.get('paymentType')?.value==='ADVANCE' "[(ngModel)]="tcs.totalIncAmount" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}" /></td>
+                    <td><input type="text" [disabled]="editForm.get('paymentType')?.value==='ADVANCE' "[(ngModel)]="tcs.totalDeductionAmount" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}"/></td>
+                    <td><input type="text" [disabled]="editForm.get('paymentType')?.value==='ADVANCE' "[(ngModel)]="tcs.finalPaymentAmount" class="form-control form-control-sm" [ngModelOptions]="{standalone: true}"/></td>
+
+
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="row card-margin-bottom-10">
+                <div class="col-md-5 text-end"></div>
+                <div class="col-md-1" *ngIf="!isViewMode">
+                  <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light"
+                          [disabled]="editForm.invalid || saving">
+                    <span *ngIf="!saving">Save</span>
+                    <span *ngIf="saving" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  </button>
+                </div>
+                <div class="col-md-1">
+                  <button type="button" id="cancel" class="btn btn-sm rounded-pill my-btn-light"
+                          (click)="previousState()">
+                    {{ isViewMode ? 'Back' : 'Close' }}
+                  </button>
+                </div>
+                <div class="col-md-5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

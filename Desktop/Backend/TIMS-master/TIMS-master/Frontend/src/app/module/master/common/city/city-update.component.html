@@ -1,0 +1,139 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form [formGroup]="editForm" (ngSubmit)="updateCity()" novalidate>
+        <div class="card card-box mb-1">
+          <div class="card-title text-center">
+            CITY MASTER
+          </div>
+          <div class="card-body">
+            <div class="row mb-1">
+              <div class="col-md-1">
+                <label for="code" class="form-label">City Code</label>
+              </div>
+              <div class="col-md-2">
+                <input id="code" autocomplete="off" formControlName="cityCode"
+                       class="form-control form-control-sm text-uppercase"/>
+              </div>
+              <div class="col-md-1">
+                <label for="name" class="form-label">City Name</label>
+              </div>
+              <div class="col-md-2">
+                <input id="name" autocomplete="off" formControlName="cityName"
+                       class="form-control form-control-sm text-uppercase"/>
+              </div>
+              <div class="col-md-1">
+                <label class="form-label">Pin Code</label>
+              </div>
+              <div class="col-md-2">
+                <p-autocomplete size="small"
+                                formControlName="pinCode"
+                                id="pinCode"
+                                optionLabel="pinCode"
+                                [forceSelection]="true"
+                                [suggestions]="pinCodes"
+                                [dropdown]="true"
+                                (completeMethod)="searchPinCode($event)"
+                ></p-autocomplete>
+              </div>
+              <div class="col-md-1">
+                <label for="stdCode" class="form-label">STD Code</label>
+              </div>
+              <div class="col-md-2">
+                <input id="stdCode" autocomplete="off" formControlName="stdCode"
+                       class="form-control form-control-sm" mask="0*"/>
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <div class="col-md-1">
+                <label for="category" class="form-label">Category</label>
+              </div>
+              <div class="col-md-2">
+                <input id="category" autocomplete="off" formControlName="category"
+                       class="form-control form-control-sm text-uppercase"/>
+              </div>
+              <div class="col-md-1">
+                <label for="stateZone" class="form-label">State Zone</label>
+              </div>
+              <div class="col-md-2">
+                <input id="stateZone" autocomplete="off" formControlName="zone"
+                       class="form-control form-control-sm text-uppercase"/>
+              </div>
+              <div class="col-md-1">
+                <label class="form-label">Country</label>
+              </div>
+              <div class="col-md-2">
+                <p-autocomplete
+                  formControlName="countryCode"
+                  id="country"
+                  field="countryName"
+                  size="small"
+                  [forceSelection]="true"
+                  [suggestions]="countries"
+                  (completeMethod)="searchCountry($event)"
+                  [dropdown]="true"
+                  [inputStyle]="{ 'width': '100%' ,'height':'30px'}">
+                ></p-autocomplete>
+              </div>
+              <div class="col-md-1">
+                <label class="form-label">State</label>
+              </div>
+              <div class="col-md-2 position-relative" style="min-width: 100px">
+                <p-autocomplete
+                  formControlName="stateCode"
+                  id="state"
+                  field="stateName"
+                  size="small"
+                  [forceSelection]="true"
+                  [suggestions]="states"
+                  [dropdown]="true"
+                  (completeMethod)="searchState($event)">
+                </p-autocomplete>
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <div class="col-md-1">
+                <label for="IsActive" class="form-label">Active</label>
+              </div>
+              <div class="col-md-2 d-flex align-items-center">
+                <input
+                  type="checkbox"
+                  formControlName="isActive"
+                  id="IsActive"
+                />
+              </div>
+            </div>
+
+            <div class="row card-margin-bottom-10">
+              <div class="col-md-5"></div>
+              <div class="col-md-1" *ngIf="isEditMode">
+                <button
+                  type="submit"
+                  id="save"
+                  class="btn btn-sm rounded-pill my-btn-light"
+                  [disabled]="editForm.invalid || saving"
+                >
+                  <span *ngIf="!saving">Save</span>
+                  <span *ngIf="saving" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                </button>
+              </div>
+              <div class="col-md-1">
+                <button
+                  type="button"
+                  id="cancel"
+                  class="btn btn-sm rounded-pill my-btn-light"
+                  (click)="previousState()"
+                >
+                  {{ isViewMode ? 'Back' : 'Close' }}
+                </button>
+              </div>
+              <div class="col-md-5"></div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

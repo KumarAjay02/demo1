@@ -1,0 +1,370 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-title-box d-flex align-items-center justify-content-between">
+        <div class="page-title-right">
+          <ol class="breadcrumb m-3">
+            <li class="breadcrumb-item"><a href="javascript: void(0);">Master</a></li>
+            <li class="breadcrumb-item">Billing</li>
+            <li class="breadcrumb-item">Customer Rate Master</li>
+          </ol>
+        </div>
+      </div>
+      <div class="card-title text-center">Customer Rate Master</div>
+      <div class="card-body p-1">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+          <ul class="nav nav-tabs mb-1" id="docketTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button"
+                role="tab">Customer Rate</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button"
+                role="tab">Customer Rate List</button>
+            </li>
+          </ul>
+
+          <div class="tab-content">
+            <!-- TAB 1 -->
+            <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+              <div class="col-sm-12">
+                <div class="card card-box mb-2">
+                  <div class="card-body">
+                    <!-- Form Row 1 -->
+                    <div class="row mb-2">
+                      <div class="col-md-1">
+                        <label for="branchSelect" class="form-label">Branch</label>
+                      </div>
+                      <div class="col-md-3">
+                        <select id="branchSelect" formControlName="branch" class="form-select form-select-sm">
+                          <option value="">[Select]</option>
+                          <option value="Branch1">Branch 1</option>
+                          <option value="Branch2">Branch 2</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-1">
+                        <label for="customerSelect" class="form-label">Customer</label>
+                      </div>
+                      <div class="col-md-3">
+                        <select id="customerSelect" formControlName="customer" class="form-select form-select-sm">
+                          <option value="">[Select]</option>
+                          <option value="Customer1">Customer 1</option>
+                          <option value="Customer2">Customer 2</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-1">
+                        <label for="contractInput" class="form-label">Contract</label>
+                      </div>
+                      <div class="col-md-3">
+                        <input id="contractInput" formControlName="contract" type="text" class="form-control form-control-sm" />
+                      </div>
+                    </div>
+
+                    <!-- Form Row 2 -->
+                    <div class="row mb-2">
+                      <div class="col-md-1">
+                        <label for="applicableSelect" class="form-label">Applicable</label>
+                      </div>
+                      <div class="col-md-3">
+                        <select id="applicableSelect" formControlName="applicable" class="form-select form-select-sm">
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-1">
+                        <label for="validFromInput" class="form-label">Valid From</label>
+                      </div>
+                      <div class="col-md-3">
+                        <input id="validFromInput" formControlName="validFrom" type="date" class="form-control form-control-sm" />
+                      </div>
+
+                      <div class="col-md-1">
+                        <label for="validToInput" class="form-label">Valid To</label>
+                      </div>
+                      <div class="col-md-3">
+                        <input id="validToInput" formControlName="validTo" type="date" class="form-control form-control-sm" />
+                      </div>
+                    </div>
+
+                    <!-- Form Row 3 -->
+                    <div class="row mb-2">
+                      <div class="col-md-1">
+                        <label for="remarksTextarea" class="form-label">Remarks</label>
+                      </div>
+                      <div class="col-md-11">
+                        <textarea id="remarksTextarea" formControlName="remarks" class="form-control form-control-sm" rows="2"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <!-- Save/Close buttons -->
+                    <div class="row card-margin-bottom-10">
+                      <div class="col-md-5 text-end"></div>
+                      <div class="col-md-1">
+                        <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                          Save
+                        </button>
+                      </div>
+                      <div class="col-md-1">
+                        <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                          (click)="previousState()">
+                          Close
+                        </button>
+                      </div>
+                      <div class="col-md-5"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Customer Rate Copy Table -->
+                <div class="card">
+                  <table class="table table-sm table-bordered table-striped">
+                    <thead class="table-light-new">
+                      <tr>
+                        <th>Sr. No.</th>
+                        <th>Copy To Branch</th>
+                        <th>Copy To Customer</th>
+                        <th>Copy To Customer Code</th>
+                        <th>Check Box</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let r of customerRates; let i = index; trackBy: trackId">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ r.CopyToBranch }}</td>
+                        <td>{{ r.CopyToCustomer }}</td>
+                        <td>{{ r.CopyToCustomerCode }}</td>
+                        <td class="text-center">
+                          <input type="checkbox" class="form-check-input" />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 2 -->
+            <div class="tab-pane fade" id="tab2" role="tabpanel">
+              <div class="card card-box mb-1">
+                <div class="card-body">
+                  <div class="row mb-2">
+                    <div class="col-md-1">
+                      <label for="noOfInvoicesInput" class="form-label">No of Rows</label>
+                    </div>
+                    <div class="col-md-2">
+                      <input
+                        id="noOfInvoicesInput"
+                        type="number"
+                        formControlName="noOfInvoices"
+                        class="form-control form-control-sm"
+                        (change)="addEwayRow()"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="row mb-2">
+                    <div class="col-md-12 text-end">
+                      <button type="button" class="btn btn-sm btn-success me-1" (click)="addRow()">
+                        + Add Row
+                      </button>
+                      <!-- <button type="button" class="btn btn-sm btn-danger" (click)="removeLastRow()">
+                        - Remove Last Row
+                      </button> -->
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table table-sm table-bordered table-hover table-striped">
+                      <thead class="table-light text-center align-middle">
+                        <tr>
+                          <th>From Branch</th>
+                          <th>To Branch</th>
+                          <th>Mode</th>
+                          <th>Charge Type</th>
+                          <th>Min Wt</th>
+                          <th>Rate</th>
+                          <th>Freight</th>
+                          <th>Dkt</th>
+                          <th>Pickup</th>
+                          <th>Delivery</th>
+                          <th>FOV</th>
+                          <th>To Pay</th>
+                          <th>Loading</th>
+                          <th>Unloading</th>
+                          <th>Misc</th>
+                          <th>Reverse Applicable</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody formArrayName="rateList">
+                        <tr *ngFor="let row of rateList.controls; let i = index" [formGroupName]="i">
+                          <td>
+                            <select
+                              id="fromBranchSelect{{i}}"
+                              formControlName="fromBranch"
+                              class="form-select form-select-sm"
+                              aria-label="From Branch"
+                            >
+                              <option value="">[Select]</option>
+                            </select>
+                          </td>
+                          <td>
+                            <select
+                              id="toBranchSelect{{i}}"
+                              formControlName="toBranch"
+                              class="form-select form-select-sm"
+                              aria-label="To Branch"
+                            >
+                              <option value="">[Select]</option>
+                            </select>
+                          </td>
+                          <td>
+                            <select
+                              id="modeSelect{{i}}"
+                              formControlName="mode"
+                              class="form-select form-select-sm"
+                              aria-label="Mode"
+                            >
+                              <option value="">[Select]</option>
+                            </select>
+                          </td>
+                          <td>
+                            <select
+                              id="chargeTypeSelect{{i}}"
+                              formControlName="chargeType"
+                              class="form-select form-select-sm"
+                              aria-label="Charge Type"
+                            >
+                              <option value="">[Select]</option>
+                            </select>
+                          </td>
+                          <td>
+                            <input
+                              id="minWtInput{{i}}"
+                              formControlName="minWt"
+                              type="number"
+                              class="form-control form-control-sm text-end"
+                              aria-label="Min Weight"
+                            />
+                          </td>
+                          <td>
+                            <input
+                              id="rateInput{{i}}"
+                              formControlName="rate"
+                              type="number"
+                              class="form-control form-control-sm text-end"
+                              aria-label="Rate"
+                            />
+                          </td>
+                          <td>
+                            <input
+                              id="freightInput{{i}}"
+                              formControlName="freight"
+                              type="number"
+                              class="form-control form-control-sm text-end"
+                              aria-label="Freight"
+                            />
+                          </td>
+                          <td>
+                            <input
+                              id="dktInput{{i}}"
+                              formControlName="dkt"
+                              type="number"
+                              class="form-control form-control-sm text-end"
+                              aria-label="Docket"
+                            />
+                          </td>
+                          <td>
+                            <input
+                              id="pickupInput{{i}}"
+                              formControlName="pickup"
+                              type="number"
+                              class="form-control form-control-sm text-end"
+                              aria-label="Pickup"
+                            />
+                          </td>
+                          <td>
+                            <input
+                              id="deliveryInput{{i}}"
+                              formControlName="delivery"
+                              type="number"
+                              class="form-control form-control-sm text-end"
+                              aria-label="Delivery"
+                            />
+                          </td>
+                          <td>
+                            <input
+                              id="fovInput{{i}}"
+                              formControlName="fov"
+                              type="number"
+                              class="form-control form-control-sm text-end"
+                              aria-label="FOV"
+                            />
+                          </td>
+                          <td>
+                            <input
+                              id="toPayInput{{i}}"
+                              formControlName="toPay"
+                              type="number"
+                              class="form-control form-control-sm text-end"
+                              aria-label="To Pay"
+                            />
+                          </td>
+                          <td>
+                            <input
+                              id="loadingInput{{i}}"
+                              formControlName="loading"
+                              type="number"
+                              class="form-control form-control-sm text-end"
+                              aria-label="Loading"
+                            />
+                          </td>
+                          <td>
+                            <input
+                              id="unloadingInput{{i}}"
+                              formControlName="unloading"
+                              type="number"
+                              class="form-control form-control-sm text-end"
+                              aria-label="Unloading"
+                            />
+                          </td>
+                          <td>
+                            <input
+                              id="miscInput{{i}}"
+                              formControlName="misc"
+                              type="number"
+                              class="form-control form-control-sm text-end"
+                              aria-label="Miscellaneous"
+                            />
+                          </td>
+                          <td class="text-center">
+                            <input
+                              id="reverseApplicableInput{{i}}"
+                              type="checkbox"
+                              formControlName="reverseApplicable"
+                              class="form-check-input"
+                              aria-label="Reverse Applicable"
+                            />
+                          </td>
+                          <td class="text-center">
+                            <button type="button" class="btn btn-sm btn-outline-danger" (click)="removeRow(i)" class="btn btn-sm my-btn-danger" style="border-radius: 0 30px 30px 0;" matTooltipPosition="above" matTooltip="Delete">  
+                              <i class="bi bi-trash-fill"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<h2 mat-dialog-title>Add Payable Location Detail</h2>
+<mat-dialog-content>
+  <form [formGroup]="detailForm">
+    <div class="mb-2">
+      <label>Branch Code</label>
+      <input type="text" class="form-control form-control-sm" formControlName="branchCode">
+    </div>
+    <div class="mb-2">
+      <label>GST No</label>
+      <input type="text" class="form-control form-control-sm" formControlName="gstNo">
+    </div>
+    <div class="mb-2">
+      <label>City</label>
+      <input type="text" class="form-control form-control-sm" formControlName="city">
+    </div>
+    <div class="mb-2">
+      <label>Mobile 1</label>
+      <input type="text" class="form-control form-control-sm" formControlName="mobile1">
+    </div>
+    <div class="mb-2">
+      <label>Email ID</label>
+      <input type="text" class="form-control form-control-sm" formControlName="emailId">
+    </div>
+    <div class="mb-2">
+      <label>Status</label>
+      <select class="form-select form-select-sm" formControlName="activeStatus">
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button color="primary" (click)="save()">Save</button>
+</mat-dialog-actions>

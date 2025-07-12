@@ -1,0 +1,132 @@
+<div class="container">
+  <div class="row   ">
+    <div class="col-sm-12   col-lg-10 m-lg-auto">
+      <!--<app-card cardTitle="Hello">-->
+      <form name="editForm" role="form" novalidate>
+        <div class="card card-box ">
+
+          <div class="card-title text-center">
+            CARD RATE
+          </div>
+          <div class="card-body pb-0  cardbodyFont">
+            <div class="row">
+              <div class="col-md-2   text-end labeltext">
+                <label class="form-control-label" for="codeflg">From Branch</label>
+              </div>
+              <div class="col-md-4 mb-2">
+                <select type="text" class="form-select form-select-sm custom-select custom-select-sm" name="flag"
+                  id="field_flag" formControlName="IsActive" required maxlength="1">
+                  <option value="">ALL</option>
+                  <option value="">GGCO</option>
+                  <option value="">NDA</option>
+                </select>
+              </div>
+              <div class="col-md-2   text-end labeltext">
+                <label class="form-control-label" for="codeflg">From Branch Desc</label>
+              </div>
+              <div class="col-md-4 mb-2">
+                <input type="text" class="form-control form-control-sm text-uppercase" name="code" id="codeflg" />
+
+              </div>
+              <div class="col-md-2   text-end labeltext">
+                <label class="form-control-label" for="desflg">To Branch</label>
+              </div>
+              <div class="col-md-4 mb-2">
+                <select type="text" class="form-select form-select-sm custom-select custom-select-sm" name="flag"
+                  id="field_flag" formControlName="IsActive" required maxlength="1">
+                  <option value="">ALL</option>
+                  <option value="">GGCO</option>
+                  <option value="">NDA</option>
+                </select>
+              </div>
+              <div class="col-md-2   text-end labeltext">
+                <label class="form-control-label" for="desflg">To Branch Desc</label>
+              </div>
+              <div class="col-md-4 mb-2">
+                <input type="text" class="form-control form-control-sm text-uppercase" name="stdCode" id="desflg" />
+              </div>
+              <div class="col-md-2   text-end labeltext">
+                <label class="form-control-label" for="rageflg">Rate Per Kg</label>
+              </div>
+              <div class="col-md-4 mb-2">
+                <input type="text" class="form-control form-control-sm text-uppercase" name="stdCode" id="rageflg" />
+              </div>
+              <div class="col-md-2   text-end labeltext">
+                <label class="form-control-label" for="rageflg">Tat</label>
+              </div>
+              <div class="col-md-4 mb-2">
+                <input type="text" class="form-control form-control-sm text-uppercase" name="stdCode" id="rageflg" />
+              </div>
+              <div class="col-md-2   text-end labeltext">
+                <label class="form-control-label" for="rageflg">Branch Zone</label>
+              </div>
+              <div class="col-md-4 mb-2">
+                <select type="text" class="form-select form-select-sm custom-select custom-select-sm" name="flag"
+                  id="field_flag" formControlName="IsActive" required maxlength="1">
+                  <option value="">DHRT</option>
+                  <option value="">GGCO</option>
+                  <option value="">NDA</option>
+                </select>
+              </div>
+
+
+
+              <div class="col-md-2 text-end   labeltext">
+                <label class="form-control-label" for="field_flag">Mode</label>
+              </div>
+              <div class="col-md-4 mb-2">
+                <select type="text" class="form-select form-select-sm custom-select custom-select-sm" name="flag"
+                  id="field_flag" formControlName="IsActive" required maxlength="1">
+                  <option value="">ROAD</option>
+                  <option value="">AIR</option>
+                  <option value="">TRAIN</option>
+                </select>
+              </div>
+              <div class="col-md-2   text-end   labeltext">
+                <label class="form-control-label" for="field_flag"> Status</label>
+              </div>
+              <div class="col-md-4  mb-2">
+                <div class="border rounded p-1 d-flex align-items-center gap-3  text-center">
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" type="radio" name="activeState" [value]="'Active'"
+                      formControlName="activeState" />
+                    Yes
+                  </div>
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" type="radio" name="activeState" [value]="'Inactive'"
+                      formControlName="activeState" />
+                    No
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="card-footer">
+                <!-- Save/Close buttons -->
+                <div class="row">
+                  <div class="col-md-5 text-end"></div>
+                  <div class="col-md-1">
+                    <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                      Save
+                    </button>
+                  </div>
+                  <div class="col-md-1">
+                    <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                      routerLink="/cardratemst">
+                      Close
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </form>
+      <!--</app-card>-->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,130 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="editForm" role="form" novalidate>
+                <div class="card card-box mb-1">
+                    <div class="card-title text-center">
+                        HO/POD/COD/RECEIVED
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-1">
+                            <div class="col-md-1">
+                                <label for="code" class="form-label">Refrence No</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="code" type="text" formControlName="CityCode"
+                                    class="form-control form-control-sm text-uppercase" disabled />
+                            </div>
+                           
+                            <div class="col-md-1">
+                                <label for="pinCode" class="form-label">Docket NO</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="category" formControlName="Category" type="text"
+                                    class="form-control form-control-sm" disabled />
+                                <!-- <p-autocomplete class="form-control form-control-sm" formControlName="PinCode" id="pinCode" optionLabel="PinCode" [dropdown]="true" [forceSelection]="true" [suggestions]="pinCodes" (completeMethod)="searchPinCode($event)"></p-autocomplete> -->
+                            </div>
+                            <div class="col-md-1">
+                                <label for="stdCode" class="form-label">Pod Type</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="stdCode" formControlName="Stdcode" type="text"
+                                    class="form-control form-control-sm" disabled/>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="category" class="form-label">Booking Date </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="category" type="text" formControlName="Category"
+                                    class="form-control form-control-sm"  disabled/>
+                            </div>
+                        </div>
+                        <div class="row mb-1">
+                            
+                            <div class="col-md-1">
+                                <label for="stateZone" class="form-label">Dispatch Branch</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="stateZone" disabled formControlName="Zone" class="form-control form-control-sm" />
+                            </div>
+                            <div class="col-md-1">
+                                <label class="form-label">Dispatch To</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="category" type="text" formControlName="Category"
+                                    class="form-control form-control-sm" disabled />
+                                <!-- <p-autocomplete class="form-control form-control-sm" formControlName="PinCode" id="pinCode" optionLabel="PinCode" [dropdown]="true" [forceSelection]="true" [suggestions]="pinCodes" (completeMethod)="searchPinCode($event)"></p-autocomplete> -->
+                            </div>
+                            <div class="col-md-1">
+                                <label for="state" class="form-label">Booking Basis</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="state" disabled formControlName="StateCode" class="form-control form-control-sm" />
+                            </div>
+                             <div class="col-md-1 ">
+                                <label class="form-label" for="field_flag">Consignee</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="state" disabled formControlName="StateCode" class="form-control form-control-sm" />
+                            </div>
+                        </div>
+                         
+                        <div class="row mb-1">
+                           
+                            <div class="col-md-1 ">
+                                <label class="form-label" for="field_flag">Consinor</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="state" disabled formControlName="StateCode" class="form-control form-control-sm" />
+                            </div>
+                            <div class="col-md-1 ">
+                                <label class="form-label" for="field_flag">Charge Wt</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="state"  disabled formControlName="StateCode" class="form-control form-control-sm" />
+                            </div>
+                            <div class="col-md-1 ">
+                                <label class="form-label" for="field_flag">Billing Party</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="state" disabled formControlName="StateCode" class="form-control form-control-sm" />
+                            </div>
+
+                             <div class="col-md-1 ">
+                                <label class="form-label" for="field_flag">Remark</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="state" formControlName="StateCode" class="form-control form-control-sm" />
+                            </div>
+                             
+                        </div>
+                         
+                        
+                        
+                        
+                    </div>
+                    <div class="card-footer">
+                        <!-- Save/Close buttons -->
+                        <div class="row">
+                            <div class="col-md-5 text-end"></div>
+                            <div class="col-md-1">
+                                <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                                    Save
+                                </button>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                                    routerLink="/hopodReceived">
+                                    Close
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

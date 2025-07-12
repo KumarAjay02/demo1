@@ -1,0 +1,67 @@
+.home-btn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+}
+
+// auth 2
+
+
+
+// auth-pass-inputgroup
+
+.auth-pass-inputgroup {
+  input[type='input'] + .btn .mdi-eye-outline {
+    &:before {
+      content: '\F06D1';
+    }
+  }
+}
+
+
+.auth-full-bg {
+  background-color: #c0e8fc;
+  display: flex;
+  position: relative; // Add this to contain absolute children
+
+  @media (min-width: 1200px) {
+    height: 100vh;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+  }
+
+  .bg-overlay {
+    position: absolute; // Ensure this is absolute
+    background: url('../images/bg-auth-overlay.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; // Lower than content
+  }
+
+  // Content wrapper should have higher z-index
+  > .w-100 {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.auth-full-page-content {
+  display: flex;
+  position: relative; // Ensure content is positioned
+
+  @media (min-width: 1200px) {
+    min-height: 100vh;
+  }
+}
+

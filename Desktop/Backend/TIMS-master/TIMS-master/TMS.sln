@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Frontend", "Frontend\Frontend.esproj", "{FE3884AC-BEB4-C82B-7BBE-B2492284092F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend", "Service\Backend.csproj", "{F6D9E80E-B12B-D808-1ADD-7E25C6AD02F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE3884AC-BEB4-C82B-7BBE-B2492284092F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE3884AC-BEB4-C82B-7BBE-B2492284092F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE3884AC-BEB4-C82B-7BBE-B2492284092F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FE3884AC-BEB4-C82B-7BBE-B2492284092F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE3884AC-BEB4-C82B-7BBE-B2492284092F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE3884AC-BEB4-C82B-7BBE-B2492284092F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F6D9E80E-B12B-D808-1ADD-7E25C6AD02F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6D9E80E-B12B-D808-1ADD-7E25C6AD02F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6D9E80E-B12B-D808-1ADD-7E25C6AD02F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6D9E80E-B12B-D808-1ADD-7E25C6AD02F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AD61A3D3-760D-4226-8602-47C2A47B2310}
+	EndGlobalSection
+EndGlobal

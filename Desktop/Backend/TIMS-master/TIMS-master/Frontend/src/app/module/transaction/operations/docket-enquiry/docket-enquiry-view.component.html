@@ -1,0 +1,431 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-title-box d-flex align-items-center justify-content-between">
+        <div class="page-title-right">
+          <ol class="breadcrumb m-0">
+            <li class="breadcrumb-item"><a href="#">Master Apps</a></li>
+            <li class="breadcrumb-item">Operations</li>
+            <li class="breadcrumb-item">Docket Enquiry</li>
+          </ol>
+        </div>
+      </div>
+      <div class="card-title text-center">Docket Enquiry</div>
+    </div>
+  </div>
+
+  <div class="card card-box mb-2">
+    <div class="card-header bg-transparent border-bottom">
+      <div class="row">
+        <div class="col-md-1 text-end">
+          <label for="searchtype" class="form-label">Search Type</label>
+        </div>
+        <div class="col-md-3">
+          <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+            <div class="form-check form-check-inline m-0">
+              <input class="form-check-input" type="radio" name="SearchType" [value]="true"
+                     formControlName="searchParams.DocketNo" />
+              Docket No
+            </div>
+            <div class="form-check form-check-inline m-0">
+              <input class="form-check-input" type="radio" name="SearchType" [value]="false"
+                     formControlName="searchParams.InvoiceNo" />
+              Invoice No
+            </div>
+            <div class="form-check form-check-inline m-0">
+              <input class="form-check-input" type="radio" name="SearchType" [value]="false"
+                     formControlName="searchParams.eWaybillNo" />
+              Ewaybill No
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="search-wrapper-mini position-relative">
+            <div class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+              <i class="bi bi-search"></i>
+            </div>
+            <input class="form-control form-control-sm rounded-pill text-uppercase"
+                   placeholder="Docket No/Invoice No/Ewaybill No" />
+          </div>
+        </div>
+        <div class="col-md-2">
+          <select class="form-select form-select-sm custom-select custom-select-sm" id="company" formControlName="searchParams.Company">
+            <option value="">Select Company</option>
+            <option *ngFor="let c of companies" [value]="c">{{ c }}</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select class="form-select form-select-sm custom-select custom-select-sm" id="division" formControlName="searchParams.Division">
+            <option value="">Select Division</option>
+            <option *ngFor="let d of divisions" [value]="d">{{ d }}</option>
+          </select>
+        </div>
+        <div class="col-md-1">
+          <button class="btn btn-sm rounded-pill my-btn-light-grd" type="button" (click)="search()">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+        <div class="col-md-1 text-end">
+          <div class="btn-group rounded-pill dropdown-end">
+            <button class="btn d-30 p-0 my-btn-light-grd" style="border-radius: 30px 0 0 30px;" type="button">
+              <i class="bi bi-gear-fill"></i>
+            </button>
+            <button class="btn d-30 btn-rounded p-0 btn-secondary dropdown-toggle"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 0 30px 30px 0;">
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end listData">
+              <li class="text-center">Exports </li>
+              <li class="divider dropdown-divider"></li>
+              <li class="dropdown-item">
+                <i class="bi bi-file-earmark-excel text-success"></i>
+                &nbsp; <span>Excel</span>
+              </li>
+              <li class="dropdown-item">
+                <i class="bi bi-filetype-pdf text-danger"></i>
+                &nbsp; <span>Pdf</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body">
+
+      <ul class="nav nav-tabs mb-3" id="docketEnquiryTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="docketInvice-tab" data-bs-toggle="tab" data-bs-target="#docketInvice"
+                  type="button" role="tab" aria-controls="Docket and Invoice Details" aria-selected="true">
+            Docket and Invoice Details
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="challanDelivery-tab" data-bs-toggle="tab" data-bs-target="#challanDelivery"
+                  type="button" role="tab" aria-controls="Challan and Delivery Details" aria-selected="false">
+            Challan and Delivery Details
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="podBill-tab" data-bs-toggle="tab" data-bs-target="#podBill"
+                  type="button" role="tab" aria-controls="POD and Billing Details" aria-selected="false">
+            POD and Billing Details
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content" id="docketEnquiryTabsContent">
+        <!-- Tab 1: Docket and Invoice Details -->
+        <div id="docketInvice" class="tab-pane fade show active" role="tabpanel" aria-labelledby="master-tab">
+          <div class="table-responsive">
+            <!--Docket Details Part-1-->
+            <table class="table table-sm table-striped table-bordered">
+              <thead>
+                <tr class="table-light-new">
+                  <th colspan="6" class="text-center">DWB Details: </th>
+                </tr>
+                <tr>
+                  <td style="width:10%; text-align:right;">Created by</td>
+                  <td>&nbsp;</td>
+                  <td style="width:10%; text-align:right;">POD Upload by</td>
+                  <td>&nbsp;</td>
+                  <td style="width:10%; text-align:right;">COF No</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </thead>
+            </table>
+
+            <!--Docket Details Part-2-->
+            <table class="table table-sm table-striped table-bordered">
+              <thead class="table-light-new">
+                <tr>
+                  <th>Docket No</th>
+                  <th>Booking Date</th>
+                  <th>From</th>
+                  <th>To</th>
+                  <th>Basis</th>
+                  <th>Mode</th>
+                  <th>Product Name</th>
+                  <th>Act. Weight</th>
+                  <th>Charge Weight</th>
+                  <th>No. of PKG</th>
+                  <th>COD Amt</th>
+                  <th>Remarks</th>
+                  <th>Curr Loc</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let dwbMsts of dwbMsts; let index = index; trackBy: trackId">
+                  <td>{{ dwbMsts.DWBNO}}</td>
+                  <td>{{ dwbMsts.DWB_DATE}}</td>
+                  <td>{{ dwbMsts.ORIGIN}}</td>
+                  <td>{{ dwbMsts.DESTINATION}}</td>
+                  <td>{{ dwbMsts.PAYMENT_TYPE}}</td>
+                  <td>{{ dwbMsts.PRODUCT_CODE}}</td>
+                  <td>{{ dwbMsts.MATERIAL}}</td>
+                  <td>{{ dwbMsts.ACTUALWEIGHT}}</td>
+                  <td>{{ dwbMsts.CHARGABLE_WEIGHT}}</td>
+                  <td>{{ dwbMsts.COD}}</td>
+                  <td>{{ dwbMsts.TOTAL_PCS}}</td>
+                  <td>{{ dwbMsts.CURRLOC}}</td>
+                  <td>{{ dwbMsts.STATUS}}</td>
+                  <td>{{ dwbMsts.REMARKS}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div *ngIf="dwbMsts.length === 0" class="alert alert-warning">No Docket Enquiry found</div>
+
+            <!--Docket -> Consignor and Consignee, Bill Customer -->
+            <table class="table table-sm table-striped table-bordered">
+              <thead class="table-light-new">
+                <tr>
+                  <th>Consignor</th>
+                  <th>Consignor Address</th>
+                  <th>Consignee</th>
+                  <th>Consignee Address</th>
+                  <th>Bill Customer</th>
+                  <th>Bill Customer Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-responsive" style="overflow:scroll; min-height:100px;">
+            <table class="table table-sm table-striped table-bordered">
+              <thead class="table-light-new">
+                <tr>
+                  <th colspan="6" class="text-center">Invoice Details: </th>
+                </tr>
+                <tr>
+                  <th>Invoice No</th>
+                  <th>Date</th>
+                  <th>E-Way Bill No</th>
+                  <th>E-Way Bill Exp Date</th>
+                  <th>Invoice Value</th>
+                  <th>Quantity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- Tab 2: Challan and Delivery Details -->
+        <div id="challanDelivery" class="tab-pane fade" role="tabpanel" aria-labelledby="master-tab">
+
+          <div class="table-responsive" style="overflow:scroll; min-height:100px;">
+            <table class="table table-sm table-striped table-bordered">
+              <thead class="table-light-new">
+                <tr>
+                  <th colspan="10" class="text-center">Updated Freight Details: </th>
+                </tr>
+                <tr>
+                  <th>Freight</th>
+                  <th>DWB</th>
+                  <th>FOV</th>
+                  <th>FOD</th>
+                  <th>Collection</th>
+                  <th>Hamali</th>
+                  <th>Delivery</th>
+                  <th>Misc</th>
+                  <th>Ess Chg</th>
+                  <th>Other</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-responsive" style="overflow:scroll; min-height:100px;">
+            <table class="table table-sm table-striped table-bordered">
+              <thead class="table-light-new">
+                <tr>
+                  <th colspan="13" class="text-center">Challan/ TCS Details: </th>
+                </tr>
+                <tr>
+                  <th>S/No</th>
+                  <th>Challan No</th>
+                  <th>Challan Date</th>
+                  <th>From Branch</th>
+                  <th>To Branch</th>
+                  <th>Challan Type</th>
+                  <th>Mode</th>
+                  <th>Vehicle/Flight/Train No</th>
+                  <th>TCS No</th>
+                  <th>Status</th>
+                  <th>Receive By</th>
+                  <th>Recd Date</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-responsive" style="overflow:scroll; min-height:100px;">
+            <table class="table table-sm table-striped table-bordered">
+              <thead class="table-light-new">
+                <tr>
+                  <th colspan="12" class="text-center">Delivery Information: </th>
+                </tr>
+                <tr>
+                  <th>S/No</th>
+                  <th>Challan No</th>
+                  <th>Challan Date</th>
+                  <th>From Branch</th>
+                  <th>To Branch</th>
+                  <th>Mode</th>
+                  <th>Vehicle/Flight/Train No</th>
+                  <th>TCS No</th>
+                  <th>Status</th>
+                  <th>Receive By</th>
+                  <th>Recd Date</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <!-- Tab 3: POD and Billing Details -->
+        <div id="podBill" class="tab-pane fade" role="tabpanel" aria-labelledby="master-tab">
+
+          <div class="table-responsive" style="overflow:scroll; min-height:100px;">
+            <table class="table table-sm table-striped table-bordered">
+              <thead class="table-light-new">
+                <tr>
+                  <th colspan="11" class="text-center">POD Information:</th>
+                </tr>
+                <tr>
+                  <th>Statement No</th>
+                  <th>Statement Date</th>
+                  <th>Type</th>
+                  <th>From Branch</th>
+                  <th>To Branch</th>
+                  <th>Dispatch Mode</th>
+                  <th>Dispatch By</th>
+                  <th>Courier No</th>
+                  <th>Receive By</th>
+                  <th>Recd Date</th>
+                  <th>Recd Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-responsive" style="overflow:scroll; min-height:100px;">
+            <table class="table table-sm table-striped table-bordered">
+              <thead class="table-light-new">
+                <tr>
+                  <th colspan="8" class="text-center">Bill Information:</th>
+                </tr>
+                <tr>
+                  <th>Bill No</th>
+                  <th>Branch</th>
+                  <th>Bill Date</th>
+                  <th>Bill Type</th>
+                  <th>Customer Code</th>
+                  <th>Customer Name</th>
+                  <th>Bill Amount</th>
+                  <th>Submission Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

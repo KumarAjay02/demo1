@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row mt-5 ">
+    <div class="col-sm-12   col-lg-10 m-lg-auto">
+      <!--<app-card cardTitle="Hello">-->
+      <form name="editForm" role="form" novalidate>
+        <div class="card card-box mb-2">
+
+          <div class="card-title text-center">
+            MATERIAL
+          </div>
+          <div class="card-body my-3 cardbodyFont">
+            <div class="row">
+              <div class="col-md-2   text-end labeltext">
+                <label class="form-control-label" for="field_stdCode">Code</label>
+              </div>
+              <div class="col-md-4 mb-2">
+                <input type="text" class="form-control form-control-sm text-uppercase" name="stdCode"
+                  id="field_stdCode" />
+              </div>
+
+              <div class="col-md-2   text-end labeltext">
+                <label class="form-control-label" for="field_cityName">Description</label>
+              </div>
+              <div class="col-md-4 mb-2">
+                <input type="text" class="form-control form-control-sm text-uppercase" name="name"
+                  id="field_cityName" />
+              </div>
+              <div class="col-md-2 text-end   labeltext">
+                <label class="form-control-label" for="field_flag">Tax Applicable</label>
+              </div>
+              <div class="col-md-4 mb-2">
+                <select type="text" class="form-select form-select-sm custom-select custom-select-sm" name="flag"
+                  id="field_flag" formControlName="IsActive" required maxlength="1">
+                  <option value="Y">Yes</option>
+                  <option value="N">No</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end   labeltext">
+                <label class="form-control-label" for="field_flag">Status</label>
+              </div>
+              <div class="col-md-4">
+                <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" id="Status" type="radio" name="Status" [value]="'Y'"
+                      formControlName="Status" />
+                    Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </div>
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" type="radio" name="Status" [value]="'N'" formControlName="Status" />
+                    No
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer mt-1">
+                <div class="row mb-2">
+                  <div class="col-md-5"></div>
+                  <div class="col-md-1">
+                    <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                      Save
+                    </button>
+                  </div>
+                  <div class="col-md-1">
+                    <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                      routerLink="/materialmst">
+                      Close
+                    </button>
+                  </div>
+                  <div class="col-md-5"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

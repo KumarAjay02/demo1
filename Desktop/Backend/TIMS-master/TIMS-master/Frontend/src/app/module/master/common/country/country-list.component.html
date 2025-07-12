@@ -1,0 +1,122 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-title-box d-flex align-items-center justify-content-between">
+        <div class="page-title-right">
+          <ol class="breadcrumb m-0">
+            <ng-container>
+              <li class="breadcrumb-item"><a href="javascript: void(0);">Master Apps</a></li>
+              <li class="breadcrumb-item">Master</li>
+              <li class="breadcrumb-item active">Country Master</li>
+            </ng-container>
+          </ol>
+        </div>
+      </div>
+      <div class="card-title text-center">
+        COUNTRY MASTER
+      </div>
+    </div>
+  </div>
+  <div class="card card-box mb-2">
+    <div class="card-header bg-transparent border-bottom">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="search-wrapper-mini position-relative">
+            <div class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+              <i class="bi bi-search"></i>
+            </div>
+            <input class="form-control form-control-sm form-select-sm rounded-pill text-uppercase ps-4"
+                   name="port"
+                   id="field_style"
+                   placeholder="Name"
+                   type="text"/>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="search-wrapper-mini position-relative">
+            <div class="icon-wrapper position-absolute top-50 start-0 translate-middle-y ms-2">
+              <i class="bi bi-search"></i>
+            </div>
+            <input class="form-control form-control-sm form-select-sm rounded-pill text-uppercase ps-4"
+                   name="Code"
+                   id="field_Code"
+                   placeholder="Code"
+                   type="text" />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-sm rounded-pill my-btn-light-grd" type="button">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+        <div class="col-md-2 text-end">
+          <button class="btn btn-sm rounded-pill my-btn-light" (click)="CreateCountry()">Add New</button>
+          <div class="btn-group rounded-pill dropdown-end">
+            <button class="btn d-30 p-0 my-btn-light-grd" style="border-radius: 30px 0 0 30px;" type="button">
+              <i class="bi bi-gear-fill"></i>
+            </button>
+            <button class="btn d-30 btn-rounded p-0 btn-secondary dropdown-toggle"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 0 30px 30px 0;">
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-end listData">
+              <li class="text-center">Exports </li>
+              <li class="divider dropdown-divider"></li>
+              <li class="dropdown-item">
+                <i class="bi bi-file-earmark-excel text-success"></i>
+                &nbsp; <span>Excel</span>
+              </li>
+              <li class="dropdown-item">
+                <i class="bi bi-filetype-pdf text-danger"></i>
+                &nbsp; <span>Pdf</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-sm table-striped">
+          <thead class="table-light-new">
+          <tr>
+            <th>Sr. No.</th>
+            <th>Country Code</th>
+            <th>Country Name</th>
+            <th>Flag</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let country of countries; let i = index; trackBy: trackById">
+            <td>{{ i + 1 }}</td>
+            <td>{{ country.countryCode }}</td>
+            <td>{{ country.countryName }}</td>
+            <td>{{ country.isActive }}</td>
+            <td class="text-end">
+              <div class="btn-group">
+                <button  (click)="ViewCountry(country.serialNo)" class="btn btn-sm my-btn-light-grd"
+                        matTooltip="View" style="border-radius: 30px 0 0 30px;" matTooltipPosition="above"
+                        type="button">
+                  <i class="bi bi-eye-fill"></i>
+                </button>
+                <button type="button"
+                         (click)="Update(country.serialNo)"
+                        class="btn btn-sm my-btn-edit" matTooltip="Edit" matTooltipPosition="above">
+                  <i class="bi bi-pencil-fill"></i>
+                </button>
+                <button type="button" (click)="delete(country.serialNo)" class="btn btn-sm my-btn-danger" style="border-radius: 0 30px 30px 0;"
+                        matTooltipPosition="above" matTooltip="Delete">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div *ngIf="countries.length === 0" class="alert alert-warning">No data found</div>
+      </div>
+    </div>
+  </div>
+</div>

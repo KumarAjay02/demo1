@@ -1,0 +1,161 @@
+<div class="container-fluid">
+  <div class="row mt-5 ">
+    <div class="col-sm-12 m-lg-auto">
+      <!-- <form name="editForm" role="form" novalidate> -->
+        <div class="card card-box mb-2">
+
+          <div class="card-title text-center">
+            ROUTE
+          </div>
+          <div class="card-body my-3 cardbodyFont">
+           <form [formGroup]="editForm" (ngSubmit)="RouteUpdateCreate()" novalidate>
+
+
+              <div class="row">
+                 <div class="col-md-2 col-lg-1 text-end labeltext">
+                  <label class="form-control-label" for="CoCode">Company Code</label>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                  <input type="text" class="form-control form-control-sm text-uppercase"   name="coCode" id="CoCode"
+                    formControlName="coCode"   />
+                </div>
+                 <div class="col-md-2 col-lg-1 text-end labeltext">
+                  <label class="form-control-label" for="DiCode">Division Code</label>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                  <input type="text" class="form-control form-control-sm text-uppercase" name="divCode" id="DiCode"
+                    formControlName="divCode"   />
+                </div>
+                <div class="col-md-2 col-lg-1 text-end labeltext">
+                  <label class="form-control-label" for="routeNo">Route No</label>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                  <input type="text" class="form-control form-control-sm text-uppercase" name="routeNo" id="routeNo"
+                    formControlName="routeNo" />
+                </div>
+                <div class="col-md-2 col-lg-1 text-end labeltext">
+                  <label class="form-control-label" for="routeName">Route Name</label>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                  <input type="text" class="form-control form-control-sm text-uppercase" name="routeName" id="routeName"
+                    formControlName="routeName" />
+                </div>
+                <div class="col-md-2 col-lg-1 text-end labeltext">
+                  <label class="form-control-label" for="route">Route Type</label>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                  <select type="text" class="form-select form-select-sm custom-select custom-select-sm" name="routeType"
+                    id="route" formControlName="routeType">
+                    <option value="service">Service</option>
+                  </select>
+                </div>
+
+
+                <div class="col-md-2 col-lg-1 text-end labeltext">
+                  <label class="form-control-label" for="Picflg">Origin Hub</label>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                  <select type="text" class="form-select form-select-sm custom-select custom-select-sm" name="originHub"
+                    id="Picflg" formControlName="originHub">
+                    <option value="B001">B001</option>
+                    <option value="B002">B002</option>
+                 
+                  </select>
+                </div>
+
+
+                <div class="col-md-2 col-lg-1 text-end labeltext">
+                  <label class="form-control-label" for="delflg">Dest Hub</label>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                  <select type="text" class="form-select form-select-sm custom-select custom-select-sm" name="destHub"
+                    id="delflg" formControlName="destHub">
+                   <option value="B001">B001</option>
+                    <option value="B002">B002</option>
+                  </select>
+                </div>
+
+                <div class="col-md-2 col-lg-1   text-end labeltext">
+                  <label class="form-control-label" for="pkdisflg">Position Vehicle</label>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                  <input type="text" class="form-control form-control-sm text-uppercase" name="positionVehicle"
+                    id="pkdisflg" formControlName="positionVehicle" />
+                </div>
+
+                <div class="col-md-2 col-lg-1  text-end labeltext">
+                  <label class="form-control-label" for="odalocaflg">Total Km</label>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                  <input type="text" class="form-control form-control-sm text-uppercase" name="totalKm" id="odalocaflg"
+                    formControlName="totalKm" />
+                </div>
+                <div class="col-md-2 col-lg-1   text-end labeltext">
+                  <label class="form-control-label" for="serNoflg">Total TT</label>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                  <input type="text" class="form-control form-control-sm text-uppercase" name="totalTt" id="serNoflg"
+                    formControlName="totalTt" />
+
+                </div>
+                <div class="col-md-2 col-lg-1   text-end labeltext">
+                  <label class="form-control-label" for="fromflg">Via Loc</label>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                  <input type="text" class="form-control form-control-sm text-uppercase" name="viaLoc" id="fromflg"
+                    formControlName="viaLoc" />
+
+                </div>
+                <div class="col-md-2 col-lg-1  text-end labeltext">
+                  <label class="form-control-label" for="toflg">Sr No</label>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                  <input type="text" class="form-control form-control-sm text-uppercase" name="srNo" id="toflg"
+                    formControlName="srNo" />
+                </div>
+                <div class="col-md-2 col-lg-1 text-end   labeltext">
+                  <label class="form-control-label" for="field_flag">Status</label>
+                </div>
+
+                <div class="col-md-4 col-lg-3 mb-3">
+                  <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                    <div class="form-check form-check-inline m-0">
+                      <input class="form-check-input" id="Status" type="radio" [value]="'Y'"
+                        formControlName="activeStatus" checked />
+                      Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                    <div class="form-check form-check-inline m-0">
+                      <input class="form-check-input" type="radio"  [value]="'N'"
+                        formControlName="activeStatus" />
+                      No
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="row mb-2">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-1" *ngIf="isBtnMode">
+                      <button type="submit" id="save" [disabled]="editForm.invalid" class="btn btn-sm rounded-pill my-btn-light">
+                        Save
+                      </button>
+                    </div>
+                    <div class="col-md-1">
+                      <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                        routerLink="/routemst">
+                        Close
+                      </button>
+                    </div>
+                    <div class="col-md-5"></div>
+                  </div>
+                </div>
+
+              </div>
+            </form>
+
+          </div>
+        </div>
+      <!-- </form> -->
+      <!--</app-card>-->
+    </div>
+  </div>
+</div>

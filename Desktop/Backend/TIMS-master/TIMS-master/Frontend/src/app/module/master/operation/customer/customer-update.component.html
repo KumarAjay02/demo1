@@ -1,0 +1,718 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="editForm" role="form" novalidate [formGroup]="editForm" (ngSubmit)="updateCustomer()">
+        <div class="card card-box mb-1">
+          <div class="card-title text-center">
+            CUSTOMER MASTER
+          </div>
+          <div class="card-body">
+            <!-- Nav Tabs -->
+            <ul class="nav nav-tabs mb-3" id="customerTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="master-tab" data-bs-toggle="tab" data-bs-target="#master"
+                        type="button" role="tab" aria-controls="master" aria-selected="true">Main Customer
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="details-tab" data-bs-toggle="tab" data-bs-target="#details"
+                        type="button" role="tab" aria-controls="details" aria-selected="false">Branch Customer
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="details-view-tab" data-bs-toggle="tab" data-bs-target="#view"
+                        type="button" role="tab" aria-controls="view" aria-selected="false">Branch Customer View
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content" id="customerTabsContent">
+              <!-- Tab 1: Master -->
+              <div class="tab-pane fade show active" id="master" role="tabpanel" aria-labelledby="master-tab">
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label for="coCode" class="form-label">Co Code</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="coCode" formControlName="coCode"
+                           class="form-control form-control-sm text-uppercase"
+                    />
+                  </div>
+                  <div class="col-md-1">
+                    <label for="divCode" class="form-label">Div Code</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="divCode" formControlName="divCode"
+                           class="form-control form-control-sm text-uppercase"
+                    />
+                  </div>
+                  <div class="col-md-1">
+                    <label for="customerCode" class="form-label">Cust.&nbsp;Code</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="customerCode" placeholder="New" formControlName="customerCode" class="form-control form-control-sm  text-uppercase"/>
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label for="panNumber" class="form-label">PAN Number</label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="input-group input-group-sm">
+                    <input id="panNumber" formControlName="panNo"
+                           placeholder="AAAAA1111A"
+                           mask="SSSSS0000S"
+                           class="form-control form-control-sm text-uppercase"/>
+                      <button type="button" matTooltip="Find" matTooltipPosition="above"
+                              (click)="searchPan()"
+                              class="btn btn-sm btn-secondary">
+                        <i class="bi bi-download"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="customerName" class="form-label">Cust.&nbsp;Name</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="customerName" formControlName="customerName"
+                           class="form-control form-control-sm text-uppercase"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="suntekCode" class="form-label">SunTek&nbsp;Code</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="suntekCode" formControlName="suntekCode" class="form-control form-control-sm  text-uppercase"/>
+                  </div>
+
+
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label for="tradName" class="form-label">Trade Name</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="tradName" formControlName="tradeName"
+                           class="form-control form-control-sm text-uppercase"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="type" class="form-label">Type</label>
+                  </div>
+                  <div class="col-md-3">
+                    <select id="type" formControlName="type" class="form-select form-select-sm">
+                      <option *ngFor="let option of typeOptions" [value]="option.value">{{ option.label }}</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="website" class="form-label">Website</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="website" formControlName="webSite" class="form-control form-control-sm text-lowercase"/>
+                  </div>
+
+                </div>
+
+
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label for="creditDays" class="form-label">Credit Days</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="creditDays" mask="0*" formControlName="creditDays" class="form-control form-control-sm"
+                           type="number"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="creditDaysAir" class="form-label">Credit Days (Air)</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="creditDaysAir"  mask="0*" formControlName="creditDaysAir" class="form-control form-control-sm"
+                           type="number"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="creditDaysTrain" class="form-label">Credit Days (Train)</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="creditDaysTrain" mask="0*" formControlName="creditDaysTrain" class="form-control form-control-sm"
+                           type="number"/>
+                  </div>
+                </div>
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label for="oemFlag" class="form-label">OEM Flag</label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" id="oemFlag" type="radio" name="oemFlag" [value]="'Y'"
+                               formControlName="oemFlag"/>
+                        Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      </div>
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" type="radio" name="oemFlag" [value]="'N'"
+                               formControlName="oemFlag"/>
+                        No
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-1">
+                    <label for="taxApplicable" class="form-label">Tax Applicable</label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" id="taxApplicable" type="radio" name="taxApplicable"
+                               [value]="'Y'" formControlName="taxApplicable"/>
+                        Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      </div>
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" type="radio" name="taxApplicable" [value]="'N'"
+                               formControlName="taxApplicable"/>
+                        No
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="regStatus" class="form-label">Reg Status</label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" id="regStatus" type="radio" name="regStatus" [value]="'R'"
+                               formControlName="regStatus"/>
+                        Registered
+                      </div>
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" type="radio" name="regStatus" [value]="'U'"
+                               formControlName="regStatus"/>
+                        UnRegistered
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label for="billPartyStatus" class="form-label">Bill Party</label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" id="BillPartyStatus" type="radio" name="billPartyStatus"
+                               [value]="'B'" formControlName="billPartyStatus"/>
+                        Branch
+                      </div>
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" type="radio" name="billPartyStatus" [value]="'P'"
+                               formControlName="billPartyStatus"/>
+                        Plant
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="status" class="form-label">Status</label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" id="status" type="radio" name="isActive" [value]="'Y'"
+                               formControlName="isActive"/>
+                        Active
+                      </div>
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" type="radio" name="isActive" [value]="'N'"
+                               formControlName="isActive"/>
+                        Inactive
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <!-- Save/Close buttons -->
+                  <div class="row card-margin-bottom-10">
+                    <div class="col-md-5 text-end"></div>
+                    <div class="col-md-1" *ngIf="!isViewMode">
+                      <button type="submit" [disabled]="!editForm.valid" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                        <span *ngIf="!saving && !isEditMode && !isViewMode ">Save</span>
+                        <span *ngIf="!saving && isEditMode">Update</span>
+                        <span *ngIf="saving" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                      </button>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" id="cancel-edit" class="btn btn-sm rounded-pill my-btn-light"
+                                (click)="previousState()">
+                          {{ isViewMode ? 'Back' : 'Close' }}
+                      </button>
+                    </div>
+
+                    <div class="col-md-5"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="details" role="tabpanel" aria-labelledby="details-tab">
+
+                <!-- Branch and GST No -->
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label for="cuBranchCode" class="form-label">Cust.&nbsp;Branch Code</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="cuBranchCode" formControlName="detailCustomerDetCode"
+                          mask="0*" MAXLENGTH="4" class="form-control form-control-sm text-uppercase"
+                    />
+                  </div>
+                  <div class="col-md-1">
+                    <label for="branchCode" class="form-label">Branch Code</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="branchCode" formControlName="detailBranch" class="form-control form-control-sm text-uppercase"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label class="form-label">Branch Name</label>
+                  </div>
+                  <div class="col-md-3">
+                    <p-autocomplete
+                      formControlName="detailBranchName"
+                      id="detBranchName"
+                      field="branchName"
+                      size="small"
+                      [forceSelection]="true"
+                      [suggestions]="branches"
+                      (completeMethod)="searchBranch($event)"
+                      (onSelect)="onBranchSelect($event)">
+                      ></p-autocomplete>
+                  </div>
+
+
+                </div>
+
+                <!-- Address and City -->
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label for="detailGstin" class="form-label">GST&nbsp;No</label>
+                  </div>
+                  <div class="col-md-3">
+
+                    <div class="input-group input-group-sm">
+                      <input id="detailGstin" formControlName="detailGstin" mask="00SSSSS0000SSS"
+                             PLACEHOLDER="00AAAAA0000AAA"
+                             class="form-control form-control-sm text-uppercase"/>
+                      <button type="button" matTooltip="Find" matTooltipPosition="above"
+                              class="btn btn-sm btn-secondary">
+                        <i class="bi bi-download"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="detailDealingPerson1" class="form-label">Dealing&nbsp;Person1</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="detailDealingPerson1" formControlName="detailDealingPerson1"
+                           class="form-control form-control-sm text-uppercase"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="detailAddress" class="form-label">Address</label>
+                  </div>
+                  <div class="col-md-3">
+                      <textarea id="detailAddress" formControlName="detailAddress" class="form-control form-control-sm text-uppercase"
+                                rows="1"></textarea>
+                  </div>
+
+
+                </div>
+
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label class="form-label">Country</label>
+                  </div>
+                  <div class="col-md-3">
+                    <p-autocomplete
+                      formControlName="detailCountry"
+                      id="country"
+                      field="countryName"
+                      size="small"
+                      [dropdown]="true"
+                      [forceSelection]="true"
+                      [suggestions]="countries"
+                      (completeMethod)="searchCountry($event)">
+                      ></p-autocomplete>
+                  </div>
+                  <div class="col-md-1">
+                    <label class="form-label">State</label>
+                  </div>
+                  <div class="col-md-3 position-relative" style="min-width: 100px">
+                    <p-autocomplete
+                      formControlName="detailState"
+                      id="state"
+                      field="stateName"
+                      size="small"
+                      [dropdown]="true"
+                      [forceSelection]="true"
+                      [suggestions]="states"
+                      (completeMethod)="searchState($event)">
+                    </p-autocomplete>
+                  </div>
+                  <div class="col-md-1">
+                    <label class="form-label">City</label>
+                  </div>
+                  <div class="col-md-3">
+                    <p-autocomplete
+                      formControlName="detailCity"
+                      id="city"
+                      field="cityName"
+                      size="small"
+                      [dropdown]="true"
+                      [forceSelection]="true"
+                      [suggestions]="cities"
+                      (completeMethod)="searchCity($event)">
+                    </p-autocomplete>
+                  </div>
+                </div>
+
+
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label class="form-label">Pin&nbsp;Code</label>
+                  </div>
+                  <div class="col-md-3">
+                    <p-autocomplete size="small"
+                                    formControlName="detailPinCode"
+                                    id="pinCode"
+                                    field="pinCode"
+                                    [dropdown]="true"
+                                    [forceSelection]="true"
+                                    [suggestions]="pinCodes"
+                                    (completeMethod)="searchPinCode($event)"
+                    ></p-autocomplete>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="email1" class="form-label">Email1</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="email1" formControlName="detailEmail1" class="form-control form-control-sm"
+                           type="email"/>
+                    <div *ngIf="editForm.controls['detailEmail1'].invalid && !editForm.controls['detailEmail1'].untouched">
+                      <small class="text-danger" *ngIf="editForm.controls['detailEmail1'].errors?.['email']">Invalid email format.</small>
+                    </div>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="landLine1" class="form-label">LandLine1</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="landLine1" mask="0*" maxlength="12" formControlName="detailLandlineNo1" class="form-control form-control-sm"
+                           type="tel"/>
+                  </div>
+
+
+
+                </div>
+
+                <!-- Email 2 and Mobile 2 -->
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label for="mobile1" class="form-label">Mobile1</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="mobile1" mask="0000000000" formControlName="detailMobileNo1" class="form-control form-control-sm"
+                           type="tel"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="dealingPerson2" class="form-label">Dealing&nbsp;Person2</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="dealingPerson2" formControlName="detailDealingPerson2"
+                           class="form-control form-control-sm text-uppercase"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="email2" class="form-label">Email2</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="email2" formControlName="detailEmail2" class="form-control form-control-sm"
+                           type="email"/>
+                    <div *ngIf="editForm.controls['detailEmail2'].invalid && !editForm.controls['detailEmail2'].untouched">
+                      <small class="text-danger" *ngIf="editForm.controls['detailEmail2'].errors?.['email']">Invalid email format.</small>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Status -->
+                <div class="row mb-1">
+                  <div class="col-md-1">
+                    <label for="mobile2" class="form-label">Mobile2</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="mobile2" mask="0000000000" formControlName="detailMobileNo2" class="form-control form-control-sm"
+                           type="tel"/>
+                  </div>
+
+                  <div class="col-md-1">
+                    <label for="surcharge" class="form-label">Surcharge</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input id="surcharge" mask="0*" formControlName="detailSurcharge" class="form-control form-control-sm"
+                           type="number"/>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="detailIsActive" class="form-label">Status</label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" id="detailIsActive" type="radio" name="detailIsActive"
+                               [value]="'Y'"
+                               formControlName="detailIsActive"/>
+                        Active
+                      </div>
+                      <div class="form-check form-check-inline m-0">
+                        <input class="form-check-input" type="radio" name="detailIsActive" [value]="'N'"
+                               formControlName="detailIsActive"/>
+                        Inactive
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="table-responsive"
+                       style="max-height: 150px; overflow-y: auto; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                    <table class="table table-sm table-bordered table-bordered mb-0">
+                      <thead class="table-light">
+                      <tr>
+                        <th>SR#</th>
+                        <th>Plant Code</th>
+                        <th>Plant Name</th>
+                        <th>Plant Address</th>
+                        <th style="width: 20%;" class="text-end" colspan="2">
+                          <button [disabled]="isViewMode"
+                            type="button"
+                            class="btn btn-link p-0 m-0 border-0 bg-transparent text-success"
+                            (click)="addPlant()"
+                            (keydown.enter)="addPlant()"
+                            (keydown.space)="addPlant()"
+                            aria-label="Add row" matTooltip="Add Plant" matTooltipPosition="above"
+                          >
+                            <i class="bi bi-plus-circle text-success" style="font-size: 14px;">Add Plant</i>
+                          </button>
+                        </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let plant1 of selPlants; let plantIndex=index">
+                        <td>{{ plantIndex + 1 }}</td>
+                        <td>
+                          <input [disabled]="true"
+                                 class="form-control form-control-sm text-uppercase"
+                                 name="plantCode{{ plantIndex }}"
+                                 id="field_plantCode{{ plantIndex }}"
+                                 [(ngModel)]="plant1.plantCode"
+                                 [ngModelOptions]="{ standalone: true }"/></td>
+                        <td><input
+                          class="form-control form-control-sm text-uppercase"
+
+                          [(ngModel)]="plant1.plantName"
+                          [ngModelOptions]="{ standalone: true }"/></td>
+                        <td>
+                        <textarea name="plantName{{ plantIndex }}"
+                                  id="field_plantName{{ plantIndex }}"
+                                  class="form-control form-control-sm"
+                                  [(ngModel)]="plant1.plantAddress"
+                                  [ngModelOptions]="{ standalone: true }"
+                                  rows="1"></textarea>
+                        </td>
+                        <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <div class="form-check form-check-inline m-0">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                [(ngModel)]="plant1.isActive"
+                                [ngModelOptions]="{ standalone: true }"
+                                [name]="'plantStatus' +plantIndex"
+                                [value]="'Y'"
+                                id="plantStatusActive{{plantIndex}}"
+                              />
+                              <label class="form-check-label" [for]="'statusActive' + plantIndex">Active</label>
+                            </div>
+                            <div class="form-check form-check-inline m-0">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                [(ngModel)]="plant1.isActive"
+                                [ngModelOptions]="{ standalone: true }"
+                                [name]="'plantStatus'+plantIndex"
+                                [value]="'N'"
+                                id="plantStatusInactive{{plantIndex}}"/>
+                              <label class="form-check-label" [for]="'statusInactive' + plantIndex">Inactive</label>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="text-end">
+                          <button type="button" [disabled]="isViewMode" (click)="removePlant(plantIndex,selPlants)"
+                                  class="btn btn-sm my-btn-danger"
+                                  style="border-radius: 0 30px 30px 0;" matTooltipPosition="above" matTooltip="Delete">
+                            <i class="bi bi-trash-fill"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="row mb-1">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 text-center"  *ngIf="!isViewMode">
+                      <button type="button" id="detailsAdd" (click)="addRow()"
+                              (keydown.enter)="addRow()"
+                              (keydown.space)="addRow()" class="btn btn-sm rounded-pill my-btn-light">
+                        {{ this.isBranchUpdating?'Update':'Add'}}
+                      </button>
+                      <button type="button" id="detailsClear" (click)="clearDetail()"
+                              (keydown.enter)="clearDetail()"
+                              (keydown.space)="clearDetail()" class="btn btn-sm rounded-pill my-btn-light">
+                        Clear
+                      </button>
+                    </div>
+                    <div class="col-md-4"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="view" role="tabpanel" aria-labelledby="details-tab-view">
+                <div class="table-responsive mt-2"
+                     style="max-height: 250px; overflow-y: auto; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                  <table class="table table-sm table-bordered" >
+                    <thead class="table-light-new">
+                    <tr>
+                      <th>SR.#</th>
+                      <th>Cust. Branch Code</th>
+                      <th>Branch</th>
+                      <th>GST No</th>
+                      <th>City</th>
+                      <th>State</th>
+                      <th>Pin Code</th>
+<!--                      <th>Status</th>-->
+                      <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <ng-container *ngFor="let detail of customerBranchDetails; let index=index">
+                      <tr>
+                        <td>{{ index+1 }}</td>
+                        <td>
+                          <input
+                            class="form-control form-control-sm text-uppercase"
+                            name="custbranch{{ index }}"
+                            id="field_custbranch{{ index }}"
+                            [ngModel]=detail.customerDetCode
+                            [disabled]="true"
+                            [ngModelOptions]="{ standalone: true }"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            class="form-control form-control-sm text-uppercase"
+                            name="branch{{ index }}"
+                            id="field_branch{{ index }}"
+                            [ngModel]=detail.branch
+                            [disabled]="true"
+                            [ngModelOptions]="{ standalone: true }"
+                          />
+                        </td>
+                        <td><input
+                          class="form-control form-control-sm text-uppercase"
+                          name="GST{{ index }}"
+                          id="field_GST{{ index }}"
+                          [ngModel]="detail.gstin"
+                          [disabled]="true"
+                          [ngModelOptions]="{ standalone: true }"
+                        />
+                        </td>
+
+                        <td><input
+                          class="form-control form-control-sm text-uppercase"
+                          name="city{{ index }}"
+                          id="field_city{{ index }}"
+                          [ngModel]="detail.cityMaster.cityName"
+                          [disabled]="true"
+                          [ngModelOptions]="{ standalone: true }"
+                        /></td>
+                        <td><input
+                          class="form-control form-control-sm text-uppercase"
+                          name="state{{ index }}"
+                          id="field_state{{ index }}"
+                          [ngModel]="detail.stateMaster.stateName"
+                          [disabled]="true"
+                          [ngModelOptions]="{ standalone: true }"
+                        /></td>
+                        <td><input
+                          class="form-control form-control-sm text-uppercase"
+                          name="pinCode{{ index }}"
+                          id="field_pinCode{{ index }}"
+                          [ngModel]="detail.pinCodeMaster.pinCode"
+                          [disabled]="true"
+                          [ngModelOptions]="{ standalone: true }"
+                        /></td>
+
+<!--                        <td>-->
+<!--                          <div class="d-flex align-items-center gap-2">-->
+<!--                            <div class="form-check form-check-inline m-0">-->
+<!--                              <input-->
+<!--                                class="form-check-input"-->
+<!--                                type="radio"-->
+<!--                                [name]="'status' + index"-->
+<!--                                [value]="'Active'"-->
+<!--                                [(ngModel)]="detail.isActive"-->
+<!--                                [disabled]="true"-->
+<!--                                [ngModelOptions]="{ standalone: true }"-->
+<!--                                id="statusActive{{ index }}"-->
+<!--                              />-->
+<!--                              <label class="form-check-label" [for]="'statusActive' + index">Active</label>-->
+<!--                            </div>-->
+
+<!--                            <div class="form-check form-check-inline m-0">-->
+<!--                              <input-->
+<!--                                class="form-check-input"-->
+<!--                                type="radio"-->
+<!--                                [name]="'status' + index"-->
+<!--                                [value]="'Inactive'"-->
+<!--                                [(ngModel)]="detail.isActive"-->
+<!--                                [disabled]="true"-->
+<!--                                [ngModelOptions]="{ standalone: true }"-->
+<!--                                id="statusInactive{{ index }}"-->
+<!--                              />-->
+<!--                              <label class="form-check-label" [for]="'statusInactive' + index">Inactive</label>-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </td>-->
+                        <td class="text-end">
+                          <div class="btn-group">
+                            <button class="btn btn-sm my-btn-light-grd" (click)="LoadDetail(detail)"
+                                    matTooltip="View" style="border-radius: 30px 0 0 30px;"
+                                    type="button">
+                              <i class="bi bi-eye-fill"></i>
+                            </button>
+                            <button [disabled]="isViewMode" type="button" (click)="removeCustomerDetail(index)" class="btn btn-sm my-btn-danger"
+                                    style="border-radius: 0 30px 30px 0;" matTooltipPosition="above"
+                                    matTooltip="Delete">
+                              <i class="bi bi-trash-fill"></i>
+                            </button>
+                          </div>
+
+                        </td>
+                      </tr>
+                    </ng-container>
+                    </tbody>
+                  </table>
+
+                  <div *ngIf="customerBranchDetails.length === 0" class="text-center text-muted">No Detail Added</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

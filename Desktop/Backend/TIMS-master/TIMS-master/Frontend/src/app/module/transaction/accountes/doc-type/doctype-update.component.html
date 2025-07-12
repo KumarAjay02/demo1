@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="editForm" role="form" novalidate [formGroup]="editForm" (ngSubmit)="updateDocType()">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            Document Type
+          </div>
+          <div class="card-body">
+            <div class="row mb-2 offset-2">
+              <div class="col-md-3 text-end">
+                <label class="form-control-label" for="field_name">Document Category</label>
+              </div>
+              <div class="col-md-6">
+                <select formControlName="DOC_CATG" class="form-select form-select-sm">
+                  <option value="undefined">-Select-</option>
+                  <option value="FUND-TRANSFER">FUND-TRANSFER</option>
+                  <option value="INCOME">INCOME</option>
+                  <option value="INTER-COMPANY">INTER-COMPANY</option>
+                  <option value="LIABILITY">LIABILITY</option>
+                  <option value="MR">MR</option>
+                  <option value="PAYMENT">PAYMENT</option>
+                  <option value="VOUCHER">VOUCHER</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-2 offset-2">
+              <div class="col-md-3 text-end">
+                <label class="form-control-label" for="field_name">Document Type</label>
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control form-control-sm text-uppercase" name="DocType" id="field_name"
+                       formControlName="DOC_TYPE" />
+              </div>
+            </div>
+            <div class="row mb-2 offset-2">
+              <div class="col-md-3 text-end">
+                <label class="form-control-label" for="field_name">Document Details</label>
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control form-control-sm text-uppercase" name="DocDtls" id="field_name"
+                       formControlName="DOC_DETAILS" />
+              </div>
+            </div>
+            <div class="row mb-2 offset-2">
+              <div class="col-md-3 text-end">
+                <label class="form-control-label" for="field_IsActive">Status</label>
+              </div>
+              <div class="col-md-6">
+                <div class="border rounded p-1 d-flex align-items-center gap-3 h-100">
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" id="IsActive" type="radio" name="IsActive" [value]="true"
+                           formControlName="IsActive" />
+                    Active
+                  </div>
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" type="radio" name="IsActive" [value]="false"
+                           formControlName="IsActive" />
+                    Inactive
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="card-footer">
+            <div class="row card-margin-bottom-12">
+              <div class="col-md-5 text-end">
+
+              </div>
+
+              <div class="col-md-1">
+                <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                  Save
+                </button>
+              </div>
+              <div class="col-md-1">
+                <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light"
+                        (click)="previousState()">
+                  Close
+                </button>
+              </div>
+              <div class="col-md-5">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

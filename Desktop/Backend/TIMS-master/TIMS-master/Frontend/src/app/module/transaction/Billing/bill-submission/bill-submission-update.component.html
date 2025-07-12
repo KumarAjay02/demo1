@@ -1,0 +1,161 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form [formGroup]="editForm" (ngSubmit)="save()" enctype="multipart/form-data">
+        <div class="card card-box mb-2">
+          <div class="card-title text-center">
+            {{ isEditMode ? 'EDIT BILL SUBMISSION' : (isViewMode ? 'VIEW BILL SUBMISSION' : 'BILL SUBMISSION') }}
+          </div>
+          <div class="card-body">
+            <!-- Basic Information -->
+            <div class="row mb-3">
+              <div class="col-md-1 text-end">Bill Branch </div>
+              <div class="col-md-2">
+                <select formControlName="billBranch" class="form-select form-select-sm" required [disabled]="isViewMode">
+                  <option value="" [selected]="true">[Select]</option>
+                  <option *ngFor="let branch of billBranches" [value]="branch.code + ' - ' + branch.name">
+                    {{ branch.code }} - {{ branch.name }}
+                  </option>
+                </select>
+              </div>
+              <div class="col-md-1 text-end">Customer Code-Name </div>
+              <div class="col-md-2">
+                <select formControlName="customerCodeName" class="form-select form-select-sm" required [disabled]="isViewMode">
+                  <option value="undefined" [selected]="true">[Select]</option>
+                  <option *ngFor="let mode of customerName" [value]="mode.code + ' - ' + mode.name">
+                    {{ mode.code }} - {{ mode.name }}
+                  </option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <div class="border rounded p-1 d-flex align-items-center gap-2">
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" type="radio" name="invoiceBy" value="GINVOICE"
+                           formControlName="invoiceBy" required [disabled]="isViewMode" />
+                     Group Inocice No
+                  </div>
+                  <div class="form-check form-check-inline m-0">
+                    <input class="form-check-input" type="radio"  name="invoiceBy" value="BINVOICE"
+                           formControlName="invoiceBy" [disabled]="isViewMode" />
+                    Branch Invoice No
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <input formControlName="searchInvoice" class="form-control form-control-sm hilight-focus" [disabled]="isViewMode" />
+              </div>
+              <div class="col-md-1">
+                <button class="btn btn-sm rounded-pill my-btn-light-grd" type="button">
+                  <i class="bi bi-search"></i>
+                </button>
+              </div>
+            </div>
+            <div class="ro mb-2">
+              <div class="table-responsive mt-2"
+                   style="max-height: 500px; overflow-y: auto; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                <table class="table table-sm table-bordered" >
+                  <thead class="table-light-new">
+                  <tr>
+                    <th>S.No.</th>
+                    <th><input type="checkbox" ></th>
+                    <th>GROUP INVOICE NO</th>
+                    <th>INVOICE DATE</th>
+                    <th>INVOICE TYPE</th>
+                    <th>BILL AMOUNT</th>
+                    <th>TAXES</th>
+                    <th>TOTAL AMOUNT</th>
+                    <th>SUBMISSION DATE</th>
+                    <th>REMARKS</th>
+                    <th>MRN NO.</th>
+                    <th>UPLOAD FIle</th>
+                    <th style="width: 50px"></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+
+                  <ng-container *ngFor="let detail of groupInvoices; let index = index">
+                    <tr>
+                      <td>{{ index + 1 }}</td>
+
+                      <!-- Checkbox -->
+                      <td>
+                        <input type="checkbox" [(ngModel)]="detail.checkbox" [ngModelOptions]="{ standalone: true }" />
+                      </td>
+
+                      <!-- Read-only fields -->
+                      <td>{{ detail.groupInvoiceNo }}</td>
+                      <td>{{ detail.invoiceDate | date: 'dd/MM/yyyy' }}</td>
+                      <td>{{ detail.invoiceType }}</td>
+                      <td>{{ detail.billAmount }}</td>
+                      <td>{{ detail.taxes }}</td>
+                      <td>{{ detail.totalAmount }}</td>
+
+                      <!-- Editable Submission Date -->
+                      <td>
+                        <input type="date" class="form-control form-control-sm"
+                               [(ngModel)]="detail.submissionDate" [ngModelOptions]="{ standalone: true }" />
+                      </td>
+
+                      <!-- Editable Remarks -->
+                      <td>
+                        <input type="text" class="form-control form-control-sm"
+                               [(ngModel)]="detail.remarks" [ngModelOptions]="{ standalone: true }" />
+                      </td>
+
+                      <!-- Editable MRN No. -->
+                      <td>
+                        <input type="text" class="form-control form-control-sm"
+                               [(ngModel)]="detail.mrnNo"  [ngModelOptions]="{ standalone: true }" />
+                      </td>
+
+                      <!-- File Upload -->
+                      <td>
+                        <input type="file" class="form-control form-control-sm"
+                               (change)="onFileSelected($event, index)" />
+                        <small *ngIf="detail.uploadFile">{{ detail.uploadFile }}</small>
+                      </td>
+
+                      <!-- Delete Button -->
+                      <td class="text-end">
+                        <div class="btn-group">
+                          <button type="button" (click)="removeInovice(index)"
+                                  class="btn btn-sm my-btn-danger"
+                                  style="border-radius: 0 30px 30px 0;"
+                                  matTooltip="Delete" matTooltipPosition="above">
+                            <i class="bi bi-trash-fill"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </ng-container>
+
+                  </tbody>
+
+                </table>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="row card-margin-bottom-10">
+                <div class="col-md-5 text-end"></div>
+                <div class="col-md-1" *ngIf="!isViewMode">
+                  <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light"
+                          [disabled]="editForm.invalid || saving">
+                    <span *ngIf="!saving">Save</span>
+                    <span *ngIf="saving" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  </button>
+                </div>
+                <div class="col-md-1">
+                  <button type="button" id="cancel" class="btn btn-sm rounded-pill my-btn-light"
+                          (click)="previousState()">
+                    {{ isViewMode ? 'Back' : 'Close' }}
+                  </button>
+                </div>
+                <div class="col-md-5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

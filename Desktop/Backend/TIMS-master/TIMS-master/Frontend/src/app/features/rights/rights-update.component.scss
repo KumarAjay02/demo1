@@ -1,0 +1,10 @@
+.header-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.header-checkbox input[type="checkbox"] {
+  margin: 0;
+}

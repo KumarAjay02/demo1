@@ -1,0 +1,106 @@
+<div class="container-fluid">
+  <div class="row mt-5 ">
+    <div class="col-sm-12 m-lg-auto">
+      <!--<app-card cardTitle="Hello">-->
+      <form name="editForm" role="form" novalidate>
+        <div class="card card-box mb-2">
+
+          <div class="card-title text-center">
+            LOADINGSHEET CREATE
+          </div>
+          <div class="card-body pb-0 cardbodyFont">
+            <div class="row">
+
+
+              <div class="col-md-2 col-lg-1   text-end labeltext">
+                <label class="form-control-label" for="Areanameflg">Date</label>
+              </div>
+              <div class="col-md-2 col-lg-2 mb-3">
+                <input type="date" class="form-control form-control-sm text-uppercase" name="pinCode" id="Areanameflg"
+                  [value]="currentDate" [min]="currentDate" [max]="currentDate" [value]="currentDate" disabled />
+              </div>
+              <div class="col-md-2 col-lg-1 text-end labeltext">
+                <label class="form-control-label" for="pincodeflg">Route</label>
+              </div>
+              <div class="col-md-2 col-lg-2 mb-3">
+                <select type="text" class="form-select form-select-sm custom-select custom-select-sm" name="flag"
+                  id="pincodeflg" required maxlength="1">
+                  <option value="">AMC TO CKNT</option>
+                  <option value="">AMD TO JPS</option>
+                  <option value="">BNG TO MYS </option>
+                </select>
+              </div>
+              <div class="col-md-2 col-lg-1 text-end labeltext">
+                <label class="form-control-label" for="pincodeflg">Vehicle No</label>
+              </div>
+              <div class="col-md-2 col-lg-2 mb-3">
+                <select type="text" class="form-select form-select-sm custom-select custom-select-sm" name="flag"
+                  id="pincodeflg" required maxlength="1">
+                  <option value="">RJ40GA5758</option>
+                  <option value="">HR55V1717</option>
+                  <option value="">RJ14GH0918 </option>
+                </select>
+              </div>
+
+
+              <div class="col-md-2 col-lg-1  text-end labeltext">
+                <label class="form-control-label" for="Codflg">Vehicle Size</label>
+              </div>
+              <div class="col-md-2 col-lg-2 mb-3">
+                <input type="text" class="form-control form-control-sm text-uppercase" name="pinCode" id="Codflg"
+                  disabled />
+
+              </div>
+
+
+
+
+
+
+
+              <div class="col-md-2 col-lg-1   text-end labeltext">
+                <label class="form-control-label" for="deldisflg">Serch Barcode</label>
+              </div>
+              <div class="col-md-2 col-lg-2 mb-3">
+                <input type="text" class="form-control form-control-sm text-uppercase" name="pinCode" id="deldisflg" />
+
+              </div>
+              <div class="col-md-2 col-lg-1   text-end labeltext">
+                <label class="form-control-label" for="deldisflg">Create By</label>
+              </div>
+              <div class="col-md-2 col-lg-2 mb-3">
+                <input disabled type="text" class="form-control form-control-sm text-uppercase" name="pinCode" id="deldisflg" />
+
+              </div>
+
+
+
+              <div class="card-footer">
+                <!-- Save/Close buttons -->
+                <div class="row">
+                  <div class="col-md-5 text-end"></div>
+                  <div class="col-md-1">
+                    <button type="submit" id="save" class="btn btn-sm rounded-pill my-btn-light">
+                      Save
+                    </button>
+                  </div>
+                  <div class="col-md-1">
+                    <button type="button" id="cancel-save" class="btn btn-sm rounded-pill my-btn-light" routerLink="/loadingsheet">
+                      Close
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+
+            
+            </div>
+
+
+          </div>
+        </div>
+      </form>
+      <!--</app-card>-->
+    </div>
+  </div>
+</div>
